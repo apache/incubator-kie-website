@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkie_site=self.webpackChunkkie_site||[]).push([[535],{5641:e=>{e.exports=JSON.parse('{"title":"All our posts","items":[{"title":"KIE upcoming 10.0.0 release","permalink":"/blog/kie_pre_10_0_0_release","unlisted":false}]}')}}]);
