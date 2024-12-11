@@ -2,23 +2,43 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://kie.apache.org/blog</id>
     <title>Apache KIE (incubating) Blog</title>
-    <updated>2024-01-30T00:00:00.000Z</updated>
+    <updated>2024-12-11T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://kie.apache.org/blog"/>
     <subtitle>Apache KIE (incubating) Blog</subtitle>
     <icon>https://kie.apache.org/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[KIE upcoming 10.0.0 release]]></title>
-        <id>https://kie.apache.org/blog/kie_pre_10_0_0_release</id>
-        <link href="https://kie.apache.org/blog/kie_pre_10_0_0_release"/>
-        <updated>2024-01-30T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Placeholder information about upcoming 10.0.0 release.]]></summary>
-        <content type="html"><![CDATA[<p>Placeholder information about upcoming 10.0.0 release.</p>
-<p>I'm excited to ....</p>]]></content>
+        <title type="html"><![CDATA[Apache KIE (Incubating) 10.0.0 Release Announcement]]></title>
+        <id>https://kie.apache.org/blog/kie_10_0_0_release</id>
+        <link href="https://kie.apache.org/blog/kie_10_0_0_release"/>
+        <updated>2024-12-11T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[We are thrilled to announce the release of Apache KIE (Incubating) 10.0.0, the first major release of the KIE project under the Apache Software Foundation. This marks a pivotal moment in the evolution of KIE technologies—Drools, jBPM, OptaPlanner, and Kogito—following 15 months of intensive work since the last release on September 5, 2023.]]></summary>
+        <content type="html"><![CDATA[<p>We are thrilled to announce the release of Apache KIE (Incubating) 10.0.0, the first major release of the KIE project under the Apache Software Foundation. This marks a pivotal moment in the evolution of KIE technologies—Drools, jBPM, OptaPlanner, and Kogito—following 15 months of intensive work since the last release on September 5, 2023.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="a-journey-of-transformation">A "Journey of Transformation"<a href="https://kie.apache.org/blog/kie_10_0_0_release#a-journey-of-transformation" class="hash-link" aria-label="Direct link to A &quot;Journey of Transformation&quot;" title="Direct link to A &quot;Journey of Transformation&quot;">​</a></h2>
+<p>Transitioning to the Apache Foundation was a monumental step for the KIE community, and the path to this release has been transformative. While the prolonged gap between releases posed challenges, it allowed us to focus on critical adjustments and improvements, paving the way for a stronger foundation. Here's an overview of the significant efforts that made this release possible:</p>
+<ul>
+<li>Comprehensive CI system overhaul to align with Apache standards.</li>
+<li>Code adjustments for Apache policy compliance, including license reviews.</li>
+<li>Fully reproducible builds for all .jar artifacts.</li>
+<li>Remove cyclical dependencies and other technical debt.</li>
+<li>Automate critical release processes to streamline future releases.</li>
+<li>Java 17, Jakarta 10, Quarkus, and SpringBoot upgrades</li>
+<li>And many more...</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="a-leap-forward">A Leap Forward<a href="https://kie.apache.org/blog/kie_10_0_0_release#a-leap-forward" class="hash-link" aria-label="Direct link to A Leap Forward" title="Direct link to A Leap Forward">​</a></h2>
+<p>Despite the frustrations of a longer-than-usual release cycle, the challenges have ultimately strengthened the project. Apache KIE (Incubating) 10.0.0 is not just a new version; it represents a rebirth under the Apache umbrella, with improvements that will serve our community for years to come. The lessons learned and the investments made in this release cycle position Apache KIE (Incubating) to achieve greater velocity and innovation in the future.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="looking-ahead">Looking Ahead<a href="https://kie.apache.org/blog/kie_10_0_0_release#looking-ahead" class="hash-link" aria-label="Direct link to Looking Ahead" title="Direct link to Looking Ahead">​</a></h2>
+<p>With this release, we hope to return to a predictable release cadence. Our focus is now on leveraging the enhanced foundation to deliver new features, performance improvements, and continued community-driven innovation. The journey to Apache KIE 10.0.0 has been a labor of love, and we are grateful for the support and patience of our contributors and users.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="download">Download<a href="https://kie.apache.org/blog/kie_10_0_0_release#download" class="hash-link" aria-label="Direct link to Download" title="Direct link to Download">​</a></h2>
+<p>Apache KIE (Incubating) 10.0.0 is available now. Visit the <a href="https://kie.apache.org/blog/docs/start/download">official download page</a> for the artifacts and to explore what's new.</p>
+<p>We welcome your feedback and contributions as we continue to build the future of Apache KIE (Incubating) together. Thank you for being part of this journey!</p>]]></content>
         <author>
             <name>Alex Porcelli</name>
             <uri>https://github.com/porcelli</uri>
         </author>
+        <category label="apache" term="apache"/>
+        <category label="10" term="10"/>
         <category label="kie" term="kie"/>
+        <category label="release" term="release"/>
     </entry>
 </feed>
