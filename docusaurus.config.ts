@@ -55,6 +55,12 @@ const config: Config = {
       items: [
         {
           type: "docSidebar",
+          sidebarId: "documentationSidebar",
+          position: "right",
+          label: "Documentation",
+        },
+        {
+          type: "docSidebar",
           sidebarId: "downloadSidebar",
           position: "right",
           label: "Downloads",
