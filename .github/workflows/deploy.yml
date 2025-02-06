@@ -46,7 +46,7 @@ jobs:
 
       - name: Preview Apache KIE Website
         uses: peaceiris/actions-gh-pages@v3
-        if: github.event_name = 'pull_request'
+        if: github.event_name == 'pull_request'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           destination_dir: ./preview-${{ github.event.pluurequest.number }}
@@ -54,7 +54,7 @@ jobs:
 
       - name : Add PR comment with preview link
         uses: actions/github-script@v6
-        if: github.event_name = 'pull_request'
+        if: github.event_name == 'pull_request'
         with:
           script: |
             const { data, pr } = await github.rest.pulls.get({
