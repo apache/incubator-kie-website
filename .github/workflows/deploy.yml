@@ -39,6 +39,7 @@ jobs:
 
       - name : Build Apache Kie Website
         run: |
+          cd site
           npm install
           npm run build
           cp .asf.yaml build/.asf.yaml
