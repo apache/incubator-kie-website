@@ -1,7 +1,7 @@
 ---
 id: documentation_10.0.0
 title: 10.0.0
-sidebar_position: 0
+sidebar_position: 1
 ---
 
 # Documentation for release 10.0.0
