@@ -16,7 +16,3 @@ See the instructions on how to contribute and build from source by examing the l
 * [Kogito Documentation](https://github.com/apache/incubator-kie-docs/tree/10.0.x/doc-content/apache-kie-kogito)
 * [jBPM Documentation](https://github.com/apache/incubator-kie-docs/tree/10.0.x/doc-content/apache-kie-jbpm)
 * [Sonataflow Documentation](https://github.com/apache/incubator-kie-kogito-docs/tree/10.0.x/)
-
-## Sonataflow Documentation
-
-<iframe src='/sonataflow-docs/' width='100%' height='860px'></iframe> 
