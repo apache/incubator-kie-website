@@ -10,36 +10,48 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Sonataflow
+      - name: Checkout Sonataflow repository
         uses: actions/checkout@v4
         with:
           repository: apache/incubator-kie-kogito-docs
           ref: 10.0.x
           path: sonataflow-docs
 
-      - name: Build Sonataflow
+      - name: Build Sonataflow documentation
         run: |
           cd sonataflow-docs
           npm run install-build
 
-      - name: Checkout Apache KIE Website
+      - name: Checkout Drools repository
         uses: actions/checkout@v4
         with:
-          path: apache-kie-website
+          repository: apache/incubator-kie-drools
+          ref: 10.0.x
+          path: drools
 
-      - name: Checkout & Build Website
+      - name: Build Drools documentation
+        run: |
+          cd drools/drools-docs
+          mvn -B clean install
+
+      - name: Checkout Apache KIE Website repository
         uses: actions/checkout@v4
         with:
-          path: site
+          path: incubator-kie-website
 
       - name: Copy Sonataflow docs to Apache KIE static folder
         run: |
-          mkdir -p site/static/sonataflow-docs
-          cp -r sonataflow-docs/build/site/* site/static/sonataflow-docs
+          mkdir -p incubator-kie-website/static/sonataflow-docs
+          cp -r sonataflow-docs/build/site/* incubator-kie-website/static/sonataflow-docs
+
+      - name: Copy Drools docs to Apache KIE static folder
+        run: |
+          mkdir -p incubator-kie-website/static/drools-docs
+          cp -r drools/drools-docs/target/website/docs/* incubator-kie-website/static/drools-docs
 
       - name : Build Apache Kie Website
         run: |
-          cd site
+          cd incubator-kie-website
           npm install
           npm run build
           cp .asf.yaml build/.asf.yaml
