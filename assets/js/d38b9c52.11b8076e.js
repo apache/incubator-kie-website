@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkkie_site=self.webpackChunkkie_site||[]).push([[538],{22:e=>{e.exports=JSON.parse('{"label":"kie","permalink":"/blog/tags/kie","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);
