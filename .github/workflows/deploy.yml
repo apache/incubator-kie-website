@@ -62,7 +62,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           destination_dir: ./preview-${{ github.event.pull_request.number }}
-          publish_dir: ./build
+          publish_dir: incubator-kie-website/build
 
       - name : Add PR comment with preview link
         uses: actions/github-script@v6
