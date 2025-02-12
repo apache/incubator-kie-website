@@ -10,7 +10,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Sonataflow repository
+      - name: Checkout SonataFlow repository
         uses: actions/checkout@v4
         with:
           repository: apache/incubator-kie-kogito-docs
