@@ -56,36 +56,18 @@ jobs:
           npm run build
           cp .asf.yaml build/.asf.yaml
 
-      - name: Preview Apache KIE Website
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Archive Apache KIE Website for preview
+        uses: actions/upload-artifact@v4
         if: github.event_name == 'pull_request'
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          destination_dir: ./preview-${{ github.event.pull_request.number }}
-          publish_dir: incubator-kie-website/build
-
-      - name : Add PR comment with preview link
-        uses: actions/github-script@v6
-        if: github.event_name == 'pull_request'
-        with:
-          script: |
-            const { data, pr } = await github.rest.pulls.get({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: context.payload.pull_request.number,
-            });
-            const previewUrl = `https://${context.repo.owner}.github.io/${context.repo.repo}/preview/${context.payload.pull_request.number}/`;
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: `:rocket: Preview your changes here:[${previewUrl}](${previewUrl})`
-            });
+          name: apache-kie-website
+          path: incubator-kie-website/build
+          overwrite: true
 
       - name: Deploy Apache KIE Website
         uses: peaceiris/actions-gh-pages@v3
         if: github.event_name != 'pull_request'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          publish_dir: incubator-kie-website/build
           publish_branch: deploy
