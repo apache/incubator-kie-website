@@ -30,6 +30,11 @@ $ yarn build
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
+
+### Contribute
+
+Contributions are welcome, any pull request that is merged will be automatically deployed to live website.
+
 ## LICENSE
 
 Apache License 2.0
