@@ -34,6 +34,18 @@ jobs:
           cd drools/drools-docs
           mvn -B clean install
 
+      - name: Checkout Kogito documentation repository
+        uses: actions/checkout@v4
+        with:
+          repository: apache/incubator-kie-docs
+          ref: 10.0.x
+          path: kogito-docs
+
+      - name: Build Kogito documentation
+        run: |
+          cd kogito-docs
+          mvn -B clean install -Dfull
+
       - name: Checkout Apache KIE Website repository
         uses: actions/checkout@v4
         with:
@@ -48,6 +60,11 @@ jobs:
         run: |
           mkdir -p incubator-kie-website/static/drools-docs
           cp -r drools/drools-docs/target/website/docs/* incubator-kie-website/static/drools-docs
+
+      - name: Copy Kogito docs to Apache KIE static folder
+        run: |
+          mkdir -p incubator-kie-website/static/kogito-docs
+          cp -r kogito-docs/target/generated-docs/html_single/* incubator-kie-website/static/kogito-docs
 
       - name : Build Apache Kie Website
         run: |
