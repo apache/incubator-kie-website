@@ -64,7 +64,7 @@ jobs:
       - name: Copy Kogito docs to Apache KIE static folder
         run: |
           mkdir -p incubator-kie-website/static/kogito-docs
-          cp -r kogito-docs/target/generated-docs/html_single/* incubator-kie-website/static/kogito-docs
+          cp -r kogito-docs/doc-content/apache-kie-kogito/target/generated-docs/html_single/* incubator-kie-website/static/kogito-docs
 
       - name : Build Apache Kie Website
         run: |
