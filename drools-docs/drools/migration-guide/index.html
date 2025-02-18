@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Migration Guide :: Drools Documentation</title>
+    <link rel="canonical" href="https://docs.drools.org/latest/drools-docs/drools/migration-guide/index.html">
+    <meta name="generator" content="Antora 3.0.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<!--Licensed to the Apache Software Foundation (ASF) under one-->
+<!--or more contributor license agreements.  See the NOTICE file-->
+<!--distributed with this work for additional information-->
+<!--regarding copyright ownership.  The ASF licenses this file-->
+<!--to you under the Apache License, Version 2.0 (the-->
+<!--"License"); you may not use this file except in compliance-->
+<!--with the License.  You may obtain a copy of the License at-->
+
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--Unless required by applicable law or agreed to in writing,-->
+<!--software distributed under the License is distributed on an-->
+<!--"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY-->
+<!--KIND, either express or implied.  See the License for the-->
+<!--specific language governing permissions and limitations-->
+<!--under the License.-->
+
+<link rel="stylesheet" href="../../_/css/search.css">
+<link rel="stylesheet" href="../../_/css/menu.css">
+<link rel="stylesheet" href="../../_/css/drl.css">
+<!--Licensed to the Apache Software Foundation (ASF) under one-->
+<!--or more contributor license agreements.  See the NOTICE file-->
+<!--distributed with this work for additional information-->
+<!--regarding copyright ownership.  The ASF licenses this file-->
+<!--to you under the Apache License, Version 2.0 (the-->
+<!--"License"); you may not use this file except in compliance-->
+<!--with the License.  You may obtain a copy of the License at-->
+
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--Unless required by applicable law or agreed to in writing,-->
+<!--software distributed under the License is distributed on an-->
+<!--"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY-->
+<!--KIND, either express or implied.  See the License for the-->
+<!--specific language governing permissions and limitations-->
+<!--under the License.-->
+
+<script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<!--Licensed to the Apache Software Foundation (ASF) under one-->
+<!--or more contributor license agreements.  See the NOTICE file-->
+<!--distributed with this work for additional information-->
+<!--regarding copyright ownership.  The ASF licenses this file-->
+<!--to you under the Apache License, Version 2.0 (the-->
+<!--"License"); you may not use this file except in compliance-->
+<!--with the License.  You may obtain a copy of the License at-->
+
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--Unless required by applicable law or agreed to in writing,-->
+<!--software distributed under the License is distributed on an-->
+<!--"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY-->
+<!--KIND, either express or implied.  See the License for the-->
+<!--specific language governing permissions and limitations-->
+<!--under the License.-->
+
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="https://kie.apache.org/">
+          <img src="../../_/img/droolsExpertLogo.png" alt="Drools logo"/>
+        </a>
+        <a class="navbar-item" href="https://kie.apache.org/">
+          Drools Documentation
+        </a>
+      </div>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <a class="navbar-item small-item" href="https://github.com/apache/incubator-kie-drools" title="Follow Drools on GitHub"><div class="github-icon"></div></a>
+          <a class="navbar-item small-item" href="https://twitter.com/KieCommunity" target="_blank" title="Follow KIE Community on Twitter for more Drools tweets"><img alt="T" src="../../_/img/twitterLogo.png"></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="drools" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../introduction/index.html">Drools User Guide 10.0.0</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../introduction/index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../getting-started/index.html">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../KIE/index.html">Build, Deploy, Utilize and Run</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../rule-engine/index.html">Drools rule engine</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../language-reference/index.html">Rule Language Reference</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../language-reference-traditional/index.html">Rule Language Reference (Traditional)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../DMN/index.html">Decision Model and Notation (DMN)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../pragmatic-ai/index.html">Pragmatic AI: Integrating Machine Learning with Drools</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../Commands/index.html">Drools Commands</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="index.html">Migration Guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../experimental-features/index.html">Experimental features</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Drools User Guide 10.0.0</span>
+    <span class="version">default</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../introduction/index.html">Drools User Guide 10.0.0</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../introduction/index.html">default</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../introduction/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../introduction/index.html">Drools User Guide 10.0.0</a></li>
+    <li><a href="index.html">Migration Guide</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Migration Guide</h1>
+<div class="sect1">
+<h2 id="traditional-to-ruleunit_migration-guide"><a class="anchor" href="#traditional-to-ruleunit_migration-guide"></a>Migrate to Drools 10</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Firstly, migration from Drools 8 to Drools 10 is very simple. You just need to change the version in <code>pom.xml</code>. All APIs and DRL syntax are compatible. In addition, note that JDK 17+ is required for Drools 10.</p>
+</div>
+<div class="paragraph">
+<p>This guide rather focuses on how to migrate from Drools 7 projects to Drools 10 projects.</p>
+</div>
+<div class="paragraph">
+<p>Drools 10 supports Drools 7 APIs and DRL syntax, so basically you don&#8217;t need to change your Java codes and rule assets. However, there are some cautions in <code>pom.xml</code>.</p>
+</div>
+<div class="paragraph">
+<p>Typical Drools 6 or early 7 projects have pom dependencies like this.</p>
+</div>
+<div class="listingblock">
+<div class="title">Traditional pom.xml</div>
+<div class="content">
+<pre>  &lt;/dependencied&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.drools&lt;/groupId&gt;
+      &lt;artifactId&gt;drools-core&lt;/artifactId&gt;
+      &lt;version&gt;${version.org.drools}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.drools&lt;/groupId&gt;
+      &lt;artifactId&gt;drools-compiler&lt;/artifactId&gt;
+      &lt;version&gt;${version.org.drools}&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencied&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>But since Drools 7.45.0, <code>drools-engine</code> and <code>drools-engine-classic</code> have been introduced as aggregator dependencies. The dependencies <code>drools-engine-classic</code>, <code>drools-mvel</code> are deprecated starting with Drools 8. Hence, use <code>drools-engine</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    &lt;dependency&gt;
+      &lt;groupId&gt;org.drools&lt;/groupId&gt;
+      &lt;artifactId&gt;drools-engine&lt;/artifactId&gt;
+      &lt;version&gt;${version.org.drools}&lt;/version&gt;
+    &lt;/dependency&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Some module refactoring were made during the version upgrades, so you may find some difficulty in collecting dependencies. This aggregator dependency would help.</p>
+</div>
+<div class="sect2">
+<h3 id="_rule_unit"><a class="anchor" href="#_rule_unit"></a>Rule Unit</h3>
+<div class="paragraph">
+<p>As introduced in <a href="../getting-started/index.html#first-rule-project_getting-started" class="xref page">First Rule Project</a>, using Rule Units is a recommended style for implementing rules in Drools 10. It will require some modifications to your codebase, but if you are going to develop cloud-native applications, Rule Units are strongly recommended, because Kogito also works with Rule Units.</p>
+</div>
+<div class="listingblock">
+<div class="title">Rule Unit pom.xml</div>
+<div class="content">
+<pre>    &lt;dependency&gt;
+      &lt;groupId&gt;org.drools&lt;/groupId&gt;
+      &lt;artifactId&gt;drools-ruleunits-engine&lt;/artifactId&gt;
+      &lt;version&gt;${version.org.drools}&lt;/version&gt;
+    &lt;/dependency&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>drools-ruleunits-engine</code> is required for Rule Unit APIs.</p>
+</div>
+<div class="paragraph">
+<p>Regarding related Java API usage, in Drools 7, you create a <code>KieSession</code> from rule assets. Then insert facts and fire rules.</p>
+</div>
+<div class="listingblock">
+<div class="title">Traditional Java code</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">        KieServices ks = KieServices.Factory.get();
+        KieContainer kcontainer = ks.getKieClasspathContainer();
+        KieBase kbase = kcontainer.getKieBase();
+        KieSession ksession = kbase.newKieSession();
+        try {
+            ksession.insert(new Measurement("color", "red"));
+            ksession.insert(new Measurement("color", "green"));
+
+            ksession.fireAllRules();
+        } finally {
+            ksession.dispose();
+        }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Using Rule Unit APIs, the resulting Java snippet would be like this:</p>
+</div>
+<div class="listingblock">
+<div class="title">Rule Unit Java code</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">        MeasurementUnit measurementUnit = new MeasurementUnit();
+        try (RuleUnitInstance&lt;MeasurementUnit&gt; instance = RuleUnitProvider.get().createRuleUnitInstance(measurementUnit)) {
+            measurementUnit.getMeasurements().add(new Measurement("color", "red"));
+            measurementUnit.getMeasurements().add(new Measurement("color", "green"));
+
+            instance.fire();
+        } // instance.close() is called automatically</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In Rule Unit, instantiate <code>RuleUnitInstance</code> instead of <code>KieSession</code>. Add facts to <code>DataSource</code> property instead of <code>insert</code>. Generic KIE API calls (e.g. <code>KieServices</code>, <code>KieContainer</code>, <code>KieBase</code> &#8230;&#8203; ) are no longer needed. Instead, one more class <code>Unit</code> has to be defined.</p>
+</div>
+<div class="listingblock">
+<div class="title">Rule Unit Class</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MeasurementUnit implements RuleUnitData {
+
+    private final DataStore&lt;Measurement&gt; measurements;
+    private final Set&lt;String&gt; controlSet = new HashSet&lt;&gt;();
+
+    public MeasurementUnit() {
+        this(DataSource.createStore());
+    }
+
+    public MeasurementUnit(DataStore&lt;Measurement&gt; measurements) {
+        this.measurements = measurements;
+    }
+
+    public DataStore&lt;Measurement&gt; getMeasurements() {
+        return measurements;
+    }
+
+    public Set&lt;String&gt; getControlSet() {
+        return controlSet;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This Unit class associates rules (<code>DRL</code>) and inserted facts (<code>DataSource</code>), so it helps you to manage the relationship.</p>
+</div>
+<div class="paragraph">
+<p>DRL syntax style also changes.</p>
+</div>
+<div class="listingblock">
+<div class="title">Traditional DRL</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">global java.util.Set controlSet;
+
+rule "will execute per each Measurement having ID color"
+when
+	Measurement( id == "color", $colorVal : val )
+then
+	controlSet.add($colorVal);
+end</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Rule Unit DRL</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">unit MeasurementUnit;
+
+rule "will execute per each Measurement having ID color"
+when
+	/measurements[ id == "color", $colorVal : val ]
+then
+	controlSet.add($colorVal);
+end</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Firstly, declare <code>unit</code>. Don&#8217;t need to declare <code>global</code>, because <code>controlSet</code> is a field of <code>MeasurementUnit</code>. Traditional <code>global</code> usage would become the Unit&#8217;s field. In addition, the main difference is OOPath notation in LHS. It is described in detail at <a href="../language-reference/index.html#con-drl-rules-conditions_drl-rules" class="xref page">Rule conditions in DRL</a>. You should change from the class name (<code>Measurement</code>) to the <code>DataSource</code> property name in the Unit class (<code>measurements</code>).</p>
+</div>
+<div class="paragraph">
+<p>In addition, you need to take care of the <code>insert</code> in RHS. The <code>insert</code> method inserts a fact into a "DEFAULT" entry-point, but in Rule Unit use cases, you must specify a <code>DataSource</code> where you want to insert the fact. Hence, you must call <code>DataStore.add</code> or <code>DataStream.append</code> instead of <code>insert</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Traditional DRL</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">rule "Insert another Measurement"
+when
+	Measurement( id == "color", $colorVal : val )
+then
+	insert(new Measurement("monochrome", "false"));
+end</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Rule Unit DRL</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">unit MeasurementUnit;
+
+rule "Insert another Measurement"
+when
+	/measurements[ id == "color", $colorVal : val ]
+then
+	measurements.add(new Measurement("monochrome", "false"));
+end</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that you don&#8217;t need to re-write <code>update</code>, <code>modify</code> and <code>delete</code>, because they work for a fact in its DataSource expectedly.</p>
+</div>
+<div class="paragraph">
+<p>These changes are not negligible, but hopefully, as this migration guide demonstrated, they are not so difficult to implement either.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="nonexec-model-to-exec-model_migration-guide"><a class="anchor" href="#nonexec-model-to-exec-model_migration-guide"></a>Migration from non-executable model to executable model</h3>
+<div class="paragraph">
+<p>The <code>drools-engine-classic</code> and <code>drools-mvel</code> execute rules with <code>non executable model</code>. <code>drools-engine</code> executes rules with <code>executable model</code>. For more details about the executable model, see <a href="../KIE/index.html#executable-model-con_packaging-deploying" class="xref page">Executable rule models</a>.</p>
+</div>
+<div class="paragraph">
+<p>As mentioned, <code>drools-engine-classic</code> and <code>drools-mvel</code> are deprecated, it is recommended to migrate from a <code>non-executable model</code> to an <code>executable model</code> by changing dependencies.</p>
+</div>
+<div class="paragraph">
+<p>In general, from an external perspective, rule evaluation and rule consequence execution results can be expected to be the same using either the <code>non-executable</code> model or the <code>executable model</code>. You may however encounter a few edge cases during compile time or runtime. If you find any issues, please report them to the Drools community. We have already identified some small known differences, reported below.</p>
+</div>
+<div class="sect3">
+<h4 id="_invalid_cast"><a class="anchor" href="#_invalid_cast"></a>Invalid cast</h4>
+<div class="paragraph">
+<p>When you specify <code>dialect "mvel"</code> in a rule, the <code>non-executable model</code> is tolerant of invalid type cast, because of type coercion behavior in MVEL. For example,</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">global MyUtils myUtils;
+
+rule Rule1
+dialect "mvel"
+when
+  $p : Person()
+then
+  myUtils.doWork((String) $p.age )));
+end</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This rule can be built with  <code>non-executable model</code> even if <code>$p.age</code> is <code>int</code> which is not acceptable in Java syntax.</p>
+</div>
+<div class="paragraph">
+<p>With <code>executable model</code>, the rule fails with a build error.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Cannot cast from int to String</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this case, the rule can be easily fixed by using valid Java syntax. For example,</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre> ...
+then
+  myUtils.doWork(java.util.Objects.toString( $p.age ));
+end</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_generics_support"><a class="anchor" href="#_generics_support"></a>Generics support</h4>
+<div class="paragraph">
+<p><code>non-executable model</code> is tolerant of generics type. For example,</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">rule Rule1
+  no-loop true
+  when
+    $fact : Fact( str == "ADD", $val : "100")
+  then
+    modify($fact) {
+      bdList.add($val);
+    }
+end</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>non-executable model</code> allows to add a <code>String</code> object to <code>bdList</code> even if <code>Fact.bdList</code> is <code>List&lt;BigDecimal&gt;</code> which is not acceptable in Java syntax.</p>
+</div>
+<div class="paragraph">
+<p>With <code>executable model</code>, the rule fails with a build error.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>The method add(BigDecimal) in the type List&lt;BigDecimal&gt; is not applicable for the arguments (String)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this case, the rule can be easily fixed by using valid Java syntax. For example,</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre> ...
+then
+  modify($fact) {
+    bdList.add(new BigDecimal($val));
+  }
+end</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_invalid_coercion"><a class="anchor" href="#_invalid_coercion"></a>Invalid coercion</h4>
+<div class="paragraph">
+<p>For example, Java allows coercion from <code>int</code> to <code>long</code>. However, Java doesn&#8217;t allow coercion from <code>int</code> to <code>Long</code>. If you have the rule to call the <code>setWrapperLong</code> method which accepts <code>Long</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">rule Rule1
+dialect "mvel"
+when
+  $f : Fact()
+then
+  $f.setWrapperLong(10);
+end</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>non-executable model</code> coerces <code>10</code> to <code>Long</code>, so it doesn&#8217;t throw an Exception. However, the <code>executable model</code> throws a build error.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>The method setWrapperLong(Long) in the type Fact is not applicable for the arguments (int)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this case, the rule can be easily fixed by using valid Java syntax. For example,</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre> ...
+then
+  $f.setWrapperLong(10L);
+end</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_generics_return_type_resolution"><a class="anchor" href="#_generics_return_type_resolution"></a>Generics return type resolution</h4>
+<div class="paragraph">
+<p>Assuming you have classes below:</p>
+</div>
+<div class="listingblock">
+<div class="title">parent class</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public abstract class Vehicle&lt;TEngine extends Engine&gt; {
+        // ...
+
+	public abstract TEngine getEngine();
+
+	public TEngine getMotor() {
+		return getEngine();
+	}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">sub class</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class DieselCar extends Vehicle&lt;DieselEngine&gt; {
+	private final DieselEngine engine;
+
+	public DieselCar(String maker, String model, int kw, boolean adBlueRequired) {
+		super(maker, model);
+		this.engine = new DieselEngine(kw, adBlueRequired);
+	}
+
+	@Override
+	public DieselEngine getEngine() {
+		return engine;
+	}
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class DieselEngine extends Engine {
+
+	private final boolean adBlueRequired;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">rule</div>
+<div class="content">
+<pre>rule Rule1
+	when
+		$v : DieselCar(motor.adBlueRequired == true)
+	then
+		// do something
+end</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>non-executable model</code> can dynamically resolve that <code>motor</code> is <code>DieselEngine</code> so the rule works. However, the <code>executable model</code> resolves  <code>motor</code> to <code>TEngine</code>, so a build error is thrown.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Unknown field adBlueRequired on TEngine</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this case, the rule can be fixed by specifying the subtype with the <code>#</code> operator. For example,</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>	when
+		$v : DieselCar(motor#DieselEngine.adBlueRequired == true)</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="kie-server_migration-guide"><a class="anchor" href="#kie-server_migration-guide"></a>KIE Server</h3>
+<div class="paragraph">
+<p>KIE Server is retired and no longer a component since Drools 8. If your system is working on KIE Server with Drools 7, consider migration to <a href="https://kogito.kie.org/">Kogito</a>.</p>
+</div>
+<div class="paragraph">
+<p>While KIE Server hosts multiple kjar containers, One Kogito instance hosts one domain service. Hence, you would create Kogito project per kjar container, which would be microservice style.</p>
+</div>
+<div class="paragraph">
+<p>You can find the detailed migration steps in the next sections, <a href="#con-migration-to-kogito-overview_migration-guide">Overview of migration from Drools v7 to Kogito microservices</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="business-central_migration-guide"><a class="anchor" href="#business-central_migration-guide"></a>Business Central</h3>
+<div class="paragraph">
+<p>Business Central is retired and no longer a component since Drools 8. For asset management, the usual version control system is recommended, for example, git. For editors, <a href="https://marketplace.visualstudio.com/items?itemName=kie-group.vscode-extension-kogito-bundle">VS Code Kogito extension</a> is recommended.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="bpmn-integration_migration-guide"><a class="anchor" href="#bpmn-integration_migration-guide"></a>BPMN integration / Rule flow</h3>
+<div class="paragraph">
+<p>BPMN integration and Rule flow can be achieved by Kogito.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="spreadsheet_file_extensions_migration-guide"><a class="anchor" href="#spreadsheet_file_extensions_migration-guide"></a>Spreadsheet decision tables file extensions</h3>
+<div class="paragraph">
+<p>Starting with Drools v8, Drools spreadsheet decision tables file extension must end in either <code>.drl.xls</code>, <code>.drl.xlsx</code>, or <code>.drl.csv</code> as mentioned in the Release Notes.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="con-migration-to-kogito-overview_migration-guide"><a class="anchor" href="#con-migration-to-kogito-overview_migration-guide"></a>Overview of migration from Drools v7 to Kogito microservices</h2>
+<div class="sectionbody">
+<div class="paragraph _abstract">
+<p>You can migrate the decision service artifacts that you developed in Drools v7 to Kogito microservices. Kogito currently supports migration for the following types of decision services:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Decision Model and Notation (DMN) models</strong>: You migrate DMN-based decision services by moving the DMN resources from KJAR artifacts to the respective Kogito archetype.</p>
+</li>
+<li>
+<p><strong>Predictive Model Markup Language (PMML) models</strong>: You migrate PMML-based prediction and prediction services by moving the PMML resources from KJAR artifacts to the respective Kogito archetype.</p>
+</li>
+<li>
+<p><strong>Drools Rule Language (DRL) rules</strong>: You migrate the DRL-based decision services by enclosing them in a Quarkus REST endpoint. This approach of migration enables you to use major Quarkus features, such as hot reload and native compilation. The Quarkus features and the programming model of Kogito enable the automatic generation of the Quarkus REST endpoints for implementation in your applications and services.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="con-migrate-dmn-to-kogito-overview_migration-guide"><a class="anchor" href="#con-migrate-dmn-to-kogito-overview_migration-guide"></a>Migration of a DMN service from Drools v7 to a Kogito microservice</h2>
+<div class="sectionbody">
+<div class="paragraph _abstract">
+<p>You can migrate DMN-based decision services from Drools v7 to Kogito microservices by moving the DMN resources from KJAR artifacts to the respective Kogito project. In the Kogito microservices, some of the KIE v7 features are no longer required.</p>
+</div>
+<div class="sect2">
+<h3 id="ref-migrate-dmn-to-kogito-considerations_migration-guide"><a class="anchor" href="#ref-migrate-dmn-to-kogito-considerations_migration-guide"></a>Major changes and migration considerations</h3>
+<div class="paragraph">
+<p>The following table describes the major changes and features that affect migration from the KIE Server API and KJAR to Kogito deployments:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. DMN migration considerations</caption>
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 35%;">
+<col style="width: 35%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Feature</th>
+<th class="tableblock halign-left valign-top">In KIE Server API</th>
+<th class="tableblock halign-left valign-top">In Kogito artifact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DMN models</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">stored in <code>src/main/resources</code> of KJAR.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">copy as is to <code>src/main/resources</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object models (POJOs) required for KIE Server generic marshalling</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">managed using Data Model object editor in Business Central.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object model editing is no longer required.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DMNRuntimeListener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">configured using a system property or <code>kmodule.xml</code> file.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">must be configured using CDI, by annotating the <code>DMNRuntimeEventListener</code> with CDI’s <code>@ApplicationScope</code> annotation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Other configuration options</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">configured using system property or <code>kmodule.xml</code> file.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">except <code>DMNRuntimeEventListener</code>, only default values are considered and no override of configuration is supported.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">KIE Server Client API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">used in conjunction with object models to interact with a KJAR that is deployed on the KIE Server.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>for object models, this feature is no longer required.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can select your own choice of REST library.
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">REST API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">when a KJAR is deployed on KIE Server, the applications interacting with specific DMN model endpoint, use the same API on Kogito deployment.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">advanced support for specific DMN model generation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Test scenarios</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">run with a JUnit activator.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">analogous JUnit activator is available on Kogito.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The features that are not mentioned in the previous table are either not supported or not required in a cloud-native Kogito deployment.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="con-migration-dmn-strategy_migration-guide"><a class="anchor" href="#con-migration-dmn-strategy_migration-guide"></a>Migration strategy</h3>
+<div class="paragraph _abstract">
+<p>When migrating a DMN project to a Kogito project, first you can migrate external applications that are interacting with decision services on the KIE Server. You can use the REST endpoints that are specific to DMN models. After using the REST endpoints, you can migrate the external applications from the KIE Server to a Kogito deployment. For additional information about specific REST endpoints to DMN models, you can reference the <a href="https://blog.kie.org/2021/03/new-model-specific-dmn-kie-server-endpoints.html"><em>REST endpoints for specific DMN models</em> blog post</a>.</p>
+</div>
+<div class="paragraph">
+<p>The migration strategy includes the following steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Migrate existing external applications from the generic KIE Server API to a specific DMN REST endpoint using the KIE Server.</p>
+</li>
+<li>
+<p>Migrate a KJAR that is deployed on the KIE Server to a Kogito microservice.</p>
+</li>
+<li>
+<p>Deploy the Kogito microservice using OpenShift.</p>
+</li>
+<li>
+<p>Reconnect the external application and migrate the REST API consumption from the specific DMN REST endpoint to the Kogito deployment.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proc-kogito-migrate-external-application-REST_migration-guide"><a class="anchor" href="#proc-kogito-migrate-external-application-REST_migration-guide"></a>Migrating external applications to REST endpoints specific to DMN models</h3>
+<div class="paragraph _abstract">
+<p>To migrate a DMN project to a Kogito deployment, first you can migrate external applications that use specific DMN REST endpoints to interact with decision services on the KIE Server.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>If you are using the REST endpoints in your external application, retrieve the Swagger or OAS specification file of the KJAR using <code>GET /server/containers/{containerId}/dmn/openapi.json (|.yaml)</code> endpoint.</p>
+<div class="paragraph">
+<p>For additional information about REST endpoints for specific DMN models, you can reference <a href="https://blog.kie.org/2021/03/new-model-specific-dmn-kie-server-endpoints.html"><em>REST endpoints for specific DMN models</em> blog post</a>.</p>
+</div>
+</li>
+<li>
+<p>In your external application, select the Java or JDK library to interact with the decision services. You can interact with the decision services using the REST endpoint for the specific KJAR.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The KIE Server Client Java API is not supported in the migration to a Kogito deployment.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proc-kogito-migrate-dmn-model-kjar_migration-guide"><a class="anchor" href="#proc-kogito-migrate-dmn-model-kjar_migration-guide"></a>Migrating a DMN model KJAR to a Kogito microservice</h3>
+<div class="paragraph _abstract">
+<p>After migrating your external application, you need to migrate a KJAR that is specific to a DMN model to a Kogito microservice.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Create a Maven project for your Kogito microservice.</p>
+<div class="paragraph">
+<p>For additional information about the procedure about creating a Maven project, you can reference <a href="https://blog.kie.org/2021/03/modeling-and-development-of-decision-services-dmn-with-kogito.html"><em>Modeling and development of decision services: DMN with Kogito</em> blog post</a>.</p>
+</div>
+<div class="paragraph">
+<p>The Maven project creates Kogito artifacts.</p>
+</div>
+</li>
+<li>
+<p>Copy the DMN models from the <code>src/main/resources</code> folder of the KJAR to the <code>src/main/resources</code> folder of the Kogito artifact.</p>
+</li>
+<li>
+<p>Copy the test scenarios from the <code>src/test/resources</code> folder of the KJAR to the <code>src/test/resources</code> folder of the Kogito artifact.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+You need to import the Kogito dependency of test scenarios in the <code>pom.xml</code> file of your project and create a JUnit activator using the KIE Server REST API.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Run the following command and ensure that the test scenario is running for the specified non-regression tests.</p>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">mvn clean install</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After running the Kogito application, you can retrieve the Swagger or OAS specification file. The Swagger or OAS specifications provide the same information as the REST endpoint along with the following implementation details:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Base URL of the server where the API is available</p>
+</li>
+<li>
+<p>References Schemas names</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can use the provided implementation details when your external application is re-routed to the new URL.</p>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>After migrating a DMN model KJAR to a Kogito microservice, you can deploy the microservice using OpenShift.</p>
+</div>
+<div class="sect3">
+<h4 id="ref-migrate-kjar-dmn-example_migration-guide"><a class="anchor" href="#ref-migrate-kjar-dmn-example_migration-guide"></a>Example of migrating a DMN model KJAR to a Kogito microservice</h4>
+<div class="paragraph">
+<p>The following is an example of migrating a DMN model KJAR to a Kogito microservice:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/kogito-microservices/example-dmn-decision-service-migrate.png" alt="Example of a DMN decision service">
+</div>
+<div class="title">Figure 1. Example decision service implemented using DMN model</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/kogito-microservices/example-dmn-decision-service-migrate2.png" alt="Example of a DMN decision service using ItemDefinition structure">
+</div>
+<div class="title">Figure 2. Example DMN model using specific <code>ItemDefinition</code> structure</div>
+</div>
+<div class="paragraph">
+<p>You need to define the object model (POJO) as a DTO in an existing KJAR that is developed in Business Central.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example of an object model defined as DTO in a KJAR</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package com.myspace.demo20210321;
+
+/**
+ * This class was automatically generated by the data modeler tool.
+ */
+
+public class Reservation implements java.io.Serializable {
+
+	static final long serialVersionUID = 1L;
+	@com.fasterxml.jackson.annotation.JsonFormat(shape = com.fasterxml.jackson.annotation.JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer.class)
+	private java.time.LocalDate checkin;
+	@com.fasterxml.jackson.annotation.JsonFormat(shape = com.fasterxml.jackson.annotation.JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer.class)
+	private java.time.LocalDate checkout;
+
+	private java.util.List&lt;java.lang.String&gt; guests;
+
+	public Reservation() {
+	}
+
+	public java.time.LocalDate getCheckin() {
+		return this.checkin;
+	}
+
+	public void setCheckin(java.time.LocalDate checkin) {
+		this.checkin = checkin;
+	}
+
+	public java.time.LocalDate getCheckout() {
+		return this.checkout;
+	}
+
+	public void setCheckout(java.time.LocalDate checkout) {
+		this.checkout = checkout;
+	}
+
+	public java.util.List&lt;java.lang.String&gt; getGuests() {
+		return this.guests;
+	}
+
+	public void setGuests(java.util.List&lt;java.lang.String&gt; guests) {
+		this.guests = guests;
+	}
+
+	public Reservation(java.time.LocalDate checkin,
+			java.time.LocalDate checkout,
+			java.util.List&lt;java.lang.String&gt; guests) {
+		this.checkin = checkin;
+		this.checkout = checkout;
+		this.guests = guests;
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the previous example, the defined DTO is used in conjunction with the KIE Server client Java API. Alternatively, you can specify the DTO in the payload, when a non-Java external application is interacting with the KJAR that is deployed on the KIE Server.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example of using KIE Server client Java API</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">DMNServicesClient dmnClient = kieServicesClient.getServicesClient(DMNServicesClient.class);
+ DMNContext dmnContext = dmnClient.newContext();
+ dmnContext.set("reservation", new com.myspace.demo20210321.Reservation(LocalDate.of(2021, 3, 1),
+                                                                         LocalDate.of(2021, 3, 8),
+                                                                         Arrays.asList("John", "Alice")));
+ run(dmnClient, dmnContext);</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/kogito-microservices/example-dmn-migrate-manual-kjar.png" alt="Example of KJAR deployed manually">
+</div>
+<div class="title">Figure 3. Example of manually specifying DTO in the payload</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In the previous example, the FQCN of the object model in the REST API is used for the generic KIE Server marshalling.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ref-example-bind-external-app-kogito_migration-guide"><a class="anchor" href="#ref-example-bind-external-app-kogito_migration-guide"></a>Example of binding an external application to a Kogito deployment</h3>
+<div class="paragraph">
+<p>After deploying the Kogito microservice, you need to bind your external application to the Kogito microservice deployment.</p>
+</div>
+<div class="paragraph">
+<p>Binding your external application includes re-routing the external application and binding the application to a new base URL of the server that is associated with the Kogito application. For more information, see the following example:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/kogito-microservices/kogito-dmn-endpointon-kie-server.png" alt="Example of a DMN model specific REST endpoint of KJAR on KIE Server">
+</div>
+<div class="title">Figure 4. Example <code>/discount</code> REST endpoint of KJAR on KIE Server</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/kogito-microservices/kogito-local-running-API.png" alt="Example of a DMN model specific REST endpoint running on local Kogito application">
+</div>
+<div class="title">Figure 5. Example <code>/discount</code> REST endpoint on local Kogito</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/kogito-microservices/kogito-binded-endpoint.png" alt="Example of a DMN model specific REST endpoint with new base URL">
+</div>
+<div class="title">Figure 6. Example <code>/discount</code> REST endpoint bound to new base URL of Kogito</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="con-migrate-drl-to-kogito-loan-overview_migration-guide"><a class="anchor" href="#con-migrate-drl-to-kogito-loan-overview_migration-guide"></a>Migration of a DRL service from Drools v7 to a Kogito microservice</h2>
+<div class="sectionbody">
+<div class="paragraph _abstract">
+<p>You can build and deploy a sample project in Kogito to expose a stateless rules evaluation of the Drools rule engine in a Quarkus REST endpoint, and migrate the REST endpoint to Kogito.</p>
+</div>
+<div class="paragraph">
+<p>The stateless rule evaluation is a single execution of a rule set in Drools and can be identified as a function invocation. In the invoked function, the output values are determined using the input values. Also, the invoked function uses the Drools rule engine to perform the jobs. Therefore, in such cases, a function is exposed using a REST endpoint and converted into a microservice. After converting into a microservice, a function is deployed into a Function as a Service environment to eliminate the cost of JVM startup time.</p>
+</div>
+<div class="paragraph">
+<p>You can find additional information in the <a href="https://blog.kie.org/2021/09/bringing-drools-rules-into-the-cloud-with-kogito-a-step-by-step-path.html"><em>Bringing Drools rules into the cloud with Kogito: a step by step path</em> blog post</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="ref-migrate-drl-to-kogito-considerations_migration-guide"><a class="anchor" href="#ref-migrate-drl-to-kogito-considerations_migration-guide"></a>Major changes and migration considerations</h3>
+<div class="paragraph">
+<p>The following table describes the major changes and features that affect migration from the KIE Server API and KJAR to Kogito deployments:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. DRL migration considerations</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Feature</th>
+<th class="tableblock halign-left valign-top">In KIE Server API</th>
+<th class="tableblock halign-left valign-top">In Kogito with legacy API support</th>
+<th class="tableblock halign-left valign-top">In Kogito artifact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DRL files</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">stored in <code>src/main/resources</code> folder of KJAR.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">copy as is to <code>src/main/resources</code> folder.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rewrite using the rule units and OOPath.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>KieContainer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">configured using a system property or <code>kmodule.xml</code> file.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">replaced by <code>KieRuntimeBuilder</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">not required.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>KieBase</code> or <code>KieSession</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">configured using a system property or <code>kmodule.xml</code> file.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">configured using a system property or <code>kmodule.xml</code> file.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">replaced by rule units.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="con-migration-drl-strategy_migration-guide"><a class="anchor" href="#con-migration-drl-strategy_migration-guide"></a>Migration strategy</h3>
+<div class="paragraph">
+<p>In Drools, you can migrate a rule evaluation to a Kogito deployment in the following two ways:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Using legacy API in Kogito</dt>
+<dd>
+<p>In Kogito, the <code>kogito-legacy-api</code> module makes the legacy API of Drools available; therefore, the DRL files remain unchanged. This approach of migrating rule evaluation requires minimal changes and enables you to use major Quarkus features, such as hot reload and native image creation.</p>
+</dd>
+<dt class="hdlist1">Migrating to Kogito rule units</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>Migrating to Kogito rule units include the programming model of Kogito, which is based on the concept of rule units.</p>
+</div>
+<div class="paragraph">
+<p>A rule unit in Kogito includes both a set of rules and the facts, against which the rules are matched. Rule units in Kogito also come with data sources. A rule unit data source is a source of the data processed by a given rule unit and represents the entry point, which is used to evaluate the rule unit. Rule units use two types of data sources:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DataStream</code>: This is an append-only data source and the facts added into the <code>DataStream</code> cannot be updated or removed.</p>
+</li>
+<li>
+<p><code>DataStore</code>: This data source is for modifiable data. You can update or remove an object using the <code>FactHandle</code> that is returned when the object is added into the <code>DataStore</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Overall, a rule unit contains two parts: The definition of the fact to be evaluated and the set of rules evaluating the facts.</p>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ref-kogito-migrate-example-loan-application-project_migration-guide"><a class="anchor" href="#ref-kogito-migrate-example-loan-application-project_migration-guide"></a>Example loan application project</h3>
+<div class="paragraph _abstract">
+<p>In the following sections, a loan application project is used as an example to migrate a DRL project to Kogito deployments. The domain model of the loan application project is made of two classes, the <code>LoanApplication</code> class and the <code>Applicant</code> class:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example <code>LoanApplication</code> class</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class LoanApplication {
+
+   private String id;
+   private Applicant applicant;
+   private int amount;
+   private int deposit;
+   private boolean approved = false;
+
+   public LoanApplication(String id, Applicant applicant,
+                      	int amount, int deposit) {
+   	this.id = id;
+   	this.applicant = applicant;
+   	this.amount = amount;
+   	this.deposit = deposit;
+   }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Example <code>Applicant</code> class</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class Applicant {
+
+   private String name;
+   private int age;
+
+   public Applicant(String name, int age) {
+   	this.name = name;
+   	this.age = age;
+   }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The rule set is created using business decisions to approve or reject an application, along with the last rule of collecting all the approved applications in a list.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example rule set in loan application</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">global Integer maxAmount;
+global java.util.List approvedApplications;
+
+rule LargeDepositApprove when
+   $l: LoanApplication( applicant.age &gt;= 20, deposit &gt;= 1000, amount &lt;= maxAmount )
+then
+   modify($l) { setApproved(true) }; // loan is approved
+end
+
+rule LargeDepositReject when
+   $l: LoanApplication( applicant.age &gt;= 20, deposit &gt;= 1000, amount &gt; maxAmount )
+then
+   modify($l) { setApproved(false) }; // loan is rejected
+end
+
+// ... more loans approval/rejections business rules ...
+
+rule CollectApprovedApplication when
+   $l: LoanApplication( approved )
+then
+   approvedApplications.add($l); // collect all approved loan applications
+end</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="proc-kogito-migrate-drl-expose-ruleunits_migration-guide"><a class="anchor" href="#proc-kogito-migrate-drl-expose-ruleunits_migration-guide"></a>Exposing rule evaluation with a REST endpoint using Quarkus</h4>
+<div class="paragraph">
+<p>You can expose the rule evaluation that is developed in Business Central with a REST endpoint using Quarkus.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Create a new module based on the module that contains the rules and Quarkus libraries, providing the REST support:</p>
+<div class="listingblock">
+<div class="title">Example dependencies for creating a new module</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">&lt;dependencies&gt;
+
+ &lt;dependency&gt;
+   &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+   &lt;artifactId&gt;quarkus-resteasy&lt;/artifactId&gt;
+ &lt;/dependency&gt;
+ &lt;dependency&gt;
+   &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+   &lt;artifactId&gt;quarkus-resteasy-jackson&lt;/artifactId&gt;
+ &lt;/dependency&gt;
+
+ &lt;dependency&gt;
+   &lt;groupId&gt;org.example&lt;/groupId&gt;
+   &lt;artifactId&gt;drools-project&lt;/artifactId&gt;
+   &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+ &lt;/dependency&gt;
+
+&lt;dependencies&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Create a REST endpoint.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>The following is an example setup for creating a REST endpoint:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example <code>FindApprovedLoansEndpoint</code> endpoint setup</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/find-approved")
+public class FindApprovedLoansEndpoint {
+
+   private static final KieContainer kContainer = KieServices.Factory.get().newKieClasspathContainer();
+
+   @POST()
+   @Produces(MediaType.APPLICATION_JSON)
+   @Consumes(MediaType.APPLICATION_JSON)
+   public List&lt;LoanApplication&gt; executeQuery(LoanAppDto loanAppDto) {
+   	KieSession session = kContainer.newKieSession();
+
+   	List&lt;LoanApplication&gt; approvedApplications = new ArrayList&lt;&gt;();
+   	session.setGlobal("approvedApplications", approvedApplications);
+   	session.setGlobal("maxAmount", loanAppDto.getMaxAmount());
+
+   	loanAppDto.getLoanApplications().forEach(session::insert);
+   	session.fireAllRules();
+   	session.dispose();
+
+   	return approvedApplications;
+   }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the previous example, a <code>KieContainer</code> containing the rules is created and added into a static field. The rules in the <code>KieContainer</code> are obtained from the other module in the class path. Using this approach, you can reuse the same <code>KieContainer</code> for subsequent invocations related to the <code>FindApprovedLoansEndpoint</code> endpoint without recompiling the rules.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The two modules are consolidated in the next process of migrating rule units to a Kogito microservice using legacy API.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>When the <code>FindApprovedLoansEndpoint</code> endpoint is invoked, a new <code>KieSession</code> is created from the <code>KieContainer</code>. The <code>KieSession</code> is populated with the objects from <code>LoanAppDto</code> resulting from the unmarshalling of a JSON request.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example <code>LoanAppDto</code> class</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class LoanAppDto {
+
+   private int maxAmount;
+
+   private List&lt;LoanApplication&gt; loanApplications;
+
+   public int getMaxAmount() {
+   	return maxAmount;
+   }
+
+   public void setMaxAmount(int maxAmount) {
+   	this.maxAmount = maxAmount;
+   }
+
+   public List&lt;LoanApplication&gt; getLoanApplications() {
+   	return loanApplications;
+   }
+
+   public void setLoanApplications(List&lt;LoanApplication&gt; loanApplications) {
+   	this.loanApplications = loanApplications;
+   }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the <code>fireAllRules()</code> method is called, <code>KieSession</code> is fired and the business logic is evaluated against the input data. After business logic evaluation, the last rule collects all the approved applications in a list and the same list is returned as an output.</p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Start the Quarkus application.</p>
+</li>
+<li>
+<p>Invoke the <code>FindApprovedLoansEndpoint</code> endpoint with a JSON request that contains the loan applications to be checked.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>The value of the <code>maxAmount</code> is used in the rules as shown in the following example:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example curl request</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">curl -X POST -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{"maxAmount":5000,
+"loanApplications":[
+{"id":"ABC10001","amount":2000,"deposit":1000,"applicant":{"age":45,"name":"John"}}, {"id":"ABC10002","amount":5000,"deposit":100,"applicant":{"age":25,"name":"Paul"}}, {"id":"ABC10015","amount":1000,"deposit":100,"applicant":{"age":12,"name":"George"}}
+]}' http://localhost:8080/find-approved</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Example JSON response</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
+  {
+    "id": "ABC10001",
+    "applicant": {
+      "name": "John",
+      "age": 45
+    },
+    "amount": 2000,
+    "deposit": 1000,
+    "approved": true
+  }
+]</code></pre>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Using this approach, you cannot use the hot reload feature and cannot create a native image of the project. In the next steps, the missing Quarkus features are provided by the Kogito extension that enables Quarkus aware of the DRL files and implement the hot reload feature in a similar way.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="proc-kogito-migrate-drl-legacy-api_migration-guide"><a class="anchor" href="#proc-kogito-migrate-drl-legacy-api_migration-guide"></a>Migrating a rule evaluation to a Kogito microservice using legacy API</h4>
+<div class="paragraph">
+<p>After exposing a rule evaluation with a REST endpoint, you can migrate the rule evaluation to a Kogito microservice using legacy API.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Add the following dependencies to the project <code>pom.xml</code> file to enable the use of Quarkus and legacy API:</p>
+<div class="listingblock">
+<div class="title">Example dependencies for using Quarkus and legacy API</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">&lt;dependencies&gt;
+ &lt;dependency&gt;
+  &lt;groupId&gt;org.kie.kogito&lt;/groupId&gt;
+  &lt;artifactId&gt;kogito-quarkus-rules&lt;/artifactId&gt;
+ &lt;/dependency&gt;
+ &lt;dependency&gt;
+  &lt;groupId&gt;org.kie.kogito&lt;/groupId&gt;
+  &lt;artifactId&gt;kogito-legacy-api&lt;/artifactId&gt;
+ &lt;/dependency&gt;
+&lt;/dependencies&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Rewrite the REST endpoint implementation:</p>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="title">Example REST endpoint implementation</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/find-approved")
+public class FindApprovedLoansEndpoint {
+
+   @Inject
+   KieRuntimeBuilder kieRuntimeBuilder;
+
+   @POST()
+   @Produces(MediaType.APPLICATION_JSON)
+   @Consumes(MediaType.APPLICATION_JSON)
+   public List&lt;LoanApplication&gt; executeQuery(LoanAppDto loanAppDto) {
+   	KieSession session = kieRuntimeBuilder.newKieSession();
+
+   	List&lt;LoanApplication&gt; approvedApplications = new ArrayList&lt;&gt;();
+   	session.setGlobal("approvedApplications", approvedApplications);
+   	session.setGlobal("maxAmount", loanAppDto.getMaxAmount());
+
+   	loanAppDto.getLoanApplications().forEach(session::insert);
+   	session.fireAllRules();
+   	session.dispose();
+
+   	return approvedApplications;
+   }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the rewritten REST endpoint implementation, instead of creating the <code>KieSession</code> from the <code>KieContainer</code>, the <code>KieSession</code> is created automatically using an integrated <code>KieRuntimeBuilder</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>KieRuntimeBuilder</code> is an interface provided by the <code>kogito-legacy-api</code> module that replaces the <code>KieContainer</code>. Using <code>KieRuntimeBuilder</code>, you can create <code>KieBases</code> and <code>KieSessions</code> in a similar way you create in <code>KieContainer</code>. Kogito automatically generates an implementation of <code>KieRuntimeBuilder</code> interface at compile time and integrates the <code>KieRuntimeBuilder</code> into a class, which implements the <code>FindApprovedLoansEndpoint</code> REST endpoint.</p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Start your Quarkus application in development mode.</p>
+<div class="paragraph">
+<p>You can also use the hot reload to make the changes to the rules files that are applied to the running application. Also, you can create a native image of your rule based application.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="proc-kogito-migrate-drl-implement-ruleunits_migration-guide"><a class="anchor" href="#proc-kogito-migrate-drl-implement-ruleunits_migration-guide"></a>Implementing rule units and automatic REST endpoint generation</h4>
+<div class="paragraph _abstract">
+<p>After migrating rule units to a Kogito microservice, you can implement the rule units and automatic generation of the REST endpoint.</p>
+</div>
+<div class="paragraph">
+<p>In Kogito, a rule unit contains a set of rules and the facts, against which the rules are matched. Rule units in Kogito also come with data sources. A rule unit data source is a source of the data processed by a given rule unit and represents the entry point, which is used to evaluate the rule unit. Rule units use two types of data sources:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DataStream</code>: This is an append-only data source. In <code>DataStream</code>, subscribers receive new and past messages, stream can be hot or cold in the reactive streams. Also, the facts added into the <code>DataStream</code> cannot be updated or removed.</p>
+</li>
+<li>
+<p><code>DataStore</code>: This data source is for modifiable data. You can update or remove an object using the <code>FactHandle</code> that is returned when the object is added into the <code>DataStore</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Overall, a rule unit contains two parts: the definition of the fact to be evaluated and the set of rules evaluating the facts.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Implement a fact definition using POJO:</p>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="title">Example implementation of a fact definition using POJO</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package org.kie.kogito.queries;
+
+import org.kie.kogito.rules.DataSource;
+import org.kie.kogito.rules.DataStore;
+import org.kie.kogito.rules.RuleUnitData;
+
+public class LoanUnit implements RuleUnitData {
+
+   private int maxAmount;
+   private DataStore&lt;LoanApplication&gt; loanApplications;
+
+   public LoanUnit() {
+   	this(DataSource.createStore(), 0);
+   }
+
+   public LoanUnit(DataStore&lt;LoanApplication&gt; loanApplications, int maxAmount) {
+   	this.loanApplications = loanApplications;
+   	this.maxAmount = maxAmount;
+   }
+
+   public DataStore&lt;LoanApplication&gt; getLoanApplications() { return loanApplications; }
+
+   public void setLoanApplications(DataStore&lt;LoanApplication&gt; loanApplications) {
+   	this.loanApplications = loanApplications;
+   }
+
+   public int getMaxAmount() { return maxAmount; }
+   public void setMaxAmount(int maxAmount) { this.maxAmount = maxAmount; }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the previous example, instead of using <code>LoanAppDto</code> the <code>LoanUnit</code> class is bound directly. <code>LoanAppDto</code> is used to marshall or unmarshall JSON requests. Also, the previous example implements the <code>org.kie.kogito.rules.RuleUnitData</code> interface and uses a <code>DataStore</code> to contain the loan applications to be approved.</p>
+</div>
+<div class="paragraph">
+<p>The <code>org.kie.kogito.rules.RuleUnitData</code> is a marker interface to notify the Drools rule engine that <code>LoanUnit</code> class is part of a rule unit definition. In addition, the <code>DataStore</code> is responsible to allow the rule engine to react on the changes by firing new rules and triggering other rules.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, the consequences of the rules modify the <code>approved</code> property in the previous example. On the contrary, the <code>maxAmount</code> value is considered as a configuration parameter for the rule unit, which is not modified. The <code>maxAmount</code> is processed automatically during the rules evaluation and automatically set from the value passed in the JSON requests.</p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Implement a DRL file:</p>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="title">Example implementation of a DRL file</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">package org.kie.kogito.queries;
+unit LoanUnit; // no need to using globals, all variables and facts are stored in the rule unit
+
+rule LargeDepositApprove when
+   $l: /loanApplications[ applicant.age &gt;= 20, deposit &gt;= 1000, amount &lt;= maxAmount ] // oopath style
+then
+   modify($l) { setApproved(true) };
+end
+
+rule LargeDepositReject when
+   $l: /loanApplications[ applicant.age &gt;= 20, deposit &gt;= 1000, amount &gt; maxAmount ]
+then
+   modify($l) { setApproved(false) };
+end
+
+// ... more loans approval/rejections business rules ...
+
+// approved loan applications are now retrieved through a query
+query FindApproved
+   $l: /loanApplications[ approved ]
+end</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The DRL file that you create must declare the same package as fact definition implementation and a unit with the same name of the Java class. The Java class implements the <code>RuleUnitData</code> interface to state that the interface belongs to the same rule unit.</p>
+</div>
+<div class="paragraph">
+<p>Also, the DRL file in the previous example is rewritten using the OOPath expressions. In the DRL file, the data source acts as an entry point and the OOPath expression contains the data source name as root. However, the constraints are added in square brackets as follows:</p>
+</div>
+<div class="paragraph">
+<p><code>$l: /loanApplications[ applicant.age &gt;= 20, deposit &gt;= 1000, amount &#8656; maxAmount ]</code></p>
+</div>
+<div class="paragraph">
+<p>Alternatively, you can use the standard DRL syntax, in which you can specify the data source name as an entry point. However, you need to specify the type of the matched object again as shown in the following example, even if the Drools rule engine can infer the type from the data source:</p>
+</div>
+<div class="paragraph">
+<p><code>$l: LoanApplication( applicant.age &gt;= 20, deposit &gt;= 1000, amount &#8656; maxAmount ) from entry-point loanApplications</code></p>
+</div>
+<div class="paragraph">
+<p>In the previous example, the last rule that collects all the approved loan applications is replaced by a query that retrieves the list. A rule unit defines the facts to be passed in input to evaluate the rules, and the query defines the expected output from the rule evaluation. Using this approach, Kogito can automatically generate a class that executes the query and returns the output as shown in the following example:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example <code>LoanUnitQueryFindApproved</code> class</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class LoanUnitQueryFindApproved implements org.kie.kogito.rules.RuleUnitQuery&lt;List&lt;org.kie.kogito.queries.LoanApplication&gt;&gt; {
+
+   private final RuleUnitInstance&lt;org.kie.kogito.queries.LoanUnit&gt; instance;
+
+   public LoanUnitQueryFindApproved(RuleUnitInstance&lt;org.kie.kogito.queries.LoanUnit&gt; instance) {
+   	this.instance = instance;
+   }
+
+   @Override
+   public List&lt;org.kie.kogito.queries.LoanApplication&gt; execute() {
+   	return instance.executeQuery("FindApproved").stream().map(this::toResult).collect(toList());
+   }
+
+   private org.kie.kogito.queries.LoanApplication toResult(Map&lt;String, Object&gt; tuple) {
+   	return (org.kie.kogito.queries.LoanApplication) tuple.get("$l");
+   }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following is an example of a REST endpoint that takes a rule unit as input and passing the input to a query executor to return the output:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example <code>LoanUnitQueryFindApprovedEndpoint</code> endpoint</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/find-approved")
+public class LoanUnitQueryFindApprovedEndpoint {
+
+   @jakarta.inject.Inject
+   RuleUnit&lt;org.kie.kogito.queries.LoanUnit&gt; ruleUnit;
+
+   public LoanUnitQueryFindApprovedEndpoint() {
+   }
+
+   public LoanUnitQueryFindApprovedEndpoint(RuleUnit&lt;org.kie.kogito.queries.LoanUnit&gt; ruleUnit) {
+   	this.ruleUnit = ruleUnit;
+   }
+
+   @POST()
+   @Produces(MediaType.APPLICATION_JSON)
+   @Consumes(MediaType.APPLICATION_JSON)
+   public List&lt;org.kie.kogito.queries.LoanApplication&gt; executeQuery(org.kie.kogito.queries.LoanUnit unit) {
+   	RuleUnitInstance&lt;org.kie.kogito.queries.LoanUnit&gt; instance = ruleUnit.createInstance(unit);
+   	return instance.executeQuery(LoanUnitQueryFindApproved.class);
+   }
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can also add multiple queries and for each query, a different REST endpoint is generated. For example, the <code>FindApproved</code> REST endpoint is generated for find-approved.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<!--Licensed to the Apache Software Foundation (ASF) under one-->
+<!--or more contributor license agreements.  See the NOTICE file-->
+<!--distributed with this work for additional information-->
+<!--regarding copyright ownership.  The ASF licenses this file-->
+<!--to you under the Apache License, Version 2.0 (the-->
+<!--"License"); you may not use this file except in compliance-->
+<!--with the License.  You may obtain a copy of the License at-->
+
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--Unless required by applicable law or agreed to in writing,-->
+<!--software distributed under the License is distributed on an-->
+<!--"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY-->
+<!--KIND, either express or implied.  See the License for the-->
+<!--specific language governing permissions and limitations-->
+<!--under the License.-->
+
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>

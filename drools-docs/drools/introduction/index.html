@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Introduction :: Drools Documentation</title>
+    <link rel="canonical" href="https://docs.drools.org/latest/drools-docs/drools/introduction/index.html">
+    <meta name="generator" content="Antora 3.0.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<!--Licensed to the Apache Software Foundation (ASF) under one-->
+<!--or more contributor license agreements.  See the NOTICE file-->
+<!--distributed with this work for additional information-->
+<!--regarding copyright ownership.  The ASF licenses this file-->
+<!--to you under the Apache License, Version 2.0 (the-->
+<!--"License"); you may not use this file except in compliance-->
+<!--with the License.  You may obtain a copy of the License at-->
+
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--Unless required by applicable law or agreed to in writing,-->
+<!--software distributed under the License is distributed on an-->
+<!--"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY-->
+<!--KIND, either express or implied.  See the License for the-->
+<!--specific language governing permissions and limitations-->
+<!--under the License.-->
+
+<link rel="stylesheet" href="../../_/css/search.css">
+<link rel="stylesheet" href="../../_/css/menu.css">
+<link rel="stylesheet" href="../../_/css/drl.css">
+<!--Licensed to the Apache Software Foundation (ASF) under one-->
+<!--or more contributor license agreements.  See the NOTICE file-->
+<!--distributed with this work for additional information-->
+<!--regarding copyright ownership.  The ASF licenses this file-->
+<!--to you under the Apache License, Version 2.0 (the-->
+<!--"License"); you may not use this file except in compliance-->
+<!--with the License.  You may obtain a copy of the License at-->
+
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--Unless required by applicable law or agreed to in writing,-->
+<!--software distributed under the License is distributed on an-->
+<!--"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY-->
+<!--KIND, either express or implied.  See the License for the-->
+<!--specific language governing permissions and limitations-->
+<!--under the License.-->
+
+<script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<!--Licensed to the Apache Software Foundation (ASF) under one-->
+<!--or more contributor license agreements.  See the NOTICE file-->
+<!--distributed with this work for additional information-->
+<!--regarding copyright ownership.  The ASF licenses this file-->
+<!--to you under the Apache License, Version 2.0 (the-->
+<!--"License"); you may not use this file except in compliance-->
+<!--with the License.  You may obtain a copy of the License at-->
+
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--Unless required by applicable law or agreed to in writing,-->
+<!--software distributed under the License is distributed on an-->
+<!--"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY-->
+<!--KIND, either express or implied.  See the License for the-->
+<!--specific language governing permissions and limitations-->
+<!--under the License.-->
+
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="https://kie.apache.org/">
+          <img src="../../_/img/droolsExpertLogo.png" alt="Drools logo"/>
+        </a>
+        <a class="navbar-item" href="https://kie.apache.org/">
+          Drools Documentation
+        </a>
+      </div>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search docs" autofocus>
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <a class="navbar-item small-item" href="https://github.com/apache/incubator-kie-drools" title="Follow Drools on GitHub"><div class="github-icon"></div></a>
+          <a class="navbar-item small-item" href="https://twitter.com/KieCommunity" target="_blank" title="Follow KIE Community on Twitter for more Drools tweets"><img alt="T" src="../../_/img/twitterLogo.png"></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="drools" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Drools User Guide 10.0.0</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../getting-started/index.html">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../KIE/index.html">Build, Deploy, Utilize and Run</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../rule-engine/index.html">Drools rule engine</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../language-reference/index.html">Rule Language Reference</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../language-reference-traditional/index.html">Rule Language Reference (Traditional)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../DMN/index.html">Decision Model and Notation (DMN)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../pragmatic-ai/index.html">Pragmatic AI: Integrating Machine Learning with Drools</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../Commands/index.html">Drools Commands</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration-guide/index.html">Migration Guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../experimental-features/index.html">Experimental features</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Drools User Guide 10.0.0</span>
+    <span class="version">default</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="index.html">Drools User Guide 10.0.0</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">default</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link is-current"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Drools User Guide 10.0.0</a></li>
+    <li><a href="index.html">Introduction</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Introduction</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://www.drools.org/">Drools</a> is a set of projects focusing on intelligent automation and decision management, most notably providing a forward-chaining and backward-chaining inference-based <strong>rule engine</strong>, DMN decisions engine and other projects. A rule engine is a fundamental building block to create an expert system which, in artificial intelligence, is a computer system that emulates the decision-making ability of a human expert.</p>
+</div>
+<div class="paragraph">
+<p>Drools is part of KIE (Knowledge Is Everything) open source community, which consists of various related projects, or groups of projects, that complete a portfolio of solutions for business automation and management. The most important other KIE projects or groups of projects are:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="https://kogito.kie.org/">Kogito</a> is a cloud-native business automation for building intelligent applications, backed by battle-tested capabilities. It consists of multiple components, including Drools, UI modelling tools, like VS Code editors extensions, etc.</p>
+</li>
+<li>
+<p><a href="https://www.optaplanner.org/">OptaPlanner</a> is a fast, easy-to-use, open source AI constraint solver for software developers. It is a lightweight, embeddable planning engine.</p>
+</li>
+<li>
+<p><a href="https://www.jbpm.org/">jBPM</a> is a toolkit for building business applications to help automate business processes and decisions.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_additional_resources"><a class="anchor" href="#_additional_resources"></a>Additional resources</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://github.com/apache/incubator-kie-drools/">Drools source code</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="intro-getting-involved_introduction"><a class="anchor" href="#intro-getting-involved_introduction"></a>Getting involved</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We are often asked - "How do I get involved?" The answer is simple, just write some code and submit it :) Below is a general overview of the things we request, along with some general advice. If you contribute some good work, please consider blogging about it :)</p>
+</div>
+<div class="sect2">
+<h3 id="_requirements"><a class="anchor" href="#_requirements"></a>Requirements</h3>
+<div class="paragraph">
+<p>To contribute, you need to have a <a href="https://github.com/">GitHub</a> account. <a href="https://github.com/apache/incubator-kie-drools/">Drools source code</a> is on GitHub. To submit code contributions, you need to have a GitHub account.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_submitting_an_issue_or_enhancement_request"><a class="anchor" href="#_submitting_an_issue_or_enhancement_request"></a>Submitting an issue or enhancement request</h3>
+<div class="paragraph">
+<p>We use <a href="https://github.com/apache/incubator-kie-drools/issues">GitHub Issues</a> to track new feature requests, bugs etc. If you find a problem in Drools, please file a ticket in <a href="https://github.com/apache/incubator-kie-drools/issues">GitHub Issues</a>. For code contributions, you could create a GitHub issue for yourself, so your contribution gets tracked. This ensures that all requests are logged and allocated to a release schedule and all discussions are captured in one place. Bug reports, bug fixes, feature requests and feature submissions should all go here. Minor code submissions, like format or documentation fixes do not need an associated GitHub issue created.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_submitting_a_source_code_contribution"><a class="anchor" href="#_submitting_a_source_code_contribution"></a>Submitting a source code contribution</h3>
+<div class="paragraph">
+<p>We accept source code contributions in the form of <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">GitHub pull requests</a>. Steps to create a pull request with your contribution are:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">Fork</a> the <a href="https://github.com/apache/incubator-kie-drools/">Drools source code</a> repository.</p>
+</li>
+<li>
+<p>Clone your forked repository.</p>
+</li>
+<li>
+<p>Create a new git branch on your forked repository.</p>
+</li>
+<li>
+<p>Create a new GitHub issue to track your work in the <a href="https://github.com/apache/incubator-kie-drools/issues">GitHub Issues</a>.</p>
+</li>
+<li>
+<p>Do and commit the code changes on the new branch.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Please don&#8217;t forget to cover your changes with tests. We require each code change to be covered by tests.</p>
+</li>
+<li>
+<p>The commit(s) need to start with the GitHub issue ID, such as [incubator-kie-drools-6136]. This ensures the commits are cross-referenced in GitHub Issues, so we can see all commits for a given issue there.</p>
+</li>
+<li>
+<p>In general, please try to avoid combining unrelated issues or changes into the same commit or pull request. If you want to contribute multiple contributions, please split them into separate pull requests.</p>
+</li>
+<li>
+<p>Please make sure your changes don&#8217;t break other parts of the project or tests. To run all tests, please refer to <a href="#intro-building-the-source_introduction">Building the Drools source code</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Push the new branch to your GitHub forked repository. It is usually a good thing to <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork">sync your local branch</a> with the latest changes from the main Drools source code repository before pushing your new branch.</p>
+</li>
+<li>
+<p><a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">Create a pull request</a> to the main Drools source code GitHub repository. When creating the pull request, there is a description template. Please fill the description based on the template. The setting "Allow edits and access to secrets by maintainers" should be left as <code>enabled</code> by default, to allow maintainers to collaborate on your PR as needed.</p>
+</li>
+<li>
+<p>Your pull request will get a review from the maintainers, so please be prepared to provide answers if something will not be clear, or updates to the code, if there are some code requirements raised during the review. Please be patient, the maintainers may take some time to get to your pull request as there may be a queue of pull request to review.</p>
+</li>
+<li>
+<p>If you get an approval from the maintainers, the pull request will get merged into the main Drools source code repository.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="intro-building-the-source_introduction"><a class="anchor" href="#intro-building-the-source_introduction"></a>Building the Drools source code</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Drools is mainly a Java based set of projects that uses <a href="https://maven.apache.org/">Maven</a> as a build system. To build the Drools repository:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Install Java JDK, at least version <code>17</code>.</p>
+</li>
+<li>
+<p>Install Maven, at least version <code>3.8.6</code>. There are rules during the build, that enforce the version of Maven, so please try to use the most current Maven version possible.</p>
+</li>
+<li>
+<p>Clone the <a href="https://github.com/apache/incubator-kie-drools/">Drools source code</a> repository.</p>
+</li>
+<li>
+<p>Run the Maven build on command line.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Maven build executed with tests:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>mvn clean install</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Maven build executed without tests:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>mvn clean install -Dquickly</pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<!--Licensed to the Apache Software Foundation (ASF) under one-->
+<!--or more contributor license agreements.  See the NOTICE file-->
+<!--distributed with this work for additional information-->
+<!--regarding copyright ownership.  The ASF licenses this file-->
+<!--to you under the Apache License, Version 2.0 (the-->
+<!--"License"); you may not use this file except in compliance-->
+<!--with the License.  You may obtain a copy of the License at-->
+
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--Unless required by applicable law or agreed to in writing,-->
+<!--software distributed under the License is distributed on an-->
+<!--"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY-->
+<!--KIND, either express or implied.  See the License for the-->
+<!--specific language governing permissions and limitations-->
+<!--under the License.-->
+
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>

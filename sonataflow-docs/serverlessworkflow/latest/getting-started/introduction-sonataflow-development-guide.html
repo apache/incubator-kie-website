@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Introduction to SonataFlow development :: SonataFlow Guides</title>
+    <meta name="generator" content="Antora 3.1.4">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="icon" href="../../../_/img/favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="../../../_/css/search.css">
+<link rel="stylesheet" href="../../../_/css/menu.css">
+<link rel="stylesheet" href="../../../_/css/tabs.css">
+<link rel="stylesheet" href="../../../_/css/navbar.css">
+<link rel="stylesheet" href="../../../_/css/custom.css">
+<link rel="stylesheet" href="../../../_/css/home.css"><script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <div class="navbar-item">
+                <a href="../../..">
+                    <img src="../../../_/img/sonata-flow-color-justlogo-circle-white.png" height="50px" alt="SonataFlow logo"/>
+                </a>
+                <a class="navbar-item" href="../../..">
+                    SonataFlow Guides
+                </a>
+            </div>
+                <div class="navbar-item search hide-for-print">
+                    <div id="search-field" class="field">
+                        <input id="search-input" type="text" placeholder="Search docs">
+                    </div>
+                </div>
+            <button class="navbar-burger" data-target="topbar-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <a class="navbar-item small-item" href="https://github.com/apache"
+                       target="_blank" title="Follow KIE on GitHub">
+                        <div class="github-icon"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="serverlessworkflow" data-version="10.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">SonataFlow Guides</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release_notes.html">Release notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Setup</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="learning-environment.html">Learning environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="preparing-environment.html">Environment setup</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="production-environment.html">Production environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Getting Started</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="getting-familiar-with-our-tooling.html">Getting familiar with SonataFlow tooling</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="introduction-sonataflow-development-guide.html">Introduction to SonataFlow development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="java-embedded-workflows.html">Workflow embedded execution in Java</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Core Concepts</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/cncf-serverless-workflow-specification-support.html">Serverless Workflow Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/handling-events-on-workflows.html">Events</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/working-with-callbacks.html">Callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/understanding-jq-expressions.html">jq Expressions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/understanding-workflow-error-handling.html">Error handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/configuration-properties.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/defining-an-input-schema-for-workflows.html">Input Schema</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/custom-functions-support.html">Custom Functions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/timeouts-support.html">Timeouts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/working-with-parallelism.html">Parallelism</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Tooling</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../tooling/serverless-workflow-editor/swf-editor-overview.html">Editor</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../tooling/serverless-workflow-editor/swf-editor-vscode-extension.html">VS Code extension</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../tooling/serverless-workflow-editor/swf-editor-chrome-extension.html">Chrome extension for GitHub</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../tooling/serverless-logic-web-tools/serverless-logic-web-tools-overview.html">Serverless Logic Web Tools</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tooling/serverless-logic-web-tools/serverless-logic-web-tools-github-integration.html">Integration with GitHub</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tooling/serverless-logic-web-tools/serverless-logic-web-tools-openshift-integration.html">Integration with OpenShift</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tooling/serverless-logic-web-tools/serverless-logic-web-tools-redhat-application-services-integration.html">Integration with Service Registries</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tooling/serverless-logic-web-tools/serverless-logic-web-tools-deploy-projects.html">Deployment</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../cloud/index.html">Cloud</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cloud/custom-ingress-authz.html">Securing Workflows</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cloud/deploying-sonataflow-management-console-on-kubernetes.html">Deploying Management Console on Kubernetes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Operator</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../cloud/operator/install-serverless-operator.html">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../cloud/operator/global-configuration.html">Admin Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../cloud/operator/developing-workflows.html">Development Mode</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../cloud/operator/referencing-resource-files.html">Referencing Workflow Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../cloud/operator/configuring-workflows.html">Workflow Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../cloud/operator/build-and-deploy-workflows.html">Building and Deploying Workflow Images</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../cloud/operator/supporting-services.html">Deploy Supporting Services</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../cloud/operator/workflow-status-conditions.html">Custom Resource Status</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../cloud/operator/building-custom-images.html">Building Custom Images</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../cloud/operator/customize-podspec.html">Custom Workflow PodSpec</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../cloud/operator/service-discovery.html">Service Discovery</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../cloud/operator/using-persistence.html">Workflow Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../cloud/operator/configuring-workflow-eventing-system.html">Workflow Eventing System</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../cloud/operator/configuring-knative-eventing-resources.html">Knative Eventing</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Monitoring</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../cloud/operator/monitoring-workflows.html">Workflow Monitoring</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../cloud/operator/sonataflow-metrics.html">Prometheus Metrics for Workflows</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../cloud/operator/known-issues.html">Roadmap and Known Issues</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../cloud/operator/add-custom-ca-to-a-workflow-pod.html">Add Custom CA to Workflow Pod</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Service Orchestration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../service-orchestration/orchestration-of-openapi-based-services.html">OpenAPI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../service-orchestration/configuring-openapi-services-endpoints.html">Advanced Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../service-orchestration/working-with-openapi-callbacks.html">Callbacks</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../service-orchestration/troubleshooting.html">Troubleshooting</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Event Orchestration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../eventing/orchestration-of-asyncapi-based-services.html">AsyncAPI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../eventing/event-correlation-with-workflows.html">Event Correlation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Security</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Client Authentication</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../security/authention-support-for-openapi-services.html">OpenAPI Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../security/orchestrating-third-party-services-with-oauth2.html">OpenAPI OAuth2</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Executing, Testing and Troubleshooting</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing-and-troubleshooting/kn-plugin-workflow-overview.html">KN CLI Workflow plugin</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-overview.html">Developer UI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-workflow-instances-page.html">Workflow Instances</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-workflow-definition-page.html">Workflow Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-monitoring-page.html">Monitoring</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-custom-dashboard-page.html">Dashboards</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence/core-concepts.html">Core concepts</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Integrations</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../integrations/core-concepts.html">Introduction</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Job Service</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../job-services/core-concepts.html">Core Concepts</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Data Index</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../data-index/data-index-core-concepts.html">Core concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../data-index/data-index-service.html">Standalone service</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Use Cases</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/index.html">SonataFlow applications development using Quarkus and Java</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Getting started</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/getting-started/create-your-first-workflow-service.html">Creating a Quarkus Workflow service</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/getting-started/create-your-first-workflow-project.html">Creating a Quarkus Workflow project</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/getting-started/build-workflow-image-with-quarkus-cli.html">Building workflow images using Quarkus CLI</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/getting-started/working-with-serverless-workflow-quarkus-examples.html">Working with SonataFlow example applications</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/getting-started/test-serverless-workflow-quarkus-examples.html">Testing images of SonataFlow example applications using Quarkus CLI</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Deployment</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/deployments/deploying-on-minikube.html">Deploying on Minikube</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/deployments/deploying-on-kubernetes.html">Deploying on Kubernetes</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/deployments/deploying-on-openshift.html">Deploying on OpenShift</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/persistence/persistence-core-concepts.html">Core Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/persistence/persistence-with-postgresql.html">Running a Quarkus Workflow Application using PostgreSQL</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/persistence/postgresql-advanced-concepts.html">Postgresql Advanced Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/persistence/postgresql-flyway-migration.html">PostgreSQL Database Migration</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/persistence/integration-tests-with-postgresql.html">SonataFlow integration test using PostgreSQL</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Job Service</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/job-service/quarkus-extensions.html">Job Service Quarkus Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Data Index</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/data-index/data-index-as-quarkus-dev-service.html">Data Index as a Quarkus Development service</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/data-index/data-index-usecase-singleton.html">Deploying Data Index and SonataFlow application on Minikube</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/data-index/data-index-usecase-multi.html">Deploying Data Index and multiple SonataFlow applications on Minikube</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/data-index/data-index-quarkus-extension.html">Data Index Quarkus extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Service Orchestration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/service-orchestration/configuring-openapi-services-endpoints-with-quarkus.html">Configuring the OpenAPI services endpoints in different environments</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/service-orchestration/orchestration-of-grpc-services.html">Orchestrating gRPC based Services</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Service Discovery</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/service-discovery/kubernetes-service-discovery.html">Service Discovery</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Event Orchestration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/event-orchestration/consume-produce-events-with-knative-eventing.html">Consuming and producing events on Knative Eventing in Quarkus</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/event-orchestration/consume-producing-events-with-kafka.html">Consuming and producing events using Apache Kafka in Quarkus</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/event-orchestration/orchestration-based-saga-pattern.html">Saga orchestration example in SonataFlow</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/event-orchestration/newsletter-subscription-example.html">Newsletter subscription example in SonataFlow</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Timeouts</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/timeouts/timeout-showcase-example.html">Timeouts Showcase in SonataFlow</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Callbacks</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/callbacks/callback-state-example.html">Example of SonataFlow application using callback state with Quarkus</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Integrations of external services</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/integrations/camel-routes-integration.html">Integrating with Camel routes</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/integrations/custom-functions-knative.html">Invoking Knative services from SonataFlow</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/integrations/custom-functions-python.html">Invoking Python from SonataFlow</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/integrations/expose-metrics-to-prometheus.html">Exposing Workflow base metrics to Prometheus</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/integrations/serverless-dashboard-with-runtime-data.html">Displaying Workflow Data in Dashboards</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Testing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/testing/basic-integration-tests-with-restassured.html">Testing your Quarkus Workflow Application using REST Assured</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/testing/mocking-http-cloudevents-with-wiremock.html">Mocking HTTP CloudEvents sink using WireMock</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/testing/mocking-openapi-services-with-wiremock.html">Mocking OpenAPI services using WireMock</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">SonataFlow Guides</span>
+    <span class="version">10.0.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">SonataFlow Guides</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">10.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">SonataFlow Guides</a></li>
+    <li>Getting Started</li>
+    <li><a href="introduction-sonataflow-development-guide.html">Introduction to SonataFlow development</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/apache/incubator-kie-kogito-docs/edit/10.0.x/serverlessworkflow/modules/ROOT/pages/getting-started/introduction-sonataflow-development-guide.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Introduction to SonataFlow development</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This guide showcases the SonataFlow Workflow CLI plugin and Apache KIE Serverless Workflow Visual Studio code extension to create, run &amp; deploy SonataFlow projects on your local environment and walks you trhought the recommended development loop of workflow applications.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You have set up your environment according to the <a href="preparing-environment.html#proc-minimal-local-environment-setup" class="xref page">minimal environment setup</a> guide.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="proc-creating-app-with-kn-cli"><a class="anchor" href="#proc-creating-app-with-kn-cli"></a>Creating a workflow project with KN CLI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Use the <code>create</code> command with kn workflow to scaffold a new SonataFlow project.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Navigate to your development directory and create your project.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kn workflow create -n my-sonataflow-project</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>This will create a folder with name <code>my-sonataflow-project</code> and a sample workflow <code>workflow.sw.json</code></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cd ./my-sonataflow-project</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Open the folder in Visual Studio Code and examine or  the created <code>workflow.sw.json</code> using the editor provided by the extension.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">code workflow.sw.json</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Now you can run the project and execute the workflow.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="proc-running-app-with-kn-cli"><a class="anchor" href="#proc-running-app-with-kn-cli"></a>Running a workflow project with KN CLI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Use the <code>run</code> command with kn workflow to build and run the SonataFlow project locally in development mode.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Run the project.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kn workflow run</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The Development UI will be accessible at <code>localhost:8080/q/dev</code></p>
+</li>
+<li>
+<p>You can now work on your project. Any changes will be picked up by the hot reload feature.</p>
+</li>
+<li>
+<p>See <a href="../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-workflow-instances-page.html" class="xref page">Workflow instances</a> guide on how to run workflows via Development UI.</p>
+</li>
+<li>
+<p>Once you are done developing your project navigate to the terminal that is running the <code>kn workflow run</code> command and hit <code>Ctrl+C</code> to stop the development environment.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You can use any editor to develop your workflow to suit your use case. We recommend getting familiar with <a href="../core/cncf-serverless-workflow-specification-support.html" class="xref page">Serverless Workflow Specification</a> and guides in <code>Core</code> chapter first.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Executing a workflow</div>
+<ol class="arabic">
+<li>
+<p>To test your running workflow project, access the Swagger UI on <code>localhost:8080/q/swagger-ui</code> to examine available endpoints.</p>
+</li>
+<li>
+<p>In order to execute the workflow once, run:</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X 'POST' \
+  'localhost:8080/hello' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "workflowdata": {}
+}'</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>You should see a similar response:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">{"id": "&lt;UUID&gt;", "workflowdata" : {"message":"Hello World"}}</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>To deploy the finished project to kubernetes cluster, proceed to the next section.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="proc-deploying-app-with-kn-cli"><a class="anchor" href="#proc-deploying-app-with-kn-cli"></a>Deploying a workflow project with KN CLI</h2>
+<div class="sectionbody">
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You are logged into your kubernetes cluster or started one locally according to the <a href="preparing-environment.html#proc-starting-cluster-fo-local-development" class="xref page">starting cluster for local development</a> guide.</p>
+</li>
+<li>
+<p>You have installed SonataFlow Operator in your kubernetes cluster according to <a href="../cloud/operator/install-serverless-operator.html" class="xref page">operator installation</a> guide.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Use the <code>deploy</code> command with kn workflow to deploy the SonataFlow project into your local cluster.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Create a namespace for your application</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl create namespace my-sf-application</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Deploy the workflow to the cluster in the default <code>dev</code> mode. The plugin uses settings located in <code>./&lt;home&gt;/.kube/config</code> to access the cluster.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kn workflow deploy --namespace my-sf-application</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In a separate bash instance create a port mapping:</p>
+<div class="tabset is-loading">
+<div class="ulist tabs">
+<ul>
+<li>
+<p><a id="tabset1_openshift"></a>Openshift</p>
+</li>
+<li>
+<p><a id="tabset1_minikube"></a>Minikube</p>
+</li>
+<li>
+<p><a id="tabset1_kind"></a>Kind</p>
+</li>
+</ul>
+</div>
+<div class="content">
+<div class="tab-pane" aria-labelledby="tabset1_openshift">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">oc get route svc/hello --namespace my-sf-application</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>On openshift the route is generated for you in <code>dev</code> mode deployments. Use the URL of the generated route to access your workflow instances using the Developement interface.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>&lt;RETURNED_URL&gt;/q/dev-ui/org.apache.kie.sonataflow.sonataflow-quarkus-devui/workflows</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="tab-pane" aria-labelledby="tabset1_minikube">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">minikube service hello --namespace my-sf-application --url</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Use this URL to access your workflow instances using the Developer UI</p>
+<div class="ulist">
+<ul>
+<li>
+<p>&lt;RETURNED_URL&gt;/q/dev-ui/org.apache.kie.sonataflow.sonataflow-quarkus-devui/workflows</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="tab-pane" aria-labelledby="tabset1_kind">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell"># Execute
+kubectl get services -n my-sf-application
+
+# You should see output like this, note the ports
+NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)            AGE
+hello        ClusterIP   10.96.0.1    &lt;none&gt;        &lt;RANDOM_PORT&gt;/80   39s
+
+# Execute
+kubectl port-forward service/hello &lt;RANDOM_PORT&gt;:80 -n my-sf-application</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>To update the image, run the <code>deploy</code> again, note that this may take some time. You can also direcly edit the <code>Sonataflow</code> resource in the cluster. In <code>dev</code> mode, the operator will update the deployment with the changes.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>To stop the deployment, use the <code>undeploy</code> command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kn workflow undeploy --namespace my-sf-application</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="proc-testing-application"><a class="anchor" href="#proc-testing-application"></a>Testing your workflow application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To test your workflow application you can use any capable REST client out there. All that is needed is the URL of your deployed workflow project, which is showcase in section above,
+You can also use the management console provided as part of the development interface.
+Please see the additional resources to proceed.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_additional_resources"><a class="anchor" href="#_additional_resources"></a>Additional resources</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-overview.html" class="xref page">SonataFlow extension in Quarkus Dev UI</a></p>
+</li>
+<li>
+<p><a href="getting-familiar-with-our-tooling.html" class="xref page">Getting familiar with SonataFlow tooling</a></p>
+</li>
+<li>
+<p><a href="../service-orchestration/orchestration-of-openapi-based-services.html" class="xref page">Orchestrating OpenAPI Services</a></p>
+</li>
+<li>
+<p><a href="../cloud/operator/developing-workflows.html" class="xref page">Developing Workflows with the Operator</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_found_an_issue"><a class="anchor" href="#_found_an_issue"></a><em><strong>Found an issue?</strong></em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you find an issue or any misleading information, please feel free to report it <a href="https://github.com/apache/incubator-kie-kogito-docs/issues/new">here</a>.
+We really appreciate it!</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/tabsBehavior.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

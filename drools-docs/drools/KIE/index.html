@@ -1,0 +1,3228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Build, Deploy, Utilize and Run :: Drools Documentation</title>
+    <link rel="canonical" href="https://docs.drools.org/latest/drools-docs/drools/KIE/index.html">
+    <meta name="generator" content="Antora 3.0.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<!--Licensed to the Apache Software Foundation (ASF) under one-->
+<!--or more contributor license agreements.  See the NOTICE file-->
+<!--distributed with this work for additional information-->
+<!--regarding copyright ownership.  The ASF licenses this file-->
+<!--to you under the Apache License, Version 2.0 (the-->
+<!--"License"); you may not use this file except in compliance-->
+<!--with the License.  You may obtain a copy of the License at-->
+
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--Unless required by applicable law or agreed to in writing,-->
+<!--software distributed under the License is distributed on an-->
+<!--"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY-->
+<!--KIND, either express or implied.  See the License for the-->
+<!--specific language governing permissions and limitations-->
+<!--under the License.-->
+
+<link rel="stylesheet" href="../../_/css/search.css">
+<link rel="stylesheet" href="../../_/css/menu.css">
+<link rel="stylesheet" href="../../_/css/drl.css">
+<!--Licensed to the Apache Software Foundation (ASF) under one-->
+<!--or more contributor license agreements.  See the NOTICE file-->
+<!--distributed with this work for additional information-->
+<!--regarding copyright ownership.  The ASF licenses this file-->
+<!--to you under the Apache License, Version 2.0 (the-->
+<!--"License"); you may not use this file except in compliance-->
+<!--with the License.  You may obtain a copy of the License at-->
+
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--Unless required by applicable law or agreed to in writing,-->
+<!--software distributed under the License is distributed on an-->
+<!--"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY-->
+<!--KIND, either express or implied.  See the License for the-->
+<!--specific language governing permissions and limitations-->
+<!--under the License.-->
+
+<script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<!--Licensed to the Apache Software Foundation (ASF) under one-->
+<!--or more contributor license agreements.  See the NOTICE file-->
+<!--distributed with this work for additional information-->
+<!--regarding copyright ownership.  The ASF licenses this file-->
+<!--to you under the Apache License, Version 2.0 (the-->
+<!--"License"); you may not use this file except in compliance-->
+<!--with the License.  You may obtain a copy of the License at-->
+
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--Unless required by applicable law or agreed to in writing,-->
+<!--software distributed under the License is distributed on an-->
+<!--"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY-->
+<!--KIND, either express or implied.  See the License for the-->
+<!--specific language governing permissions and limitations-->
+<!--under the License.-->
+
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="https://kie.apache.org/">
+          <img src="../../_/img/droolsExpertLogo.png" alt="Drools logo"/>
+        </a>
+        <a class="navbar-item" href="https://kie.apache.org/">
+          Drools Documentation
+        </a>
+      </div>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <a class="navbar-item small-item" href="https://github.com/apache/incubator-kie-drools" title="Follow Drools on GitHub"><div class="github-icon"></div></a>
+          <a class="navbar-item small-item" href="https://twitter.com/KieCommunity" target="_blank" title="Follow KIE Community on Twitter for more Drools tweets"><img alt="T" src="../../_/img/twitterLogo.png"></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="drools" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../introduction/index.html">Drools User Guide 10.0.0</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../introduction/index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../getting-started/index.html">Getting Started</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="index.html">Build, Deploy, Utilize and Run</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../rule-engine/index.html">Drools rule engine</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../language-reference/index.html">Rule Language Reference</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../language-reference-traditional/index.html">Rule Language Reference (Traditional)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../DMN/index.html">Decision Model and Notation (DMN)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../pragmatic-ai/index.html">Pragmatic AI: Integrating Machine Learning with Drools</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../Commands/index.html">Drools Commands</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration-guide/index.html">Migration Guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../experimental-features/index.html">Experimental features</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Drools User Guide 10.0.0</span>
+    <span class="version">default</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../introduction/index.html">Drools User Guide 10.0.0</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../introduction/index.html">default</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../introduction/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../introduction/index.html">Drools User Guide 10.0.0</a></li>
+    <li><a href="index.html">Build, Deploy, Utilize and Run</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Build, Deploy, Utilize and Run</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this section you will learn the paradigms to use Drools library as part of KIE (Knowledge Is Everything) for Building, Deploying and Running your Drools-based solutions.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_kiemoduleintroductionbuildingintroductionsection"><a class="anchor" href="#_kiemoduleintroductionbuildingintroductionsection"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Drools since version <code>6.0</code> introduced a new configuration and convention approach to building KIE bases, instead of using the programmatic builder approach of the <code>5.x</code> series.</p>
+</div>
+<div class="paragraph">
+<p>Building Drools-based KIE project make use of Maven, and aligns with Maven practices.
+A KIE project or module is simply a Maven Java project or module; with an additional metadata file META-INF/kmodule.xml.
+The kmodule.xml file is the descriptor that selects resources to KIE bases and configures those KIE bases and sessions.</p>
+</div>
+<div class="paragraph">
+<p>While standard Maven can build and package KIE resources, it will not provide validation at build time.
+There is a Maven plugin (<code>kie-maven-plugin</code>) which is recommended to use to get build time validation.
+The plugin also generates many classes, making the runtime loading faster too.</p>
+</div>
+<div class="paragraph">
+<p>The example project layout and Maven POM descriptor is illustrated in the screenshot</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/KIE/BuildDeployUtilizeAndRun/project-layout.png" alt="project layout">
+</div>
+<div class="title">Figure 1. Example project layout and Maven POM</div>
+</div>
+<div class="paragraph">
+<p>KIE uses defaults to minimise the amount of configuration.
+With an empty kmodule.xml being the simplest configuration.
+There must always be a kmodule.xml file, even if empty, as it&#8217;s used for discovery of the JAR and its contents.</p>
+</div>
+<div class="paragraph">
+<p>Maven can either 'mvn install' to deploy a KieModule to the local machine, where all other applications on the local machine use it.
+Or it can 'mvn deploy' to push the KieModule to a remote Maven repository.
+Building the Application will pull in the KieModule and populate the local Maven repository in the process.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/KIE/BuildDeployUtilizeAndRun/maven.png" alt="maven">
+</div>
+<div class="title">Figure 2. Example project layout and Maven POM</div>
+</div>
+<div class="paragraph">
+<p>JARs can be deployed in one of two ways.
+Either added to the classpath, like any other JAR in a Maven dependency listing, or they can be dynamically loaded at runtime.
+KIE will scan the classpath to find all the JARs with a kmodule.xml in it.
+Each found JAR is represented by the KieModule interface.
+The terms classpath KieModule and dynamic KieModule are used to refer to the two loading approaches.
+While dynamic modules support side by side versioning, classpath modules do not.
+Further once a module is on the classpath, no other version may be loaded dynamically.</p>
+</div>
+<div class="paragraph">
+<p>Detailed references for the API are included in the next sections, the impatient can jump straight to the examples section, which is fairly self-explanatory on the different use cases.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_kiebuildingsection"><a class="anchor" href="#_kiebuildingsection"></a>Building</h2>
+<div class="sectionbody">
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/KIE/BuildDeployUtilizeAndRun/builder.png" alt="builder">
+</div>
+<div class="title">Figure 3. org.kie.api.core.builder</div>
+</div>
+<div class="sect2">
+<h3 id="_creatingandbuildingakieproject"><a class="anchor" href="#_creatingandbuildingakieproject"></a>Creating and building a Kie Project</h3>
+<div class="paragraph">
+<p>A Kie Project has the structure of a normal Maven project with the only peculiarity of including a kmodule.xml file defining in a declaratively way the <code>KieBase</code>s and <code>KieSession</code>s that can be created from it.
+This file has to be placed in the resources/META-INF folder of the Maven project while all the other Kie artifacts, such as DRL or Excel files, must be stored in the resources folder or in any other subfolder under it.</p>
+</div>
+<div class="paragraph">
+<p>Since meaningful defaults have been provided for all configuration aspects, the simplest kmodule.xml file can contain just an empty kmodule tag like the following:</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 1. An empty kmodule.xml file</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;kmodule xmlns="http://www.drools.org/xsd/kmodule"/&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>In this way the kmodule will contain one single default <code>KieBase</code>.
+All Kie assets stored under the resources folder, or any of its subfolders, will be compiled and added to it.
+To trigger the building of these artifacts it is enough to create a <code>KieContainer</code> for them.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/KIE/BuildDeployUtilizeAndRun/KieContainer.png" alt="KieContainer">
+</div>
+<div class="title">Figure 4. KieContainer</div>
+</div>
+<div class="paragraph">
+<p>For this simple case it is enough to create a <code>KieContainer</code> that reads the files to be built from the classpath:</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 2. Creating a KieContainer from the classpath</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieServices kieServices = KieServices.Factory.get();
+KieContainer kContainer = kieServices.getKieClasspathContainer();</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><code>KieServices</code> is the interface from where it possible to access all the Kie building and runtime facilities:</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/KIE/BuildDeployUtilizeAndRun/KieServices.png" alt="KieServices">
+</div>
+<div class="title">Figure 5. KieServices</div>
+</div>
+<div class="paragraph">
+<p>In this way all the Java sources and the Kie resources are compiled and deployed into the KieContainer which makes its contents available for use at runtime.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_thekmodulexmlfile"><a class="anchor" href="#_thekmodulexmlfile"></a>The kmodule.xml file</h3>
+<div class="paragraph">
+<p>As explained in the former section, the kmodule.xml file is the place where it is possible to declaratively configure the <code>KieBase</code>(s) and <code>KieSession</code>(s) that can be created from a KIE project.</p>
+</div>
+<div class="paragraph">
+<p>In particular a <code>KieBase</code> is a repository of all the application&#8217;s knowledge definitions.
+It will contain rules, processes, functions, and type models.
+The <code>KieBase</code> itself does not contain data; instead, sessions are created from the <code>KieBase</code> into which data can be inserted and from which process instances may be started.
+Creating the <code>KieBase</code> can be heavy, whereas session creation is very light, so it is recommended that <code>KieBase</code> be cached where possible to allow for repeated session creation.
+However end-users usually shouldn&#8217;t worry about it, because this caching mechanism is already automatically provided by the <code>KieContainer</code>.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/KIE/BuildDeployUtilizeAndRun/KieBase.png" alt="KieBase">
+</div>
+<div class="title">Figure 6. KieBase</div>
+</div>
+<div class="paragraph">
+<p>Conversely the <code>KieSession</code> stores and executes on the runtime data.
+It is created from the <code>KieBase</code> or more easily can be created directly from the <code>KieContainer</code> if it has been defined in the kmodule.xml file</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/KIE/BuildDeployUtilizeAndRun/KieSession.png" alt="KieSession">
+</div>
+<div class="title">Figure 7. KieSession</div>
+</div>
+<div class="paragraph">
+<p>The kmodule.xml allows to define and configure one or more <code>KieBase</code>s and for each <code>KieBase</code> all the different <code>KieSession</code>s that can be created from it, as showed by the follwing example:</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 3. A sample kmodule.xml file</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;kmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.drools.org/xsd/kmodule"&gt;
+  &lt;configuration&gt;
+    &lt;property key="drools.evaluator.supersetOf" value="org.mycompany.SupersetOfEvaluatorDefinition"/&gt;
+  &lt;/configuration&gt;
+  &lt;kbase name="KBase1" default="true" eventProcessingMode="cloud" equalsBehavior="equality" declarativeAgenda="enabled" packages="org.domain.pkg1"&gt;
+    &lt;ksession name="KSession2_1" type="stateful" default="true"/&gt;
+    &lt;ksession name="KSession2_2" type="stateless" default="false" beliefSystem="jtms"/&gt;
+  &lt;/kbase&gt;
+  &lt;kbase name="KBase2" default="false" eventProcessingMode="stream" equalsBehavior="equality" declarativeAgenda="enabled" packages="org.domain.pkg2, org.domain.pkg3" includes="KBase1"&gt;
+    &lt;ksession name="KSession3_1" type="stateful" default="false" clockType="realtime"&gt;
+      &lt;fileLogger file="drools.log" threaded="true" interval="10"/&gt;
+      &lt;workItemHandlers&gt;
+        &lt;workItemHandler name="name" type="org.domain.WorkItemHandler"/&gt;
+      &lt;/workItemHandlers&gt;
+      &lt;calendars&gt;
+        &lt;calendar name="monday" type="org.domain.Monday"/&gt;
+      &lt;/calendars&gt;
+      &lt;listeners&gt;
+        &lt;ruleRuntimeEventListener type="org.domain.RuleRuntimeListener"/&gt;
+        &lt;agendaEventListener type="org.domain.FirstAgendaListener"/&gt;
+        &lt;agendaEventListener type="org.domain.SecondAgendaListener"/&gt;
+        &lt;processEventListener type="org.domain.ProcessListener"/&gt;
+      &lt;/listeners&gt;
+    &lt;/ksession&gt;
+  &lt;/kbase&gt;
+&lt;/kmodule&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Here the
+tag contains a list of key-value pairs that are the optional properties used to configure the <code>KieBase</code>s building process.
+For instance this sample kmodule.xml file defines an additional custom operator named <code>supersetOf</code> and implemented by the <code>org.mycompany.SupersetOfEvaluatorDefinition</code> class.</p>
+</div>
+<div class="paragraph">
+<p>After this 2 <code>KieBase</code>s have been defined and it is possible to instance 2 different types of <code>KieSession</code>s from the first one, while only one from the second.
+A list of the attributes that can be defined on the kbase tag, together with their meaning and default values follows:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. kbase Attributes</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute name</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Admitted values</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name with which retrieve this KieBase from the KieContainer.
+            This is the only mandatory attribute.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">includes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">any comma separated list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A comma separated list of other KieBases contained in this kmodule.
+            The artifacts of all these KieBases will be also included in this one.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">packages</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">all</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">any comma separated list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">By default all the Drools artifacts under the resources folder,
+            at any level, are included into the KieBase. This attribute allows to limit
+            the artifacts that will be compiled in this KieBase to only the ones
+            belonging to the list of packages.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true, false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines if this KieBase is the default one for this module, so
+            it can be created from the KieContainer without passing any name to it.
+            There can be at most one default KieBase in each module.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">equalsBehavior</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">identity</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">identity, equality</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the behavior of Drools when a new fact is inserted into the
+            Working Memory. With identity it always create a new FactHandle unless the same
+            object isn&#8217;t already present in the Working Memory, while with equality only if
+            the newly inserted object is not equal (according to its equal method) to an already
+            existing fact.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">eventProcessingMode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cloud</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cloud, stream</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When compiled in cloud mode the KieBase treats events as normal facts, while
+            in stream mode allow temporal reasoning on them.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">declarativeAgenda</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">disabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">disabled, enabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines if the Declarative Agenda is enabled or not.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Similarly all attributes of the ksession tag (except of course the name) have meaningful default.
+They are listed and described in the following table:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. ksession Attributes</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute name</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Admitted values</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique name of this KieSession. Used to fetch the KieSession from the KieContainer.
+            This is the only mandatory attribute.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">stateful</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">stateful, stateless</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A stateful session allows to iteratively work with the Working Memory,
+            while a stateless one is a one-off execution of a Working Memory with a provided data set.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true, false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines if this KieSession is the default one for this module, so
+            it can be created from the KieContainer without passing any name to it.
+            In each module there can be at most one default KieSession for each type.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">clockType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">realtime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">realtime, pseudo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines if events timestamps are determined by the system clock or by
+            a pseudo clock controlled by the application. This clock is especially useful for
+            unit testing temporal rules.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">beliefSystem</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">simple</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">simple, jtms, defeasible</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the type of belief system used by the KieSession.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>As outlined in the former kmodule.xml sample, it is also possible to declaratively create on each <code>KieSession</code> a file (or a console) logger, one or more <code>WorkItemHandler</code>s and <code>Calendar</code>s plus some listeners that can be of 3 different types: ruleRuntimeEventListener, agendaEventListener and processEventListener</p>
+</div>
+<div class="paragraph">
+<p>Having defined a kmodule.xml like the one in the former sample, it is now possible to simply retrieve the KieBases and KieSessions from the KieContainer using their names.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 4. Retrieving KieBases and KieSessions from the KieContainer</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieServices kieServices = KieServices.Factory.get();
+KieContainer kContainer = kieServices.getKieClasspathContainer();
+
+KieBase kBase1 = kContainer.getKieBase("KBase1");
+KieSession kieSession1 = kContainer.newKieSession("KSession2_1");
+StatelessKieSession kieSession2 = kContainer.newStatelessKieSession("KSession2_2");</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>It has to be noted that since KSession2_1 and KSession2_2 are of 2 different types (the first is stateful, while the second is stateless) it is necessary to invoke 2 different methods on the <code>KieContainer</code> according to their declared type.
+If the type of the <code>KieSession</code> requested to the <code>KieContainer</code> doesn&#8217;t correspond with the one declared in the kmodule.xml file the <code>KieContainer</code> will throw a <code>RuntimeException</code>.
+Also since a <code>KieBase</code> and a <code>KieSession</code> have been flagged as default is it possible to get them from the <code>KieContainer</code> without passing any name.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 5. Retrieving default KieBases and KieSessions from the KieContainer</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieContainer kContainer = ...
+
+KieBase kBase1 = kContainer.getKieBase(); // returns KBase1
+KieSession kieSession1 = kContainer.newKieSession(); // returns KSession2_1</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Since a Kie project is also a Maven project the groupId, artifactId and version declared in the pom.xml file are used to generate a <code>ReleaseId</code> that uniquely identifies this project inside your application.
+This allows creation of a new KieContainer from the project by simply passing its <code>ReleaseId</code> to the <code>KieServices</code>.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 6. Creating a KieContainer of an existing project by ReleaseId</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieServices kieServices = KieServices.Factory.get();
+ReleaseId releaseId = kieServices.newReleaseId( "org.acme", "myartifact", "1.0" );
+KieContainer kieContainer = kieServices.newKieContainer( releaseId );</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>KieBase and KiePackage don&#8217;t support serialization since Drools 6. You need to build KieBase through KieContainer. On the other hand, KieSession can be marshalled/unmarshalled by KieMashaller. See <a href="#_marshalling">Marshalling</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_buildingwithmaven"><a class="anchor" href="#_buildingwithmaven"></a>Building with Maven</h3>
+<div class="paragraph">
+<p>The KIE plugin for Maven ensures that artifact resources are validated and pre-compiled, it is recommended that this is used at all times.
+To use the plugin simply add it to the build section of the Maven pom.xml and activate it by using packaging <code>kjar</code>.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 7. Adding the KIE plugin to a Maven pom.xml and activating it</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">  &lt;packaging&gt;kjar&lt;/packaging&gt;
+  ...
+  &lt;build&gt;
+    &lt;plugins&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.kie&lt;/groupId&gt;
+        &lt;artifactId&gt;kie-maven-plugin&lt;/artifactId&gt;
+        &lt;version&gt;${version.org.drools}&lt;/version&gt;
+        &lt;extensions&gt;true&lt;/extensions&gt;
+      &lt;/plugin&gt;
+    &lt;/plugins&gt;
+  &lt;/build&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The plugin comes with support for all the Drools/jBPM knowledge resources.
+However, in case you are using specific KIE annotations in your Java classes, like for example <code>@kie.api.Position</code>, you will need to add compile time dependency on <code>kie-api</code> into your project.
+We recommend to use the provided scope for all the additional KIE dependencies.
+That way the kjar stays as lightweight as possible, and not dependant on any particular KIE version.</p>
+</div>
+<div class="paragraph">
+<p>Building a KIE module without the Maven plugin will copy all the resources, as is, into the resulting JAR.
+When that JAR is loaded by the runtime, it will attempt to build all the resources then.
+If there are compilation issues it will return a null KieContainer.
+It also pushes the compilation overhead to the runtime.
+In general this is not recommended, and the Maven plugin should always be used.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_enginedependency"><a class="anchor" href="#_enginedependency"></a>Engine dependency</h3>
+<div class="paragraph">
+<p>Drools has 3 types of engine dependency that aggregate a required collection of dependencies.</p>
+</div>
+<div class="paragraph">
+<p><strong><code>drools-ruleunits-engine</code></strong> is the standard engine for rule units that enables an executable model.</p>
+</div>
+<div class="paragraph">
+<p><strong><code>drools-engine</code></strong> is the standard engine for traditional DRL syntax that enables an executable model.</p>
+</div>
+<div class="paragraph">
+<p><strong><code>drools-engine-classic</code></strong> is the old engine that utilizes an MVEL interpreter.  The <code>drools-engine-classic</code> and <code>drools-mvel</code> are now <strong>deprecated</strong>, so use <code>drools-ruleunits-engine</code> or <code>drools-engine</code> instead.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">    &lt;dependency&gt;
+      &lt;groupId&gt;org.drools&lt;/groupId&gt;
+      &lt;artifactId&gt;drools-engine&lt;/artifactId&gt;
+    &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>drools-engine</code> doesn&#8217;t contain <code>drools-xml-support</code>, because a Rule Unit use case doesn&#8217;t require <code>kmodule.xml</code>, so no need to process XML. In other words, you have to explicitly add the <code>drools-xml-support</code> dependency when you use <code>kmodule.xml</code> in your project with <code>drools-engine</code>.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">    &lt;dependency&gt;
+      &lt;groupId&gt;org.drools&lt;/groupId&gt;
+      &lt;artifactId&gt;drools-engine&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt; &lt;!-- when not using Rule Unit and using `kmodule.xml` for defining a rule base --&gt;
+      &lt;groupId&gt;org.drools&lt;/groupId&gt;
+      &lt;artifactId&gt;drools-xml-support&lt;/artifactId&gt;
+    &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_buildingwithmavenandrunningdroolsinauberjarorfatjar"><a class="anchor" href="#_buildingwithmavenandrunningdroolsinauberjarorfatjar"></a>Building with Maven and running Drools in a uber-jar or fat jar</h3>
+<div class="paragraph">
+<p>When building and running Drools in a <em>uber-jar</em> (also known as a <em>fat JAR</em> or <em>JAR with dependencies</em>), for example created by the Maven Shade Plugin, you will need to maintain conflicting resources from all dependencies.
+For instance when depending on <code>org.drools:drools-ecj</code> in your build, the <code>org.eclipse.jdt:ecj</code> dependency is transitively added, and you might want to remove signature files from the <em>ECJ artifact</em> which would not match in the final artifact.
+In this case the Maven Shade Plugin could be configured as it follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">&lt;plugin&gt;
+  &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+  &lt;artifactId&gt;maven-shade-plugin&lt;/artifactId&gt;
+  &lt;version&gt;3.1.0&lt;/version&gt;
+  &lt;executions&gt;
+    &lt;execution&gt;
+      &lt;phase&gt;package&lt;/phase&gt;
+      &lt;goals&gt;
+          &lt;goal&gt;shade&lt;/goal&gt;
+      &lt;/goals&gt;
+      &lt;configuration&gt;
+        &lt;filters&gt;
+          &lt;filter&gt;
+          &lt;artifact&gt;*:*&lt;/artifact&gt;
+          &lt;excludes&gt;
+            &lt;exclude&gt;META-INF/*.SF&lt;/exclude&gt;
+            &lt;exclude&gt;META-INF/*.DSA&lt;/exclude&gt;
+            &lt;exclude&gt;META-INF/*.RSA&lt;/exclude&gt;
+          &lt;/excludes&gt;
+          &lt;/filter&gt;
+        &lt;/filters&gt;
+        &lt;!-- ... additional configuration ... --&gt;
+      &lt;/configuration&gt;
+    &lt;/execution&gt;
+  &lt;/executions&gt;
+&lt;/plugin&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_definingakiemoduleprogrammatically"><a class="anchor" href="#_definingakiemoduleprogrammatically"></a>Defining a KieModule programmatically</h3>
+<div class="paragraph">
+<p>It is also possible to define the <code>KieBase</code>s and <code>KieSession</code>s belonging to a KieModule programmatically instead of the declarative definition in the kmodule.xml file.
+The same programmatic API also allows in explicitly adding the file containing the Kie artifacts instead of automatically read them from the resources folder of your project.
+To do that it is necessary to create a <code>KieFileSystem</code>, a sort of virtual file system, and add all the resources contained in your project to it.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/KIE/BuildDeployUtilizeAndRun/KieFileSystem.png" alt="KieFileSystem">
+</div>
+<div class="title">Figure 8. KieFileSystem</div>
+</div>
+<div class="paragraph">
+<p>Like all other Kie core components you can obtain an instance of the <code>KieFileSystem</code> from the <code>KieServices</code>.
+The kmodule.xml configuration file must be added to the filesystem.
+This is a mandatory step.
+Kie also provides a convenient fluent API, implemented by the <code>KieModuleModel</code>, to programmatically create this file.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/KIE/BuildDeployUtilizeAndRun/KieModuleModel.png" alt="KieModuleModel">
+</div>
+<div class="title">Figure 9. KieModuleModel</div>
+</div>
+<div class="paragraph">
+<p>To do this in practice it is necessary to create a <code>KieModuleModel</code> from the <code>KieServices</code>, configure it with the desired <code>KieBase</code>s and <code>KieSession</code>s, convert it in XML and add the XML to the <code>KieFileSystem</code>.
+This process is shown by the following example:</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 8. Creating a kmodule.xml programmatically and adding it to a KieFileSystem</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieServices kieServices = KieServices.Factory.get();
+KieModuleModel kieModuleModel = kieServices.newKieModuleModel();
+
+KieBaseModel kieBaseModel1 = kieModuleModel.newKieBaseModel( "KBase1 ")
+        .setDefault( true )
+        .setEqualsBehavior( EqualityBehaviorOption.EQUALITY )
+        .setEventProcessingMode( EventProcessingOption.STREAM );
+
+KieSessionModel ksessionModel1 = kieBaseModel1.newKieSessionModel( "KSession1" )
+        .setDefault( true )
+        .setType( KieSessionModel.KieSessionType.STATEFUL )
+        .setClockType( ClockTypeOption.get("realtime") );
+
+KieFileSystem kfs = kieServices.newKieFileSystem();
+kfs.writeKModuleXML(kieModuleModel.toXML());</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>At this point it is also necessary to add to the <code>KieFileSystem</code>, through its fluent API, all others Kie artifacts composing your project.
+These artifacts have to be added in the same position of a corresponding usual Maven project.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 9. Adding Kie artifacts to a KieFileSystem</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieFileSystem kfs = ...
+kfs.write( "src/main/resources/KBase1/ruleSet1.drl", stringContainingAValidDRL )
+        .write( "src/main/resources/dtable.xls",
+                kieServices.getResources().newInputStreamResource( dtableFileStream ) );</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>This example shows that it is possible to add the Kie artifacts both as plain Strings and as <code>Resource</code>s.
+In the latter case the <code>Resource</code>s can be created by the <code>KieResources</code> factory, also provided by the <code>KieServices</code>.
+The <code>KieResources</code> provides many convenient factory methods to convert an <code>InputStream</code>, a <code>File</code>, or a <code>String</code> representing a path of your file system to a <code>Resource</code> that can be managed by the <code>KieFileSystem</code>.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/KIE/BuildDeployUtilizeAndRun/KieResources.png" alt="KieResources">
+</div>
+<div class="title">Figure 10. KieResources</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>URLResource</code> is no longer available since Drools 8, to ensure a more reproducible knowledge base build (avoiding remote URLs) and for better security. If you used <code>URLResource</code> in the past, you can manage the local-fetch of the remote resource externally to your Drools application, so to limit Drools build concerns to local resources containing knowledge assets.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Normally the type of a <code>Resource</code> can be inferred from the extension of the name used to add it to the <code>KieFileSystem</code>.
+However it also possible to not follow the Kie conventions about file extensions and explicitly assign a specific <code>ResourceType</code> to a <code>Resource</code> as shown below:</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 10. Creating and adding a Resource with an explicit type</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieFileSystem kfs = ...
+kfs.write( "src/main/resources/myDrl.txt",
+           kieServices.getResources().newInputStreamResource( drlStream )
+                      .setResourceType(ResourceType.DRL) );</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Add all the resources to the <code>KieFileSystem</code> and build it by passing the <code>KieFileSystem</code> to a <code>KieBuilder</code></p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/KIE/BuildDeployUtilizeAndRun/KieBuilder.png" alt="KieBuilder">
+</div>
+<div class="title">Figure 11. KieBuilder</div>
+</div>
+<div class="paragraph">
+<p>When the contents of a <code>KieFileSystem</code> are successfully built, the resulting <code>KieModule</code> is automatically added to the <code>KieRepository</code>.
+The <code>KieRepository</code> is a singleton acting as a repository for all the available <code>KieModule</code>s.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/KIE/BuildDeployUtilizeAndRun/KieRepository.png" alt="KieRepository">
+</div>
+<div class="title">Figure 12. KieRepository</div>
+</div>
+<div class="paragraph">
+<p>After this it is possible to create through the <code>KieServices</code> a new <code>KieContainer</code> for that <code>KieModule</code> using its <code>ReleaseId</code>.
+However, since in this case the <code>KieFileSystem</code> doesn&#8217;t contain any pom.xml file (it is possible to add one using the <code>KieFileSystem.writePomXML</code> method), Kie cannot determine the <code>ReleaseId</code> of the <code>KieModule</code> and assign to it a default one.
+This default <code>ReleaseId</code> can be obtained from the <code>KieRepository</code> and used to identify the <code>KieModule</code> inside the <code>KieRepository</code> itself.
+The following example shows this whole process.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 11. Building the contents of a KieFileSystem and creating a KieContainer</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieServices kieServices = KieServices.Factory.get();
+KieFileSystem kfs = ...
+kieServices.newKieBuilder( kfs ).buildAll();
+KieContainer kieContainer = kieServices.newKieContainer(kieServices.getRepository().getDefaultReleaseId());</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>At this point it is possible to get <code>KieBase</code>s and create new <code>KieSession</code>s from this <code>KieContainer</code> exactly in the same way as in the case of a <code>KieContainer</code> created directly from the classpath.</p>
+</div>
+<div class="paragraph">
+<p>It is a best practice to check the compilation results.
+The <code>KieBuilder</code> reports compilation results of 3 different severities: ERROR, WARNING and INFO.
+An ERROR indicates that the compilation of the project failed and in the case no <code>KieModule</code> is produced and nothing is added to the <code>KieRepository</code>.
+WARNING and INFO results can be ignored, but are available for inspection.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 12. Checking that a compilation didn&#8217;t produce any error</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieBuilder kieBuilder = kieServices.newKieBuilder( kfs ).buildAll();
+assertEquals( 0, kieBuilder.getResults().getMessages( Message.Level.ERROR ).size() );</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_changingthedefaultbuildresultseverity"><a class="anchor" href="#_changingthedefaultbuildresultseverity"></a>Changing the Default Build Result Severity</h3>
+<div class="paragraph">
+<p>In some cases, it is possible to change the default severity of a type of build result.
+For instance, when a new rule with the same name of an existing rule is added to a package, the default behavior is to replace the old rule by the new rule and report it as an INFO.
+This is probably ideal for most use cases, but in some deployments the user might want to prevent the rule update and report it as an error.</p>
+</div>
+<div class="paragraph">
+<p>Changing the default severity for a result type, configured like any other option in Drools, can be done by API calls, system properties or configuration files.
+As of this version, Drools supports configurable result severity for rule updates and function updates.
+To configure it using system properties or configuration files, the user has to use the following properties:</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 13. Setting the severity using properties</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">// sets the severity of rule updates
+drools.kbuilder.severity.duplicateRule = &lt;INFO|WARNING|ERROR&gt;
+// sets the severity of function updates
+drools.kbuilder.severity.duplicateFunction = &lt;INFO|WARNING|ERROR&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_kiedeployingsection"><a class="anchor" href="#_kiedeployingsection"></a>Deploying</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_kiebase"><a class="anchor" href="#_kiebase"></a>KieBase</h3>
+<div class="paragraph">
+<p>The <code>KieBase</code> is a repository of all the application&#8217;s knowledge definitions.
+It will contain rules, processes, functions, and type models.
+The <code>KieBase</code> itself does not contain data; instead, sessions are created from the <code>KieBase</code> into which data can be inserted and from which process instances may be started.
+The <code>KieBase</code> can be obtained from the <code>KieContainer</code> containing the <code>KieModule</code> where the <code>KieBase</code> has been defined.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/KIE/BuildDeployUtilizeAndRun/KieBase.png" alt="KieBase">
+</div>
+<div class="title">Figure 13. KieBase</div>
+</div>
+<div class="paragraph">
+<p>When the <code>KieBase</code> needs to resolve types that are not in the default class loader, it will be necessary to create a <code>KieBaseConfiguration</code> with an additional class loader and pass it to <code>KieContainer</code> when creating a new <code>KieBase</code> from it.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 14. Creating a new KieBase with a custom ClassLoader</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieServices kieServices = KieServices.Factory.get();
+KieBaseConfiguration kbaseConf = kieServices.newKieBaseConfiguration( null, MyType.class.getClassLoader() );
+KieBase kbase = kieContainer.newKieBase( kbaseConf );</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_kiesessions_and_kiebase_modifications"><a class="anchor" href="#_kiesessions_and_kiebase_modifications"></a>KieSessions and KieBase Modifications</h3>
+<div class="paragraph">
+<p>KieSessions will be discussed in more detail in section "Running". The <code>KieBase</code> creates and returns <code>KieSession</code> objects, and it may optionally keep references to those.
+When <code>KieBase</code> modifications occur those modifications are applied against the data in the sessions.
+This reference is a weak reference and it is also optional, which is controlled by a boolean flag.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_kiescanner"><a class="anchor" href="#_kiescanner"></a>KieScanner</h3>
+<div class="paragraph">
+<p>The <code>KieScanner</code> allows continuous monitoring of your Maven repository to check whether a new release of a Kie project has been installed.
+A new release is deployed in the <code>KieContainer</code> wrapping that project.
+The use of the <code>KieScanner</code> requires kie-ci.jar to be on the classpath.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/KIE/BuildDeployUtilizeAndRun/KieScanner.png" alt="KieScanner">
+</div>
+<div class="title">Figure 14. KieScanner</div>
+</div>
+<div class="paragraph">
+<p>A <code>KieScanner</code> can be registered on a <code>KieContainer</code> as in the following example.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 15. Registering and starting a KieScanner on a KieContainer</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieServices kieServices = KieServices.Factory.get();
+ReleaseId releaseId = kieServices.newReleaseId( "org.acme", "myartifact", "1.0-SNAPSHOT" );
+KieContainer kContainer = kieServices.newKieContainer( releaseId );
+KieScanner kScanner = kieServices.newKieScanner( kContainer );
+
+// Start the KieScanner polling the Maven repository every 10 seconds
+kScanner.start( 10000L );</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example the <code>KieScanner</code> is configured to run with a fixed time interval, but it is also possible to run it on demand by invoking the <code>scanNow()</code> method on it.
+If the <code>KieScanner</code> finds, in the Maven repository, an updated version of the Kie project used by that <code>KieContainer</code> it automatically downloads the new version and triggers an incremental build of the new project.
+At this point, existing <code>KieBase</code>s and <code>KieSession</code>s under the control of <code>KieContainer</code> will get automatically upgraded with it - specifically, those <code>KieBase</code>s obtained with <code>getKieBase()</code> along with their related <code>KieSession</code>s, and any <code>KieSession</code> obtained directly with <code>KieContainer.newKieSession()</code> thus referencing the default <code>KieBase</code>.
+Additionally, from this moment on, all the new <code>KieBase</code>s and <code>KieSession</code>s created from that <code>KieContainer</code> will use the new project version.
+Please notice however any existing <code>KieBase</code> which was obtained via <code>newKieBase()</code> before the KieScanner upgrade, and any of its related <code>KieSession</code>s, will not get automatically upgraded; this is because <code>KieBase</code>s obtained via <code>newKieBase()</code> are not under the direct control of the <code>KieContainer</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>KieScanner</code> will only pickup changes to deployed jars if it is using a SNAPSHOT, version range, the LATEST, or the RELEASE setting.
+Fixed versions will not automatically update at runtime.</p>
+</div>
+<div class="paragraph">
+<p>In case you don&#8217;t want to install a maven repository, it is also possible to have a <code>KieScanner</code> that works
+by simply fetching update from a folder of a plain file system. You can create such a <code>KieScanner</code> as simply as</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieServices kieServices = KieServices.Factory.get();
+KieScanner kScanner = kieServices.newKieScanner( kContainer, "/myrepo/kjars" );</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>where "/myrepo/kjars" will be the folder where the <code>KieScanner</code> will look for kjar updates. The jar files placed in this folder
+have to follow the maven convention and then have to be a name in the form <code>{artifactId}-{versionId}.jar</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_maven_versions_and_dependencies"><a class="anchor" href="#_maven_versions_and_dependencies"></a>Maven Versions and Dependencies</h3>
+<div class="paragraph">
+<p>Maven supports a number of mechanisms to manage versioning and dependencies within applications.
+Modules can be published with specific version numbers, or they can use the SNAPSHOT suffix.
+Dependencies can specify version ranges to consume, or take advantage of SNAPSHOT mechanism.</p>
+</div>
+<div class="paragraph">
+<p>StackOverflow provides a very good description for this, which is reproduced below.</p>
+</div>
+<div class="paragraph">
+<p><a href="http://stackoverflow.com/questions/30571/how-do-i-tell-maven-to-use-the-latest-version-of-a-dependency">http://stackoverflow.com/questions/30571/how-do-i-tell-maven-to-use-the-latest-version-of-a-dependency</a></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Since Maven 3.x metaversions RELEASE and LATEST are no longer supported for the sake of reproducible builds.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>See the POM Syntax section of the Maven book for more details.</p>
+</div>
+<div class="paragraph">
+<p><a href="http://books.sonatype.com/mvnref-book/reference/pom-relationships-sect-pom-syntax.html">http://books.sonatype.com/mvnref-book/reference/pom-relationships-sect-pom-syntax.html </a></p>
+</div>
+<div class="paragraph">
+<p><a href="http://books.sonatype.com/mvnref-book/reference/pom-relationships-sect-project-dependencies.html" class="bare">http://books.sonatype.com/mvnref-book/reference/pom-relationships-sect-project-dependencies.html</a></p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s an example illustrating the various options.
+In the Maven repository, com.foo:my-foo has the following metadata:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;metadata&gt;
+  &lt;groupId&gt;com.foo&lt;/groupId&gt;
+  &lt;artifactId&gt;my-foo&lt;/artifactId&gt;
+  &lt;version&gt;2.0.0&lt;/version&gt;
+  &lt;versioning&gt;
+    &lt;release&gt;1.1.1&lt;/release&gt;
+    &lt;versions&gt;
+      &lt;version&gt;1.0&lt;/version&gt;
+      &lt;version&gt;1.0.1&lt;/version&gt;
+      &lt;version&gt;1.1&lt;/version&gt;
+      &lt;version&gt;1.1.1&lt;/version&gt;
+      &lt;version&gt;2.0.0&lt;/version&gt;
+    &lt;/versions&gt;
+    &lt;lastUpdated&gt;20090722140000&lt;/lastUpdated&gt;
+  &lt;/versioning&gt;
+&lt;/metadata&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If a dependency on that artifact is required, you have the following options (other version ranges can be specified of course, just showing the relevant ones here): Declare an exact version (will always resolve to 1.0.1):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">&lt;version&gt;[1.0.1]&lt;/version&gt;</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Declare an explicit version (will always resolve to 1.0.1 unless a collision occurs, when Maven will select a matching version):</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">&lt;version&gt;1.0.1&lt;/version&gt;</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Declare a version range for all 1.x (will currently resolve to 1.1.1):</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">&lt;version&gt;[1.0.0,2.0.0)&lt;/version&gt;</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Declare an open-ended version range (will resolve to 2.0.0):</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">&lt;version&gt;[1.0.0,)&lt;/version&gt;</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Declare the version as LATEST (will resolve to 2.0.0):</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">&lt;version&gt;LATEST&lt;/version&gt;</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Declare the version as RELEASE (will resolve to 1.1.1):</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">&lt;version&gt;RELEASE&lt;/version&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that by default your own deployments will update the "latest" entry in the Maven metadata, but to update the "release" entry, you need to activate the "release-profile" from the Maven super POM.
+You can do this with either "-Prelease-profile" or "-DperformRelease=true"</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_settings_xml_and_remote_repository_setup"><a class="anchor" href="#_settings_xml_and_remote_repository_setup"></a>Settings.xml and Remote Repository Setup</h3>
+<div class="paragraph">
+<p>The maven settings.xml is used to configure Maven execution.
+Detailed instructions can be found at the Maven website:</p>
+</div>
+<div class="paragraph">
+<p><a href="http://maven.apache.org/settings.html" class="bare">http://maven.apache.org/settings.html</a></p>
+</div>
+<div class="paragraph">
+<p>The settings.xml file can be located in 3 locations, the actual settings used is a merge of those 3 locations.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The Maven install: <code>$M2_HOME/conf/settings.xml</code></p>
+</li>
+<li>
+<p>A user&#8217;s install: <code>${user.home}/.m2/settings.xml</code></p>
+</li>
+<li>
+<p>Folder location specified by the system property <code>kie.maven.settings.custom</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The settings.xml is used to specify the location of remote repositories.
+It is important that you activate the profile that specifies the remote repository, typically this can be done using "activeByDefault":</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;profiles&gt;
+  &lt;profile&gt;
+    &lt;id&gt;profile-1&lt;/id&gt;
+    &lt;activation&gt;
+      &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
+    &lt;/activation&gt;
+    ...
+  &lt;/profile&gt;
+&lt;/profiles&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Maven provides detailed documentation on using multiple remote repositories:</p>
+</div>
+<div class="paragraph">
+<p><a href="http://maven.apache.org/guides/mini/guide-multiple-repositories.html" class="bare">http://maven.apache.org/guides/mini/guide-multiple-repositories.html</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_kierunningsection"><a class="anchor" href="#_kierunningsection"></a>Running</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_kiebase_2"><a class="anchor" href="#_kiebase_2"></a>KieBase</h3>
+<div class="paragraph">
+<p>The <code>KieBase</code> is a repository of all the application&#8217;s knowledge definitions.
+It will contain rules, processes, functions, and type models.
+The <code>KieBase</code> itself does not contain data; instead, sessions are created from the <code>KieBase</code> into which data can be inserted and from which process instances may be started.
+The <code>KieBase</code> can be obtained from the <code>KieContainer</code> containing the <code>KieModule</code> where the <code>KieBase</code> has been defined.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 16. Getting a KieBase from a KieContainer</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieBase kBase = kContainer.getKieBase();</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_kiesession"><a class="anchor" href="#_kiesession"></a>KieSession</h3>
+<div class="paragraph">
+<p>The <code>KieSession</code> stores and executes on the runtime data.
+It is created from the <code>KieBase</code>.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/KIE/BuildDeployUtilizeAndRun/KieSession.png" alt="KieSession">
+</div>
+<div class="title">Figure 15. KieSession</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 17. Create a KieSession from a KieBase</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieSession ksession = kbase.newKieSession();</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_kieruntime"><a class="anchor" href="#_kieruntime"></a>KieRuntime</h3>
+<div class="sect3">
+<h4 id="_kieruntime_2"><a class="anchor" href="#_kieruntime_2"></a>KieRuntime</h4>
+<div class="paragraph">
+<p>The <code>KieRuntime</code> provides methods that are applicable to both rules and processes, such as setting globals and registering channels.
+("Exit point" is an obsolete synonym for "channel".)</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/KIE/BuildDeployUtilizeAndRun/KieRuntime.png" alt="KieRuntime">
+</div>
+<div class="title">Figure 16. KieRuntime</div>
+</div>
+<div class="sect4">
+<h5 id="_globals"><a class="anchor" href="#_globals"></a>Globals</h5>
+<div class="paragraph">
+<p>Globals are named objects that are made visible to the Drools rule engine, but in a way that is fundamentally different from the one for facts: changes in the object backing a global do not trigger reevaluation of rules.
+Still, globals are useful for providing static information, as an object offering services that are used in the RHS of a rule, or as a means to return objects from the Drools rule engine.
+When you use a global on the LHS of a rule, make sure it is immutable, or, at least, don&#8217;t expect changes to have any effect on the behavior of your rules.</p>
+</div>
+<div class="paragraph">
+<p>A global must be declared in a rules file, and then it needs to be backed up with a Java object.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">global java.util.List list</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With the KIE base now aware of the global identifier and its type, it is now possible to call <code>ksession.setGlobal()</code> with the global&#8217;s name and an object, for any session, to associate the object with the global.
+Failure to declare the global type and identifier in DRL code will result in an exception being thrown from this call.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">List&lt;String&gt; list = new ArrayList&lt;&gt;();
+ksession.setGlobal("list", list);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Make sure to set any global before it is used in the evaluation of a rule.
+Failure to do so results in a <code>NullPointerException</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_event_model"><a class="anchor" href="#_event_model"></a>Event Model</h3>
+<div class="paragraph">
+<p>The event package provides means to be notified of Drools rule engine events, including rules firing, objects being asserted, etc.
+This allows separation of logging and auditing activities from the main part of your application (and the rules).</p>
+</div>
+<div class="paragraph">
+<p>The <code>KieRuntimeEventManager</code> interface is implemented by the <code>KieRuntime</code> which provides two interfaces, <code>RuleRuntimeEventManager</code> and <code>ProcessEventManager</code>.
+We will only cover the <code>RuleRuntimeEventManager</code> here.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/KIE/BuildDeployUtilizeAndRun/KieRuntimeEventManager.png" alt="KieRuntimeEventManager">
+</div>
+<div class="title">Figure 17. KieRuntimeEventManager</div>
+</div>
+<div class="paragraph">
+<p>The <code>RuleRuntimeEventManager</code> allows for listeners to be added and removed, so that events for the working memory and the agenda can be listened to.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/KIE/BuildDeployUtilizeAndRun/RuleRuntimeEventManager.png" alt="RuleRuntimeEventManager">
+</div>
+<div class="title">Figure 18. RuleRuntimeEventManager</div>
+</div>
+<div class="paragraph">
+<p>The following code snippet shows how a simple agenda listener is declared and attached to a session.
+It will print matches after they have fired.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 18. Adding an AgendaEventListener</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">ksession.addEventListener( new DefaultAgendaEventListener() {
+    public void afterMatchFired(AfterMatchFiredEvent event) {
+        super.afterMatchFired( event );
+        System.out.println( event );
+    }
+});</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Drools also provides <code>DebugRuleRuntimeEventListener</code> and <code>DebugAgendaEventListener</code> which implement each method with a debug print statement.
+To print all Working Memory events, you add a listener like this:</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 19. Adding a DebugRuleRuntimeEventListener</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">ksession.addEventListener( new DebugRuleRuntimeEventListener() );</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>All emitted events implement the <code>KieRuntimeEvent</code> interface which can be used to retrieve the actual <code>KnowlegeRuntime</code> the event originated from.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/KIE/BuildDeployUtilizeAndRun/KieRuntimeEvent.png" alt="KieRuntimeEvent">
+</div>
+<div class="title">Figure 19. KieRuntimeEvent</div>
+</div>
+<div class="paragraph">
+<p>The events currently supported are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>MatchCreatedEvent</p>
+</li>
+<li>
+<p>MatchCancelledEvent</p>
+</li>
+<li>
+<p>BeforeMatchFiredEvent</p>
+</li>
+<li>
+<p>AfterMatchFiredEvent</p>
+</li>
+<li>
+<p>AgendaGroupPushedEvent</p>
+</li>
+<li>
+<p>AgendaGroupPoppedEvent</p>
+</li>
+<li>
+<p>ObjectInsertEvent</p>
+</li>
+<li>
+<p>ObjectDeletedEvent</p>
+</li>
+<li>
+<p>ObjectUpdatedEvent</p>
+</li>
+<li>
+<p>ProcessCompletedEvent</p>
+</li>
+<li>
+<p>ProcessNodeLeftEvent</p>
+</li>
+<li>
+<p>ProcessNodeTriggeredEvent</p>
+</li>
+<li>
+<p>ProcessStartEvent</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_kieruntimelogger"><a class="anchor" href="#_kieruntimelogger"></a>KieRuntimeLogger</h3>
+<div class="paragraph">
+<p>The KieRuntimeLogger uses the comprehensive event system in Drools to create an audit log that can be used to log the execution of an application for later inspection, using tools such as the Eclipse audit viewer.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/KIE/BuildDeployUtilizeAndRun/KieLoggers.png" alt="KieLoggers">
+</div>
+<div class="title">Figure 20. KieLoggers</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 20. FileLogger</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieRuntimeLogger logger =
+  KieServices.Factory.get().getLoggers().newFileLogger(ksession, "logdir/mylogfile");
+...
+logger.close();</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_commands_and_the_commandexecutor"><a class="anchor" href="#_commands_and_the_commandexecutor"></a>Commands and the CommandExecutor</h3>
+<div class="paragraph">
+<p>KIE has the concept of stateful or stateless sessions.
+Stateful sessions have already been covered, which use the standard KieRuntime, and can be worked with iteratively over time.
+Stateless is a one-off execution of a KieRuntime with a provided data set.
+It may return some results, with the session being disposed at the end, prohibiting further iterative interactions.
+You can think of stateless as treating an engine like a function call with optional return results.</p>
+</div>
+<div class="paragraph">
+<p>The foundation for this is the <code>CommandExecutor</code> interface, which both the stateful and stateless interfaces extend.
+This returns an <code>ExecutionResults</code>:</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/KIE/BuildDeployUtilizeAndRun/CommandExecutor.png" alt="CommandExecutor">
+</div>
+<div class="title">Figure 21. CommandExecutor</div>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/KIE/BuildDeployUtilizeAndRun/ExecutionResults.png" alt="ExecutionResults">
+</div>
+<div class="title">Figure 22. ExecutionResults</div>
+</div>
+<div class="paragraph">
+<p>The <code>CommandExecutor</code> allows for commands to be executed on those sessions, the only difference being that the StatelessKieSession executes <code>fireAllRules()</code> at the end before disposing the session.
+The commands can be created using the <code>CommandExecutor</code> .The Javadocs provide the full list of the allowed commands using the <code>CommandExecutor</code>.</p>
+</div>
+<div class="paragraph">
+<p>setGlobal and getGlobal are two commands relevant to both Drools and jBPM.</p>
+</div>
+<div class="paragraph">
+<p>Set Global calls setGlobal underneath.
+The optional boolean indicates whether the command should return the global&#8217;s value as part of the <code>ExecutionResults</code>.
+If true it uses the same name as the global name.
+A String can be used instead of the boolean, if an alternative name is desired.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 21. Set Global Command</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">StatelessKieSession ksession = kbase.newStatelessKieSession();
+ExecutionResults bresults =
+    ksession.execute( CommandFactory.newSetGlobal( "stilton", new Cheese( "stilton" ), true);
+Cheese stilton = bresults.getValue( "stilton" );</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Allows an existing global to be returned.
+The second optional String argument allows for an alternative return name.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 22. Get Global Command</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">StatelessKieSession ksession = kbase.newStatelessKieSession();
+ExecutionResults bresults =
+    ksession.execute( CommandFactory.getGlobal( "stilton" );
+Cheese stilton = bresults.getValue( "stilton" );</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>All the previous examples execute single commands.
+The <code>BatchExecution</code> represents a composite command, created from a list of commands.
+It will iterate over the list and execute each command in turn.
+This means you can insert some objects, start a process, call fireAllRules and execute a query, all in a single <code>execute(&#8230;&#8203;)</code> call, which is quite powerful.</p>
+</div>
+<div class="paragraph">
+<p>The StatelessKieSession will execute <code>fireAllRules()</code> automatically at the end.
+However the keen-eyed reader probably has already noticed the <code>FireAllRules</code> command and wondered how that works with a StatelessKieSession.
+The <code>FireAllRules</code> command is allowed, and using it will disable the automatic execution at the end; think of using it as a sort of manual override function.</p>
+</div>
+<div class="paragraph">
+<p>Any command, in the batch, that has an out identifier set will add its results to the returned <code>ExecutionResults</code> instance.
+Let&#8217;s look at a simple example to see how this works.
+The example presented includes command from the Drools and jBPM, for the sake of illustration.
+They are covered in more detail in the Drool and jBPM specific sections.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 23. BatchExecution Command</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">StatelessKieSession ksession = kbase.newStatelessKieSession();
+
+List cmds = new ArrayList();
+cmds.add( CommandFactory.newInsertObject( new Cheese( "stilton", 1), "stilton") );
+cmds.add( CommandFactory.newStartProcess( "process cheeses" ) );
+cmds.add( CommandFactory.newQuery( "cheeses" ) );
+ExecutionResults bresults = ksession.execute( CommandFactory.newBatchExecution( cmds ) );
+Cheese stilton = ( Cheese ) bresults.getValue( "stilton" );
+QueryResults qresults = ( QueryResults ) bresults.getValue( "cheeses" );</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>In the previous example multiple commands are executed, two of which populate the <code>ExecutionResults</code>.
+The query command defaults to use the same identifier as the query name, but it can also be mapped to a different identifier.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_statelesskiesession"><a class="anchor" href="#_statelesskiesession"></a>StatelessKieSession</h3>
+<div class="paragraph">
+<p>The <code>StatelessKieSession</code> wraps the <code>KieSession</code>, instead of extending it.
+Its main focus is on the decision service type scenarios.
+It avoids the need to call <code>dispose()</code>.
+Stateless sessions do not support iterative insertions and the method call <code>fireAllRules()</code> from Java code; the act of calling <code>execute()</code> is a single-shot method that will internally instantiate a <code>KieSession</code>, add all the user data and execute user commands, call <code>fireAllRules()</code>, and then call <code>dispose()</code>.
+While the main way to work with this class is via the <code>BatchExecution</code> (a subinterface of <code>Command</code>) as supported by the <code>CommandExecutor</code> interface, two convenience methods are provided for when simple object insertion is all that&#8217;s required.
+The <code>CommandExecutor</code> and <code>BatchExecution</code> are talked about in detail in their own section.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/KIE/BuildDeployUtilizeAndRun/StatelessKieSession.png" alt="StatelessKieSession">
+</div>
+<div class="title">Figure 23. StatelessKieSession</div>
+</div>
+<div class="paragraph">
+<p>Our simple example shows a stateless session executing a given collection of Java objects using the convenience API.
+It will iterate the collection, inserting each element in turn.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 24. Simple StatelessKieSession execution with a Collection</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">StatelessKieSession ksession = kbase.newStatelessKieSession();
+ksession.execute( collection );</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>If this was done as a single Command it would be as follows:</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 25. Simple StatelessKieSession execution with InsertElements Command</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">ksession.execute( CommandFactory.newInsertElements( collection ) );</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>If you wanted to insert the collection itself, and the collection&#8217;s individual elements, then <code>CommandFactory.newInsert(collection)</code> would do the job.</p>
+</div>
+<div class="paragraph">
+<p>Methods of the <code>CommandFactory</code> create the supported commands, all of which can be marshalled using XStream and the <code>BatchExecutionHelper</code>. <code>BatchExecutionHelper</code> provides details on the XML format as well as how to use Drools Pipeline to automate the marshalling of <code>BatchExecution</code> and <code>ExecutionResults</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>StatelessKieSession</code> supports globals, scoped in a number of ways.
+We cover the non-command way first, as commands are scoped to a specific execution call.
+Globals can be resolved in three ways.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The StatelessKieSession method <code>getGlobals()</code> returns a Globals instance which provides access to the session&#8217;s globals. These are used for <em>all</em> execution calls. Exercise caution regarding mutable globals because execution calls can be executing simultaneously in different threads.</p>
+<div class="exampleblock">
+<div class="title">Example 26. Session scoped global</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">StatelessKieSession ksession = kbase.newStatelessKieSession();
+// Set a global hbnSession, that can be used for DB interactions in the rules.
+ksession.setGlobal( "hbnSession", hibernateSession );
+// Execute while being able to resolve the "hbnSession" identifier.
+ksession.execute( collection );</code></pre>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Using a delegate is another way of global resolution. Assigning a value to a global (with <code>setGlobal(String, Object)</code>) results in the value being stored in an internal collection mapping identifiers to values. Identifiers in this internal collection will have priority over any supplied delegate. Only if an identifier cannot be found in this internal collection, the delegate global (if any) will be used.</p>
+</li>
+<li>
+<p>The third way of resolving globals is to have execution scoped globals. Here, a <code>Command</code> to set a global is passed to the <code>CommandExecutor</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>CommandExecutor</code> interface also offers the ability to export data via "out" parameters.
+Inserted facts, globals and query results can all be returned.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 27. Out identifiers</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">// Set up a list of commands
+List cmds = new ArrayList();
+cmds.add( CommandFactory.newSetGlobal( "list1", new ArrayList(), true ) );
+cmds.add( CommandFactory.newInsert( new Person( "jon", 102 ), "person" ) );
+cmds.add( CommandFactory.newQuery( "Get People", "getPeople" ) );
+
+// Execute the list
+ExecutionResults results =
+  ksession.execute( CommandFactory.newBatchExecution( cmds ) );
+
+// Retrieve the ArrayList
+results.getValue( "list1" );
+// Retrieve the inserted Person fact
+results.getValue( "person" );
+// Retrieve the query as a QueryResults instance.
+results.getValue( "Get People" );</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_marshalling"><a class="anchor" href="#_marshalling"></a>Marshalling</h3>
+<div class="paragraph">
+<p>The <code>KieMarshallers</code> are used to marshal and unmarshal KieSessions.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/KIE/BuildDeployUtilizeAndRun/KieMarshallers.png" alt="KieMarshallers">
+</div>
+<div class="title">Figure 24. KieMarshallers</div>
+</div>
+<div class="paragraph">
+<p>An instance of the <code>KieMarshallers</code> can be retrieved from the <code>KieServices</code>.
+A simple example is shown below:</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 28. Simple Marshaller Example</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">// ksession is the KieSession
+// kbase is the KieBase
+ByteArrayOutputStream baos = new ByteArrayOutputStream();
+Marshaller marshaller = KieServices.Factory.get().getMarshallers().newMarshaller( kbase );
+marshaller.marshall( baos, ksession );
+baos.close();</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>However, with marshalling, you will need more flexibility when dealing with referenced user data.
+To achieve this use the <code>ObjectMarshallingStrategy</code> interface.
+Two implementations are provided, but users can implement their own.
+The two supplied strategies are <code>IdentityMarshallingStrategy</code> and <code>SerializeMarshallingStrategy</code>. <code>SerializeMarshallingStrategy</code> is the default, as shown in the example above, and it just calls the <code>Serializable</code> or <code>Externalizable</code> methods on a user instance. <code>IdentityMarshallingStrategy</code> creates an integer id for each user object and stores them in a Map, while the id is written to the stream.
+When unmarshalling it accesses the <code>IdentityMarshallingStrategy</code> map to retrieve the instance.
+This means that if you use the <code>IdentityMarshallingStrategy</code>, it is stateful for the life of the Marshaller instance and will create ids and keep references to all objects that it attempts to marshal.
+Below is the code to use an Identity Marshalling Strategy.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 29. IdentityMarshallingStrategy</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">ByteArrayOutputStream baos = new ByteArrayOutputStream();
+KieMarshallers kMarshallers = KieServices.Factory.get().getMarshallers()
+ObjectMarshallingStrategy oms = kMarshallers.newIdentityMarshallingStrategy()
+Marshaller marshaller =
+        kMarshallers.newMarshaller( kbase, new ObjectMarshallingStrategy[]{ oms } );
+marshaller.marshall( baos, ksession );
+baos.close();</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>In most cases, a single strategy is insufficient.
+For added flexibility, the <code>ObjectMarshallingStrategyAcceptor</code> interface can be used.
+This Marshaller has a chain of strategies, and while reading or writing a user object it iterates the strategies asking if they accept responsibility for marshalling the user object.
+One of the provided implementations is <code>ClassFilterAcceptor</code>.
+This allows strings and wild cards to be used to match class names.
+The default is "<strong>.</strong>", so in the previous example the Identity Marshalling Strategy is used which has a default "<strong>.</strong>" acceptor.</p>
+</div>
+<div class="paragraph">
+<p>Assuming that we want to serialize all classes except for one given package, where we will use identity lookup, we could do the following:</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 30. IdentityMarshallingStrategy with Acceptor</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">ByteArrayOutputStream baos = new ByteArrayOutputStream();
+KieMarshallers kMarshallers = KieServices.Factory.get().getMarshallers()
+ObjectMarshallingStrategyAcceptor identityAcceptor =
+        kMarshallers.newClassFilterAcceptor( new String[] { "org.domain.pkg1.*" } );
+ObjectMarshallingStrategy identityStrategy =
+        kMarshallers.newIdentityMarshallingStrategy( identityAcceptor );
+ObjectMarshallingStrategy sms = kMarshallers.newSerializeMarshallingStrategy();
+Marshaller marshaller =
+        kMarshallers.newMarshaller( kbase,
+                                    new ObjectMarshallingStrategy[]{ identityStrategy, sms } );
+marshaller.marshall( baos, ksession );
+baos.close();</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that the acceptance checking order is in the natural order of the supplied elements.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_persistence_and_transactions"><a class="anchor" href="#_persistence_and_transactions"></a>Persistence and Transactions</h3>
+<div class="paragraph">
+<p>Longterm out of the box persistence with Java Persistence API (JPA) is possible with Drools.
+It is necessary to have some implementation of the Java Transaction API (JTA) installed.
+For development purposes the Bitronix Transaction Manager is suggested, as it&#8217;s simple to set up and works embedded, but for production use JBoss Transactions is recommended.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 31. Simple example using transactions</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieServices kieServices = KieServices.Factory.get();
+Environment env = kieServices.newEnvironment();
+env.set( EnvironmentName.ENTITY_MANAGER_FACTORY,
+         Persistence.createEntityManagerFactory( "emf-name" ) );
+env.set( EnvironmentName.TRANSACTION_MANAGER,
+         TransactionManagerServices.getTransactionManager() );
+
+// KieSessionConfiguration may be null, and a default will be used
+KieSession ksession =
+        kieServices.getStoreServices().newKieSession( kbase, null, env );
+int sessionId = ksession.getId();
+
+UserTransaction ut =
+  (UserTransaction) new InitialContext().lookup( "java:comp/UserTransaction" );
+ut.begin();
+ksession.insert( data1 );
+ksession.insert( data2 );
+ksession.startProcess( "process1" );
+ut.commit();</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>To use a JPA, the Environment must be set with both the <code>EntityManagerFactory</code> and the <code>TransactionManager</code>.
+If rollback occurs the ksession state is also rolled back, hence it is possible to continue to use it after a rollback.
+To load a previously persisted KieSession you&#8217;ll need the id, as shown below:</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 32. Loading a KieSession</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieSession ksession =
+        kieServices.getStoreServices().loadKieSession( sessionId, kbase, null, env );</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>To enable persistence several classes must be added to your persistence.xml, as in the example below:</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 33. Configuring JPA</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;persistence-unit name="org.drools.persistence.jpa" transaction-type="JTA"&gt;
+   &lt;provider&gt;org.hibernate.ejb.HibernatePersistence&lt;/provider&gt;
+   &lt;jta-data-source&gt;jdbc/BitronixJTADataSource&lt;/jta-data-source&gt;
+   &lt;class&gt;org.drools.persistence.info.SessionInfo&lt;/class&gt;
+   &lt;class&gt;org.drools.persistence.info.WorkItemInfo&lt;/class&gt;
+   &lt;properties&gt;
+         &lt;property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/&gt;
+         &lt;property name="hibernate.max_fetch_depth" value="3"/&gt;
+         &lt;property name="hibernate.hbm2ddl.auto" value="update" /&gt;
+         &lt;property name="hibernate.show_sql" value="true" /&gt;
+         &lt;property name="hibernate.transaction.manager_lookup_class"
+                      value="org.hibernate.transaction.BTMTransactionManagerLookup" /&gt;
+   &lt;/properties&gt;
+&lt;/persistence-unit&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The jdbc JTA data source would have to be configured first.
+Bitronix provides a number of ways of doing this, and its documentation should be consulted for details.
+For a quick start, here is the programmatic approach:</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 34. Configuring JTA DataSource</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">PoolingDataSource fs = new PoolingDataSource();
+fs.setUniqueName( "jdbc/BitronixJTADataSource" );
+fs.setClassName( "org.h2.jdbcx.JdbcDataSource" );
+fs.setMaxPoolSize( 3 );
+fs.setAllowLocalTransactions( true );
+fs.getDriverProperties().put( "user", "sa" );
+fs.getDriverProperties().put( "password", "sasa" );
+fs.getDriverProperties().put( "URL", "jdbc:h2:mem:mydb" );
+fs.init();</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Bitronix also provides a simple embedded JNDI service, ideal for testing.
+To use it, add a jndi.properties file to your META-INF folder and add the following line to it:</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 35. JNDI properties</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">java.naming.factory.initial=bitronix.tm.jndi.BitronixInitialContextFactory</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_kieexamplessection"><a class="anchor" href="#_kieexamplessection"></a>Build, Deploy and Utilize Examples</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The best way to learn the new build system is by example.
+The source project "drools-examples-api" contains a number of examples, and can be found at GitHub:</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/apache/incubator-kie-drools/tree/main/drools-examples-api" class="bare">https://github.com/apache/incubator-kie-drools/tree/main/drools-examples-api</a></p>
+</div>
+<div class="paragraph">
+<p>Each example is described below, the order starts with the simplest (most of the options are defaulted) and working its way up to more complex use cases.</p>
+</div>
+<div class="paragraph">
+<p>The Deploy use cases shown below all involve <code>mvn install</code>.
+Remote deployment of JARs in Maven is well covered in Maven literature.
+Utilize refers to the initial act of loading the resources and providing access to the KIE runtimes.
+Whereas Run refers to the act of interacting with those runtimes.</p>
+</div>
+<div class="sect2">
+<h3 id="_default_kiesession"><a class="anchor" href="#_default_kiesession"></a>Default KieSession</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Project: default-kesession.</p>
+</li>
+<li>
+<p>Summary: Empty kmodule.xml KieModule on the classpath that includes all resources in a single default KieBase. The example shows the retrieval of the default KieSession from the classpath.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>An empty kmodule.xml will produce a single KieBase that includes all files found under resources path, be it DRL, BPMN2, XLS etc.
+That single KieBase is the default and also includes a single default KieSession.
+Default means they can be created without knowing their names.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 36. Author - kmodule.xml</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;kmodule xmlns="http://www.drools.org/xsd/kmodule"&gt; &lt;/kmodule&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 37. Build and Install - Maven</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">mvn install</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>ks.getKieClasspathContainer() returns the KieContainer that contains the KieBases deployed onto the environment classpath.
+kContainer.newKieSession() creates the default KieSession.
+Notice that you no longer need to look up the KieBase, in order to create the KieSession.
+The KieSession knows which KieBase it&#8217;s associated with, and use that, which in this case is the default KieBase.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 38. Utilize and Run - Java</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieServices ks = KieServices.Factory.get();
+KieContainer kContainer = ks.getKieClasspathContainer();
+
+KieSession kSession = kContainer.newKieSession();
+kSession.setGlobal("out", out);
+kSession.insert(new Message("Dave", "Hello, HAL. Do you read me, HAL?"));
+kSession.fireAllRules();</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_named_kiesession"><a class="anchor" href="#_named_kiesession"></a>Named KieSession</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Project: named-kiesession.</p>
+</li>
+<li>
+<p>Summary: kmodule.xml that has one named KieBase and one named KieSession. The examples shows the retrieval of the named KieSession from the classpath.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>kmodule.xml will produce a single named KieBase, 'kbase1' that includes all files found under resources path, be it DRL, BPMN2, XLS etc.
+KieSession 'ksession1' is associated with that KieBase and can be created by name.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 39. Author - kmodule.xml</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;kmodule xmlns="http://www.drools.org/xsd/kmodule"&gt;
+    &lt;kbase name="kbase1"&gt;
+        &lt;ksession name="ksession1"/&gt;
+    &lt;/kbase&gt;
+&lt;/kmodule&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 40. Build and Install - Maven</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">mvn install</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>ks.getKieClasspathContainer() returns the KieContainer that contains the KieBases deployed onto the environment classpath.
+This time the KieSession uses the name 'ksession1'. You do not need to lookup the KieBase first, as it knows which KieBase 'ksession1' is assocaited with.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 41. Utilize and Run - Java</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieServices ks = KieServices.Factory.get();
+KieContainer kContainer = ks.getKieClasspathContainer();
+
+KieSession kSession = kContainer.newKieSession("ksession1");
+kSession.setGlobal("out", out);
+kSession.insert(new Message("Dave", "Hello, HAL. Do you read me, HAL?"));
+kSession.fireAllRules();</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_kiebase_inheritance"><a class="anchor" href="#_kiebase_inheritance"></a>KieBase Inheritance</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Project: kiebase-inclusion.</p>
+</li>
+<li>
+<p>Summary: 'kmodule.xml' demonstrates that one KieBase can include the resources from another KieBase, from another KieModule. In this case it inherits the named KieBase from the 'name-kiesession' example. The included KieBase can be from the current KieModule or any other KieModule that is in the pom.xml dependency list.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>kmodule.xml will produce a single named KieBase, 'kbase2' that includes all files found under resources path, be it DRL, BPMN2, XLS etc.
+Further it will include all the resources found from the KieBase 'kbase1', due to the use of the 'includes' attribute.
+KieSession 'ksession2' is associated with that KieBase and can be created by name.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 42. Author - kmodule.xml</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;kbase name="kbase2" includes="kbase1"&gt;
+    &lt;ksession name="ksession2"/&gt;
+&lt;/kbase&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>This example requires that the previous example, 'named-kiesession', is built and installed to the local Maven repository first.
+Once installed it can be included as a dependency, using the standard Maven &lt;dependencies&gt; element.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 43. Author - pom.xml</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+  &lt;parent&gt;
+    &lt;groupId&gt;org.drools&lt;/groupId&gt;
+    &lt;artifactId&gt;drools-examples-api&lt;/artifactId&gt;
+    &lt;version&gt;6.0.0/version&gt;
+  &lt;/parent&gt;
+
+  &lt;artifactId&gt;kiebase-inclusion&lt;/artifactId&gt;
+  &lt;name&gt;Drools API examples - KieBase Inclusion&lt;/name&gt;
+
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.drools&lt;/groupId&gt;
+      &lt;artifactId&gt;drools-compiler&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.drools&lt;/groupId&gt;
+      &lt;artifactId&gt;named-kiesession&lt;/artifactId&gt;
+      &lt;version&gt;6.0.0&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+
+&lt;/project&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Once 'named-kiesession' is built and installed this example can be built and installed as normal.
+Again the act of installing, will force the unit tests to run, demonstrating the use case.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 44. Build and Install - Maven</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">mvn install</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>ks.getKieClasspathContainer() returns the KieContainer that contains the KieBases deployed onto the environment classpath.
+This time the KieSession uses the name 'ksession2'. You do not need to lookup the KieBase first, as it knows which KieBase 'ksession1' is assocaited with.
+Notice two rules fire this time, showing that KieBase 'kbase2' has included the resources from the dependency KieBase 'kbase1'.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 45. Utilize and Run - Java</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieServices ks = KieServices.Factory.get();
+KieContainer kContainer = ks.getKieClasspathContainer();
+KieSession kSession = kContainer.newKieSession("ksession2");
+kSession.setGlobal("out", out);
+
+kSession.insert(new Message("Dave", "Hello, HAL. Do you read me, HAL?"));
+kSession.fireAllRules();
+
+kSession.insert(new Message("Dave", "Open the pod bay doors, HAL."));
+kSession.fireAllRules();</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_multiple_kiebases"><a class="anchor" href="#_multiple_kiebases"></a>Multiple KieBases</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Project: 'multiple-kbases.</p>
+</li>
+<li>
+<p>Summary: Demonstrates that the 'kmodule.xml'  can contain any number of KieBase or KieSession declarations. Introduces the 'packages' attribute to select the folders for the resources to be included in the KieBase.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>kmodule.xml produces 6 different named KieBases.
+'kbase1' includes all resources from the KieModule.
+The other KieBases include resources from other selected folders, via the 'packages' attribute.
+Note the use of wildcard '*', to select this package and all packages below it.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 46. Author - kmodule.xml</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;kmodule xmlns="http://www.drools.org/xsd/kmodule"&gt;
+
+  &lt;kbase name="kbase1"&gt;
+    &lt;ksession name="ksession1"/&gt;
+  &lt;/kbase&gt;
+
+  &lt;kbase name="kbase2" packages="org.some.pkg"&gt;
+    &lt;ksession name="ksession2"/&gt;
+  &lt;/kbase&gt;
+
+  &lt;kbase name="kbase3" includes="kbase2" packages="org.some.pkg2"&gt;
+    &lt;ksession name="ksession3"/&gt;
+  &lt;/kbase&gt;
+
+  &lt;kbase name="kbase4" packages="org.some.pkg, org.other.pkg"&gt;
+    &lt;ksession name="ksession4"/&gt;
+  &lt;/kbase&gt;
+
+  &lt;kbase name="kbase5" packages="org.*"&gt;
+    &lt;ksession name="ksession5"/&gt;
+  &lt;/kbase&gt;
+
+  &lt;kbase name="kbase6" packages="org.some.*"&gt;
+    &lt;ksession name="ksession6"/&gt;
+  &lt;/kbase&gt;
+&lt;/kmodule&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 47. Build and Install - Maven</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">mvn install</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Only part of the example is included below, as there is a test method per KieSession, but each one is a repetition of the other, with different list expectations.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 48. Utilize and Run - Java</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
+public void testSimpleKieBase() {
+    List&lt;Integer&gt; list = useKieSession("ksession1");
+    // no packages imported means import everything
+    assertEquals(4, list.size());
+    assertTrue( list.containsAll( asList(0, 1, 2, 3) ) );
+}
+
+//.. other tests for ksession2 to ksession6 here
+
+private List&lt;Integer&gt; useKieSession(String name) {
+    KieServices ks = KieServices.Factory.get();
+    KieContainer kContainer = ks.getKieClasspathContainer();
+    KieSession kSession = kContainer.newKieSession(name);
+
+    List&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();
+    kSession.setGlobal("list", list);
+    kSession.insert(1);
+    kSession.fireAllRules();
+
+    return list;
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_kiecontainer_from_kierepository"><a class="anchor" href="#_kiecontainer_from_kierepository"></a>KieContainer from KieRepository</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Project: kcontainer-from-repository</p>
+</li>
+<li>
+<p>Summary: The project does not contain a kmodule.xml, nor does the pom.xml have any dependencies for other KieModules. Instead the Java code demonstrates the loading of a dynamic KieModule from a Maven repository.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The pom.xml must include kie-ci as a dependency, to ensure Maven is available at runtime.
+As this uses Maven under the hood you can also use the standard Maven settings.xml file.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 49. Author - pom.xml</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+  &lt;parent&gt;
+    &lt;groupId&gt;org.drools&lt;/groupId&gt;
+    &lt;artifactId&gt;drools-examples-api&lt;/artifactId&gt;
+    &lt;version&gt;6.0.0&lt;/version&gt;
+  &lt;/parent&gt;
+
+  &lt;artifactId&gt;kiecontainer-from-kierepo&lt;/artifactId&gt;
+  &lt;name&gt;Drools API examples - KieContainer from KieRepo&lt;/name&gt;
+
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.kie&lt;/groupId&gt;
+      &lt;artifactId&gt;kie-ci&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+
+&lt;/project&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 50. Build and Install - Maven</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">mvn install</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>In the previous examples the classpath KieContainer used.
+This example creates a dynamic KieContainer as specified by the  ReleaseId.
+The ReleaseId uses Maven conventions for group id, artifact id and version.
+It also obeys LATEST and SNAPSHOT for versions.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 51. Utilize and Run - Java</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieServices ks = KieServices.Factory.get();
+
+// Install example1 in the local Maven repo before to do this
+KieContainer kContainer = ks.newKieContainer(ks.newReleaseId("org.drools", "named-kiesession", "6.0.0-SNAPSHOT"));
+
+KieSession kSession = kContainer.newKieSession("ksession1");
+kSession.setGlobal("out", out);
+
+Object msg1 = createMessage(kContainer, "Dave", "Hello, HAL. Do you read me, HAL?");
+kSession.insert(msg1);
+kSession.fireAllRules();</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_default_kiesession_from_file"><a class="anchor" href="#_default_kiesession_from_file"></a>Default KieSession from File</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Project: default-kiesession-from-file</p>
+</li>
+<li>
+<p>Summary: Dynamic KieModules can also be loaded from any Resource location. The loaded KieModule provides default KieBase and KieSession definitions.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>No kmodue.xml file exists.
+The project 'default-kiesession' must be built first, so that the resulting JAR, in the target folder, can be referenced as a File.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 52. Build and Install - Maven</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">mvn install</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Any KieModule can be loaded from a Resource location and added to the KieRepository.
+Once deployed in the KieRepository it can be resolved via its ReleaseId.
+Note neither Maven or kie-ci are needed here.
+It will not set up a transitive dependency parent classloader.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 53. Utilize and Run - Java</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieServices ks = KieServices.Factory.get();
+KieRepository kr = ks.getRepository();
+
+KieModule kModule = kr.addKieModule(ks.getResources().newFileSystemResource(getFile("default-kiesession")));
+
+KieContainer kContainer = ks.newKieContainer(kModule.getReleaseId());
+
+KieSession kSession = kContainer.newKieSession();
+kSession.setGlobal("out", out);
+
+Object msg1 = createMessage(kContainer, "Dave", "Hello, HAL. Do you read me, HAL?");
+kSession.insert(msg1);
+kSession.fireAllRules();</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_named_kiesession_from_file"><a class="anchor" href="#_named_kiesession_from_file"></a>Named KieSession from File</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Project: named-kiesession-from-file</p>
+</li>
+<li>
+<p>Summary: Dynamic KieModules can also be loaded from any Resource location. The loaded KieModule provides named KieBase and KieSession definitions.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>No kmodue.xml file exists.
+The project 'named-kiesession' must be built first, so that the resulting JAR, in the target folder, can be referenced as a File.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 54. Build and Install - Maven</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">mvn install</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Any KieModule can be loaded from a Resource location and added to the KieRepository.
+Once in the KieRepository it can be resolved via its ReleaseId.
+Note neither Maven or kie-ci are needed here.
+It will not setup a transitive dependency parent classloader.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 55. Utilize and Run - Java</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieServices ks = KieServices.Factory.get();
+KieRepository kr = ks.getRepository();
+
+KieModule kModule = kr.addKieModule(ks.getResources().newFileSystemResource(getFile("named-kiesession")));
+
+KieContainer kContainer = ks.newKieContainer(kModule.getReleaseId());
+
+KieSession kSession = kContainer.newKieSession("ksession1");
+kSession.setGlobal("out", out);
+
+Object msg1 = createMessage(kContainer, "Dave", "Hello, HAL. Do you read me, HAL?");
+kSession.insert(msg1);
+kSession.fireAllRules();</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_kiemodule_with_dependent_kiemodule"><a class="anchor" href="#_kiemodule_with_dependent_kiemodule"></a>KieModule with Dependent KieModule</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Project: kie-module-form-multiple-files</p>
+</li>
+<li>
+<p>Summary: Programmatically provide the list of dependant KieModules, without using Maven to resolve anything.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>No kmodue.xml file exists.
+The projects 'named-kiesession' and 'kiebase-include' must be built first, so that the resulting JARs, in the target folders, can be referenced as Files.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 56. Build and Install - Maven</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">mvn install</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Creates two resources.
+One is for the main KieModule 'exRes1' the other is for the dependency 'exRes2'. Even though kie-ci is not present and thus Maven is not available to resolve the dependencies, this shows how you can manually specify the dependent KieModules, for the vararg.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 57. Utilize and Run - Java</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieServices ks = KieServices.Factory.get();
+KieRepository kr = ks.getRepository();
+
+Resource ex1Res = ks.getResources().newFileSystemResource(getFile("kiebase-inclusion"));
+Resource ex2Res = ks.getResources().newFileSystemResource(getFile("named-kiesession"));
+
+KieModule kModule = kr.addKieModule(ex1Res, ex2Res);
+KieContainer kContainer = ks.newKieContainer(kModule.getReleaseId());
+
+KieSession kSession = kContainer.newKieSession("ksession2");
+kSession.setGlobal("out", out);
+
+Object msg1 = createMessage(kContainer, "Dave", "Hello, HAL. Do you read me, HAL?");
+kSession.insert(msg1);
+kSession.fireAllRules();
+
+Object msg2 = createMessage(kContainer, "Dave", "Open the pod bay doors, HAL.");
+kSession.insert(msg2);
+kSession.fireAllRules();</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_programmatically_build_a_simple_kiemodule_with_defaults"><a class="anchor" href="#_programmatically_build_a_simple_kiemodule_with_defaults"></a>Programmatically build a Simple KieModule with Defaults</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Project: kiemoduelmodel-example</p>
+</li>
+<li>
+<p>Summary: Programmatically build a KieModule from just a single file. The POM and models are all defaulted. This is the quickest out of the box approach, but should not be added to a Maven repository.</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="title">Example 58. Build and Install - Maven</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">mvn install</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>This programmatically builds a KieModule.
+It populates the model that represents the ReleaseId and  kmodule.xml, and it adds the relevant resources.
+A pom.xml is generated from the ReleaseId.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 59. Utilize and Run - Java</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieServices ks = KieServices.Factory.get();
+KieRepository kr = ks.getRepository();
+KieFileSystem kfs = ks.newKieFileSystem();
+
+kfs.write("src/main/resources/org/kie/example5/HAL5.drl", getRule());
+
+KieBuilder kb = ks.newKieBuilder(kfs);
+
+kb.buildAll(); // kieModule is automatically deployed to KieRepository if successfully built.
+if (kb.getResults().hasMessages(Level.ERROR)) {
+    throw new RuntimeException("Build Errors:\n" + kb.getResults().toString());
+}
+
+KieContainer kContainer = ks.newKieContainer(kr.getDefaultReleaseId());
+
+KieSession kSession = kContainer.newKieSession();
+kSession.setGlobal("out", out);
+
+kSession.insert(new Message("Dave", "Hello, HAL. Do you read me, HAL?"));
+kSession.fireAllRules();</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_programmatically_build_a_kiemodule_using_meta_models"><a class="anchor" href="#_programmatically_build_a_kiemodule_using_meta_models"></a>Programmatically build a KieModule using Meta Models</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Project: kiemoduelmodel-example</p>
+</li>
+<li>
+<p>Summary: Programmatically build a KieModule, by creating its kmodule.xml meta model resources.</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="title">Example 60. Build and Install - Maven</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">mvn install</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>This programmatically builds a KieModule.
+It populates the model that represents the ReleaseId and  kmodule.xml, as well as add the relevant resources.
+A pom.xml is generated from the ReleaseId.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 61. Utilize and Run - Java</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieServices ks = KieServices.Factory.get();
+KieFileSystem kfs = ks.newKieFileSystem();
+
+Resource ex1Res = ks.getResources().newFileSystemResource(getFile("named-kiesession"));
+Resource ex2Res = ks.getResources().newFileSystemResource(getFile("kiebase-inclusion"));
+
+ReleaseId rid = ks.newReleaseId("org.drools", "kiemodulemodel-example", "6.0.0-SNAPSHOT");
+kfs.generateAndWritePomXML(rid);
+
+KieModuleModel kModuleModel = ks.newKieModuleModel();
+kModuleModel.newKieBaseModel("kiemodulemodel")
+            .addInclude("kiebase1")
+            .addInclude("kiebase2")
+            .newKieSessionModel("ksession6");
+
+kfs.writeKModuleXML(kModuleModel.toXML());
+kfs.write("src/main/resources/kiemodulemodel/HAL6.drl", getRule());
+
+KieBuilder kb = ks.newKieBuilder(kfs);
+kb.setDependencies(ex1Res, ex2Res);
+kb.buildAll(); // kieModule is automatically deployed to KieRepository if successfully built.
+if (kb.getResults().hasMessages(Level.ERROR)) {
+    throw new RuntimeException("Build Errors:\n" + kb.getResults().toString());
+}
+
+KieContainer kContainer = ks.newKieContainer(rid);
+
+KieSession kSession = kContainer.newKieSession("ksession6");
+kSession.setGlobal("out", out);
+
+Object msg1 = createMessage(kContainer, "Dave", "Hello, HAL. Do you read me, HAL?");
+kSession.insert(msg1);
+kSession.fireAllRules();
+
+Object msg2 = createMessage(kContainer, "Dave", "Open the pod bay doors, HAL.");
+kSession.insert(msg2);
+kSession.fireAllRules();
+
+Object msg3 = createMessage(kContainer, "Dave", "What's the problem?");
+kSession.insert(msg3);
+kSession.fireAllRules();</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="executable-model-con_packaging-deploying"><a class="anchor" href="#executable-model-con_packaging-deploying"></a>Executable rule models</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Rule assets in Drools are built from executable rule models by default with the standard <code>kie-maven-plugin</code> plugin. Executable rule models are embedded models that provide a Java-based representation of a rule set for execution at build time. The executable model is a more efficient alternative to the standard asset packaging in previous versions of Drools and enables KIE containers and KIE bases to be created more quickly, especially when you have large lists of DRL (Drools Rule Language) files and other Drools assets.</p>
+</div>
+<div class="paragraph">
+<p>If you do not use the <code>kie-maven-plugin</code> plugin or if the required <code>drools-model-compiler</code> dependency is missing from your project, then rule assets are built without executable models. Therefore, to generate the executable model during build time, ensure that the <code>kie-maven-plugin</code> plugin and <code>drools-model-compiler</code> dependency are added in your project <code>pom.xml</code> file.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Starting from Drools 8.33, if your project has <code>drools-engine</code> or <code>drools-ruleunits-engine</code> dependency, you don&#8217;t need to explicitly add <code>drools-model-compiler</code> to generate the executable model with <code>kie-maven-plugin</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Executable rule models provide the following specific advantages for your projects:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Compile time:</strong> Traditionally, a packaged Drools project (KJAR) contains a list of DRL files and other Drools artifacts that define the rule base together with some pre-generated classes implementing the constraints and the consequences. Those DRL files must be parsed and compiled when the KJAR is downloaded from the Maven repository and installed in a KIE container. This process can be slow, especially for large rule sets. With an executable model, you can package within the project KJAR the Java classes that implement the executable model of the project rule base and re-create the KIE container and its KIE bases out of it in a much faster way. In Maven projects, you use the <code>kie-maven-plugin</code> plugin to automatically generate the executable model sources from the DRL files during the compilation process.</p>
+</li>
+<li>
+<p><strong>Run time:</strong> In an executable model, all constraints are defined as Java lambda expressions. The same lambda expressions are also used for constraints evaluation, so you no longer need to use <code>mvel</code> expressions for interpreted evaluation nor the just-in-time (JIT) process to transform the <code>mvel</code>-based constraints into bytecode. This creates a quicker and more efficient run time.</p>
+</li>
+<li>
+<p><strong>Development time:</strong> An executable model enables you to develop and experiment with new features of the Drools rule engine without needing to encode elements directly in the DRL format or modify the DRL parser to support them.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For query definitions in executable rule models, you can use up to 10 arguments only.</p>
+</div>
+<div class="paragraph">
+<p>For variables within rule consequences in executable rule models, you can use up to 24 bound variables only (including the built-in <code>drools</code> variable). For example, the following rule consequence uses more than 24 bound variables and creates a compilation error:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">...
+then
+  $input.setNo25Count(functions.sumOf(new Object[]{$no1Count_1, $no2Count_1, $no3Count_1, ..., $no25Count_1}).intValue());
+  $input.getFirings().add("fired");
+  update($input);</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="executable-model-modify-proc_packaging-deploying"><a class="anchor" href="#executable-model-modify-proc_packaging-deploying"></a>Modifying or disabling executable rule models in a Drools project</h3>
+<div class="paragraph">
+<p>Rule assets in Drools are built from executable rule models by default with the standard <code>kie-maven-plugin</code> plugin. The executable model is a more efficient alternative to the standard asset packaging in previous versions of Drools. However, if needed, you can modify or disable executable rule models to build a Drools project as a DRL-based KJAR instead of the default model-based KJAR.</p>
+</div>
+<div class="paragraph">
+<div class="title">Procedure</div>
+<p>Build your Drools project in the usual way, but provide an alternate build option, depending on the type of project:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For a Maven project, navigate to your Maven project directory in a command terminal and run the following command:</p>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">mvn clean install -DgenerateModel=&lt;VALUE&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Replace <code>&lt;VALUE&gt;</code> with one of three values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>YES_WITHDRL</code>: (Default) Generates the executable model corresponding to the DRL files in the original project and also adds the DRL files to the generated KJAR for documentation purposes (the KIE base is built from the executable model regardless).</p>
+</li>
+<li>
+<p><code>YES</code>: Generates the executable model corresponding to the DRL files in the original project and excludes the DRL files from the generated KJAR.</p>
+</li>
+<li>
+<p><code>NO</code>: Does not generate the executable model.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example build command to disable the default executable model behavior:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">mvn clean install -DgenerateModel=NO</code></pre>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>For a Java application configured programmatically, the executable model is disabled by default. Add rule assets to the KIE virtual file system <code>KieFileSystem</code> and use <code>KieBuilder</code> with one of the following <code>buildAll()</code> methods:</p>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>buildAll()</code> (Default) or <code>buildAll(DrlProject.class)</code>: Does not generate the executable model.</p>
+</li>
+<li>
+<p><code>buildAll(ExecutableModelProject.class)</code>: Generates the executable model corresponding to the DRL files in the original project.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example code to enable executable model behavior:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import org.kie.api.KieServices;
+import org.kie.api.builder.KieFileSystem;
+import org.kie.api.builder.KieBuilder;
+
+  KieServices ks = KieServices.Factory.get();
+  KieFileSystem kfs = ks.newKieFileSystem()
+  kfs.write("src/main/resources/KBase1/ruleSet1.drl", stringContainingAValidDRL)
+  .write("src/main/resources/dtable.xls",
+    kieServices.getResources().newInputStreamResource(dtableFileStream));
+
+  KieBuilder kieBuilder = ks.newKieBuilder( kfs );
+  // Enable executable model
+  kieBuilder.buildAll(ExecutableModelProject.class)
+  assertEquals(0, kieBuilder.getResults().getMessages(Message.Level.ERROR).size());</code></pre>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="executable-model-upgrading-proc_packaging-deploying"><a class="anchor" href="#executable-model-upgrading-proc_packaging-deploying"></a>Enabling executable rule models when upgrading to Drools 7.39</h3>
+<div class="paragraph">
+<p>Beginning in Drools 7.39, rule assets are built from executable rule models by default with the standard <code>kie-maven-plugin</code> plugin. The executable model is a more efficient alternative to the standard asset packaging in previous versions of Drools.</p>
+</div>
+<div class="paragraph">
+<p>When you install Drools 7.39, this default executable model behavior is configured for all new projects that you create going forward. However, if you are upgrading to Drools 7.39 from a previous version of the product and you have not already enabled executable rule models, you must add the required dependency to your existing Drools projects so that your rule assets are built from executable models in Drools 7.39. If you do not use the <code>kie-maven-plugin</code> plugin or if the required <code>drools-model-compiler</code> dependency is missing from your project, then rule assets are built without executable models.</p>
+</div>
+<div class="paragraph">
+<p>For more information about executable rule models, see
+<a href="#executable-model-con_packaging-deploying">Executable rule models</a>.</p>
+</div>
+<div class="paragraph">
+<div class="title">Procedure</div>
+<p>In the <code>pom.xml</code> file of your Maven project or on the relevant class path of your Java project, add the following dependency to enable rule assets to be built from the default executable model:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+  &lt;groupId&gt;org.drools&lt;/groupId&gt;
+  &lt;artifactId&gt;drools-model-compiler&lt;/artifactId&gt;
+  &lt;version&gt;${drools.version}&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This dependency compiles the executable model into Drools internal data structures so that it can be executed by the Drools rule engine.</p>
+</div>
+<div class="paragraph">
+<p>The <code>&lt;version&gt;</code> is the Maven artifact version for Drools currently used in your project (for example, 10.0.0.Final).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="rule-unit-api_packaging-deploying"><a class="anchor" href="#rule-unit-api_packaging-deploying"></a>Rule Unit API</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Previous sections in this chapter explained traditional KIE APIs to use Drools rule engine. However, as introduced in <a href="../getting-started/index.html#first-rule-project_getting-started" class="xref page">First Rule Project</a>, Rule Unit is a new and recommended style for implementing rules since Drools 8.</p>
+</div>
+<div class="paragraph">
+<p>A rule unit is an atomic module defining a set of rules and a set of strongly typed <strong>data sources</strong> through which the facts processed by the rules are inserted. The <strong>data sources</strong> of 2 kinds: <code>DataStream</code> and <code>DataStore</code> which will be described later in this section.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/KIE/BuildDeployUtilizeAndRun/RuleUnit01.png" alt="RuleUnit01">
+</div>
+</div>
+<div class="paragraph">
+<p><code>DataSources</code> can be shared across different units, providing a coordination mechanism between them.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/KIE/BuildDeployUtilizeAndRun/RuleUnit02.png" alt="RuleUnit02">
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ruleunitdata"><a class="anchor" href="#_ruleunitdata"></a>RuleUnitData</h3>
+<div class="paragraph">
+<p><code>RuleUnitData</code> is an interface to define your Rule Unit. Rule unit implementation would be like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MeasurementUnit implements RuleUnitData {
+
+    private final DataStore&lt;Measurement&gt; measurements;
+    private final Set&lt;String&gt; controlSet = new HashSet&lt;&gt;();
+
+    public MeasurementUnit() {
+        this(DataSource.createStore());
+    }
+
+    public MeasurementUnit(DataStore&lt;Measurement&gt; measurements) {
+        this.measurements = measurements;
+    }
+
+    public DataStore&lt;Measurement&gt; getMeasurements() {
+        return measurements;
+    }
+
+    public Set&lt;String&gt; getControlSet() {
+        return controlSet;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this case, <code>Measurement</code> is your fact class, so you need to implement it as well.</p>
+</div>
+<div class="paragraph">
+<p>The name of the rule unit class <code>MeasurementUnit</code> is linked to DRL rules using the <code>unit</code> statement.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">package org.example;
+unit MeasurementUnit;
+
+rule "will execute per each Measurement having ID color"
+when
+  ....</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_data_sources"><a class="anchor" href="#_data_sources"></a>Data sources</h3>
+<div class="paragraph">
+<p>Data sources are typed sources of data that rule units can subscribe to for updates. You interact with the rule unit through the data sources it exposes.</p>
+</div>
+<div class="paragraph">
+<p>Drools supports the following types of data sources.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DataStream</code>: An append-only storage option. Use this storage option when you want to publish or share data values. You can use the notation <code>DataSource.createStream()</code> to return a <code>DataStream&lt;T&gt;</code> object and use the method <code>append(T)</code> to add more data.</p>
+<div class="listingblock">
+<div class="title">Example DataStream data source usage</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">DataStream&lt;Measurement&gt; measurements = DataSource.createStream();
+// Append value and notify all subscribers
+measurements.append(new Measurement("color", "red"));</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p><code>DataStore</code>: A writable storage option for adding or removing data and then notifying all subscribers that mutable data has been modified. Rules can pattern-match against incoming values and update or remove available values.
+For users familiar with traditional DRL syntax, this option is equivalent to a typed version of an entry point. In fact, a <code>DataStore&lt;Object&gt;</code> is equivalent to a traditional-style entry point.</p>
+<div class="listingblock">
+<div class="title">Example DataStore data source usage</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">DataStore&lt;Measurement&gt; measurements = DataSource.createStore();
+Measurement measurement = new Measurement("color", "red");
+// Add value and notify all subscribers
+DataHandle mHandle = measurements.add(measurement);
+measure.setValue("blue");
+// Notify all subscribers that the value referenced by `mHandle` has changed
+measurements.update(mHandle, measurement);
+// Remove value referenced by `mHandle` and notify all subscribers
+measurements.remove(mHandle);</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p><code>SingletonStore</code>: A writable storage option for setting or clearing a single element and then notifying all subscribers that the element has been modified. Rules can pattern-match against the value and update or clear available values.
+For users familiar with traditional DRL syntax, this option is similar to a global but reactive to changes. A <code>Singleton&lt;Object&gt;</code> is similar to a traditional-style global, except that when used in conjunction with rules, you can pattern-match against it.</p>
+<div class="listingblock">
+<div class="title">Example SingletonStore data source definition</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">SingletonStore&lt;Measurement&gt; measurement = DataSource.createSingleton();
+Measurement m1 = new Measurement("color", "red");
+// Add value `m1` and notify all subscribers
+measurement.set(m1);
+measure.setValue("blue");
+// Notify all subscribers that the value has changed
+measurement.update();
+
+Measurement m2 = new Measurement("color", "green");
+// Overwrite contained value with `m2` and notify all subscribers
+measurement.set(m2);
+measure2.setValue("black");
+// Notify all subscribers that the value has changed
+measurement.update();
+
+// Clear store and notify all subscribers
+measurement.clear();</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Subscribers to a data source are known as <em>data processors</em>. A data processor implements the <code>DataProcessor&lt;T&gt;</code> interface. This interface contains callbacks to all the events that a subscribed data source can trigger.</p>
+</div>
+<div class="listingblock">
+<div class="title">DataProcessor</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public interface DataProcessor&lt;T&gt; {
+    default void insert(T object) {
+        insert(null, object);
+    }
+    FactHandle insert(DataHandle handle, T object);
+    void update(DataHandle handle, T object);
+    void delete(DataHandle handle);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>DataHandle</code> is an internal reference to an object of a data source. Each callback method might or might not be invoked, depending on whether the corresponding data source implements the capability. For example, a <code>DataStream</code> source invokes only the <code>insert</code> callback, whereas a <code>SingletonStore</code> source invokes the <code>insert</code> callback on <code>set</code> and the <code>delete</code> callback on <code>clear</code> or before an overwriting <code>set</code>.</p>
+</div>
+<div class="paragraph">
+<p>Note that <code>DataProcessor</code> is a little internal detail. If you instantiate <code>RuleUnitInstance</code>, <code>EntryPointDataProcessor</code> is automatically bound to the rule unit&#8217;s data sources.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_client_code"><a class="anchor" href="#_client_code"></a>Client code</h3>
+<div class="paragraph">
+<p>Finally, you instantiate a <code>RuleUnitInstance</code> using <code>RuleUnitProvider</code> to execute the rules.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">    public void test() {
+        MeasurementUnit measurementUnit = new MeasurementUnit();
+
+        try (RuleUnitInstance&lt;MeasurementUnit&gt; instance = RuleUnitProvider.get().createRuleUnitInstance(measurementUnit)) {
+            measurementUnit.getMeasurements().add(new Measurement("color", "red"));
+            ...
+
+            List&lt;Measurement&gt; queryResult = instance.executeQuery("FindColor").stream().map(tuple -&gt; (Measurement) tuple.get("$m")).collect(toList());
+            ...
+        } // instance.close() is called automatically
+    }</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_configurations"><a class="anchor" href="#_configurations"></a>Configurations</h4>
+<div class="paragraph">
+<p>You can add configurations by creating <code>RuleUnitInstance</code> with <code>RuleConfig</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Configuring event listeners</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">        RuleConfig ruleConfig = RuleUnitProvider.get().newRuleConfig();
+        ruleConfig.getAgendaEventListeners().add(new MyAgendaEventListener());
+        ruleConfig.getRuleRuntimeListeners().add(new MyRuleRuntimeEventListener());
+        ruleConfig.getRuleEventListeners().add(new MyRuleEventListener());
+
+        HelloWorldUnit unit = new HelloWorldUnit();
+        RuleUnitInstance&lt;HelloWorldUnit&gt; unitInstance = RuleUnitProvider.get().createRuleUnitInstance(unit, ruleConfig);</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_declare_rule_units_in_drl"><a class="anchor" href="#_declare_rule_units_in_drl"></a>Declare rule units in DRL</h3>
+<div class="paragraph">
+<p>Instead of writing a Java class, you can declare rule units directly in DRL. See <a href="../language-reference/index.html#con-drl-rule-units_drl-rules" class="xref page">Rule units in DRL</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="rule-unit-dsl_packaging-deploying"><a class="anchor" href="#rule-unit-dsl_packaging-deploying"></a>Rule Unit DSL</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In addition to the standard Rule Unit API, Drools offers an alternative way of writing rules in combination with Rule Unit.
+You can now define the rules for Rule Units using a dedicated set of Java APIs.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+As an end-user, you can think of the Rule Unit DSL as an alternative to DRL, in order to define your rules with an internal DSL using Java.
+This can be helpful if you are authoring rules as a Drools end-user, but you are also proficient with Java:
+in that case, you now can define rules with DRL or Rule Unit DSL.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+The Rule Unit DSL is <em>not</em> intended to be used a way to code-generate executable model code, nor to produce DRL files.
+The goal of the Rule Unit DSL is to programmatically invoke the exec model methods (at runtime).
+As a developer using Drools for your application development
+(you do not write the rules yourself, you write the Java code to integrate Drools in your app development for your end-users)
+you may find helpful to leverage <em>programmatically</em> the Rule Unit DSL <em>only</em> for very dynamic use-cases,
+that is when the rule is only known at runtime, and compile-time performance optimizations are not needed.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s learn with comments on the example.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class HelloWorldUnit implements RuleUnitDefinition {
+
+    private final DataStore&lt;String&gt; strings; // DataStore where you add String fact
+    private final DataStore&lt;Integer&gt; ints; // DataStore where you add Integer fact
+    private final List&lt;String&gt; results = new ArrayList&lt;&gt;(); // Store results. In traditional DRL, it is called `global`
+
+    // omitting constructors and getters
+    // ...
+
+    @Override
+    public void defineRules(RulesFactory rulesFactory) {
+        // /strings[ this == "Hello World" ]
+        rulesFactory.rule()
+                    .on(strings)
+                    .filter(EQUAL, "Hello World") // when no extractor is provided "this" is implicit
+                    .execute(results, r -&gt; r.add("it worked!")); // the consequence can ignore the matched facts
+
+        // /strings[ length &gt; 5 ]
+        rulesFactory.rule()
+                    .on(strings) // since the datasource has been already initialized its class can be inferred without the need of explicitly passing it
+                    .filter(s -&gt; s.length(), GREATER_THAN, 5) // when no property name is provided it's impossible to generate indexes and property reactivity
+                    .execute(results, (r, s) -&gt; r.add("it also worked with " + s.toUpperCase())); // this consequence also uses the matched fact
+
+        // /strings[ length &lt; 5 ]
+        rulesFactory.rule("MyRule") // it is possible to optionally set a name for the rule
+                    .on(strings)
+                    .filter("length", s -&gt; s.length(), LESS_THAN, 5) // providing the name of the property used in the constraint allows index and property reactivity generation
+                    .execute(results, r -&gt; r.add("this shouldn't fire"));
+
+        // $s: /strings[ length &gt; 5 ]
+        // /ints[ this &gt; 5, this == $s.length ]
+        rulesFactory.rule()
+                    .on(strings)
+                    .filter("length", s -&gt; s.length() &gt; 5) // it is also possible to use a plain lambda predicate, but in this case no index can be generated
+                    .join(
+                          rule -&gt; rule.on(ints) // creates a new pattern ...
+                                      .filter(GREATER_THAN, 5) // ... add an alpha filter to it
+                    ) // ... and join it with the former one
+                    .filter(EQUAL, String::length) // this filter is applied to the result of the join, so it is a beta constraint
+                    .execute(results, (r, s, i) -&gt; r.add("String '" + s + "' is " + i + " characters long")); // the consequence captures all the joined variables positionally
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As you define rules using <code>defineRules</code> method, you can execute the rules, of course, without having to define them using DRL.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">    public void helloWorld() {
+        HelloWorldUnit unit = new HelloWorldUnit();
+        unit.getStrings().add("Hello World");
+
+        RuleUnitInstance&lt;HelloWorldUnit&gt; unitInstance = RuleUnitProvider.get().createRuleUnitInstance(unit);
+
+        assertThat(unitInstance.fire()).isEqualTo(2);
+        assertThat(unit.getResults()).containsExactlyInAnyOrder("it worked!", "it also worked with HELLO WORLD");
+
+        unit.getResults().clear();
+        unit.getInts().add(11);
+        assertThat(unitInstance.fire()).isEqualTo(1);
+        assertThat(unit.getResults()).containsExactly("String 'Hello World' is 11 characters long");
+
+        unitInstance.close();
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can find various test cases under <a href="https://github.com/apache/incubator-kie-drools/tree/main/drools-ruleunits/drools-ruleunits-dsl" class="bare">https://github.com/apache/incubator-kie-drools/tree/main/drools-ruleunits/drools-ruleunits-dsl</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="kie-scanner-proc_packaging-deploying"><a class="anchor" href="#kie-scanner-proc_packaging-deploying"></a>Using a KIE scanner to monitor and update KIE containers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The KIE scanner in Drools monitors your Maven repository for new <code>SNAPSHOT</code> versions of your Drools project and then deploys the latest version of the project to a specified KIE container. You can use a KIE scanner in a development environment to maintain your Drools project deployments more efficiently as new versions become available.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For production environments, do not use a KIE scanner with <code>SNAPSHOT</code> project versions to avoid accidental or unexpected project updates. The KIE scanner is intended for development environments that use <code>SNAPSHOT</code> project versions.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>The <code>kie-ci.jar</code> file is available on the class path of your Drools project.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>In the relevant <code>.java</code> class in your project, register and start the KIE scanner as shown in the following example code:</p>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="title">Registering and starting a KIE scanner for a KIE container</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import org.kie.api.KieServices;
+import org.kie.api.builder.ReleaseId;
+import org.kie.api.runtime.KieContainer;
+import org.kie.api.builder.KieScanner;
+
+...
+
+KieServices kieServices = KieServices.Factory.get();
+ReleaseId releaseId = kieServices
+  .newReleaseId("com.sample", "my-app", "1.0-SNAPSHOT");
+KieContainer kContainer = kieServices.newKieContainer(releaseId);
+KieScanner kScanner = kieServices.newKieScanner(kContainer);
+
+// Start KIE scanner for polling the Maven repository every 10 seconds (10000 ms)
+kScanner.start(10000L);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example, the KIE scanner is configured to run with a fixed time interval. The minimum KIE scanner polling interval is 1 millisecond (ms) and the maximum polling interval is the maximum value of the data type <code>long</code>. A polling interval of 0 or less results in a <code>java.lang.IllegalArgumentException: pollingInterval must be positive</code> error. You can also configure the KIE scanner to run on demand by invoking the <code>scanNow()</code> method.</p>
+</div>
+<div class="paragraph">
+<p>The project group ID, artifact ID, and version (GAV) settings in the example are defined as <code>com.sample:my-app:1.0-SNAPSHOT</code>. The project version must contain the <code>-SNAPSHOT</code> suffix to enable the KIE scanner to retrieve the latest build of the specified artifact version. If you change the snapshot project version number, such as increasing to <code>1.0.1-SNAPSHOT</code>, then you must also update the version in the GAV definition in your KIE scanner configuration. The KIE scanner does not retrieve updates for projects with static versions, such as <code>com.sample:my-app:1.0</code>.</p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>In the <code>settings.xml</code> file of your Maven repository, set the <code>updatePolicy</code> configuration to <code>always</code> to enable the KIE scanner to function properly:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;profile&gt;
+  &lt;id&gt;my-nexus-env&lt;/id&gt;
+  &lt;repositories&gt;
+    &lt;repository&gt;
+      &lt;id&gt;my-nexus&lt;/id&gt;
+      &lt;name&gt;My Nexus repository&lt;/name&gt;
+      &lt;url&gt;http://repository.example.org/nexus/content/groups/public/&lt;/url&gt;
+      &lt;layout&gt;default&lt;/layout&gt;
+      &lt;releases&gt;
+        &lt;enabled&gt;true&lt;/enabled&gt;
+        &lt;updatePolicy&gt;always&lt;/updatePolicy&gt;
+      &lt;/releases&gt;
+      &lt;snapshots&gt;
+        &lt;enabled&gt;true&lt;/enabled&gt;
+        &lt;updatePolicy&gt;always&lt;/updatePolicy&gt;
+      &lt;/snapshots&gt;
+    &lt;/repository&gt;
+  &lt;/repositories&gt;
+&lt;/profile&gt;</code></pre>
+</div>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>After the KIE scanner starts polling, if the KIE scanner detects an updated version of the <code>SNAPSHOT</code> project in the specified KIE container, the KIE scanner automatically downloads the new project version and triggers an incremental build of the new project. From that moment, all of the new <code>KieBase</code> and <code>KieSession</code> objects that were created from the KIE container use the new project version.</p>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<!--Licensed to the Apache Software Foundation (ASF) under one-->
+<!--or more contributor license agreements.  See the NOTICE file-->
+<!--distributed with this work for additional information-->
+<!--regarding copyright ownership.  The ASF licenses this file-->
+<!--to you under the Apache License, Version 2.0 (the-->
+<!--"License"); you may not use this file except in compliance-->
+<!--with the License.  You may obtain a copy of the License at-->
+
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--Unless required by applicable law or agreed to in writing,-->
+<!--software distributed under the License is distributed on an-->
+<!--"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY-->
+<!--KIND, either express or implied.  See the License for the-->
+<!--specific language governing permissions and limitations-->
+<!--under the License.-->
+
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>
