@@ -689,19 +689,8 @@
 <div class="listingblock">
 <div class="title">Install SonataFlow Operator on Kubernetes</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">kubectl create -f https://raw.githubusercontent.com/apache/incubator-kie-kogito-serverless-operator/main/operator.yaml</code></pre>
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">kubectl create -f https://raw.githubusercontent.com/apache/incubator-kie-tools/refs/heads/10.0.x/packages/sonataflow-operator/operator.yaml</code></pre>
 </div>
-</div>
-<div class="paragraph">
-<p>Replace <code>&lt;version&gt;</code> with specific version if needed:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">kubectl create -f https://raw.githubusercontent.com/apache/incubator-kie-kogito-serverless-operator/&lt;version&gt;/operator.yaml</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><code>&lt;version&gt;</code> could be <code>10.0.0</code> for instance.</p>
 </div>
 <div class="paragraph">
 <p>You can follow the deployment of the SonataFlow Operator:</p>
@@ -772,13 +761,13 @@ kubectl delete --all sonataflowplatform --all-namespaces</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">docker.io/apache/incubator-kie-sonataflow-operator:main</code></pre>
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">docker.io/apache/incubator-kie-sonataflow-operator:10.0.x</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Uninstalling the operator</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">kubectl delete -f https://raw.githubusercontent.com/apache/incubator-kie-kogito-serverless-operator/&lt;version&gt;/operator.yaml</code></pre>
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">kubectl delete -f https://raw.githubusercontent.com/apache/incubator-kie-tools/refs/heads/10.0.x/packages/sonataflow-operator/operator.yaml</code></pre>
 </div>
 </div>
 <div class="admonitionblock tip">
