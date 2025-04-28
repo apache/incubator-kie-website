@@ -67,6 +67,12 @@ const config: Config = {
         },
         {
           type: "docSidebar",
+          sidebarId: "componentsSidebar",
+          position: "right",
+          label: "Components",
+        },
+        {
+          type: "docSidebar",
           sidebarId: "examplesSidebar",
           position: "right",
           label: "Examples",
