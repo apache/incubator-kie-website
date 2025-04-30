@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkie_site=self.webpackChunkkie_site||[]).push([[7472],{5513:e=>{e.exports=JSON.parse('{"title":"All our posts","items":[{"title":"Apache KIE (Incubating) 10.0.0 Release Announcement","permalink":"/blog/kie_10_0_0_release","unlisted":false}]}')}}]);
