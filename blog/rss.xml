@@ -4,10 +4,68 @@
         <title>Apache KIE (incubating) Blog</title>
         <link>https://kie.apache.org/blog</link>
         <description>Apache KIE (incubating) Blog</description>
-        <lastBuildDate>Wed, 11 Dec 2024 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 10 Jul 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Apache KIE (Incubating) 10.1.0 Release Announcement]]></title>
+            <link>https://kie.apache.org/blog/kie_10_1_0_release</link>
+            <guid>https://kie.apache.org/blog/kie_10_1_0_release</guid>
+            <pubDate>Thu, 10 Jul 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[We are pleased to announce the release of Apache KIE (Incubating) 10.1.0, the first follow-up milestone since the project's rebirth under the Apache Software Foundation. This release reflects the project's continued momentum and commitment to modernization, usability, and stability across the KIE components: Drools, jBPM, OptaPlanner, Kogito, SonataFlow and Tools.]]></description>
+            <content:encoded><![CDATA[<p>We are pleased to announce the release of <strong>Apache KIE (Incubating) 10.1.0</strong>, the first follow-up milestone since the project's rebirth under the Apache Software Foundation. This release reflects the project's continued momentum and commitment to modernization, usability, and stability across the KIE components: Drools, jBPM, OptaPlanner, Kogito, SonataFlow and Tools.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="laying-groundwork-for-the-future">Laying Groundwork for the Future<a href="https://kie.apache.org/blog/kie_10_1_0_release#laying-groundwork-for-the-future" class="hash-link" aria-label="Direct link to Laying Groundwork for the Future" title="Direct link to Laying Groundwork for the Future">​</a></h2>
+<p>Following the foundational work in 10.0.0, this release introduces key upgrades and deprecations, improves compatibility, and continues efforts to simplify the developer and authoring experience. While not as sweeping as the prior release, 10.1.0 brings meaningful enhancements across the stack.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="platform-upgrades">Platform Upgrades<a href="https://kie.apache.org/blog/kie_10_1_0_release#platform-upgrades" class="hash-link" aria-label="Direct link to Platform Upgrades" title="Direct link to Platform Upgrades">​</a></h3>
+<ul>
+<li>Quarkus upgraded to version <code>3.15.3.1</code> (from 3.8.4)</li>
+<li>Spring Boot upgraded to version <code>3.4.3</code> (from 3.2.6)</li>
+</ul>
+<p>These updates align with our goal of keeping KIE technologies up-to-date with modern Java ecosystems.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="drools">Drools<a href="https://kie.apache.org/blog/kie_10_1_0_release#drools" class="hash-link" aria-label="Direct link to Drools" title="Direct link to Drools">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="advancing-rule-units">Advancing Rule Units<a href="https://kie.apache.org/blog/kie_10_1_0_release#advancing-rule-units" class="hash-link" aria-label="Direct link to Advancing Rule Units" title="Direct link to Advancing Rule Units">​</a></h4>
+<p>Rule Units remain targeted at greenfield projects and continue to evolve. These projects are better positioned to work around current limitations.</p>
+<p>While RuleUnits provide a strong foundation, there are critical gaps that must be addressed before they can be considered a complete replacement for classic DRL. Examples include ambiguity in OOPath syntax, limited support for Decision Tables, and a lack of comprehensive test coverage.</p>
+<p>Improvements are being investigated to simplify the use of OOPath in combination with accumulate and to improve the overall authoring experience.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="rule-orchestration--startprocess">Rule Orchestration / startProcess<a href="https://kie.apache.org/blog/kie_10_1_0_release#rule-orchestration--startprocess" class="hash-link" aria-label="Direct link to Rule Orchestration / startProcess" title="Direct link to Rule Orchestration / startProcess">​</a></h4>
+<p>The startProcess() API has been deprecated since version 8.x and should not be called from client code, as doing so will result in a RuntimeException. Although the method still exists due to internal dependencies and because it is part of a shared interface with jBPM, it is no longer functional and is expected to be removed in a future version.
+The recommended approach is to use the new code-generation-based process.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="dmn-15-support">DMN 1.5 Support<a href="https://kie.apache.org/blog/kie_10_1_0_release#dmn-15-support" class="hash-link" aria-label="Direct link to DMN 1.5 Support" title="Direct link to DMN 1.5 Support">​</a></h4>
+<p>Both the editor and engine now support the latest <strong>DMN 1.5</strong> specification.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="jbpm-and-kogito">jBPM and Kogito<a href="https://kie.apache.org/blog/kie_10_1_0_release#jbpm-and-kogito" class="hash-link" aria-label="Direct link to jBPM and Kogito" title="Direct link to jBPM and Kogito">​</a></h3>
+<ul>
+<li>Introduction of a new user task subsystem</li>
+<li>Support for transactions in compact architecture</li>
+<li>Infinispan usage is now deprecated and will be removed in the next version</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="sonataflow-operator-enhancements">SonataFlow Operator Enhancements<a href="https://kie.apache.org/blog/kie_10_1_0_release#sonataflow-operator-enhancements" class="hash-link" aria-label="Direct link to SonataFlow Operator Enhancements" title="Direct link to SonataFlow Operator Enhancements">​</a></h3>
+<ul>
+<li>Incorporates the ability to configure the SonataFlow workflows and supporting services databases using the SonataFlowPlatform.</li>
+<li>Incorporates the ability to initialize the supporting services databases using a dedicated Job, via configuration in the SonataFlowPlatForm.</li>
+<li>Incorporates the ability to produce all the events communications using the Knative Eventing System, via configuration in the SonataFlowPlatform.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="tooling-updates">Tooling Updates<a href="https://kie.apache.org/blog/kie_10_1_0_release#tooling-updates" class="hash-link" aria-label="Direct link to Tooling Updates" title="Direct link to Tooling Updates">​</a></h3>
+<ul>
+<li>A new Test Scenario Editor with full DMN 1.5 support is now available</li>
+<li>Classic DMN Editor and native binaries for Extended Services are both deprecated and will be removed in the next release</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="known-limitations">Known Limitations<a href="https://kie.apache.org/blog/kie_10_1_0_release#known-limitations" class="hash-link" aria-label="Direct link to Known Limitations" title="Direct link to Known Limitations">​</a></h2>
+<ul>
+<li>JIT runners are not working on <strong>Windows</strong> and <strong>macOS</strong></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="join-the-conversation">Join the Conversation<a href="https://kie.apache.org/blog/kie_10_1_0_release#join-the-conversation" class="hash-link" aria-label="Direct link to Join the Conversation" title="Direct link to Join the Conversation">​</a></h2>
+<p>Have questions or want to connect with the community? We encourage all users to join the official user mailing list:</p>
+<p><strong><a href="https://lists.apache.org/list.html?users@kie.apache.org" target="_blank" rel="noopener noreferrer">users@kie.apache.org</a></strong><br>
+<!-- -->This is the best place to ask for help, share feedback, or discuss how you are using Apache KIE in your projects.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="download">Download<a href="https://kie.apache.org/blog/kie_10_1_0_release#download" class="hash-link" aria-label="Direct link to Download" title="Direct link to Download">​</a></h2>
+<p>Apache KIE (Incubating) 10.1.0 is available now. Visit the <a href="https://kie.apache.org/docs/start/download">official download page</a> for the artifacts and to explore what's new.</p>
+<p>We welcome your feedback and contributions. Thank you for being part of this growing community.</p>]]></content:encoded>
+            <category>apache</category>
+            <category>10</category>
+            <category>kie</category>
+            <category>release</category>
+        </item>
         <item>
             <title><![CDATA[Apache KIE (Incubating) 10.0.0 Release Announcement]]></title>
             <link>https://kie.apache.org/blog/kie_10_0_0_release</link>
@@ -31,7 +89,7 @@
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="looking-ahead">Looking Ahead<a href="https://kie.apache.org/blog/kie_10_0_0_release#looking-ahead" class="hash-link" aria-label="Direct link to Looking Ahead" title="Direct link to Looking Ahead">​</a></h2>
 <p>With this release, we hope to return to a predictable release cadence. Our focus is now on leveraging the enhanced foundation to deliver new features, performance improvements, and continued community-driven innovation. The journey to Apache KIE 10.0.0 has been a labor of love, and we are grateful for the support and patience of our contributors and users.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="download">Download<a href="https://kie.apache.org/blog/kie_10_0_0_release#download" class="hash-link" aria-label="Direct link to Download" title="Direct link to Download">​</a></h2>
-<p>Apache KIE (Incubating) 10.0.0 is available now. Visit the <a href="https://kie.apache.org/docs/start/download">official download page</a> for the artifacts and to explore what's new.</p>
+<p>Apache KIE (Incubating) 10.0.0 is available now. Visit the <a href="https://kie.apache.org/docs/start/download_10_0_0">official download page</a> for the artifacts and to explore what's new.</p>
 <p>We welcome your feedback and contributions as we continue to build the future of Apache KIE (Incubating) together. Thank you for being part of this journey!</p>]]></content:encoded>
             <category>apache</category>
             <category>10</category>

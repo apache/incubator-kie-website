@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkkie_site=self.webpackChunkkie_site||[]).push([[7148],{4282:e=>{e.exports=JSON.parse('{"label":"10","permalink":"/blog/tags/10","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);
