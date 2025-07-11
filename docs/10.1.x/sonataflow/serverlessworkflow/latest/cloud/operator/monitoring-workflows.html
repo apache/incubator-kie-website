@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Monitoring Workflows :: SonataFlow Guides</title>
+    <meta name="description" content="Workflows monitoring configuration">
+    <meta name="keywords" content="kogito, sonataflow, workflow, operator, kubernetes, prometheus, grafana">
+    <meta name="generator" content="Antora 3.1.4">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="../../../../_/css/search.css">
+<link rel="stylesheet" href="../../../../_/css/menu.css">
+<link rel="stylesheet" href="../../../../_/css/tabs.css">
+<link rel="stylesheet" href="../../../../_/css/navbar.css">
+<link rel="stylesheet" href="../../../../_/css/custom.css">
+<link rel="stylesheet" href="../../../../_/css/home.css"><script>var uiRootPath = '../../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <div class="navbar-item">
+                <a href="../../../..">
+                    <img src="../../../../_/img/sonata-flow-color-justlogo-circle-white.png" height="50px" alt="SonataFlow logo"/>
+                </a>
+                <a class="navbar-item" href="../../../..">
+                    SonataFlow Guides
+                </a>
+            </div>
+                <div class="navbar-item search hide-for-print">
+                    <div id="search-field" class="field">
+                        <input id="search-input" type="text" placeholder="Search docs">
+                    </div>
+                </div>
+            <button class="navbar-burger" data-target="topbar-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <a class="navbar-item small-item" href="https://github.com/apache"
+                       target="_blank" title="Follow KIE on GitHub">
+                        <div class="github-icon"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="serverlessworkflow" data-version="10.1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">SonataFlow Guides</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../release_notes.html">Release notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Setup</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../getting-started/learning-environment.html">Learning environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../getting-started/preparing-environment.html">Environment setup</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../getting-started/production-environment.html">Production environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Getting Started</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../getting-started/getting-familiar-with-our-tooling.html">Getting familiar with SonataFlow tooling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../getting-started/introduction-sonataflow-development-guide.html">Introduction to SonataFlow development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../getting-started/java-embedded-workflows.html">Workflow embedded execution in Java</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Core Concepts</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/cncf-serverless-workflow-specification-support.html">Serverless Workflow Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/handling-events-on-workflows.html">Events</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/working-with-callbacks.html">Callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/understanding-jq-expressions.html">jq Expressions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/understanding-workflow-error-handling.html">Error handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/configuration-properties.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/defining-an-input-schema-for-workflows.html">Input Schema</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/custom-functions-support.html">Custom Functions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/timeouts-support.html">Timeouts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/working-with-parallelism.html">Parallelism</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Tooling</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tooling/serverless-workflow-editor/swf-editor-overview.html">Editor</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tooling/serverless-workflow-editor/swf-editor-vscode-extension.html">VS Code extension</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tooling/serverless-workflow-editor/swf-editor-chrome-extension.html">Chrome extension for GitHub</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../tooling/serverless-logic-web-tools/serverless-logic-web-tools-overview.html">Serverless Logic Web Tools</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../tooling/serverless-logic-web-tools/serverless-logic-web-tools-github-integration.html">Integration with GitHub</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../tooling/serverless-logic-web-tools/serverless-logic-web-tools-openshift-integration.html">Integration with OpenShift</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../tooling/serverless-logic-web-tools/serverless-logic-web-tools-redhat-application-services-integration.html">Integration with Service Registries</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../tooling/serverless-logic-web-tools/serverless-logic-web-tools-deploy-projects.html">Deployment</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../index.html">Cloud</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../custom-ingress-authz.html">Securing Workflows</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-sonataflow-management-console-on-kubernetes.html">Deploying Management Console on Kubernetes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Operator</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="install-serverless-operator.html">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="global-configuration.html">Admin Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="deployment-profile.html">Deployment Profiles</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="developing-workflows.html">Development Profile</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="building-custom-images.html">Building Custom Dev Images</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="build-and-deploy-workflows.html">Preview Profile</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="gitops-profile.html">GitOps Profile</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="configuring-workflows.html">Workflow Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="config-maven-quarkus.html">Maven and Quarkus Registry</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="referencing-resource-files.html">Referencing Workflow Resources</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="customize-podspec.html">Custom Workflow PodSpec</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="add-custom-ca-to-a-workflow-pod.html">Add Custom CA to Workflow Pod</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="workflow-status-conditions.html">Custom Resource Status</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="supporting-services.html">Deploy Supporting Services</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="service-discovery.html">Service Discovery</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="using-persistence.html">Workflow Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="configuring-workflow-eventing-system.html">Workflow Eventing System</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Monitoring</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="4">
+    <a class="nav-link" href="monitoring-workflows.html">Workflow Monitoring</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="sonataflow-metrics.html">Prometheus Metrics for Workflows</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="known-issues.html">Roadmap and Known Issues</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Service Orchestration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../service-orchestration/orchestration-of-openapi-based-services.html">OpenAPI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../service-orchestration/configuring-openapi-services-endpoints.html">Advanced Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../service-orchestration/working-with-openapi-callbacks.html">Callbacks</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../service-orchestration/troubleshooting.html">Troubleshooting</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Event Orchestration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../eventing/orchestration-of-asyncapi-based-services.html">AsyncAPI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../eventing/event-correlation-with-workflows.html">Event Correlation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Security</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Client Authentication</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../security/authention-support-for-openapi-services.html">OpenAPI Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../security/orchestrating-third-party-services-with-oauth2.html">OpenAPI OAuth2</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Executing, Testing and Troubleshooting</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../testing-and-troubleshooting/kn-plugin-workflow-overview.html">KN CLI Workflow plugin</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-overview.html">Developer UI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-workflow-instances-page.html">Workflow Instances</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-workflow-definition-page.html">Workflow Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-monitoring-page.html">Monitoring</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-custom-dashboard-page.html">Dashboards</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persistence/core-concepts.html">Core concepts</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Integrations</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integrations/core-concepts.html">Introduction</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Job Service</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../job-services/core-concepts.html">Core Concepts</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Data Index</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data-index/data-index-core-concepts.html">Core concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data-index/data-index-service.html">Standalone service</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Use Cases</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/index.html">SonataFlow applications development using Quarkus and Java</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Getting started</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/getting-started/create-your-first-workflow-service.html">Creating a Quarkus Workflow service</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/getting-started/create-your-first-workflow-project.html">Creating a Quarkus Workflow project</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/getting-started/build-workflow-image-with-quarkus-cli.html">Building workflow images using Quarkus CLI</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/getting-started/working-with-serverless-workflow-quarkus-examples.html">Working with SonataFlow example applications</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/getting-started/test-serverless-workflow-quarkus-examples.html">Testing images of SonataFlow example applications using Quarkus CLI</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Deployment</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/deployments/deploying-on-minikube.html">Deploying on Minikube</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/deployments/deploying-on-kubernetes.html">Deploying on Kubernetes</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/deployments/deploying-on-openshift.html">Deploying on OpenShift</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/persistence/persistence-core-concepts.html">Core Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/persistence/persistence-with-postgresql.html">Running a Quarkus Workflow Application using PostgreSQL</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/persistence/postgresql-advanced-concepts.html">Postgresql Advanced Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/persistence/postgresql-flyway-migration.html">PostgreSQL Database Migration</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/persistence/integration-tests-with-postgresql.html">SonataFlow integration test using PostgreSQL</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Job Service</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/job-service/quarkus-extensions.html">Job Service Quarkus Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Data Index</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/data-index/data-index-as-quarkus-dev-service.html">Data Index as a Quarkus Development service</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/data-index/data-index-usecase-singleton.html">Deploying Data Index and SonataFlow application on Minikube</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/data-index/data-index-usecase-multi.html">Deploying Data Index and multiple SonataFlow applications on Minikube</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/data-index/data-index-quarkus-extension.html">Data Index Quarkus extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Service Orchestration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/service-orchestration/configuring-openapi-services-endpoints-with-quarkus.html">Configuring the OpenAPI services endpoints in different environments</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/service-orchestration/orchestration-of-grpc-services.html">Orchestrating gRPC based Services</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Service Discovery</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/service-discovery/kubernetes-service-discovery.html">Service Discovery</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Event Orchestration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/event-orchestration/consume-produce-events-with-knative-eventing.html">Consuming and producing events on Knative Eventing in Quarkus</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/event-orchestration/consume-producing-events-with-kafka.html">Consuming and producing events using Apache Kafka in Quarkus</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/event-orchestration/orchestration-based-saga-pattern.html">Saga orchestration example in SonataFlow</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/event-orchestration/newsletter-subscription-example.html">Newsletter subscription example in SonataFlow</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Timeouts</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/timeouts/timeout-showcase-example.html">Timeouts Showcase in SonataFlow</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Callbacks</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/callbacks/callback-state-example.html">Example of SonataFlow application using callback state with Quarkus</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Integrations of external services</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/integrations/camel-routes-integration.html">Integrating with Camel routes</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/integrations/custom-functions-knative.html">Invoking Knative services from SonataFlow</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/integrations/custom-functions-python.html">Invoking Python from SonataFlow</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/integrations/expose-metrics-to-prometheus.html">Exposing Workflow base metrics to Prometheus</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/integrations/serverless-dashboard-with-runtime-data.html">Displaying Workflow Data in Dashboards</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Testing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/testing/basic-integration-tests-with-restassured.html">Testing your Quarkus Workflow Application using REST Assured</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/testing/mocking-http-cloudevents-with-wiremock.html">Mocking HTTP CloudEvents sink using WireMock</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/testing/mocking-openapi-services-with-wiremock.html">Mocking OpenAPI services using WireMock</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">SonataFlow Guides</span>
+    <span class="version">10.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">SonataFlow Guides</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10.1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">SonataFlow Guides</a></li>
+    <li><a href="../index.html">Cloud</a></li>
+    <li>Operator</li>
+    <li>Monitoring</li>
+    <li><a href="monitoring-workflows.html">Workflow Monitoring</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/apache/incubator-kie-kogito-docs/edit/10.1.x/serverlessworkflow/modules/ROOT/pages/cloud/operator/monitoring-workflows.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Monitoring Workflows</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This document describes how to deploy and configure Prometheus and Grafana components for monitoring of SonataFlow workflows.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Currently, only those SonataFlow workflows deployed as Kubernetes deployments have workflow related metrics exposed to Prometheus and are hence available for monitoring by Grafana Dashboards. Monitoring of SonataFlow workflows deployed as Knative services is not supported and such serverless workflows are not included in the Grafana Dashboards.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="deploy-monitoring"><a class="anchor" href="#deploy-monitoring"></a>Deploy Prometheus and Grafana</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_deploy_prometheus_and_grafana_on_openshift_container_platform"><a class="anchor" href="#_deploy_prometheus_and_grafana_on_openshift_container_platform"></a>Deploy Prometheus and Grafana on OpenShift Container Platform</h3>
+<div class="sect3">
+<h4 id="_deploy_prometheus"><a class="anchor" href="#_deploy_prometheus"></a>Deploy Prometheus</h4>
+<div class="paragraph">
+<p>OpenShift Container Platform includes a preconfigured, preinstalled, and self-updating monitoring stack that provides monitoring for core platform components. As such the Prometheus Operator is already installed on the cluster. To monitor SonataFlow workflows, you shall enable monitoring for user-defined projects. This is achieved by updating <code>cluster-monitoring-config</code> ConfigMap in the openshift-monitoring namespace. Create a new one if the ConfigMap does not exist.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">cat &lt;&lt; EOF | oc apply -f -
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cluster-monitoring-config
+  namespace: openshift-monitoring
+data:
+  config.yaml: |
+    enableUserWorkload: true
+EOF</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A new Prometheus server pod will be started and running in the namespace <code>openshift-user-workload-monitoring</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deploy_grafana"><a class="anchor" href="#_deploy_grafana"></a>Deploy Grafana</h4>
+<div class="sect4">
+<h5 id="_deploy_grafana_operator"><a class="anchor" href="#_deploy_grafana_operator"></a>Deploy Grafana Operator</h5>
+<div class="paragraph">
+<p>Create a namespace for the Grafana Operator to be installed in</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">oc new-project grafana-operator</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Deploy the Grafana Operator using command line. You can also deploy the operator through OperatorHub.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">cat &lt;&lt; EOF | oc create -f -
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  generateName: grafana-operator-
+  namespace: grafana-operator
+spec:
+  targetNamespaces:
+  - grafana-operator
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  generateName: grafana-operator-
+  namespace: grafana-operator
+spec:
+  channel: v5
+  name: grafana-operator
+  installPlanApproval: Automatic
+  source: community-operators
+  sourceNamespace: openshift-marketplace
+EOF</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wait for the Operator to be ready</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">oc -n grafana-operator rollout status \
+  deployment grafana-operator-controller-manager-v5</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_deploy_grafana_instance"><a class="anchor" href="#_deploy_grafana_instance"></a>Deploy Grafana Instance</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">cat &lt;&lt; EOF | oc create -f -
+apiVersion: grafana.integreatly.org/v1beta1
+kind: Grafana
+metadata:
+  name: grafana
+  labels:
+    dashboards: "grafana"
+spec:
+  config:
+    security:
+      admin_user: root
+      admin_password: secret
+EOF</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_give_the_grafana_service_account_the_cluster_monitoring_view_role"><a class="anchor" href="#_give_the_grafana_service_account_the_cluster_monitoring_view_role"></a>Give the Grafana service account the cluster-monitoring-view role</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">oc adm policy add-cluster-role-to-user cluster-monitoring-view -z grafana-sa</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_generate_a_bearer_token_for_the_grafana_service_account"><a class="anchor" href="#_generate_a_bearer_token_for_the_grafana_service_account"></a>Generate a bearer token for the grafana service account</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">TOKEN=`oc sa new-token grafana-sa`</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_deploy_the_prometheus_data_source"><a class="anchor" href="#_deploy_the_prometheus_data_source"></a>Deploy the Prometheus Data Source</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">cat &lt;&lt; EOF | oc create -f -
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDatasource
+metadata:
+  name: example-grafanadatasource
+spec:
+  datasource:
+    access: proxy
+    isDefault: true
+    type: prometheus
+    jsonData:
+      httpHeaderName1: 'Authorization'
+      timeInterval: 5s
+      tlsSkipVerify: true
+    secureJsonData:
+        httpHeaderValue1: 'Bearer ${TOKEN}'
+    name: Prometheus
+    url: https://thanos-querier.openshift-monitoring.svc.cluster.local:9091
+  instanceSelector:
+    matchLabels:
+      dashboards: grafana
+EOF</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wait until the Grafana server is ready.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">oc wait --for=condition=Available=True deployment/grafana-deployment</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_create_a_route_for_grafana_service"><a class="anchor" href="#_create_a_route_for_grafana_service"></a>Create a route for Grafana service</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">oc expose service grafana-service</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_get_the_url_for_grafana"><a class="anchor" href="#_get_the_url_for_grafana"></a>Get the URL for Grafana</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">oc get route grafana-service -o jsonpath='{"http://"}{.spec.host}{"\n"}'</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_open_grafana_dashboard_ui"><a class="anchor" href="#_open_grafana_dashboard_ui"></a>Open Grafana Dashboard UI</h5>
+<div class="paragraph">
+<p>Open Grafana Dashboard UI in your web browser with the URL found. Log in using with admin user name <code>root</code> and password <code>secret</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_deploy_prometheus_and_grafana_on_kubernetes"><a class="anchor" href="#_deploy_prometheus_and_grafana_on_kubernetes"></a>Deploy Prometheus and Grafana on Kubernetes</h3>
+<div class="sect3">
+<h4 id="_deploy_prometheus_2"><a class="anchor" href="#_deploy_prometheus_2"></a>Deploy Prometheus</h4>
+<div class="sect4">
+<h5 id="_deploy_prometheus_operator"><a class="anchor" href="#_deploy_prometheus_operator"></a>Deploy Prometheus Operator</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">PROMETHEUS_VERSION=v0.70.0
+kubectl create -f https://github.com/prometheus-operator/prometheus-operator/releases/download/${PROMETHEUS_VERSION}/bundle.yaml -n default</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wait until the operator is ready.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">kubectl wait  --for=condition=Available=True deploy/prometheus-operator -n default</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_deploy_prometheus_instance"><a class="anchor" href="#_deploy_prometheus_instance"></a>Deploy Prometheus Instance</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">cat &lt;&lt; EOF | kubectl create -n default -f -
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  name: prometheus
+spec:
+  serviceAccountName: prometheus
+  serviceMonitorNamespaceSelector: {}
+  serviceMonitorSelector: {}
+  podMonitorSelector: {}
+  resources:
+    requests:
+      memory: 400Mi
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: prometheus
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: prometheus
+rules:
+- apiGroups: [""]
+  resources:
+  - nodes
+  - nodes/metrics
+  - services
+  - endpoints
+  - pods
+  verbs: ["get", "list", "watch"]
+- apiGroups: [""]
+  resources:
+  - configmaps
+  verbs: ["get"]
+- apiGroups:
+  - networking.k8s.io
+  resources:
+  - ingresses
+  verbs: ["get", "list", "watch"]
+- nonResourceURLs: ["/metrics"]
+  verbs: ["get"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: prometheus
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: prometheus
+subjects:
+- kind: ServiceAccount
+  name: prometheus
+  namespace: default
+EOF</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wait until the Prometheus server is ready.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">kubectl apply -f ./test/testdata/prometheus.yaml -n default
+kubectl wait  --for=condition=Available=True prometheus/prometheus -n default</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deploy_grafana_2"><a class="anchor" href="#_deploy_grafana_2"></a>Deploy Grafana</h4>
+<div class="sect4">
+<h5 id="_deploy_grafana_operator_2"><a class="anchor" href="#_deploy_grafana_operator_2"></a>Deploy Grafana Operator</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">GRAFANA_VERSION=v5.13.0
+kubectl create -f https://github.com/grafana/grafana-operator/releases/download/${GRAFANA_VERSION}/kustomize-cluster_scoped.yaml</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wait until Grafana Operator is ready.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">kubectl wait  --for=condition=Available=True deploy/grafana-operator-controller-manager -n grafana</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_deploy_grafana_instance_2"><a class="anchor" href="#_deploy_grafana_instance_2"></a>Deploy Grafana Instance</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">cat &lt;&lt; EOF | kubectl create -n default -f -
+apiVersion: grafana.integreatly.org/v1beta1
+kind: Grafana
+metadata:
+  name: grafana
+  labels:
+    dashboards: "grafana"
+spec:
+  config:
+    security:
+      admin_user: root
+      admin_password: secret
+EOF</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_create_a_grafana_datasource_for_prometheus"><a class="anchor" href="#_create_a_grafana_datasource_for_prometheus"></a>Create a Grafana Datasource for Prometheus</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">cat &lt;&lt; EOF | kubectl create -n default -f -
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDatasource
+metadata:
+  name: example-grafanadatasource
+spec:
+  datasource:
+    access: proxy
+    type: prometheus
+    jsonData:
+      timeInterval: 5s
+      tlsSkipVerify: true
+    name: Prometheus
+    url: http://prometheus-operated.default.svc.cluster.local:9090
+  instanceSelector:
+    matchLabels:
+      dashboards: grafana
+EOF</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wait until the Grafana server is ready.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">kubectl wait --for=condition=Available=True deployment/grafana-deployment -n default</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_open_grafana_dashboard_ui_2"><a class="anchor" href="#_open_grafana_dashboard_ui_2"></a>Open Grafana Dashboard UI</h5>
+<div class="paragraph">
+<p>Now you can forward local port number <code>3000</code> to the Grafana service.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">kubectl port-forward svc/grafana-service -n default 3000:3000</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Open Grafana Dashboard UI in your web browser with the URL <code><a href="http://localhost:30000" class="bare">http://localhost:30000</a></code>. Log in using with admin user name <code>root</code> and passward <code>secret</code>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="workflow-monitoring"><a class="anchor" href="#workflow-monitoring"></a>Workflows Monitoring</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_enable_monitoring_in_sonataflowplatform_cr"><a class="anchor" href="#_enable_monitoring_in_sonataflowplatform_cr"></a>Enable monitoring in <code>SonataFlowPlatform</code> CR</h3>
+<div class="paragraph">
+<p>When <code>SonataFlowPlatform</code> CR has <code>spec.monitoring.enabled</code> set, and Prometheus has been deployed in the cluster, SonataFlow Operator will automatically create a service monitor for each workflow that is deployed as a Kubernetes Deployment object. The service monitor allows Prometheus to scrape the workflow related metrics from the workflow pod.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: sonataflow.org/v1alpha08
+kind: SonataFlowPlatform
+metadata:
+  name: sonataflow-platform
+spec:
+  monitoring:
+    enabled: true</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_test_data_source_connection"><a class="anchor" href="#_test_data_source_connection"></a>Test Data Source Connection</h3>
+<div class="paragraph">
+<p>In the Grafana UI, click <code>Connections</code> &#8594; <code>Data sources</code>, and open the data source. Then click <code>Save &amp; test</code> button to test the data source to make sure it can connect to the Prometheus server successfully.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/cloud/operator/monitoring/grafana-data-source-test.png" alt="grafana data source test">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_import_the_sample_dashboard"><a class="anchor" href="#_import_the_sample_dashboard"></a>Import the sample dashboard</h3>
+<div class="paragraph">
+<p>Click <code>+</code> &#8594; <code>Import dashboard</code>, copy the json model data for <a href="grafana-dashbord-example.html" class="xref page">the sample dashboard</a> and then paste the data in the <code>Import via dashboard JSON model</code> text box, and then click <code>Load</code>. The sample dashboard is loaded.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/cloud/operator/monitoring/grafana-dashboard-example.png" alt="grafana dashboard example">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_customize_or_build_your_own_dashboard"><a class="anchor" href="#_customize_or_build_your_own_dashboard"></a>Customize or build your own dashboard</h3>
+<div class="paragraph">
+<p>You can customize or build your own dashboard. For more information, see <a href="https://grafana.com/docs/grafana/latest/dashboards">Grafana Dashboards</a> and <a href="sonataflow-metrics.html" class="xref page">Prometheus Metrics for Workflows</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_additional_resources"><a class="anchor" href="#_additional_resources"></a>Additional resources</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="sonataflow-metrics.html" class="xref page">Prometheus Metrics for Workflows</a></p>
+</li>
+<li>
+<p><a href="https://grafana.com/docs/grafana/latest/dashboards">Grafana Dashboards</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_found_an_issue"><a class="anchor" href="#_found_an_issue"></a><em><strong>Found an issue?</strong></em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you find an issue or any misleading information, please feel free to report it <a href="https://github.com/apache/incubator-kie-kogito-docs/issues/new">here</a>.
+We really appreciate it!</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../../_/js/site.js"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/tabsBehavior.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="100" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+  </body>
+</html>

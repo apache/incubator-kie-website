@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Pragmatic AI: Integrating Machine Learning with Drools :: Drools Documentation</title>
+    <link rel="canonical" href="https://docs.drools.org/latest/drools-docs/drools/pragmatic-ai/index.html">
+    <meta name="generator" content="Antora 3.0.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<!--Licensed to the Apache Software Foundation (ASF) under one-->
+<!--or more contributor license agreements.  See the NOTICE file-->
+<!--distributed with this work for additional information-->
+<!--regarding copyright ownership.  The ASF licenses this file-->
+<!--to you under the Apache License, Version 2.0 (the-->
+<!--"License"); you may not use this file except in compliance-->
+<!--with the License.  You may obtain a copy of the License at-->
+
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--Unless required by applicable law or agreed to in writing,-->
+<!--software distributed under the License is distributed on an-->
+<!--"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY-->
+<!--KIND, either express or implied.  See the License for the-->
+<!--specific language governing permissions and limitations-->
+<!--under the License.-->
+
+<link rel="stylesheet" href="../../_/css/search.css">
+<link rel="stylesheet" href="../../_/css/menu.css">
+<link rel="stylesheet" href="../../_/css/drl.css">
+<!--Licensed to the Apache Software Foundation (ASF) under one-->
+<!--or more contributor license agreements.  See the NOTICE file-->
+<!--distributed with this work for additional information-->
+<!--regarding copyright ownership.  The ASF licenses this file-->
+<!--to you under the Apache License, Version 2.0 (the-->
+<!--"License"); you may not use this file except in compliance-->
+<!--with the License.  You may obtain a copy of the License at-->
+
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--Unless required by applicable law or agreed to in writing,-->
+<!--software distributed under the License is distributed on an-->
+<!--"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY-->
+<!--KIND, either express or implied.  See the License for the-->
+<!--specific language governing permissions and limitations-->
+<!--under the License.-->
+
+<script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<!--Licensed to the Apache Software Foundation (ASF) under one-->
+<!--or more contributor license agreements.  See the NOTICE file-->
+<!--distributed with this work for additional information-->
+<!--regarding copyright ownership.  The ASF licenses this file-->
+<!--to you under the Apache License, Version 2.0 (the-->
+<!--"License"); you may not use this file except in compliance-->
+<!--with the License.  You may obtain a copy of the License at-->
+
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--Unless required by applicable law or agreed to in writing,-->
+<!--software distributed under the License is distributed on an-->
+<!--"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY-->
+<!--KIND, either express or implied.  See the License for the-->
+<!--specific language governing permissions and limitations-->
+<!--under the License.-->
+
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="https://kie.apache.org/">
+          <img src="../../_/img/droolsExpertLogo.png" alt="Drools logo"/>
+        </a>
+        <a class="navbar-item" href="https://kie.apache.org/">
+          Drools Documentation
+        </a>
+      </div>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <a class="navbar-item small-item" href="https://github.com/apache/incubator-kie-drools" title="Follow Drools on GitHub"><div class="github-icon"></div></a>
+          <a class="navbar-item small-item" href="https://twitter.com/KieCommunity" target="_blank" title="Follow KIE Community on Twitter for more Drools tweets"><img alt="T" src="../../_/img/twitterLogo.png"></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="drools" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../introduction/index.html">Drools User Guide 10.1.0</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../introduction/index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../getting-started/index.html">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../KIE/index.html">Build, Deploy, Utilize and Run</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../rule-engine/index.html">Drools rule engine</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../language-reference/index.html">Rule Language Reference</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../language-reference-traditional/index.html">Rule Language Reference (Traditional)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../DMN/index.html">Decision Model and Notation (DMN)</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="index.html">Pragmatic AI: Integrating Machine Learning with Drools</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../Commands/index.html">Drools Commands</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration-guide/index.html">Migration Guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../experimental-features/index.html">Experimental features</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Drools User Guide 10.1.0</span>
+    <span class="version">default</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../introduction/index.html">Drools User Guide 10.1.0</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../introduction/index.html">default</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../introduction/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../introduction/index.html">Drools User Guide 10.1.0</a></li>
+    <li><a href="index.html">Pragmatic AI: Integrating Machine Learning with Drools</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Pragmatic AI: Integrating Machine Learning with Drools</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>As a business analyst or business rules developer, you can integrate Machine Learning (ML) with Drools by using PMML files with Decision Model and Notation (DMN) models.</p>
+</div>
+<div class="paragraph">
+<p>You can also integrate other Drools knowledge assets such as DRL with external Deep Learning (ML/DL) libraries. This section of the documentation is dedicated to highlight one pragmatic example, using DMN and PMML.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ai-con_pragmatic-ai"><a class="anchor" href="#ai-con_pragmatic-ai"></a>Introduction to Pragmatic AI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you think about Artificial Intelligence (AI), Machine Learning and big data might come to mind. But machine learning is only part of the picture. Artificial intelligence includes the following technologies:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Robotics: The integration of technology, science, and engineering that produces machines that can perform physical tasks that are performed by humans</p>
+</li>
+<li>
+<p>Machine learning: The ability of a collection of algorithms to learn or improve when exposed to data without being explicitly programmed to do so</p>
+</li>
+<li>
+<p>Natural language processing: A subset of machine learning that processes human speech</p>
+</li>
+<li>
+<p>Mathematical optimization: The use of conditions and constraints to find the optimal solution to a problem</p>
+</li>
+<li>
+<p>Digital decisioning: The use of defined criteria, conditions, and a series of machine and human tasks to make decisions</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/pragmatic-ai/123_RHPAM_Integrating_AI_1020_building-blocks.svg" alt="123 RHPAM Integrating AI 1020 building blocks"></span></p>
+</div>
+<div class="paragraph">
+<p>While science fiction is filled with what is referred to as artificial general intelligence (AGI), machines that perform better than people and cannot be distinguished from them and learn and evolve without human intervention or control, AGI is decades away. Meanwhile, we have pragmatic AI which is much less frightening and much more useful to us today. Pragmatic AI is a collection of AI technologies that, when combined, provide solutions to problems such as predicting customer behavior, providing automated customer service, and helping customers make purchasing decisions.</p>
+</div>
+<div class="paragraph">
+<p>Leading industry analysts report that previously organizations have struggled with AI technologies because they invested in the potential of AI rather than the reality of what AI can deliver today. AI projects were not productive and as a result investment in AI slowed and budgets for AI projects were reduced. This disillusionment with AI is often referred to as an AI winter. AI has experienced several cycles of AI winters followed by AI springs and we are now decidedly in an AI spring. Organizations are seeing the practical reality of what AI can deliver. Being pragmatic means being practical and realistic.  A pragmatic approach to AI considers AI technologies that are available today, combines them where useful, and adds human intervention when needed to create solutions to real-world problems.</p>
+</div>
+<div class="paragraph">
+<div class="title">Pragmatic AI solution example</div>
+<p>One application of pragmatic AI is in customer support. A customer files a support ticket that reports a problem, for example, a login error. A machine learning algorithm is applied to the ticket to match the ticket content with existing solutions, based on keywords or natural language processing (NLP). The keywords might appear in many solutions, some relevant and some not as relevant. You can use digital decisioning to determine which solutions to present to the customer. However, sometimes none of the solutions proposed by the algorithm are appropriate to propose to the customer. This can be because all solutions have a low confidence score or multiple solutions have a high confidence score. In cases where an appropriate solution cannot be found, the digital decisioning can involve the human support team. To find the best support person based on availability and expertise, mathematical optimization selects the best assignee for the support ticket by considering employee rostering constraints.</p>
+</div>
+<div class="paragraph">
+<p>As this example shows, you can combine machine learning to extract information from data analysis and digital decisioning to model human knowledge and experience. You can then apply mathematical optimization to schedule human assistance. This is a pattern that you can apply to other situations, for example, a credit card dispute and credit card fraud detection.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/pragmatic-ai/123_RHPAM_Integrating_AI_1020_equation.svg" alt="123 RHPAM Integrating AI 1020 equation"></span></p>
+</div>
+<div class="paragraph">
+<p>These technologies use four industry standards:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Case Management Model and Notation (CMMN)</p>
+<div class="paragraph">
+<p>CMMN is used to model work methods that include various activities that might be performed in an unpredictable order depending on circumstances. CMMN models are event centered. CMMN overcomes limitations of what can be modeled with BPMN2 by supporting less structured work tasks and tasks driven by humans. By combining BPMN and CMMN you can create much more powerful models.</p>
+</div>
+</li>
+<li>
+<p>Business Process Model and Notation (BPMN2)</p>
+<div class="paragraph">
+<p>The BPMN2 specification is an Object Management Group (OMG) specification that defines standards for graphically representing a business process, defines execution semantics for the elements, and provides process definitions in XML format. BPMN2 can model computer and human tasks.</p>
+</div>
+</li>
+<li>
+<p>Decision Model and Notation (DMN)</p>
+<div class="paragraph">
+<p>Decision Model and Notation (DMN) is a standard established by the OMG for describing and modeling operational decisions. DMN defines an XML schema that enables DMN models to be shared between DMN-compliant platforms and across organizations so that business analysts and business rules developers can collaborate in designing and implementing DMN decision services. The DMN standard is similar to and can be used together with the Business Process Model and Notation (BPMN) standard for designing and modeling business processes.</p>
+</div>
+</li>
+<li>
+<p>Predictive Model Markup Language (PMML)</p>
+<div class="paragraph">
+<p>PMML is the language used to represent predictive models, mathematical models that use statistical techniques to uncover, or learn, patterns in large volumes of data. Predictive models use the patterns that they learn to predict the existence of patterns in new data. With PMML, you can share predictive models between applications. This data is exported as a PMML file that can be consumed by a DMN model. As a machine learning framework continues to train the model, the updated data can be saved to the existing PMML file. This means that you can use predictive models created by any application that can save the model as a PMML file. Therefore, DMN and PMML integrate well.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Putting it all together</div>
+<p><span class="image"><img src="../_images/pragmatic-ai/123_RHPAM_Integrating_AI_1020_overview.svg" alt="123 RHPAM Integrating AI 1020 overview"></span></p>
+</div>
+<div class="paragraph">
+<p>This illustration shows how predictive decision automation works.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Business data enters the system, for example, data from a loan application.</p>
+</li>
+<li>
+<p>A decision model that is integrated with a predictive model decides whether or not to approve the loan or whether additional tasks are required.</p>
+</li>
+<li>
+<p>A business action results, for example, a rejection letter or loan offer is sent to the customer.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The next section demonstrates how predictive decision automation works with Drools.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ai-credit-card-con_pragmatic-ai"><a class="anchor" href="#ai-credit-card-con_pragmatic-ai"></a>Credit card fraud dispute use case example</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The financial industry uses pragmatic AI for decisioning in several areas. One area is credit card charge disputes. When a customer identifies an incorrect or unrecognized charge on a credit card bill, the customer can dispute the charge.  Human intervention in credit card fraud detection is required in some cases but the majority of reported credit card fraud can be completely or partially resolved with pragmatic AI.</p>
+</div>
+<div class="paragraph">
+<p>This use case example is about the fictitious Fortress Bank, the bank&#8217;s customer Joe, and the business process management (BPM) developer Michelle. First we will look at how the bank originally used AI through Drools digital decisioning and then we will see how Michelle enhanced the decision model with a Predictive Model Markup Language (PMML) model created from machine learning.</p>
+</div>
+<div class="paragraph">
+<p>Machine learning models such as Tensorflow™ and R™ produce predictive models. You can save these predictive models in an open standard such as PMML so that you can use the model with Drools or other products that support the PMML standard.</p>
+</div>
+<div class="paragraph">
+<div class="title">Drools and OpenShift</div>
+<p>Fortress Bank uses Drools on OpenShift to develop and run the Fortress Bank decision services. OpenShift is a cloud platform for developing and running containerized applications, on top of Kubernetes. It is designed to enable applications and the data centers that support them to expand from just a few machines and applications to thousands of machines that serve millions of clients. You can use Drools as a platform for creating cloud-native decision services, business automation applications and microservices. Drools, in this context, enables enterprise business and IT users to document, simulate, manage, automate, and monitor business processes and decisions.</p>
+</div>
+<div class="paragraph">
+<div class="title">Credit card dispute digital decisioning with Drools</div>
+<p>Joe is a Fortress Bank customer. Each month, he logs in to the Fortress Bank website to review all of the charges on his bill before he pays it. This month, Joe sees a transaction that he recognizes but the amount is incorrect. The vendor has charged him $44.50 instead of $4.50. Joe selects the row that contains the incorrect item and clicks <strong>Dispute</strong>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/pragmatic-ai/transaction-history.png" alt="transaction history"></span></p>
+</div>
+<div class="paragraph">
+<p>This action initiates a series of questions about the dispute:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Why are you disputing these transactions?</p>
+</li>
+<li>
+<p>Has your card been with you the entire time?</p>
+</li>
+<li>
+<p>Is there anything else you would like to tell us about this dispute?</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>After Joe answers the questions, the website provides Joe with an incident number, <code>FR-00000004</code>.</p>
+</div>
+<div class="paragraph">
+<p>Fortress Bank must now decide whether to reimburse the disputed amount without human investigation or whether to investigate the claim manually. Manual investigation requires more resources so automatic processing of the disputed amount costs the bank less in terms of human resources. However, if the bank automatically accepts all disputed amounts the cost will ultimately be greater to the bank because of money paid for fraudulent claims. Someone or something must make the decision whether or not to investigate.</p>
+</div>
+<div class="paragraph">
+<div class="title">Credit Card Dispute project</div>
+<p>To help with this decisioning, Fortress Bank created the <strong>CreditCardDisputeCase</strong> project that contains the <strong>fraudDispute</strong> business process that models the dispute process.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/pragmatic-ai/casefile.png" alt="casefile"></span></p>
+</div>
+<div class="paragraph">
+<div class="title">Process variables</div>
+<p>When Joe reported the dispute, an instance of the <strong>fraudDispute</strong> process was created with case ID <code>FR-00000004</code>.  The <strong>Process Variables</strong> tab contains several variables and values specific to Joe&#8217;s account, including <code>CaseID</code>, <code>caseFile_cardholderRiskRating</code> (the credit card holder risk rating), and <code>caseFile_disputeRiskRating</code> (the risk rating of this dispute):</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/pragmatic-ai/process-variables-3.png" alt="process variables 3"></span></p>
+</div>
+<div class="paragraph">
+<p>The table also has the <code>casefile_automated</code> variable with the value <code>true</code>. This indicates that the dispute met the criteria to be automatically processed.</p>
+</div>
+<div class="paragraph">
+<div class="title">Process diagram</div>
+<p>The <strong>Diagram</strong> tab contains the BPMN diagram that shows the decision paths that the bank uses when deciding whether to process a dispute automatically or manually:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/pragmatic-ai/bpmn.png" alt="bpmn"></span></p>
+</div>
+<div class="paragraph">
+<p>The <strong>Decision Task</strong> task contains the rules that determine whether the dispute will be automatically charged back to Joe&#8217;s account (<strong>Milestone 1</strong>) or whether more investigation is required (<strong>Milestone 2</strong>) based on the values of the <code>caseFile_cardholderRiskRating</code> and the <code>caseFile_disputeRiskRating</code> variables. If Joe&#8217;s dispute matches the criteria for automatic approval, <strong>Milestone 1</strong> is followed and the disputed amount is charged back to his account. This sub-process is very lean and efficient. If Joe&#8217;s dispute requires manual evaluation, the sub-process in <strong>Milestone 2</strong> is started, which will require some human actor involvement and will take more resources to process.</p>
+</div>
+<div class="paragraph">
+<p>In this case, the <strong>Decision Task</strong> task decided to process Joe&#8217;s dispute automatically so it followed <strong>Milestone 1: Automatic Chargeback</strong>.</p>
+</div>
+<div class="paragraph">
+<div class="title">DMN model</div>
+<p>The following simplified DMN model shows the decision process that is part of the <strong>fraudDispute</strong> <strong>Decision Task</strong> task:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/pragmatic-ai/simple-dmn.png" alt="simple dmn"></span></p>
+</div>
+<div class="paragraph">
+<p>The input variables are <strong>Age</strong> (cardholder age), <strong>Incident Count</strong> (the number of previous disputes for this cardholder), <strong>Cardholder Status</strong> (standard, silver, gold, platinum), and <strong>Fraud Amount</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Drools uses input variables in decision tables to support digital decisioning. The decision tables are created by human business analysts. The analyst creates a draft business requirement analysis document or spreadsheet that stakeholders review and approve. The project designer then uses the KIE DMN Editor to transfer the data in the analysis document to the DMN model. The Fortress Bank <strong>Credit Card Dispute</strong> process has two decision tables, the <strong>Cardholder Risk Rating</strong> table and the <strong>Dispute Risk Rating</strong> table. The <strong>Cardholder Risk Rating</strong> table contains three input variables:  <strong>Incident Count</strong>, <strong>Cardholder Status</strong>, and <strong>Age</strong>. The <strong>Dispute Risk Rating</strong> table contains the <strong>Cardholder Status</strong> input variable. The table calculates the risk of the dispute based on the cardholder status and the amount of the dispute.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/pragmatic-ai/riskrating.png" alt="riskrating"></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Cardholder Risk Rating</strong></p>
+<div class="paragraph">
+<p>Joe is a Silver cardholder over the age of 25. He has had more than two previous disputes, so he has a risk rating of 2. If Joe had no previous disputes, he would have a risk rating of 0.</p>
+</div>
+</li>
+<li>
+<p><strong>Dispute Risk Rating</strong></p>
+<div class="paragraph">
+<p>Because Joe is a Silver cardholder and the disputed amount is $40, Joe has a rating of 1 on the <strong>Dispute Risk Rating</strong> table. If the disputed amount was $140, Joe would have a risk rating of 2.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following formula, which is implemented as part of the <strong>Process Automatically</strong> final decision in the DMN model, uses the scores from the two decision tables to determine whether to automatically charge back the disputed amount (<strong>Milestone 1</strong>) or whether more investigation is needed (<strong>Milestone 2</strong>).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">(Cardholder Risk Rating + Dispute Risk Rating) &lt; 5</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If Joe&#8217;s overall risk score is less than five, his disputed amount is charged back automatically (<strong>Milestone 1</strong>). If the overall score is 5 or greater, then his dispute is processed manually (<strong>Milestone 2</strong>).</p>
+</div>
+<div class="paragraph">
+<div class="title">Adding machine learning to Drools digital decisioning</div>
+<p>Because Fortress Bank has historical data about its customers, including previous transaction and dispute history, the bank can use that data with machine learning to create predictive models that can be used in the DMN model decision tasks. This results in a more accurate assessment of the risk compared to the decision tables created by business analysts.</p>
+</div>
+<div class="paragraph">
+<p>Fortress Bank has two sets of PMML files that contain models which more accurately assess risk predictions. One set is based on the linear regression algorithm and the other is based on the random forests algorithm.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/pragmatic-ai/pmml-models.png" alt="pmml models"></span></p>
+</div>
+<div class="paragraph">
+<p>Linear regression is one of the most widely used algorithms in both statistics and machine learning. It uses a linear equation that combines a set of numeric input and output values. Random forests use many decision trees as inputs to create prediction models.</p>
+</div>
+<div class="paragraph">
+<div class="title">Adding PMML files</div>
+<p>Michelle imports the <strong>dispute_risk_linear_regression</strong> PMML file into her project. She adds the <strong>Cardholder Risk Model</strong> business model knowledge node to the DMN model and associates the <strong>dispute_risk_linear_regression</strong> PMML file with the node. Drools analyzes the PMML file and adds input parameters to the node. Michelle associates the <strong>Cardholder Risk Model</strong> node with the <strong>Dispute Risk Rating</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Michelle then adds the <strong>credit_card_holder_risk_linear_regression</strong> PMML model to the projects, creates the <strong>Dispute Risk Model</strong> mode DMN file, creates and associates the <strong>credit_card_holder_risk_linear_regression</strong> PMML file with the node. Drools analyzes the PMML file and adds input parameters to the node.</p>
+</div>
+<div class="paragraph">
+<p>The following image is Michelle&#8217;s completed DMN model, which replaces analytical decision tables with the predictive models from the PMML files:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/pragmatic-ai/DMN-PMML-2.png" alt="DMN PMML 2"></span></p>
+</div>
+<div class="paragraph">
+<p>Michelle now returns to the <strong>fraudDispute</strong> BPMN model and updates the model with the PMML files that she added. She then redeploys the project.</p>
+</div>
+<div class="paragraph">
+<div class="title">Increased score precision</div>
+<p>In this new scenario where Michelle has redeployed the Fortress Bank project with PMML models, we can see what happens when Joe logs in to his Fortress Bank account and reports the same transaction as incorrect. At this point, Michelle navigates to the <strong>Process Instances</strong> window and she sees Joe&#8217;s new dispute instance.
+In the <strong>Process Variables</strong> tab, Michelle reviews the values of <strong>cardHolderRiskRating</strong> and the <strong>disputeRiskRating</strong>. They have changed because the model is now using the PMML files. This provides a much more precise prediction of risk by making use of machine learning models based on historical data. At the same time, the policy of the bank is still enforced by the DMN decision model: the risk predictor is below a specified threshold which allows for this dispute to be processed automatically.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/pragmatic-ai/process-variables-pmml.png" alt="process variables pmml"></span></p>
+</div>
+<div class="paragraph">
+<div class="title">Monitoring</div>
+<p>Finally, Fortress Bank uses Prometheus to gather metrics about credit card disputes and Grafana to visualize those metrics in real time. The upper section of the monitor shows the business metrics key performance indicators (KPIs) and the lower section shows the operational metrics KPIs.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/pragmatic-ai/grafana.png" alt="grafana"></span></p>
+</div>
+<div class="sect2">
+<h3 id="ai-gsg_pragmatic-ai"><a class="anchor" href="#ai-gsg_pragmatic-ai"></a>Using a PMML model with a DMN model to resolve credit card transaction disputes</h3>
+<div class="paragraph">
+<p>This example shows you how to use Drools to create a DMN model that uses a PMML model to resolve credit card transaction disputes. When a customer disputes a credit card transaction, the system decides whether or not to process the transaction automatically.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>A PMML evaluation library such as the <code>kie-pmml-trusty</code> offered as part of Drools</p>
+</li>
+<li>
+<p>Alternatively, Drools may be integrated with third-party PMML libraries such as JPMML, requiring:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>kie-dmn-jpmml-10.1.0.jar</code></p>
+<div class="paragraph">
+<p>The group ID, artifact ID, and version (GAV) identifier of this file is <code>org.kie:kie-dmn-jpmml:10.1.0</code>. For more information, see <a href="#dmn-included-models-pmml-proc_dmn-models">[dmn-included-models-pmml-proc_dmn-models]</a>.</p>
+</div>
+</li>
+<li>
+<p><a href="https://mvnrepository.com/artifact/org.jpmml/pmml-evaluator/1.5.1">JPMML Evaluator 1.5.1 JAR file</a></p>
+</li>
+<li>
+<p><a href="https://mvnrepository.com/artifact/org.jpmml/pmml-evaluator-extension/1.5.1">JPMML Evaluator Extensions 1.5.1 JAR file</a></p>
+<div class="paragraph">
+<p>These files are required to enable JPMML evaluation.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+We provide these additional plug-in modules to support the integration with the Java Evaluator API for PMML (JPMML) for PMML execution in Drools. However, we <strong>do not</strong> support the JPMML libraries directly. If <strong>you</strong> include JPMML libraries in your Drools distribution, see the <a href="https://openscoring.io/">Openscoring.io</a> licensing terms for JPMML.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Create the <code>dtree_risk_predictor.pmml</code> file with the contents of the XML example in <a href="#ai-pmml-ref_pragmatic-ai">Credit card transaction dispute exercise PMML file</a>.</p>
+</li>
+<li>
+<p>Add the <code>dtree_risk_predictor.pmml</code> file into the <code>com</code> package in your KJAR project.</p>
+</li>
+<li>
+<p>Create the <strong>Dispute Transaction Check</strong> DMN model in <strong>com</strong> package in your KJAR project.</p>
+</li>
+<li>
+<p>Using the KIE DMN Editor, create the <strong>tTransaction</strong> custom data type:</p>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/pragmatic-ai/ttransactions.png" alt="ttransactions"></span></p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Click the <strong>Data Types</strong> tab.</p>
+</li>
+<li>
+<p>Click <strong>Add a custom Data Type</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Name</strong> box, enter <code>tTransaction</code>.</p>
+</li>
+<li>
+<p>Select <strong>Structure</strong> from the <strong>Type</strong> menu.</p>
+</li>
+<li>
+<p>To create the data type, click the check mark.</p>
+<div class="paragraph">
+<p>The <strong>tTransaction</strong> custom data type appears with one variable row.</p>
+</div>
+</li>
+<li>
+<p>In the <strong>Name</strong> field of the variable row, enter <code>transaction_amount</code>, select <strong>Number</strong> from the <strong>Type</strong> menu, and then click the check mark.</p>
+</li>
+<li>
+<p>To add a new variable row, click the plus symbol on the <code>transaction_amount</code> row. A new row appears.</p>
+</li>
+<li>
+<p>In the <strong>Name</strong> field, enter <code>cardholder_identifier</code>, select <strong>Number</strong> from the <strong>Type</strong> menu, and then click the check mark.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Add the <strong>Risk Predictor</strong> <code>dtree_risk_predictor.pmml</code> model:</p>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/pragmatic-ai/include-model.png" alt="include model"></span></p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>In the <strong>Included Models</strong> window of the DMN editor, click <strong>Include Model</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Include Model</strong> dialog, select <code>dtree_risk_predictor.pmml</code> from the <strong>Models</strong> menu.</p>
+</li>
+<li>
+<p>Enter <code>Risk Predictor</code> in the <strong>Provide a unique name</strong> box and click <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Create the <strong>Risk Predictor</strong> Business Knowledge Model (BKM) node with the <strong>Risk Predictor</strong> and <strong>DecisionTreeClassifier</strong> model:</p>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/pragmatic-ai/risk-predictor-function.png" alt="risk predictor function"></span></p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>In the <strong>Model</strong> window of the DMN editor, drag a BKM node to the DMN editor palette.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/pragmatic-ai/bkm.png" alt="bkm"></span></p>
+</div>
+</li>
+<li>
+<p>Rename the node <strong>Risk Predictor</strong>.</p>
+</li>
+<li>
+<p>Click the edit icon located below the trash can icon on the left side of the node.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/pragmatic-ai/risk-predictor-node.png" alt="risk predictor node"></span></p>
+</div>
+</li>
+<li>
+<p>Click <strong>F</strong> in the <strong>Risk Predictor</strong> box and select <strong>PMML</strong> from the <strong>Select Function Kind</strong> menu. The <strong>F</strong> changes to <strong>P</strong>.</p>
+</li>
+<li>
+<p>Double-click the <strong>First select PMML document</strong> box and select <strong>Risk Predictor</strong>.</p>
+</li>
+<li>
+<p>Double-click the <strong>Second select PMML model</strong> box and select <strong>DecisionTreeClassifier</strong>.</p>
+</li>
+<li>
+<p>To return to the DMN editor palette,  click <strong>Back to Dispute Transaction Check</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Create the <strong>Transaction</strong> input data node with the data type <strong>tTransaction</strong>:</p>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/pragmatic-ai/risk-transaction.png" alt="risk transaction"></span></p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>In the <strong>Model</strong> window of the DMN editor, drag an input data node to the DMN editor palette.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/pragmatic-ai/input-node.png" alt="input node"></span></p>
+</div>
+</li>
+<li>
+<p>Rename the node <strong>Transaction</strong>.</p>
+</li>
+<li>
+<p>Select the node then click the properties pencil icon in the upper-right corner of the window.</p>
+</li>
+<li>
+<p>In the <strong>Properties</strong> panel, select <strong>Information Item &#8594; Data type &#8594; tTransaction</strong> then close the panel.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Create the <strong>Transaction Dispute Risk</strong> decision node and add the <strong>Transaction</strong> node for data input and the <strong>Risk Predictor</strong> node for the function:</p>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/pragmatic-ai/model3.png" alt="model3"></span></p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>In the <strong>Model</strong> window of the DMN editor, drag a decision data node to the DMN editor palette.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/pragmatic-ai/decision-node.png" alt="decision node"></span></p>
+</div>
+</li>
+<li>
+<p>Rename the node <strong>Transaction Dispute Risk</strong>.</p>
+</li>
+<li>
+<p>Select the <strong>Risk Predictor</strong> node and drag the arrow from the top right of the node to the <strong>Transaction Dispute Risk</strong> node.</p>
+</li>
+<li>
+<p>Select the <strong>Transaction</strong> node and drag the arrow from the bottom right of the node to the <strong>Transaction Dispute Risk</strong> node.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>In the <strong>Transaction Dispute Risk</strong> node, create the <strong>Risk predictor</strong> invocation function:</p>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/pragmatic-ai/transaction-dispute-risk.png" alt="transaction dispute risk"></span></p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Select the <strong>Transaction Dispute Risk</strong> node and click the edit icon on the left side of the node.</p>
+</li>
+<li>
+<p>Click <strong>Select expression</strong> and select <strong>Invocation</strong> from the menu.</p>
+</li>
+<li>
+<p>Enter <strong>Risk Predictor</strong> in the <strong>Enter function</strong> box.</p>
+</li>
+<li>
+<p>Click <strong>P1</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Edit Parameter</strong> dialog, enter <code>amount</code> in the <strong>Name</strong> box, select <strong>number</strong> from the <strong>Data Type</strong> menu, and press the Enter key.</p>
+</li>
+<li>
+<p>Click <strong>Select expression</strong> and select <strong>Literal expression</strong> from the menu.</p>
+</li>
+<li>
+<p>Enter <code>Transaction.transaction_amount</code> in the box next to <strong>amount</strong>.</p>
+</li>
+<li>
+<p>Right-click on <strong>1</strong> and select <strong>Insert below</strong>. The <strong>Edit Parameter</strong> dialog opens.</p>
+</li>
+<li>
+<p>Enter <strong>holder_index</strong> in the <strong>Name</strong> box, select <strong>number</strong> from the <strong>Data Type</strong> menu, and press the Enter key.</p>
+</li>
+<li>
+<p>Click <strong>Select expression</strong> on row <strong>2</strong> and select <strong>Literal expression</strong> from the menu.</p>
+</li>
+<li>
+<p>Enter <code>Transaction.cardholder_identifier</code> in the box next to <strong>amount</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Create the <strong>Risk Threshold</strong> input data node with the data type <strong>number</strong>:</p>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/pragmatic-ai/model4.png" alt="model4"></span></p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>In the <strong>Model</strong> window of the DMN editor, drag an input data node to the DMN editor palette.</p>
+</li>
+<li>
+<p>Rename the node <strong>Risk Threshold</strong>.</p>
+</li>
+<li>
+<p>Select the node then click the properties pencil icon in the upper-right corner of the window.</p>
+</li>
+<li>
+<p>In the <strong>Properties</strong> panel, select <strong>Information Item &#8594; Data type &#8594; number</strong> then close the panel.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Create the <strong>Can be automatically processed?</strong> decision node that takes as inputs the <strong>Transaction Dispute Risk</strong> and the <strong>Risk threshold</strong> nodes:</p>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/pragmatic-ai/model5.png" alt="model5"></span></p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Drag a decision node to the DMN editor palette and rename it <strong>Can be automatically processed?</strong>.</p>
+</li>
+<li>
+<p>Select the node, then click the edit icon on the upper-left side of the node.</p>
+</li>
+<li>
+<p>Click <strong>Select expression</strong> and then select <strong>Literal expression</strong> from the menu.</p>
+</li>
+<li>
+<p>Enter <code>Transaction Dispute Risk.predicted_dispute_risk &lt; Risk Threshold</code> in the box.</p>
+</li>
+<li>
+<p>Select the <strong>Transaction Dispute Risk</strong> node and drag the arrow in the top left of the node to the <strong>Can be automatically processed?</strong> node.</p>
+</li>
+<li>
+<p>Select the <strong>Risk Threshold</strong> node and drag the arrow from the bottom left of the node to the <strong>Can be automatically processed?</strong> node.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Save the model and build the project:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>In the DMN editor, click <strong>Save</strong>.</p>
+</li>
+<li>
+<p>If necessary, correct any errors that appear.</p>
+</li>
+<li>
+<p>To return to the project window, click <strong>Credit Card Dispute</strong> in the breadcrumb trail.</p>
+</li>
+<li>
+<p>Click <strong>Build</strong>. The project should successfully build.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Add and run a test scenario:
+<span class="image"><img src="../_images/pragmatic-ai/AIScenarioSimulations.png" alt="AIScenarioSimulations"></span></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Create a <strong>Test Scenario</strong> file.</p>
+</li>
+<li>
+<p>In the <strong>Create new Test Scenario</strong> dialog, enter the name <code>Test Dispute Transaction Check</code>, select <strong>com</strong> from the <strong>Package</strong> menu, and select <strong>DMN</strong>.</p>
+</li>
+<li>
+<p>Select <strong>Dispute Transaction Check.dmn</strong> from the <strong>Choose a DMN asset</strong> menu and click <strong>OK</strong>. The test template builds.</p>
+</li>
+<li>
+<p>Enter the following values and click <strong>Save</strong>:</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Do not add a value to the <strong>Transaction Dispute Risk</strong> column. This value is determined by the test scenario.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Test scenario parameters</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 13%;">
+<col style="width: 24%;">
+<col style="width: 24%;">
+<col style="width: 19%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Risk Threshold</strong></th>
+<th class="tableblock halign-left valign-top"><strong>cardholder_identifier</strong></th>
+<th class="tableblock halign-left valign-top"><strong>transaction_amount</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Can be automatically processed?</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Risk threshold 5, automatically processed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1234</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Risk threshold 4, amount = 1000, not processed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1234</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Risk threshold 4, amount = 180, automatically processed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1234</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">180</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Risk threshold 1, amount = 1, not processed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1234</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>To run the test, click the <strong>Play</strong> button in your IDE. The results appear in the <strong>Test Report</strong> panel on the right of the screen.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ai-pmml-ref_pragmatic-ai"><a class="anchor" href="#ai-pmml-ref_pragmatic-ai"></a>Credit card transaction dispute exercise PMML file</h3>
+<div class="paragraph">
+<p>Use the following XML content to create the <code>dtree_risk_predictor.pmml</code> file in the <a href="#ai-gsg_pragmatic-ai">Using a PMML model with a DMN model to resolve credit card transaction disputes</a> exercise.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;PMML xmlns="http://www.dmg.org/PMML-4_2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="4.2" xsi:schemaLocation="http://www.dmg.org/PMML-4_2 http://www.dmg.org/v4-2-1/pmml-4-2.xsd"&gt;
+  &lt;Header copyright="Copyright (c) 2018 Software AG" description="Default Description"&gt;
+    &lt;Application name="Nyoka" version="4.3.0" /&gt;
+    &lt;Timestamp&gt;2020-10-09 14:27:26.622723&lt;/Timestamp&gt;
+  &lt;/Header&gt;
+  &lt;DataDictionary numberOfFields="3"&gt;
+    &lt;DataField name="amount" optype="continuous" dataType="double" /&gt;
+    &lt;DataField name="holder_index" optype="continuous" dataType="double" /&gt;
+    &lt;DataField name="dispute_risk" optype="categorical" dataType="integer"&gt;
+      &lt;Value value="1" /&gt;
+      &lt;Value value="2" /&gt;
+      &lt;Value value="3" /&gt;
+      &lt;Value value="4" /&gt;
+      &lt;Value value="5" /&gt;
+    &lt;/DataField&gt;
+  &lt;/DataDictionary&gt;
+  &lt;TreeModel modelName="DecisionTreeClassifier" functionName="classification" missingValuePenalty="1.0"&gt;
+    &lt;MiningSchema&gt;
+      &lt;MiningField name="amount" usageType="active" optype="continuous" /&gt;
+      &lt;MiningField name="holder_index" usageType="active" optype="continuous" /&gt;
+      &lt;MiningField name="dispute_risk" usageType="target" optype="categorical" /&gt;
+    &lt;/MiningSchema&gt;
+    &lt;Output&gt;
+      &lt;OutputField name="probability_1" optype="continuous" dataType="double" feature="probability" value="1" /&gt;
+      &lt;OutputField name="probability_2" optype="continuous" dataType="double" feature="probability" value="2" /&gt;
+      &lt;OutputField name="probability_3" optype="continuous" dataType="double" feature="probability" value="3" /&gt;
+      &lt;OutputField name="probability_4" optype="continuous" dataType="double" feature="probability" value="4" /&gt;
+      &lt;OutputField name="probability_5" optype="continuous" dataType="double" feature="probability" value="5" /&gt;
+      &lt;OutputField name="predicted_dispute_risk" optype="categorical" dataType="integer" feature="predictedValue" /&gt;
+    &lt;/Output&gt;
+    &lt;Node id="0" recordCount="600.0"&gt;
+      &lt;True /&gt;
+      &lt;Node id="1" recordCount="200.0"&gt;
+        &lt;SimplePredicate field="amount" operator="lessOrEqual" value="99.94000244140625" /&gt;
+        &lt;Node id="2" score="2" recordCount="55.0"&gt;
+          &lt;SimplePredicate field="holder_index" operator="lessOrEqual" value="0.5" /&gt;
+          &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+          &lt;ScoreDistribution value="2" recordCount="55.0" confidence="1.0" /&gt;
+          &lt;ScoreDistribution value="3" recordCount="0.0" confidence="0.0" /&gt;
+          &lt;ScoreDistribution value="4" recordCount="0.0" confidence="0.0" /&gt;
+          &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+        &lt;/Node&gt;
+        &lt;Node id="3" score="1" recordCount="145.0"&gt;
+          &lt;SimplePredicate field="holder_index" operator="greaterThan" value="0.5" /&gt;
+          &lt;ScoreDistribution value="1" recordCount="145.0" confidence="1.0" /&gt;
+          &lt;ScoreDistribution value="2" recordCount="0.0" confidence="0.0" /&gt;
+          &lt;ScoreDistribution value="3" recordCount="0.0" confidence="0.0" /&gt;
+          &lt;ScoreDistribution value="4" recordCount="0.0" confidence="0.0" /&gt;
+          &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+        &lt;/Node&gt;
+      &lt;/Node&gt;
+      &lt;Node id="4" recordCount="400.0"&gt;
+        &lt;SimplePredicate field="amount" operator="greaterThan" value="99.94000244140625" /&gt;
+        &lt;Node id="5" recordCount="105.0"&gt;
+          &lt;SimplePredicate field="holder_index" operator="lessOrEqual" value="0.5" /&gt;
+          &lt;Node id="6" score="3" recordCount="54.0"&gt;
+            &lt;SimplePredicate field="amount" operator="lessOrEqual" value="150.4550018310547" /&gt;
+            &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+            &lt;ScoreDistribution value="2" recordCount="0.0" confidence="0.0" /&gt;
+            &lt;ScoreDistribution value="3" recordCount="54.0" confidence="1.0" /&gt;
+            &lt;ScoreDistribution value="4" recordCount="0.0" confidence="0.0" /&gt;
+            &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+          &lt;/Node&gt;
+          &lt;Node id="7" recordCount="51.0"&gt;
+            &lt;SimplePredicate field="amount" operator="greaterThan" value="150.4550018310547" /&gt;
+            &lt;Node id="8" recordCount="40.0"&gt;
+              &lt;SimplePredicate field="amount" operator="lessOrEqual" value="200.00499725341797" /&gt;
+              &lt;Node id="9" recordCount="36.0"&gt;
+                &lt;SimplePredicate field="amount" operator="lessOrEqual" value="195.4949951171875" /&gt;
+                &lt;Node id="10" recordCount="2.0"&gt;
+                  &lt;SimplePredicate field="amount" operator="lessOrEqual" value="152.2050018310547" /&gt;
+                  &lt;Node id="11" score="4" recordCount="1.0"&gt;
+                    &lt;SimplePredicate field="amount" operator="lessOrEqual" value="151.31500244140625" /&gt;
+                    &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                    &lt;ScoreDistribution value="2" recordCount="0.0" confidence="0.0" /&gt;
+                    &lt;ScoreDistribution value="3" recordCount="0.0" confidence="0.0" /&gt;
+                    &lt;ScoreDistribution value="4" recordCount="1.0" confidence="1.0" /&gt;
+                    &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+                  &lt;/Node&gt;
+                  &lt;Node id="12" score="3" recordCount="1.0"&gt;
+                    &lt;SimplePredicate field="amount" operator="greaterThan" value="151.31500244140625" /&gt;
+                    &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                    &lt;ScoreDistribution value="2" recordCount="0.0" confidence="0.0" /&gt;
+                    &lt;ScoreDistribution value="3" recordCount="1.0" confidence="1.0" /&gt;
+                    &lt;ScoreDistribution value="4" recordCount="0.0" confidence="0.0" /&gt;
+                    &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+                  &lt;/Node&gt;
+                &lt;/Node&gt;
+                &lt;Node id="13" recordCount="34.0"&gt;
+                  &lt;SimplePredicate field="amount" operator="greaterThan" value="152.2050018310547" /&gt;
+                  &lt;Node id="14" recordCount="20.0"&gt;
+                    &lt;SimplePredicate field="amount" operator="lessOrEqual" value="176.5050048828125" /&gt;
+                    &lt;Node id="15" recordCount="19.0"&gt;
+                      &lt;SimplePredicate field="amount" operator="lessOrEqual" value="176.06500244140625" /&gt;
+                      &lt;Node id="16" score="4" recordCount="9.0"&gt;
+                        &lt;SimplePredicate field="amount" operator="lessOrEqual" value="166.6449966430664" /&gt;
+                        &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                        &lt;ScoreDistribution value="2" recordCount="0.0" confidence="0.0" /&gt;
+                        &lt;ScoreDistribution value="3" recordCount="0.0" confidence="0.0" /&gt;
+                        &lt;ScoreDistribution value="4" recordCount="9.0" confidence="1.0" /&gt;
+                        &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+                      &lt;/Node&gt;
+                      &lt;Node id="17" recordCount="10.0"&gt;
+                        &lt;SimplePredicate field="amount" operator="greaterThan" value="166.6449966430664" /&gt;
+                        &lt;Node id="18" score="3" recordCount="1.0"&gt;
+                          &lt;SimplePredicate field="amount" operator="lessOrEqual" value="167.97999572753906" /&gt;
+                          &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                          &lt;ScoreDistribution value="2" recordCount="0.0" confidence="0.0" /&gt;
+                          &lt;ScoreDistribution value="3" recordCount="1.0" confidence="1.0" /&gt;
+                          &lt;ScoreDistribution value="4" recordCount="0.0" confidence="0.0" /&gt;
+                          &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+                        &lt;/Node&gt;
+                        &lt;Node id="19" score="4" recordCount="9.0"&gt;
+                          &lt;SimplePredicate field="amount" operator="greaterThan" value="167.97999572753906" /&gt;
+                          &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                          &lt;ScoreDistribution value="2" recordCount="0.0" confidence="0.0" /&gt;
+                          &lt;ScoreDistribution value="3" recordCount="0.0" confidence="0.0" /&gt;
+                          &lt;ScoreDistribution value="4" recordCount="9.0" confidence="1.0" /&gt;
+                          &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+                        &lt;/Node&gt;
+                      &lt;/Node&gt;
+                    &lt;/Node&gt;
+                    &lt;Node id="20" score="3" recordCount="1.0"&gt;
+                      &lt;SimplePredicate field="amount" operator="greaterThan" value="176.06500244140625" /&gt;
+                      &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                      &lt;ScoreDistribution value="2" recordCount="0.0" confidence="0.0" /&gt;
+                      &lt;ScoreDistribution value="3" recordCount="1.0" confidence="1.0" /&gt;
+                      &lt;ScoreDistribution value="4" recordCount="0.0" confidence="0.0" /&gt;
+                      &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+                    &lt;/Node&gt;
+                  &lt;/Node&gt;
+                  &lt;Node id="21" score="4" recordCount="14.0"&gt;
+                    &lt;SimplePredicate field="amount" operator="greaterThan" value="176.5050048828125" /&gt;
+                    &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                    &lt;ScoreDistribution value="2" recordCount="0.0" confidence="0.0" /&gt;
+                    &lt;ScoreDistribution value="3" recordCount="0.0" confidence="0.0" /&gt;
+                    &lt;ScoreDistribution value="4" recordCount="14.0" confidence="1.0" /&gt;
+                    &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+                  &lt;/Node&gt;
+                &lt;/Node&gt;
+              &lt;/Node&gt;
+              &lt;Node id="22" recordCount="4.0"&gt;
+                &lt;SimplePredicate field="amount" operator="greaterThan" value="195.4949951171875" /&gt;
+                &lt;Node id="23" score="3" recordCount="1.0"&gt;
+                  &lt;SimplePredicate field="amount" operator="lessOrEqual" value="195.76499938964844" /&gt;
+                  &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                  &lt;ScoreDistribution value="2" recordCount="0.0" confidence="0.0" /&gt;
+                  &lt;ScoreDistribution value="3" recordCount="1.0" confidence="1.0" /&gt;
+                  &lt;ScoreDistribution value="4" recordCount="0.0" confidence="0.0" /&gt;
+                  &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+                &lt;/Node&gt;
+                &lt;Node id="24" recordCount="3.0"&gt;
+                  &lt;SimplePredicate field="amount" operator="greaterThan" value="195.76499938964844" /&gt;
+                  &lt;Node id="25" score="4" recordCount="1.0"&gt;
+                    &lt;SimplePredicate field="amount" operator="lessOrEqual" value="196.74500274658203" /&gt;
+                    &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                    &lt;ScoreDistribution value="2" recordCount="0.0" confidence="0.0" /&gt;
+                    &lt;ScoreDistribution value="3" recordCount="0.0" confidence="0.0" /&gt;
+                    &lt;ScoreDistribution value="4" recordCount="1.0" confidence="1.0" /&gt;
+                    &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+                  &lt;/Node&gt;
+                  &lt;Node id="26" recordCount="2.0"&gt;
+                    &lt;SimplePredicate field="amount" operator="greaterThan" value="196.74500274658203" /&gt;
+                    &lt;Node id="27" score="3" recordCount="1.0"&gt;
+                      &lt;SimplePredicate field="amount" operator="lessOrEqual" value="197.5800018310547" /&gt;
+                      &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                      &lt;ScoreDistribution value="2" recordCount="0.0" confidence="0.0" /&gt;
+                      &lt;ScoreDistribution value="3" recordCount="1.0" confidence="1.0" /&gt;
+                      &lt;ScoreDistribution value="4" recordCount="0.0" confidence="0.0" /&gt;
+                      &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+                    &lt;/Node&gt;
+                    &lt;Node id="28" score="4" recordCount="1.0"&gt;
+                      &lt;SimplePredicate field="amount" operator="greaterThan" value="197.5800018310547" /&gt;
+                      &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                      &lt;ScoreDistribution value="2" recordCount="0.0" confidence="0.0" /&gt;
+                      &lt;ScoreDistribution value="3" recordCount="0.0" confidence="0.0" /&gt;
+                      &lt;ScoreDistribution value="4" recordCount="1.0" confidence="1.0" /&gt;
+                      &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+                    &lt;/Node&gt;
+                  &lt;/Node&gt;
+                &lt;/Node&gt;
+              &lt;/Node&gt;
+            &lt;/Node&gt;
+            &lt;Node id="29" score="5" recordCount="11.0"&gt;
+              &lt;SimplePredicate field="amount" operator="greaterThan" value="200.00499725341797" /&gt;
+              &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+              &lt;ScoreDistribution value="2" recordCount="0.0" confidence="0.0" /&gt;
+              &lt;ScoreDistribution value="3" recordCount="0.0" confidence="0.0" /&gt;
+              &lt;ScoreDistribution value="4" recordCount="0.0" confidence="0.0" /&gt;
+              &lt;ScoreDistribution value="5" recordCount="11.0" confidence="1.0" /&gt;
+            &lt;/Node&gt;
+          &lt;/Node&gt;
+        &lt;/Node&gt;
+        &lt;Node id="30" recordCount="295.0"&gt;
+          &lt;SimplePredicate field="holder_index" operator="greaterThan" value="0.5" /&gt;
+          &lt;Node id="31" score="2" recordCount="170.0"&gt;
+            &lt;SimplePredicate field="amount" operator="lessOrEqual" value="150.93499755859375" /&gt;
+            &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+            &lt;ScoreDistribution value="2" recordCount="170.0" confidence="1.0" /&gt;
+            &lt;ScoreDistribution value="3" recordCount="0.0" confidence="0.0" /&gt;
+            &lt;ScoreDistribution value="4" recordCount="0.0" confidence="0.0" /&gt;
+            &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+          &lt;/Node&gt;
+          &lt;Node id="32" recordCount="125.0"&gt;
+            &lt;SimplePredicate field="amount" operator="greaterThan" value="150.93499755859375" /&gt;
+            &lt;Node id="33" recordCount="80.0"&gt;
+              &lt;SimplePredicate field="holder_index" operator="lessOrEqual" value="2.5" /&gt;
+              &lt;Node id="34" recordCount="66.0"&gt;
+                &lt;SimplePredicate field="amount" operator="lessOrEqual" value="199.13500213623047" /&gt;
+                &lt;Node id="35" score="3" recordCount="10.0"&gt;
+                  &lt;SimplePredicate field="amount" operator="lessOrEqual" value="155.56999969482422" /&gt;
+                  &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                  &lt;ScoreDistribution value="2" recordCount="0.0" confidence="0.0" /&gt;
+                  &lt;ScoreDistribution value="3" recordCount="10.0" confidence="1.0" /&gt;
+                  &lt;ScoreDistribution value="4" recordCount="0.0" confidence="0.0" /&gt;
+                  &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+                &lt;/Node&gt;
+                &lt;Node id="36" recordCount="56.0"&gt;
+                  &lt;SimplePredicate field="amount" operator="greaterThan" value="155.56999969482422" /&gt;
+                  &lt;Node id="37" score="2" recordCount="1.0"&gt;
+                    &lt;SimplePredicate field="amount" operator="lessOrEqual" value="155.9000015258789" /&gt;
+                    &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                    &lt;ScoreDistribution value="2" recordCount="1.0" confidence="1.0" /&gt;
+                    &lt;ScoreDistribution value="3" recordCount="0.0" confidence="0.0" /&gt;
+                    &lt;ScoreDistribution value="4" recordCount="0.0" confidence="0.0" /&gt;
+                    &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+                  &lt;/Node&gt;
+                  &lt;Node id="38" recordCount="55.0"&gt;
+                    &lt;SimplePredicate field="amount" operator="greaterThan" value="155.9000015258789" /&gt;
+                    &lt;Node id="39" recordCount="31.0"&gt;
+                      &lt;SimplePredicate field="amount" operator="lessOrEqual" value="176.3699951171875" /&gt;
+                      &lt;Node id="40" recordCount="30.0"&gt;
+                        &lt;SimplePredicate field="amount" operator="lessOrEqual" value="175.72000122070312" /&gt;
+                        &lt;Node id="41" recordCount="19.0"&gt;
+                          &lt;SimplePredicate field="amount" operator="lessOrEqual" value="168.06999969482422" /&gt;
+                          &lt;Node id="42" recordCount="6.0"&gt;
+                            &lt;SimplePredicate field="amount" operator="lessOrEqual" value="158.125" /&gt;
+                            &lt;Node id="43" score="3" recordCount="5.0"&gt;
+                              &lt;SimplePredicate field="amount" operator="lessOrEqual" value="157.85499572753906" /&gt;
+                              &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                              &lt;ScoreDistribution value="2" recordCount="0.0" confidence="0.0" /&gt;
+                              &lt;ScoreDistribution value="3" recordCount="5.0" confidence="1.0" /&gt;
+                              &lt;ScoreDistribution value="4" recordCount="0.0" confidence="0.0" /&gt;
+                              &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+                            &lt;/Node&gt;
+                            &lt;Node id="44" score="2" recordCount="1.0"&gt;
+                              &lt;SimplePredicate field="amount" operator="greaterThan" value="157.85499572753906" /&gt;
+                              &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                              &lt;ScoreDistribution value="2" recordCount="1.0" confidence="1.0" /&gt;
+                              &lt;ScoreDistribution value="3" recordCount="0.0" confidence="0.0" /&gt;
+                              &lt;ScoreDistribution value="4" recordCount="0.0" confidence="0.0" /&gt;
+                              &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+                            &lt;/Node&gt;
+                          &lt;/Node&gt;
+                          &lt;Node id="45" score="3" recordCount="13.0"&gt;
+                            &lt;SimplePredicate field="amount" operator="greaterThan" value="158.125" /&gt;
+                            &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                            &lt;ScoreDistribution value="2" recordCount="0.0" confidence="0.0" /&gt;
+                            &lt;ScoreDistribution value="3" recordCount="13.0" confidence="1.0" /&gt;
+                            &lt;ScoreDistribution value="4" recordCount="0.0" confidence="0.0" /&gt;
+                            &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+                          &lt;/Node&gt;
+                        &lt;/Node&gt;
+                        &lt;Node id="46" recordCount="11.0"&gt;
+                          &lt;SimplePredicate field="amount" operator="greaterThan" value="168.06999969482422" /&gt;
+                          &lt;Node id="47" score="2" recordCount="1.0"&gt;
+                            &lt;SimplePredicate field="amount" operator="lessOrEqual" value="168.69499969482422" /&gt;
+                            &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                            &lt;ScoreDistribution value="2" recordCount="1.0" confidence="1.0" /&gt;
+                            &lt;ScoreDistribution value="3" recordCount="0.0" confidence="0.0" /&gt;
+                            &lt;ScoreDistribution value="4" recordCount="0.0" confidence="0.0" /&gt;
+                            &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+                          &lt;/Node&gt;
+                          &lt;Node id="48" recordCount="10.0"&gt;
+                            &lt;SimplePredicate field="amount" operator="greaterThan" value="168.69499969482422" /&gt;
+                            &lt;Node id="49" recordCount="4.0"&gt;
+                              &lt;SimplePredicate field="holder_index" operator="lessOrEqual" value="1.5" /&gt;
+                              &lt;Node id="50" score="2" recordCount="1.0"&gt;
+                                &lt;SimplePredicate field="amount" operator="lessOrEqual" value="172.0250015258789" /&gt;
+                                &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                                &lt;ScoreDistribution value="2" recordCount="1.0" confidence="1.0" /&gt;
+                                &lt;ScoreDistribution value="3" recordCount="0.0" confidence="0.0" /&gt;
+                                &lt;ScoreDistribution value="4" recordCount="0.0" confidence="0.0" /&gt;
+                                &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+                              &lt;/Node&gt;
+                              &lt;Node id="51" score="3" recordCount="3.0"&gt;
+                                &lt;SimplePredicate field="amount" operator="greaterThan" value="172.0250015258789" /&gt;
+                                &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                                &lt;ScoreDistribution value="2" recordCount="0.0" confidence="0.0" /&gt;
+                                &lt;ScoreDistribution value="3" recordCount="3.0" confidence="1.0" /&gt;
+                                &lt;ScoreDistribution value="4" recordCount="0.0" confidence="0.0" /&gt;
+                                &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+                              &lt;/Node&gt;
+                            &lt;/Node&gt;
+                            &lt;Node id="52" score="3" recordCount="6.0"&gt;
+                              &lt;SimplePredicate field="holder_index" operator="greaterThan" value="1.5" /&gt;
+                              &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                              &lt;ScoreDistribution value="2" recordCount="0.0" confidence="0.0" /&gt;
+                              &lt;ScoreDistribution value="3" recordCount="6.0" confidence="1.0" /&gt;
+                              &lt;ScoreDistribution value="4" recordCount="0.0" confidence="0.0" /&gt;
+                              &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+                            &lt;/Node&gt;
+                          &lt;/Node&gt;
+                        &lt;/Node&gt;
+                      &lt;/Node&gt;
+                      &lt;Node id="53" score="2" recordCount="1.0"&gt;
+                        &lt;SimplePredicate field="amount" operator="greaterThan" value="175.72000122070312" /&gt;
+                        &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                        &lt;ScoreDistribution value="2" recordCount="1.0" confidence="1.0" /&gt;
+                        &lt;ScoreDistribution value="3" recordCount="0.0" confidence="0.0" /&gt;
+                        &lt;ScoreDistribution value="4" recordCount="0.0" confidence="0.0" /&gt;
+                        &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+                      &lt;/Node&gt;
+                    &lt;/Node&gt;
+                    &lt;Node id="54" recordCount="24.0"&gt;
+                      &lt;SimplePredicate field="amount" operator="greaterThan" value="176.3699951171875" /&gt;
+                      &lt;Node id="55" score="3" recordCount="16.0"&gt;
+                        &lt;SimplePredicate field="amount" operator="lessOrEqual" value="192.0999984741211" /&gt;
+                        &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                        &lt;ScoreDistribution value="2" recordCount="0.0" confidence="0.0" /&gt;
+                        &lt;ScoreDistribution value="3" recordCount="16.0" confidence="1.0" /&gt;
+                        &lt;ScoreDistribution value="4" recordCount="0.0" confidence="0.0" /&gt;
+                        &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+                      &lt;/Node&gt;
+                      &lt;Node id="56" recordCount="8.0"&gt;
+                        &lt;SimplePredicate field="amount" operator="greaterThan" value="192.0999984741211" /&gt;
+                        &lt;Node id="57" score="2" recordCount="1.0"&gt;
+                          &lt;SimplePredicate field="amount" operator="lessOrEqual" value="192.75499725341797" /&gt;
+                          &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                          &lt;ScoreDistribution value="2" recordCount="1.0" confidence="1.0" /&gt;
+                          &lt;ScoreDistribution value="3" recordCount="0.0" confidence="0.0" /&gt;
+                          &lt;ScoreDistribution value="4" recordCount="0.0" confidence="0.0" /&gt;
+                          &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+                        &lt;/Node&gt;
+                        &lt;Node id="58" score="3" recordCount="7.0"&gt;
+                          &lt;SimplePredicate field="amount" operator="greaterThan" value="192.75499725341797" /&gt;
+                          &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                          &lt;ScoreDistribution value="2" recordCount="0.0" confidence="0.0" /&gt;
+                          &lt;ScoreDistribution value="3" recordCount="7.0" confidence="1.0" /&gt;
+                          &lt;ScoreDistribution value="4" recordCount="0.0" confidence="0.0" /&gt;
+                          &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+                        &lt;/Node&gt;
+                      &lt;/Node&gt;
+                    &lt;/Node&gt;
+                  &lt;/Node&gt;
+                &lt;/Node&gt;
+              &lt;/Node&gt;
+              &lt;Node id="59" recordCount="14.0"&gt;
+                &lt;SimplePredicate field="amount" operator="greaterThan" value="199.13500213623047" /&gt;
+                &lt;Node id="60" score="5" recordCount="10.0"&gt;
+                  &lt;SimplePredicate field="holder_index" operator="lessOrEqual" value="1.5" /&gt;
+                  &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                  &lt;ScoreDistribution value="2" recordCount="0.0" confidence="0.0" /&gt;
+                  &lt;ScoreDistribution value="3" recordCount="0.0" confidence="0.0" /&gt;
+                  &lt;ScoreDistribution value="4" recordCount="0.0" confidence="0.0" /&gt;
+                  &lt;ScoreDistribution value="5" recordCount="10.0" confidence="1.0" /&gt;
+                &lt;/Node&gt;
+                &lt;Node id="61" score="4" recordCount="4.0"&gt;
+                  &lt;SimplePredicate field="holder_index" operator="greaterThan" value="1.5" /&gt;
+                  &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                  &lt;ScoreDistribution value="2" recordCount="0.0" confidence="0.0" /&gt;
+                  &lt;ScoreDistribution value="3" recordCount="0.0" confidence="0.0" /&gt;
+                  &lt;ScoreDistribution value="4" recordCount="4.0" confidence="1.0" /&gt;
+                  &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+                &lt;/Node&gt;
+              &lt;/Node&gt;
+            &lt;/Node&gt;
+            &lt;Node id="62" recordCount="45.0"&gt;
+              &lt;SimplePredicate field="holder_index" operator="greaterThan" value="2.5" /&gt;
+              &lt;Node id="63" score="2" recordCount="37.0"&gt;
+                &lt;SimplePredicate field="amount" operator="lessOrEqual" value="199.13999938964844" /&gt;
+                &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                &lt;ScoreDistribution value="2" recordCount="37.0" confidence="1.0" /&gt;
+                &lt;ScoreDistribution value="3" recordCount="0.0" confidence="0.0" /&gt;
+                &lt;ScoreDistribution value="4" recordCount="0.0" confidence="0.0" /&gt;
+                &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+              &lt;/Node&gt;
+              &lt;Node id="64" score="4" recordCount="8.0"&gt;
+                &lt;SimplePredicate field="amount" operator="greaterThan" value="199.13999938964844" /&gt;
+                &lt;ScoreDistribution value="1" recordCount="0.0" confidence="0.0" /&gt;
+                &lt;ScoreDistribution value="2" recordCount="0.0" confidence="0.0" /&gt;
+                &lt;ScoreDistribution value="3" recordCount="0.0" confidence="0.0" /&gt;
+                &lt;ScoreDistribution value="4" recordCount="8.0" confidence="1.0" /&gt;
+                &lt;ScoreDistribution value="5" recordCount="0.0" confidence="0.0" /&gt;
+              &lt;/Node&gt;
+            &lt;/Node&gt;
+          &lt;/Node&gt;
+        &lt;/Node&gt;
+      &lt;/Node&gt;
+    &lt;/Node&gt;
+  &lt;/TreeModel&gt;
+&lt;/PMML&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_additional_resources"><a class="anchor" href="#_additional_resources"></a>Additional resources</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://go.forrester.com/blogs/predictions-2019-ai-artificial-intelligence/">Predictions 2019: Expect A Pragmatic Vision Of AI</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<!--Licensed to the Apache Software Foundation (ASF) under one-->
+<!--or more contributor license agreements.  See the NOTICE file-->
+<!--distributed with this work for additional information-->
+<!--regarding copyright ownership.  The ASF licenses this file-->
+<!--to you under the Apache License, Version 2.0 (the-->
+<!--"License"); you may not use this file except in compliance-->
+<!--with the License.  You may obtain a copy of the License at-->
+
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--Unless required by applicable law or agreed to in writing,-->
+<!--software distributed under the License is distributed on an-->
+<!--"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY-->
+<!--KIND, either express or implied.  See the License for the-->
+<!--specific language governing permissions and limitations-->
+<!--under the License.-->
+
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>

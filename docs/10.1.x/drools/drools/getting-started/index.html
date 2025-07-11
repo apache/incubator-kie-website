@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Getting Started :: Drools Documentation</title>
+    <link rel="canonical" href="https://docs.drools.org/latest/drools-docs/drools/getting-started/index.html">
+    <meta name="generator" content="Antora 3.0.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<!--Licensed to the Apache Software Foundation (ASF) under one-->
+<!--or more contributor license agreements.  See the NOTICE file-->
+<!--distributed with this work for additional information-->
+<!--regarding copyright ownership.  The ASF licenses this file-->
+<!--to you under the Apache License, Version 2.0 (the-->
+<!--"License"); you may not use this file except in compliance-->
+<!--with the License.  You may obtain a copy of the License at-->
+
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--Unless required by applicable law or agreed to in writing,-->
+<!--software distributed under the License is distributed on an-->
+<!--"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY-->
+<!--KIND, either express or implied.  See the License for the-->
+<!--specific language governing permissions and limitations-->
+<!--under the License.-->
+
+<link rel="stylesheet" href="../../_/css/search.css">
+<link rel="stylesheet" href="../../_/css/menu.css">
+<link rel="stylesheet" href="../../_/css/drl.css">
+<!--Licensed to the Apache Software Foundation (ASF) under one-->
+<!--or more contributor license agreements.  See the NOTICE file-->
+<!--distributed with this work for additional information-->
+<!--regarding copyright ownership.  The ASF licenses this file-->
+<!--to you under the Apache License, Version 2.0 (the-->
+<!--"License"); you may not use this file except in compliance-->
+<!--with the License.  You may obtain a copy of the License at-->
+
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--Unless required by applicable law or agreed to in writing,-->
+<!--software distributed under the License is distributed on an-->
+<!--"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY-->
+<!--KIND, either express or implied.  See the License for the-->
+<!--specific language governing permissions and limitations-->
+<!--under the License.-->
+
+<script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<!--Licensed to the Apache Software Foundation (ASF) under one-->
+<!--or more contributor license agreements.  See the NOTICE file-->
+<!--distributed with this work for additional information-->
+<!--regarding copyright ownership.  The ASF licenses this file-->
+<!--to you under the Apache License, Version 2.0 (the-->
+<!--"License"); you may not use this file except in compliance-->
+<!--with the License.  You may obtain a copy of the License at-->
+
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--Unless required by applicable law or agreed to in writing,-->
+<!--software distributed under the License is distributed on an-->
+<!--"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY-->
+<!--KIND, either express or implied.  See the License for the-->
+<!--specific language governing permissions and limitations-->
+<!--under the License.-->
+
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="https://kie.apache.org/">
+          <img src="../../_/img/droolsExpertLogo.png" alt="Drools logo"/>
+        </a>
+        <a class="navbar-item" href="https://kie.apache.org/">
+          Drools Documentation
+        </a>
+      </div>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <a class="navbar-item small-item" href="https://github.com/apache/incubator-kie-drools" title="Follow Drools on GitHub"><div class="github-icon"></div></a>
+          <a class="navbar-item small-item" href="https://twitter.com/KieCommunity" target="_blank" title="Follow KIE Community on Twitter for more Drools tweets"><img alt="T" src="../../_/img/twitterLogo.png"></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="drools" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../introduction/index.html">Drools User Guide 10.1.0</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../introduction/index.html">Introduction</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="index.html">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../KIE/index.html">Build, Deploy, Utilize and Run</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../rule-engine/index.html">Drools rule engine</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../language-reference/index.html">Rule Language Reference</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../language-reference-traditional/index.html">Rule Language Reference (Traditional)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../DMN/index.html">Decision Model and Notation (DMN)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../pragmatic-ai/index.html">Pragmatic AI: Integrating Machine Learning with Drools</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../Commands/index.html">Drools Commands</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration-guide/index.html">Migration Guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../experimental-features/index.html">Experimental features</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Drools User Guide 10.1.0</span>
+    <span class="version">default</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../introduction/index.html">Drools User Guide 10.1.0</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../introduction/index.html">default</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../introduction/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../introduction/index.html">Drools User Guide 10.1.0</a></li>
+    <li><a href="index.html">Getting Started</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Getting Started</h1>
+<div class="sect1">
+<h2 id="first-rule-project_getting-started"><a class="anchor" href="#first-rule-project_getting-started"></a>First Rule Project</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This guide walks you through the process of creating a simple Drools application project.</p>
+</div>
+<div class="sect2">
+<h3 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://adoptium.net">JDK</a> 17+ with <code>JAVA_HOME</code> configured appropriately</p>
+</li>
+<li>
+<p><a href="https://maven.apache.org/download.html">Apache Maven</a> 3.9.6+</p>
+</li>
+<li>
+<p>Optionally, an IDE, such as IntelliJ IDEA, VSCode or Eclipse</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_creating_a_project_with_maven_archetype"><a class="anchor" href="#_creating_a_project_with_maven_archetype"></a>Creating a project with maven archetype</h3>
+<div class="paragraph">
+<p>You can choose a style of rule project from Rule Unit or traditional style. Rule Unit is a new style that is recommended for microservices and cloud native applications. The traditional style has been used since Drools 7. Both styles are supported in Drools 10.</p>
+</div>
+<div class="sect3">
+<h4 id="_rule_unit_style"><a class="anchor" href="#_rule_unit_style"></a>Rule Unit style</h4>
+<div class="paragraph">
+<p>Create a project with the following command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mvn archetype:generate -DarchetypeGroupId=org.kie -DarchetypeArtifactId=kie-drools-exec-model-ruleunit-archetype -DarchetypeVersion=10.1.0</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>During the command execution, input property values interactively.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">Define value for property 'groupId': org.example
+Define value for property 'artifactId': my-project
+Define value for property 'version' 1.0-SNAPSHOT: :
+Define value for property 'package' org.example: :
+...
+ Y: : Y
+...
+[INFO] BUILD SUCCESS</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now your first rule project of Rule Unit is created. Let&#8217;s look into the project.</p>
+</div>
+<div class="paragraph">
+<p>Firstly, <code>pom.xml</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">    &lt;dependency&gt;
+      &lt;groupId&gt;org.drools&lt;/groupId&gt;
+      &lt;artifactId&gt;drools-ruleunits-engine&lt;/artifactId&gt;
+    &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is a required dependency for Rule Unit.</p>
+</div>
+<div class="paragraph">
+<p>The archetype contains one DRL file as an example <code>src/main/resources/org/example/rules.drl</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">package org.example;
+
+unit MeasurementUnit;
+
+rule "will execute per each Measurement having ID color"
+when
+	/measurements[ id == "color", $colorVal : val ]
+then
+	controlSet.add($colorVal);
+end
+
+query FindColor
+    $m: /measurements[ id == "color" ]
+end</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This rule checks incoming <code>Measurement</code> data and stores its value in a global variable <code>controlSet</code> when it&#8217;s color information.</p>
+</div>
+<div class="paragraph">
+<p><code>when</code> part implements the pattern matching and <code>then</code> part implements the action when the conditions are met.</p>
+</div>
+<div class="paragraph">
+<p>Next, find <code>src/main/java/org/example/MeasurementUnit.java</code> that is specified as <code>unit MeasurementUnit</code> in the rule. It is called <code>rule unit</code> that groups data sources, global variables and DRL rules.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MeasurementUnit implements RuleUnitData {
+
+    private final DataStore&lt;Measurement&gt; measurements;
+    private final Set&lt;String&gt; controlSet = new HashSet&lt;&gt;();
+
+    ...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>/measurements</code> in <code>rules.drl</code> is bound to the <code>measurements</code> field in <code>MeasurementUnit</code>. So you know that the inserted data type is <code>Measurement</code>. This class also defines a global variable <code>controlSet</code>.</p>
+</div>
+<div class="paragraph">
+<p>Then, <code>src/main/java/org/example/Measurement.java</code> is a Java bean class used in the rule. Such an object is called <code>Fact</code>.</p>
+</div>
+<div class="paragraph">
+<p>Finally, <code>src/test/java/org/example/RuleTest.java</code> is the test case that executes the rule. You can learn the basic API usage that is used in your own applications.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">        MeasurementUnit measurementUnit = new MeasurementUnit();
+
+        RuleUnitInstance&lt;MeasurementUnit&gt; instance = RuleUnitProvider.get().createRuleUnitInstance(measurementUnit);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Create a <code>MeasurementUnit</code> instance. Then create a <code>RuleUnitInstance</code> with the <code>MeasurementUnit</code> instance using <code>RuleUnitProvider</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">        measurementUnit.getMeasurements().add(new Measurement("color", "red"));
+        measurementUnit.getMeasurements().add(new Measurement("color", "green"));
+        measurementUnit.getMeasurements().add(new Measurement("color", "blue"));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Add <code>Measurement</code> facts into <code>measurementUnit.measurements</code>. It means the facts are inserted into Drools rule engine.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">        List&lt;Measurement&gt; queryResult = instance.executeQuery("FindColor").stream().map(tuple -&gt; (Measurement) tuple.get("$m")).collect(toList());</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Execute a query named <code>FindColor</code>. When you execute a query, rules that are matched with inserted facts are automatically fired. If you want to only fire rules without a query, you can call <code>instance.fire()</code> instead.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">        instance.close();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>At the end, call <code>close()</code> to release resources retained by the <code>RuleUnitInstance</code>.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s run the test with <code>mvn clean test</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.example.RuleTest
+2022-06-13 12:49:56,499 [main] INFO  Creating RuleUnit
+2022-06-13 12:49:56,696 [main] INFO  Insert data
+2022-06-13 12:49:56,700 [main] INFO  Run query. Rules are also fired
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.411 s - in org.example.RuleTest</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now you can add your own rules and facts to this project!</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The rule project requires code generation that is triggered by mvn compile phase. If you directly run <code>RuleTest.java</code> in IDE, you may need to run <code>mvn compile</code> first.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_traditional_style"><a class="anchor" href="#_traditional_style"></a>Traditional style</h4>
+<div class="paragraph">
+<p>Create a project with the following command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mvn archetype:generate -DarchetypeGroupId=org.kie -DarchetypeArtifactId=kie-drools-exec-model-archetype -DarchetypeVersion=10.1.0</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>During the command execution, input property values interactively.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">Define value for property 'groupId': org.example
+Define value for property 'artifactId': my-project
+Define value for property 'version' 1.0-SNAPSHOT: :
+Define value for property 'package' org.example: :
+...
+ Y: : Y
+...
+[INFO] BUILD SUCCESS</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now your first rule project of traditional style is created. Let&#8217;s look into the project.</p>
+</div>
+<div class="paragraph">
+<p>Firstly, <code>pom.xml</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">    &lt;dependency&gt;
+      &lt;groupId&gt;org.drools&lt;/groupId&gt;
+      &lt;artifactId&gt;drools-engine&lt;/artifactId&gt;
+    &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is a required dependency for traditional style.</p>
+</div>
+<div class="paragraph">
+<p>The archetype contains one DRL file as an example <code>src/main/resources/org/example/rules.drl</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">package org.example;
+
+global java.util.Set controlSet;
+
+rule "will execute per each Measurement having ID color"
+when
+	Measurement( id == "color", $colorVal : val )
+then
+	controlSet.add($colorVal);
+end</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This rule checks incoming <code>Measurement</code> data and stores its value in a global variable <code>controlSet</code> when it&#8217;s color information.</p>
+</div>
+<div class="paragraph">
+<p><code>when</code> part implements the pattern matching and <code>then</code> part implements the action when the conditions are met.</p>
+</div>
+<div class="paragraph">
+<p><code>src/main/java/org/example/Measurement.java</code> is a Java bean class used in the rule. Such an object is called <code>Fact</code>.</p>
+</div>
+<div class="paragraph">
+<p>Finally, <code>src/test/java/org/example/RuleTest.java</code> is the test case that executes the rule. You can learn the basic API usage that is used in your own applications.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">        KieContainer kContainer = createKieContainer();
+        ...
+        KieBase kieBase = kContainer.getKieBase();
+        ...
+        KieSession session = kieBase.newKieSession();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Create a <code>KieContainer</code> which collects resources. Then get a <code>KieBase</code> and creates a <code>KieSession</code>. <code>KieSession</code> is a unit of execution in Drools rule engine.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">            Set&lt;String&gt; check = new HashSet&lt;String&gt;();
+            session.setGlobal("controlSet", check);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Set <code>controlSet</code> global to <code>session</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">            Measurement mRed = new Measurement("color", "red");
+            session.insert(mRed);
+            session.fireAllRules();
+
+            Measurement mGreen = new Measurement("color", "green");
+            session.insert(mGreen);
+            session.fireAllRules();
+
+            Measurement mBlue = new Measurement("color", "blue");
+            session.insert(mBlue);
+            session.fireAllRules();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Insert <code>Measurement</code> facts into <code>session</code>. Then fire all rules.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">            session.dispose();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>At the end, call <code>dispose()</code> to release resources retained by the <code>KieSession</code>.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s run the test with <code>mvn clean test</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.example.RuleTest
+2023-10-03 12:27:29,182 [main] INFO  Creating kieBase
+2023-10-03 12:27:29,185 [main] INFO  Start creation of KieBase: defaultKieBase
+2023-10-03 12:27:29,293 [main] INFO  End creation of KieBase: defaultKieBase
+2023-10-03 12:27:29,293 [main] INFO  There should be rules:
+2023-10-03 12:27:29,294 [main] INFO  kp [Package name=org.example] rule will execute per each Measurement having ID color
+2023-10-03 12:27:29,294 [main] INFO  Creating kieSession
+2023-10-03 12:27:29,322 [main] INFO  Populating globals
+2023-10-03 12:27:29,322 [main] INFO  Now running data
+2023-10-03 12:27:29,348 [main] INFO  Final checks
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.586 s - in org.example.RuleTest</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now you can add your own rules and facts to this project!</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="assembly-getting-started-decision-services"><a class="anchor" href="#assembly-getting-started-decision-services"></a>Getting started with decision services in Drools</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As a business rules developer, you can use Drools to design a variety of decision services. This document describes how to create and test an example traffic violation project based on the <strong>Traffic_Violation</strong> sample project available from the <a href="https://github.com/apache/incubator-kie-kogito-examples/tree/stable/kogito-quarkus-examples/dmn-quarkus-example">Kogito Examples GitHub repository</a>. This sample project uses a Decision Model and Notation (DMN) model to define driver penalty and suspension rules in a traffic violation decision service. You can follow the steps in this document to create the project and the assets it contains, or open and review the existing <strong>Traffic_Violation</strong> sample project. Alternatively, you may directly skip to the project evaluation by checking out locally the ready-made <strong>Traffic_Violation</strong> sample project from the link above, and jumping to the <a href="#gs-evaluating-dmn_getting-started-decision-services">Evaluating the traffic violations DMN model with Drools</a> section.</p>
+</div>
+<div class="paragraph">
+<p>For more information about the DMN components and implementation in Drools, see <a href="#dmn-con_dmn-models">DMN Engine in Drools section</a>.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>Having identified the target deployment platform, such as using Drools as an embedded Java library or Kogito for cloud-native platform</p>
+</li>
+<li>
+<p>Having satisfied prerequisites of the target deployment platform</p>
+</li>
+<li>
+<p>Considering deployment procedures of the target deployment platform while following this tutorial</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="dmn-gs-new-project-creating-proc_getting-started-decision-services"><a class="anchor" href="#dmn-gs-new-project-creating-proc_getting-started-decision-services"></a>Creating the traffic violations project from scratch</h3>
+<div class="paragraph">
+<p>For this example, create a new project called <code>traffic-violation</code> in your IDE. A project is a container for assets such as data objects, DMN assets, and test scenarios. This example project that you are creating is similar to the existing <strong>Traffic_Violation</strong> sample project.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Follow the instruction depending on your IDE to create a new KJAR based Maven project.</p>
+</li>
+</ol>
+</div>
+<h3 id="dmn_getting-started-decision-services" class="discrete">Decision Model and Notation (DMN)</h3>
+<div class="paragraph">
+<p>Decision Model and Notation (DMN) is a standard established by the Object Management Group (OMG) for describing and modeling operational decisions. DMN defines an XML schema that enables DMN models to be shared between DMN-compliant platforms and across organizations so that business analysts and business rules developers can collaborate in designing and implementing DMN decision services. The DMN standard is similar to and can be used together with the Business Process Model and Notation (BPMN) standard for designing and modeling business processes.</p>
+</div>
+<div class="paragraph">
+<p>For general information about the background and applications of DMN, see the <a href="https://www.drools.org/learn/dmn.html">Drools DMN landing page</a>.</p>
+</div>
+<h4 id="dmn-gs-creating-drd-proc" class="discrete">Creating the traffic violations DMN decision requirements diagram (DRD)</h4>
+<div class="paragraph">
+<p>A decision requirements diagram (DRD) is a visual representation of your DMN model. Use the  KIE DMN Editor to design the DRD for the traffic violations project and to define the decision logic of the DRD components.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-traffic-violations-drd.png" alt="DRD for the Traffic Violations example">
+</div>
+<div class="title">Figure 1. DRD for the Traffic Violations example</div>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You have created the traffic violations project in Drools.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>On the <strong>traffic-violation</strong> project&#8217;s home page, click <strong>Add Asset</strong>.</p>
+</li>
+<li>
+<p>On the <strong>Add Asset</strong> page, click <strong>DMN</strong>. The <strong>Create new DMN</strong> window is opened.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>In the <strong>Create new DMN</strong> window, enter <code>Traffic Violation</code> in the <strong>DMN</strong> name field.</p>
+</li>
+<li>
+<p>From the <strong>Package</strong> list, select <code>com.myspace.traffic_violation</code>.</p>
+</li>
+<li>
+<p>Click <strong>Ok</strong>. The DMN asset in the DMN designer is opened.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>In the DMN designer canvas, drag two <strong>DMN Input Data</strong> input nodes onto the canvas.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/library_objects.png" alt="DMN Input Data nodes">
+</div>
+<div class="title">Figure 2. DMN Input Data nodes</div>
+</div>
+</li>
+<li>
+<p>In the upper-right corner, click the <span class="image"><img src="../_images/getting-started/diagram_properties.png" alt="Properties"></span> icon.</p>
+</li>
+<li>
+<p>Double-click the input nodes and rename one to <code>Driver</code> and the other to <code>Violation</code>.</p>
+</li>
+<li>
+<p>Drag a <strong>DMN Decision</strong> decision node onto the canvas.</p>
+</li>
+<li>
+<p>Double-click the decision node and rename it to <code>Fine</code>.</p>
+</li>
+<li>
+<p>Click the <strong>Violation</strong> input node, select the <strong>Create DMN Information Requirement</strong> icon and click the <code>Fine</code> decision node to link the two nodes.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/info-requirement.png" alt="Create DMN Information Requirement icon">
+</div>
+<div class="title">Figure 3. Create DMN Information Requirement icon</div>
+</div>
+</li>
+<li>
+<p>Drag a <strong>DMN Decision</strong> decision node onto the canvas.</p>
+</li>
+<li>
+<p>Double-click the decision node and rename it to <code>Should the driver be suspended?</code>.</p>
+</li>
+<li>
+<p>Click the <strong>Driver</strong> input node, select the <strong>Create DMN Information Requirement</strong> icon and click the <strong>Should the driver be suspended?</strong> decision node to link the two nodes.</p>
+</li>
+<li>
+<p>Click the <strong>Fine</strong> decision node, select the <strong>Create DMN Information Requirement</strong> icon, and select the <strong>Should the driver be suspended?</strong> decision node.</p>
+</li>
+<li>
+<p>Click <strong>Save</strong>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As you periodically save a DRD, the DMN designer performs a static validation of the DMN model and might produce error messages until the model is defined completely. After you finish defining the DMN model completely, if any errors remain, troubleshoot the specified problems accordingly.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<h4 id="dmn-gs-creating-custom-datatypes-proc" class="discrete">Creating the traffic violations DMN custom data types</h4>
+<div class="paragraph">
+<p>DMN data types determine the structure of the data that you use within a table, column, or field in a DMN boxed expression for defining decision logic. You can use default DMN data types (such as string, number, or boolean) or you can create custom data types to specify additional fields and constraints that you want to implement for the boxed expression values. Use the KIE DMN Editor&#8217;s <strong>Data Types</strong> tab to define the custom data types for the traffic violations project.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-custom-datatypes-tab.png" alt="The custom data types tab">
+</div>
+<div class="title">Figure 4. The custom data types tab</div>
+</div>
+<div class="paragraph">
+<p>The following tables list the <code>tDriver</code>, <code>tViolation</code>, and <code>tFine</code> custom data types that you will create for this project.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. <code>tDriver</code> custom data type</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tDriver</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Structure</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Age</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">State</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">City</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Points</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. <code>tViolation</code> custom data type</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tViolation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Structure</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Speed Limit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Actual Speed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 3. <code>tFine</code> custom data type</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tFine</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Structure</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amount</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Points</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number</p></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You created the traffic violations DMN decision requirements diagram (DRDs) using KIE DMN Editor.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>To create the <code>tDriver</code> custom data type, click <strong>Add a custom Data Type</strong> on the <strong>Data Types</strong> tab, enter <code>tDriver</code> in the <strong>Name</strong> field, and select <code>Structure</code> from the <strong>Type</strong> list.</p>
+</li>
+<li>
+<p>Click the check mark to the right of the new data type to save your changes.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-tDriver-custom-datatype.png" alt="The tDriver custom data type">
+</div>
+<div class="title">Figure 5. The tDriver custom data type</div>
+</div>
+</li>
+<li>
+<p>Add each of the following nested data types to the <code>tDriver</code> structured data type by clicking the plus sign next to <code>tDriver</code> for each new nested data type. Click the check mark to the right of each new data type to save your changes.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Name</code> (string)</p>
+</li>
+<li>
+<p><code>Age</code> (number)</p>
+</li>
+<li>
+<p><code>State</code> (string)</p>
+</li>
+<li>
+<p><code>City</code> (string)</p>
+</li>
+<li>
+<p><code>Points</code> (number)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>To create the <code>tViolation</code> custom data type, click <strong>New Data Type</strong>, enter <code>tViolation</code> in the <strong>Name</strong> field, and select <code>Structure</code> from the <strong>Type</strong> list.</p>
+</li>
+<li>
+<p>Click the check mark to the right of the new data type to save your changes.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-tViolation-custom-datatype.png" alt="The tViolation custom data type">
+</div>
+<div class="title">Figure 6. The tViolation custom data type</div>
+</div>
+</li>
+<li>
+<p>Add each of the following nested data types to the <code>tViolation</code> structured data type by clicking the plus sign next to <code>tViolation</code> for each new nested data type. Click the check mark to the right of each new data type to save your changes.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Code</code> (string)</p>
+</li>
+<li>
+<p><code>Date</code> (date)</p>
+</li>
+<li>
+<p><code>Type</code> (string)</p>
+</li>
+<li>
+<p><code>Speed Limit</code> (number)</p>
+</li>
+<li>
+<p><code>Actual Speed</code> (number)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>To add the following constraints to the <code>Type</code> nested data type, click the edit icon, click <strong>Add Constraints</strong>, and select <strong>Enumeration</strong> from the <strong>Select constraint type</strong> drop-down menu.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>speed</code></p>
+</li>
+<li>
+<p><code>parking</code></p>
+</li>
+<li>
+<p><code>driving under the influence</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Click <strong>OK</strong>, then click the check mark to the right of the <strong>Type</strong> data type to save your changes.</p>
+</li>
+<li>
+<p>To create the <code>tFine</code> custom data type, click <strong>New Data Type</strong>, enter <code>tFine</code> in the <strong>Name</strong> field, select <code>Structure</code> from the <strong>Type</strong> list, and click <strong>Save</strong>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-tFine-custom-datatype.png" alt="The tFine custom data type">
+</div>
+<div class="title">Figure 7. The tFine custom data type</div>
+</div>
+</li>
+<li>
+<p>Add each of the following nested data types to the <code>tFine</code> structured data type by clicking the plus sign next to <code>tFine</code> for each new nested data type. Click the check mark to the right of each new data type to save your changes.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Amount</code> (number)</p>
+</li>
+<li>
+<p><code>Points</code> (number)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Click <strong>Save</strong>.</p>
+</li>
+</ol>
+</div>
+<h4 id="dmn-gs-assigning-custom-datatypes-proc" class="discrete">Assigning custom data types to the DRD input and decision nodes</h4>
+<div class="paragraph">
+<p>After you create the DMN custom data types, assign them to the appropriate <strong>DMN Input Data</strong> and <strong>DMN Decision</strong> nodes in the traffic violations DRD.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You have created the traffic violations DMN custom data types in KIE DMN Editor.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Click the <strong>Model</strong> tab on the DMN designer and click the <strong>Properties</strong> <span class="image"><img src="../_images/getting-started/diagram_properties.png" alt="diagram properties"></span> icon in the upper-right corner of the DMN designer to expose the DRD properties.</p>
+</li>
+<li>
+<p>In the DRD, select the <strong>Driver</strong> input data node and in the <strong>Properties</strong> panel, select <code>tDriver</code> from the <strong>Data type</strong> drop-down menu.</p>
+</li>
+<li>
+<p>Select the <strong>Violation</strong> input data node and select <code>tViolation</code> from the <strong>Data type</strong> drop-down menu.</p>
+</li>
+<li>
+<p>Select the <strong>Fine</strong> decision node and select <code>tFine</code> from the <strong>Data type</strong> drop-down menu.</p>
+</li>
+<li>
+<p>Select the <strong>Should the driver be suspended?</strong> decision node and set the following properties:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Data type</strong>: <code>string</code></p>
+</li>
+<li>
+<p><strong>Question</strong>: <code>Should the driver be suspended due to points on his driver license?</code></p>
+</li>
+<li>
+<p><strong>Allowed Answers</strong>: <code>Yes,No</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Click <strong>Save</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You have assigned the custom data types to your DRD&#8217;s input and decision nodes.</p>
+</div>
+<h4 id="dmn-gs-defining-decision-logic-proc" class="discrete">Defining the traffic violations DMN decision logic</h4>
+<div class="paragraph">
+<p>To calculate the fine and to decide whether the driver is to be suspended or not, you can define the traffic violations DMN decision logic using a DMN decision table and context boxed expression.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-gs-fine-decision-table.png" alt="Fine expression decision table">
+</div>
+<div class="title">Figure 8. Fine expression</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-gs-context-table.png" alt="Should the driver be suspended expression decision table">
+</div>
+<div class="title">Figure 9. Should the driver be suspended expression</div>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You have assigned the DMN custom data types to the appropriate decision and input nodes in the traffic violations DRD in KIE DMN Editor.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>To calculate the fine, in the DMN designer canvas, select the <strong>Fine</strong> decision node and click the <strong>Edit</strong> icon to open the DMN boxed expression designer.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/decision_node_edit.png" alt="Decision node edit icon">
+</div>
+<div class="title">Figure 10. Decision node edit icon</div>
+</div>
+</li>
+<li>
+<p>Click <strong>Select expression</strong> &#8594; <strong>Decision Table</strong>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/select_logic_type.png" alt="Select logic type menu">
+</div>
+<div class="title">Figure 11. Select Decisiong Table logic type</div>
+</div>
+</li>
+<li>
+<p>For the <strong>Violation.Date</strong>, <strong>Violation.Code</strong>, and <strong>Violation.Speed Limit</strong> columns, right-click and select <strong>Delete</strong> for each field.</p>
+</li>
+<li>
+<p>Click the <strong>Violation.Actual Speed</strong> column header and enter the expression <code>Violation.Actual Speed - Violation.Speed Limit</code> in the <strong>Expression</strong> field."</p>
+</li>
+<li>
+<p>Enter the following values in the first row of the decision table:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Violation.Type</strong>: <code>"speed"</code></p>
+</li>
+<li>
+<p><strong>Violation.Actual Speed - Violation.Speed Limit</strong>: <code>[10..30)</code></p>
+</li>
+<li>
+<p><strong>Amount</strong>: <code>500</code></p>
+</li>
+<li>
+<p><strong>Points</strong>: <code>3</code></p>
+<div class="paragraph">
+<p>Right-click the first row and select <code>Insert below</code> to add another row.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enter the following values in the second row of the decision table:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Violation.Type</strong>: <code>"speed"</code></p>
+</li>
+<li>
+<p><strong>Violation.Actual Speed - Violation.Speed Limit</strong>: <code>&gt;= 30</code></p>
+</li>
+<li>
+<p><strong>Amount</strong>: <code>1000</code></p>
+</li>
+<li>
+<p><strong>Points</strong>: <code>7</code></p>
+<div class="paragraph">
+<p>Right-click the second row and select <code>Insert below</code> to add another row.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enter the following values in the third row of the decision table:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Violation.Type</strong>: <code>"parking"</code></p>
+</li>
+<li>
+<p><strong>Violation.Actual Speed - Violation.Speed Limit</strong>: <code>-</code></p>
+</li>
+<li>
+<p><strong>Amount</strong>: <code>100</code></p>
+</li>
+<li>
+<p><strong>Points</strong>: <code>1</code></p>
+<div class="paragraph">
+<p>Right-click the third row and select <code>Insert below</code> to add another row.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enter the following values in the fourth row of the decision table:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Violation.Type</strong>: <code>"driving under the influence"</code></p>
+</li>
+<li>
+<p><strong>Violation.Actual Speed - Violation.Speed Limit</strong>: <code>-</code></p>
+</li>
+<li>
+<p><strong>Amount</strong>: <code>1000</code></p>
+</li>
+<li>
+<p><strong>Points</strong>: <code>5</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Click <strong>Save</strong>.</p>
+</li>
+<li>
+<p>To define the driver suspension rule, return to the DMN designer canvas, select the <strong>Should the driver be suspended?</strong> decision node, and click the <strong>Edit</strong> icon to open the DMN boxed expression designer.</p>
+</li>
+<li>
+<p>Click <strong>Select expression</strong> &#8594; <strong>Context</strong>.</p>
+</li>
+<li>
+<p>Click <strong>ContextEntry-1</strong>, enter <code>Total Points</code> as the <strong>Name</strong>, and select <code>number</code> from the <strong>Data Type</strong> drop-down menu.</p>
+</li>
+<li>
+<p>Click the cell next to <strong>Total Points</strong>, select <code>Literal expression</code> from the context menu, and enter <code>Driver.Points + Fine.Points</code> as the expression.</p>
+</li>
+<li>
+<p>In the cell below <strong>Driver.Points + Fine.Points</strong>, select <code>Literal Expression</code> from the context menu, and enter <code>if Total Points &gt;= 20 then "Yes" else "No"</code>.</p>
+</li>
+<li>
+<p>Click <strong>Save</strong>.</p>
+<div class="paragraph">
+<p>You have defined how to calculate the fine and the context for deciding when to suspend the driver. You can navigate to the <strong>traffic-violation</strong> project page and click <strong>Build</strong> to build the example project and address any errors noted in the <strong>Alerts</strong> panel.</p>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="test-scenarios-intro-con_getting-started-decision-services" class="discrete">Test scenarios</h3>
+<div class="paragraph">
+<p>Test scenarios in Drools enable you to validate the functionality of business rules and business rule data (for rules-based test scenarios) or of DMN models (for DMN-based test scenarios) before deploying them into a production environment. With a test scenario, you use data from your project to set given conditions and expected results based on one or more defined business rules. When you run the scenario, the expected results and actual results of the rule instance are compared. If the expected results match the actual results, the test is successful. If the expected results do not match the actual results, then the test fails.</p>
+</div>
+<div class="paragraph">
+<p>You can run the defined test scenarios in a number of ways, for example, you can run available test scenarios at the project level or inside a specific test scenario asset. Test scenarios are independent and cannot affect or modify other test scenarios. You can run test scenarios at any time during project development in Drools.</p>
+</div>
+<div class="paragraph">
+<p>You can import data objects from different packages to the same project package as the test scenario. Assets in the same package are imported by default. After you create the necessary data objects and the test scenario, you can use the <strong>Data Objects</strong> tab of the test scenarios designer to verify that all required data objects are listed or to import other existing data objects by adding a <strong>New item</strong>.</p>
+</div>
+<h4 id="dmn-gs-testing-test-scenario-proc" class="discrete">Testing the traffic violations using test scenarios</h4>
+<div class="paragraph">
+<p>Use the test scenarios designer to test the DMN decision requirements diagrams (DRDs) and define decision logic for the traffic violations project.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-gs-traffic-violation-test-scenarios.png" alt="Test scenario for the traffic violations example">
+</div>
+<div class="title">Figure 12. Test scenario for the traffic violations example</div>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You have successfully built the traffic violations project using Drools.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Create a new Test Scenario file in your IDE.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Enter <code>Violation Scenarios</code> in the <strong>Test Scenario</strong> field.</p>
+</li>
+<li>
+<p>From the <strong>Package</strong> list, select <code>com.myspace.traffic_violation</code>.</p>
+</li>
+<li>
+<p>Select <code>DMN</code> as the <strong>Source type</strong>.</p>
+</li>
+<li>
+<p>From the <strong>Choose a DMN asset</strong> list, select the path to the DMN asset.</p>
+</li>
+<li>
+<p>Click <strong>Ok</strong> to open the <strong>Violation Scenarios</strong> test scenario in the <strong>Test Scenarios</strong> designer.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Under <strong>Driver</strong> column sub-header, right-click the <strong>State</strong>, <strong>City</strong>, <strong>Age</strong>, and <strong>Name</strong> value cells and select <strong>Delete column</strong> from the context menu options to remove them.</p>
+</li>
+<li>
+<p>Under <strong>Violation</strong> column sub-header, right-click the <strong>Date</strong> and <strong>Code</strong> value cells and select <strong>Delete column</strong> to remove them.</p>
+</li>
+<li>
+<p>Enter the following information in the first row of the test scenarios:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Scenario description</strong>: <code>Above speed limit: 10km/h and 30 km/h</code></p>
+</li>
+<li>
+<p><strong>Points</strong> (under <strong>Given</strong> column header): <code>10</code></p>
+</li>
+<li>
+<p><strong>Type</strong>: <code>"speed"</code></p>
+</li>
+<li>
+<p><strong>Speed Limit</strong>: <code>100</code></p>
+</li>
+<li>
+<p><strong>Actual Speed</strong>: <code>120</code></p>
+</li>
+<li>
+<p><strong>Points</strong>: <code>3</code></p>
+</li>
+<li>
+<p><strong>Amount</strong>: <code>500</code></p>
+</li>
+<li>
+<p><strong>Should the driver be suspended?</strong>: <code>"No"</code></p>
+<div class="paragraph">
+<p>Right-click the first row and select <strong>Insert row below</strong> to add another row.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enter the following information in the second row of the test scenarios:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Scenario description</strong>: <code>Above speed limit: more than 30 km/h</code></p>
+</li>
+<li>
+<p><strong>Points</strong> (under <strong>Given</strong> column header): <code>10</code></p>
+</li>
+<li>
+<p><strong>Type</strong>: <code>"speed"</code></p>
+</li>
+<li>
+<p><strong>Speed Limit</strong>: <code>100</code></p>
+</li>
+<li>
+<p><strong>Actual Speed</strong>: <code>150</code></p>
+</li>
+<li>
+<p><strong>Points</strong>: <code>7</code></p>
+</li>
+<li>
+<p><strong>Amount</strong>: <code>1000</code></p>
+</li>
+<li>
+<p><strong>Should the driver be suspended?</strong>: <code>"No"</code></p>
+<div class="paragraph">
+<p>Right-click the second row and select <strong>Insert row below</strong> to add another row.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enter the following information in the third row of the test scenarios:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Scenario description</strong>: <code>Parking violation</code></p>
+</li>
+<li>
+<p><strong>Points</strong> (under <strong>Given</strong> column header): <code>10</code></p>
+</li>
+<li>
+<p><strong>Type</strong>: <code>"parking"</code></p>
+</li>
+<li>
+<p><strong>Speed Limit</strong>: leave blank</p>
+</li>
+<li>
+<p><strong>Actual Speed</strong>: leave blank</p>
+</li>
+<li>
+<p><strong>Points</strong>: <code>1</code></p>
+</li>
+<li>
+<p><strong>Amount</strong>: <code>100</code></p>
+</li>
+<li>
+<p><strong>Should the driver be suspended?</strong>: <code>"No"</code></p>
+<div class="paragraph">
+<p>Right-click the third row and select <strong>Insert row below</strong> to add another row.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enter the following information in the fourth row of the test scenarios:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Scenario description</strong>: <code>DUI violation</code></p>
+</li>
+<li>
+<p><strong>Points</strong> (under <strong>Given</strong> column header): <code>10</code></p>
+</li>
+<li>
+<p><strong>Type</strong>: <code>"driving under the influence"</code></p>
+</li>
+<li>
+<p><strong>Speed Limit</strong>: leave blank</p>
+</li>
+<li>
+<p><strong>Actual Speed</strong>: leave blank</p>
+</li>
+<li>
+<p><strong>Points</strong>: <code>5</code></p>
+</li>
+<li>
+<p><strong>Amount</strong>: <code>1000</code></p>
+</li>
+<li>
+<p><strong>Should the driver be suspended?</strong>: <code>"No"</code></p>
+<div class="paragraph">
+<p>Right-click the fourth row and select <strong>Insert row below</strong> to add another row.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enter the following information in the fifth row of the test scenarios:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Scenario description</strong>: <code>Driver suspended</code></p>
+</li>
+<li>
+<p><strong>Points</strong> (under <strong>Given</strong> column header): <code>15</code></p>
+</li>
+<li>
+<p><strong>Type</strong>: <code>"speed"</code></p>
+</li>
+<li>
+<p><strong>Speed Limit</strong>: <code>100</code></p>
+</li>
+<li>
+<p><strong>Actual Speed</strong>: <code>140</code></p>
+</li>
+<li>
+<p><strong>Points</strong>: <code>7</code></p>
+</li>
+<li>
+<p><strong>Amount</strong>: <code>1000</code></p>
+</li>
+<li>
+<p><strong>Should the driver be suspended?</strong>: <code>"Yes"</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Click <strong>Save</strong>.</p>
+</li>
+<li>
+<p>Click the <strong>Play</strong> icon <span class="image"><img src="../_images/dmn/dmn-play-icon.png" alt="dmn play icon"></span> to check whether the test scenarios pass or fail.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-gs-test-scenarios-execution-results.png" alt="Test scenario execution result for the traffic violations example">
+</div>
+<div class="title">Figure 13. Test scenario execution result for the traffic violations example</div>
+</div>
+<div class="paragraph">
+<p>In case of failure, correct the errors and run the test scenarios again.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="gs-evaluating-dmn_getting-started-decision-services"><a class="anchor" href="#gs-evaluating-dmn_getting-started-decision-services"></a>Evaluating the traffic violations DMN model with Drools</h3>
+<div class="paragraph">
+<p>The instructions to follow to evaluate the traffic violation DMN model depends on the chosen target deployment platform from the prerequisite.</p>
+</div>
+<div class="paragraph">
+<p>For more details about available options to evaluate DMN models depending on the target deployment platform, make reference to:
+<a href="#dmn-execution-con_dmn-models">[dmn-execution-con_dmn-models]</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="evaluating-dmn-example-archetype_getting-started-decision-services"><a class="anchor" href="#evaluating-dmn-example-archetype_getting-started-decision-services"></a>Example: Drools DMN engine as an embedded library use</h4>
+<div class="paragraph">
+<p>The following examples assumes Drools DMN engine is used as an embedded library in a given deployment platform.</p>
+</div>
+<div class="paragraph">
+<p>The source code and unit test code for the <strong>Traffic_Violation</strong> DMN model is available when generating the Maven Archetype.</p>
+</div>
+<div class="paragraph">
+<p>Create a project with the following command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mvn archetype:generate -DarchetypeGroupId=org.kie -DarchetypeArtifactId=kie-drools-dmn-archetype -DarchetypeVersion=10.1.0</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>During the command execution, input property values interactively.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">Define value for property 'groupId': org.example
+Define value for property 'artifactId': my-project
+Define value for property 'version' 1.0-SNAPSHOT: :
+Define value for property 'package' org.example: :
+...
+ Y: : Y
+...
+[INFO] BUILD SUCCESS</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now your first rule project is created. Let&#8217;s look into the project.</p>
+</div>
+<div class="paragraph">
+<p>Firstly, <code>pom.xml</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.kie&lt;/groupId&gt;
+    &lt;artifactId&gt;kie-dmn-core&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.drools&lt;/groupId&gt;
+    &lt;artifactId&gt;drools-xml-support&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.drools&lt;/groupId&gt;
+    &lt;artifactId&gt;drools-model-compiler&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>They are required dependencies for using Drools DMN engine as an embedded library.</p>
+</div>
+<div class="paragraph">
+<p>The archetype contains the DMN file as an example <code>src/main/resources/Traffic Violation.dmn</code>, which was described at length in the previous sections.</p>
+</div>
+<div class="paragraph">
+<p>Finally, <code>src/test/java/org/example/TrafficViolationTest.java</code> is the test case that evaluate the DMN model.
+You can learn the basic API usage that is used in your own applications.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Map&lt;String, ?&gt; driver = of("Points", 2);
+Map&lt;String, ?&gt; violation = of("Type", "speed", "Actual Speed", 120, "Speed Limit", 100);
+
+DMNContext dmnContext = dmnRuntime.newContext();
+dmnContext.set("Driver", driver);
+dmnContext.set("Violation", violation);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Create a <code>DMNContext</code> with some example test data for <code>Driver</code> and <code>Violation</code> InputData nodes in the DMN model; alternatively, you can supply your own Pojos.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">LOG.info("Evaluating DMN model");
+DMNResult dmnResult = dmnRuntime.evaluateAll(dmnModelUT, dmnContext);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Evaluate the <strong>Traffic_Violation</strong> DMN model using the actual test data in the <code>DMNContext</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">LOG.info("Checking results: {}", dmnResult);
+assertFalse(dmnResult.hasErrors());</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Check no error was reported while evaluating the <strong>Traffic_Violation</strong> DMN model.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">assertEquals(DecisionEvaluationStatus.SUCCEEDED, dmnResult.getDecisionResultByName("Should the driver be suspended?").getEvaluationStatus());
+assertEquals("No", dmnResult.getDecisionResultByName("Should the driver be suspended?").getResult());</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Check the result of the final decision <code>Should the driver be suspended?</code> is valorised as the string <code>No</code>.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s run the test with <code>mvn clean verify</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.example.TrafficViolationTest
+2022-08-29 16:11:44,539 [main] INFO  Evaluating DMN model
+2022-08-29 16:11:44,540 [main] INFO  Checking results: DMNResultImpl{context={
+    Driver: {
+        Points: 2
+    }
+    Violation: {
+        Type: speed
+        Speed Limit: 100
+        Actual Speed: 120
+    }
+    Fine: {
+        Points: 3
+        Amount: 500
+    }
+    Should the driver be suspended?: No
+}
+, messages=org.kie.dmn.core.util.DefaultDMNMessagesManager@4f89331f}
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.example.TrafficViolationTest</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Feel free to use this archetype-generate project as a basis by modifying the existing DMN model or creating brand new DMN models!
+The archetype also contain more advanced test cases, using the SceSim tool.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="evaluating-dmn-example-kogito_getting-started-decision-services"><a class="anchor" href="#evaluating-dmn-example-kogito_getting-started-decision-services"></a>Example: Kogito as the target deployment platform</h4>
+<div class="paragraph">
+<p>The following examples assumes Kogito is the chosen target deployment platform.</p>
+</div>
+<div class="paragraph">
+<p>The source code and detailed runtime instructions for the <strong>Traffic_Violation</strong> sample project are readily made available for Kogito from the <a href="https://github.com/apache/incubator-kie-kogito-examples/tree/stable/kogito-quarkus-examples/dmn-quarkus-example">Kogito Examples GitHub repository</a>.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Determine the base URL for accessing the REST API endpoints. This requires knowing the following values (with the default local deployment values as an example):</p>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Host (<code>localhost</code>)</p>
+</li>
+<li>
+<p>Port (<code>8080</code>)</p>
+</li>
+<li>
+<p>REST path (none specific)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example base URL in local deployment for the traffic violations project:</p>
+</div>
+<div class="paragraph">
+<p><code>http://localhost:8080/Traffic Violation</code></p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Determine user authentication requirements.</p>
+<div class="paragraph">
+<p>If users and roles are configured on the Kogito on Quarkus application, HTTP Basic authentication may be required with user name and password. Successful requests require that the user have the configured role.</p>
+</div>
+<div class="paragraph">
+<p>The following example demonstrates how to add credentials to a curl request:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">curl -u username:password &lt;request&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the Kogito on Quarkus application is configured with Red Hat Single Sign-On, the request must include a bearer token:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">curl -H "Authorization: bearer $TOKEN" &lt;request&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Execute the DMN model:</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>[POST]</strong> <code>Traffic%20Violation</code></p>
+</div>
+<div class="paragraph">
+<p>Example curl request:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">curl -L -X POST 'localhost:8080/Traffic Violation' \
+-H 'Content-Type: application/json' \
+-H 'Accept: application/json' \
+--data-raw '{
+    "Driver": {
+        "Points": 2
+    },
+    "Violation": {
+        "Type": "speed",
+        "Actual Speed": 120,
+        "Speed Limit": 100
+    }
+}'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example JSON request:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "Driver": {
+        "Points": 2
+    },
+    "Violation": {
+        "Type": "speed",
+        "Actual Speed": 120,
+        "Speed Limit": 100
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example JSON response:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "Driver": {
+        "Points": 2
+    },
+    "Violation": {
+        "Type": "speed",
+        "Actual Speed": 120,
+        "Speed Limit": 100
+    },
+    "Fine": {
+        "Points": 3,
+        "Amount": 500
+    },
+    "Should the driver be suspended?": "No"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<!--Licensed to the Apache Software Foundation (ASF) under one-->
+<!--or more contributor license agreements.  See the NOTICE file-->
+<!--distributed with this work for additional information-->
+<!--regarding copyright ownership.  The ASF licenses this file-->
+<!--to you under the Apache License, Version 2.0 (the-->
+<!--"License"); you may not use this file except in compliance-->
+<!--with the License.  You may obtain a copy of the License at-->
+
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--Unless required by applicable law or agreed to in writing,-->
+<!--software distributed under the License is distributed on an-->
+<!--"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY-->
+<!--KIND, either express or implied.  See the License for the-->
+<!--specific language governing permissions and limitations-->
+<!--under the License.-->
+
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>

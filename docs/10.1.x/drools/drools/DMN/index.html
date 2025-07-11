@@ -1,0 +1,3676 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Decision Model and Notation (DMN) :: Drools Documentation</title>
+    <link rel="canonical" href="https://docs.drools.org/latest/drools-docs/drools/DMN/index.html">
+    <meta name="generator" content="Antora 3.0.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<!--Licensed to the Apache Software Foundation (ASF) under one-->
+<!--or more contributor license agreements.  See the NOTICE file-->
+<!--distributed with this work for additional information-->
+<!--regarding copyright ownership.  The ASF licenses this file-->
+<!--to you under the Apache License, Version 2.0 (the-->
+<!--"License"); you may not use this file except in compliance-->
+<!--with the License.  You may obtain a copy of the License at-->
+
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--Unless required by applicable law or agreed to in writing,-->
+<!--software distributed under the License is distributed on an-->
+<!--"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY-->
+<!--KIND, either express or implied.  See the License for the-->
+<!--specific language governing permissions and limitations-->
+<!--under the License.-->
+
+<link rel="stylesheet" href="../../_/css/search.css">
+<link rel="stylesheet" href="../../_/css/menu.css">
+<link rel="stylesheet" href="../../_/css/drl.css">
+<!--Licensed to the Apache Software Foundation (ASF) under one-->
+<!--or more contributor license agreements.  See the NOTICE file-->
+<!--distributed with this work for additional information-->
+<!--regarding copyright ownership.  The ASF licenses this file-->
+<!--to you under the Apache License, Version 2.0 (the-->
+<!--"License"); you may not use this file except in compliance-->
+<!--with the License.  You may obtain a copy of the License at-->
+
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--Unless required by applicable law or agreed to in writing,-->
+<!--software distributed under the License is distributed on an-->
+<!--"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY-->
+<!--KIND, either express or implied.  See the License for the-->
+<!--specific language governing permissions and limitations-->
+<!--under the License.-->
+
+<script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<!--Licensed to the Apache Software Foundation (ASF) under one-->
+<!--or more contributor license agreements.  See the NOTICE file-->
+<!--distributed with this work for additional information-->
+<!--regarding copyright ownership.  The ASF licenses this file-->
+<!--to you under the Apache License, Version 2.0 (the-->
+<!--"License"); you may not use this file except in compliance-->
+<!--with the License.  You may obtain a copy of the License at-->
+
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--Unless required by applicable law or agreed to in writing,-->
+<!--software distributed under the License is distributed on an-->
+<!--"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY-->
+<!--KIND, either express or implied.  See the License for the-->
+<!--specific language governing permissions and limitations-->
+<!--under the License.-->
+
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="https://kie.apache.org/">
+          <img src="../../_/img/droolsExpertLogo.png" alt="Drools logo"/>
+        </a>
+        <a class="navbar-item" href="https://kie.apache.org/">
+          Drools Documentation
+        </a>
+      </div>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <a class="navbar-item small-item" href="https://github.com/apache/incubator-kie-drools" title="Follow Drools on GitHub"><div class="github-icon"></div></a>
+          <a class="navbar-item small-item" href="https://twitter.com/KieCommunity" target="_blank" title="Follow KIE Community on Twitter for more Drools tweets"><img alt="T" src="../../_/img/twitterLogo.png"></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="drools" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../introduction/index.html">Drools User Guide 10.1.0</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../introduction/index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../getting-started/index.html">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../KIE/index.html">Build, Deploy, Utilize and Run</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../rule-engine/index.html">Drools rule engine</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../language-reference/index.html">Rule Language Reference</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../language-reference-traditional/index.html">Rule Language Reference (Traditional)</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="index.html">Decision Model and Notation (DMN)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../pragmatic-ai/index.html">Pragmatic AI: Integrating Machine Learning with Drools</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../Commands/index.html">Drools Commands</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration-guide/index.html">Migration Guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../experimental-features/index.html">Experimental features</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Drools User Guide 10.1.0</span>
+    <span class="version">default</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../introduction/index.html">Drools User Guide 10.1.0</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../introduction/index.html">default</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../introduction/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../introduction/index.html">Drools User Guide 10.1.0</a></li>
+    <li><a href="index.html">Decision Model and Notation (DMN)</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Decision Model and Notation (DMN)</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Decision Model and Notation (DMN) is a standard established by the Object Management Group (OMG) for describing and modeling operational decisions. DMN defines an XML schema that enables DMN models to be shared between DMN-compliant platforms and across organizations so that business analysts and business rules developers can collaborate in designing and implementing DMN decision services. The DMN standard is similar to and can be used together with the Business Process Model and Notation (BPMN) standard for designing and modeling business processes.</p>
+</div>
+<div class="paragraph">
+<p>For general information about the background and applications of DMN, see the <a href="https://www.drools.org/learn/dmn.html">Drools DMN landing page</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="dmn-conformance-levels-con_dmn-models"><a class="anchor" href="#dmn-conformance-levels-con_dmn-models"></a>DMN conformance levels</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The DMN specification defines three incremental levels of conformance in a software implementation. A product that claims compliance at one level must also be compliant with any preceding levels. For example, a conformance level 3 implementation must also include the supported components in conformance levels 1 and 2. For the formal definitions of each conformance level, see the OMG <a href="https://www.omg.org/spec/DMN">Decision Model and Notation specification</a>.</p>
+</div>
+<div class="paragraph">
+<p>The following list summarizes the three DMN conformance levels:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Conformance level 1</dt>
+<dd>
+<p>A DMN conformance level 1 implementation supports decision requirement diagrams (DRDs), decision logic, and decision tables, but decision models are not executable. Any language can be used to define the expressions, including natural, unstructured languages.</p>
+</dd>
+<dt class="hdlist1">Conformance level 2</dt>
+<dd>
+<p>A DMN conformance level 2 implementation includes the requirements in conformance level 1, and supports Simplified Friendly Enough Expression Language (S-FEEL) expressions and fully executable decision models.</p>
+</dd>
+<dt class="hdlist1">Conformance level 3</dt>
+<dd>
+<p>A DMN conformance level 3 implementation includes the requirements in conformance levels 1 and 2, and supports Friendly Enough Expression Language (FEEL) expressions, the full set of boxed expressions, and fully executable decision models.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Drools DMN engine provides runtime support for DMN 1.1, 1.2, 1.3, and 1.4 models at conformance level 3.</p>
+</div>
+<div class="paragraph">
+<p>KIE DMN Editor provides design support for DMN 1.2 models at conformance level 3.</p>
+</div>
+<div class="paragraph">
+<p>You can design your DMN models directly with KIE DMN Editor online, directly with KIE DMN Editor in VSCode, or import existing DMN models into your Drools projects for deployment and execution.</p>
+</div>
+<div class="paragraph">
+<p>Any DMN 1.1 and 1.3 models (do not contain DMN 1.3 features) that you import or open into KIE DMN Editor and save are converted to DMN 1.2 models.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="dmn-drd-components-ref_dmn-models"><a class="anchor" href="#dmn-drd-components-ref_dmn-models"></a>DMN decision requirements diagram (DRD) components</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A decision requirements diagram (DRD) is a visual representation of your DMN model. A DRD can represent part or all of the overall decision requirements graph (DRG) for the DMN model. DRDs trace business decisions using decision nodes, business knowledge models, sources of business knowledge, input data, and decision services.</p>
+</div>
+<div class="paragraph">
+<p>The following table summarizes the components in a DRD:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. DRD components</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2">Component</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Notation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="5"><p class="tableblock">Elements</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Decision</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node where one or more input elements determine an output based on defined decision logic.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-decision-node.png" alt="dmn decision node">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business knowledge model</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reusable function with one or more decision elements. Decisions that have the same logic but depend on different sub-input data or sub-decisions use business knowledge models to determine which procedure to follow.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-bkm-node.png" alt="dmn bkm node">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Knowledge source</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">External authorities, documents, committees, or policies that regulate a decision or business knowledge model. Knowledge sources are references to real-world factors rather than executable business rules.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-knowledge-source-node.png" alt="dmn knowledge source node">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Input data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Information used in a decision node or a business knowledge model. Input data usually includes business-level concepts or objects relevant to the business, such as loan applicant data used in a lending strategy.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-input-data-node.png" alt="dmn input data node">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Decision service</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Top-level decision containing a set of reusable decisions published as a service for invocation. A decision service can be invoked from an external application or a BPMN business process.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-decision-service-node.png" alt="dmn decision service node">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Requirement connectors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Information requirement</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Connection from an input data node or decision node to another decision node that requires the information.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-info-connector.png" alt="dmn info connector">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Knowledge requirement</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Connection from a business knowledge model to a decision node or to another business knowledge model that invokes the decision logic.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-knowledge-connector.png" alt="dmn knowledge connector">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Authority requirement</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Connection from an input data node or a decision node to a dependent knowledge source or from a knowledge source to a decision node, business knowledge model, or another knowledge source.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-authority-connector.png" alt="dmn authority connector">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Artifacts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text annotation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Explanatory note associated with an input data node, decision node, business knowledge model, or knowledge source.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-annotation-node.png" alt="dmn annotation node">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Association</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Connection from an input data node, decision node, business knowledge model, or knowledge source to a text annotation.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-association-connector.png" alt="dmn association connector">
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The following table summarizes the permitted connectors between DRD elements:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. DRD connector rules</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Starts from</th>
+<th class="tableblock halign-left valign-top">Connects to</th>
+<th class="tableblock halign-left valign-top">Connection type</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Decision</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Decision</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Information requirement</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-decision-to-decision.png" alt="dmn decision to decision">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Business knowledge model</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Decision</p></td>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Knowledge requirement</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-bkm-to-decision.png" alt="dmn bkm to decision">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business knowledge model</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-bkm-to-bkm.png" alt="dmn bkm to bkm">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><div class="content"><div class="paragraph">
+<p>Decision service</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Decision</p></td>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Knowledge requirement</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-decision-service-to-decision.png" alt="dmn decision service to decision">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business knowledge model</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-decision-service-to-bkm.png" alt="dmn decision service to bkm">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Input data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Decision</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Information requirement</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-input-to-decision.png" alt="dmn input to decision">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Knowledge source</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Authority requirement</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-input-to-knowledge-source.png" alt="dmn input to knowledge source">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Knowledge source</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Decision</p></td>
+<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Authority requirement</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-knowledge-source-to-decision.png" alt="dmn knowledge source to decision">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business knowledge model</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-knowledge-source-to-bkm.png" alt="dmn knowledge source to bkm">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Knowledge source</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-knowledge-source-to-knowledge-source.png" alt="dmn knowledge source to knowledge source">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Decision</p></td>
+<td class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">Text annotation</p></td>
+<td class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">Association</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-decision-to-annotation.png" alt="dmn decision to annotation">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business knowledge model</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-bkm-to-annotation.png" alt="dmn bkm to annotation">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Knowledge source</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-knowledge-source-to-annotation.png" alt="dmn knowledge source to annotation">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Input data</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-input-to-annotation.png" alt="dmn input to annotation">
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The following example DRD illustrates some of these DMN components in practice:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-example-drd.png" alt="dmn example drd">
+</div>
+<div class="title">Figure 1. Example DRD: Loan prequalification</div>
+</div>
+<div class="paragraph">
+<p>The following example DRD illustrates DMN components that are part of a reusable decision service:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-example-drd3.png" alt="dmn example drd3" width="90%">
+</div>
+<div class="title">Figure 2. Example DRD: Phone call handling as a decision service</div>
+</div>
+<div class="paragraph">
+<p>In a DMN decision service node, the decision nodes in the bottom segment incorporate input data from outside of the decision service to arrive at a final decision in the top segment of the decision service node. The resulting top-level decisions from the decision service are then implemented in any subsequent decisions or business knowledge requirements of the DMN model. You can reuse DMN decision services in other DMN models to apply the same decision logic with different input data and different outgoing connections.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="dmn-feel-con_dmn-models"><a class="anchor" href="#dmn-feel-con_dmn-models"></a>Rule expressions in FEEL</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Friendly Enough Expression Language (FEEL) is an expression language defined by the Object Management Group (OMG) DMN specification. FEEL expressions define the logic of a decision in a DMN model. FEEL is designed to facilitate both decision modeling and execution by assigning semantics to the decision model constructs. FEEL expressions in decision requirements diagrams (DRDs) occupy table cells in boxed expressions for decision nodes and business knowledge models.</p>
+</div>
+<div class="paragraph">
+<p>The following sections provide just some highlights about some of the FEEL features. For complete information about FEEL, and built-in FEEL functions in DMN, you can reference the <a href="https://kiegroup.github.io/dmn-feel-handbook/#dmn-feel-handbook">Drools DMN engine, DMN FEEL handbook</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="dmn-feel-data-types-ref_dmn-models"><a class="anchor" href="#dmn-feel-data-types-ref_dmn-models"></a>Data types in FEEL</h3>
+<div class="paragraph">
+<p>Friendly Enough Expression Language (FEEL) supports the following data types:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Numbers</p>
+</li>
+<li>
+<p>Strings</p>
+</li>
+<li>
+<p>Boolean values</p>
+</li>
+<li>
+<p>Dates</p>
+</li>
+<li>
+<p>Time</p>
+</li>
+<li>
+<p>Date and time</p>
+</li>
+<li>
+<p>Days and time duration</p>
+</li>
+<li>
+<p>Years and months duration</p>
+</li>
+<li>
+<p>Functions</p>
+</li>
+<li>
+<p>Contexts</p>
+</li>
+<li>
+<p>Ranges (or intervals)</p>
+</li>
+<li>
+<p>Lists</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The DMN specification currently does not provide an explicit way of declaring a variable as a <code>function</code>, <code>context</code>, <code>range</code>, or <code>list</code>, but Drools extends the DMN built-in types to support variables of these types.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following list describes each data type:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Numbers</dt>
+<dd>
+<p>Numbers in FEEL are based on the <a href="http://ieeexplore.ieee.org/document/4610935/">IEEE 754-2008</a> Decimal 128 format, with 34 digits of precision. Internally, numbers are represented in Java as <a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html"><code>BigDecimals</code></a> with <code>MathContext DECIMAL128</code>. FEEL supports only one number data type, so the same type is used to represent both integers and floating
+point numbers.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>FEEL numbers use a dot (<code>.</code>) as a decimal separator. FEEL does not support <code>-INF</code>, <code>+INF</code>, or <code>NaN</code>. FEEL uses
+<code>null</code> to represent invalid numbers.</p>
+</div>
+<div class="paragraph">
+<p>Drools extends the DMN specification and supports additional number notations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Scientific:</strong> You can use scientific notation with the suffix <code>e&lt;exp&gt;</code> or <code>E&lt;exp&gt;</code>. For example, <code>1.2e3</code> is the same as writing the expression <code>1.2*10**3</code>, but is a literal instead of an expression.</p>
+</li>
+<li>
+<p><strong>Hexadecimal:</strong> You can use hexadecimal numbers with the prefix <code>0x</code>. For example, <code>0xff</code> is the same as the decimal number <code>255</code>. Both uppercase and lowercase letters are supported. For example, <code>0XFF</code> is the same as <code>0xff</code>.</p>
+</li>
+<li>
+<p><strong>Type suffixes:</strong> You can use the type suffixes <code>f</code>, <code>F</code>, <code>d</code>, <code>D</code>, <code>l</code>, and <code>L</code>. These suffixes are ignored.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">Strings</dt>
+<dd>
+<p>Strings in FEEL are any sequence of characters delimited by double quotation marks.</p>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre>"John Doe"</pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">Boolean values</dt>
+<dd>
+<p>FEEL uses three-valued boolean logic, so a boolean logic expression may have values <code>true</code>, <code>false</code>, or <code>null</code>.</p>
+</dd>
+<dt class="hdlist1">Dates</dt>
+<dd>
+<p>Date literals are not supported in FEEL, but you can use the built-in <code>date()</code> function to construct date values. Date strings in FEEL follow the format defined in the <a href="https://www.w3.org/TR/xmlschema-2/#date">XML Schema Part 2: Datatypes</a> document. The format is <code>"YYYY-MM-DD"</code> where <code>YYYY</code> is the year with four digits, <code>MM</code> is the number of the month with two digits, and <code>DD</code> is the number of the day.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>date( "2017-06-23" )</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Date objects have time equal to <code>"00:00:00"</code>, which is midnight. The dates are considered to be local, without a timezone.</p>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">Time</dt>
+<dd>
+<p>Time literals are not supported in FEEL, but you can use the built-in <code>time()</code> function to construct time values. Time strings in FEEL follow the format defined in the <a href="https://www.w3.org/TR/xmlschema-2/#time">XML Schema Part 2: Datatypes</a> document. The format is <code>"hh:mm:ss[.uuu][(+-)hh:mm]"</code> where <code>hh</code> is the hour of the day (from <code>00</code> to <code>23</code>), <code>mm</code> is the minutes in the hour, and <code>ss</code> is the number of seconds in the minute. Optionally, the string may define the number of milliseconds (<code>uuu</code>) within the second and contain a positive (<code>+</code>) or negative (<code>-</code>) offset from UTC time to define its timezone. Instead of using an offset, you can use the letter <code>z</code> to represent the UTC time, which is the same as an offset of <code>-00:00</code>. If no offset is defined, the time is considered to be local.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>time( "04:25:12" )
+time( "14:10:00+02:00" )
+time( "22:35:40.345-05:00" )
+time( "15:00:30z" )</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Time values that define an offset or a timezone cannot be compared to local times that do not define an offset or a timezone.</p>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">Date and time</dt>
+<dd>
+<p>Date and time literals are not supported in FEEL, but you can use the built-in <code>date and time()</code> function to construct date and time values. Date and time strings in FEEL follow the format defined in the <a href="https://www.w3.org/TR/xmlschema-2/#dateTime">XML Schema Part 2: Datatypes</a> document. The format is <code>"&lt;date&gt;T&lt;time&gt;"</code>, where <code>&lt;date&gt;</code> and <code>&lt;time&gt;</code> follow the prescribed XML schema formatting, conjoined by <code>T</code>.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>date and time( "2017-10-22T23:59:00" )
+date and time( "2017-06-13T14:10:00+02:00" )
+date and time( "2017-02-05T22:35:40.345-05:00" )
+date and time( "2017-06-13T15:00:30z" )</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Date and time values that define an offset or a timezone cannot be compared to local date and time values
+that do not define an offset or a timezone.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+If your implementation of the DMN specification does not support spaces in the XML schema, use the keyword <code>dateTime</code> as a synonym of <code>date and time</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">Days and time duration</dt>
+<dd>
+<p>Days and time duration literals are not supported in FEEL, but you can use the built-in <code>duration()</code> function to construct days and time duration values. Days and time duration strings in FEEL follow the format defined in the <a href="https://www.w3.org/TR/xmlschema-2/#duration">XML Schema Part 2: Datatypes</a> document, but are restricted to only days, hours, minutes and seconds. Months and years are not supported.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>duration( "P1DT23H12M30S" )
+duration( "P23D" )
+duration( "PT12H" )
+duration( "PT35M" )</pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+If your implementation of the DMN specification does not support spaces in the XML schema, use the keyword <code>dayTimeDuration</code> as a synonym of <code>days and time duration</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">Years and months duration</dt>
+<dd>
+<p>Years and months duration literals are not supported in FEEL, but you can use the built-in <code>duration()</code> function to construct days and time duration values. Years and months duration strings in FEEL follow the format defined in the <a href="https://www.w3.org/TR/xmlschema-2/#duration">XML Schema Part 2: Datatypes</a> document, but are restricted to only years and months. Days, hours, minutes, or seconds are not supported.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>duration( "P3Y5M" )
+duration( "P2Y" )
+duration( "P10M" )
+duration( "P25M" )</pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+If your implementation of the DMN specification does not support spaces in the XML schema, use the keyword <code>yearMonthDuration</code> as a synonym of <code>years and months duration</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">Functions</dt>
+<dd>
+<p>FEEL has <code>function</code> literals (or anonymous functions) that you can use to create functions. The DMN specification currently does not provide an explicit way of declaring a variable as a <code>function</code>, but Drools extends the DMN built-in types to support variables of functions.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>function(a, b) a + b</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example, the FEEL expression creates a function that adds the parameters <code>a</code> and <code>b</code> and returns the result.</p>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">Contexts</dt>
+<dd>
+<p>FEEL has <code>context</code> literals that you can use to create contexts. A <code>context</code> in FEEL is a list of key and value pairs, similar to maps in languages like Java. The DMN specification currently does not provide an explicit way of declaring a variable as a <code>context</code>, but Drools extends the DMN built-in types to support variables of contexts.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{ x : 5, y : 3 }</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example, the expression creates a context with two entries, <code>x</code> and <code>y</code>, representing a coordinate in a chart.</p>
+</div>
+<div class="paragraph">
+<p>In DMN 1.2, another way to create contexts is to create an item definition that contains the list of keys as attributes, and then declare the variable as having that item definition type.</p>
+</div>
+<div class="paragraph">
+<p>The Drools DMN API supports DMN <code>ItemDefinition</code> structural types in a <code>DMNContext</code> represented in two ways:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>User-defined Java type: Must be a valid JavaBeans object defining properties and getters for each of the components in the DMN <code>ItemDefinition</code>. If necessary, you can also use the <code>@FEELProperty</code> annotation for those getters representing a component name which would result in an invalid Java identifier.</p>
+</li>
+<li>
+<p><code>java.util.Map</code> interface: The map needs to define the appropriate entries, with the keys corresponding to the component name in the DMN <code>ItemDefinition</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">Ranges (or intervals)</dt>
+<dd>
+<p>FEEL has <code>range</code> literals that you can use to create ranges or intervals. A <code>range</code> in FEEL is a value that defines a lower and an upper bound, where either can be open or closed. The DMN specification currently does not provide an explicit way of declaring a variable as a <code>range</code>, but Drools extends the DMN built-in types to support variables of ranges.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>The syntax of a range is defined in the following formats:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>range          := interval_start endpoint '..' endpoint interval_end
+interval_start := open_start | closed_start
+open_start     := '(' | ']'
+closed_start   := '['
+interval_end   := open_end | closed_end
+open_end       := ')' | '['
+closed_end     := ']'
+endpoint       := expression</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The expression for the endpoint must return a comparable value, and the lower bound endpoint must be lower than the upper bound endpoint.</p>
+</div>
+<div class="paragraph">
+<p>For example, the following literal expression defines an interval between <code>1</code> and <code>10</code>, including the boundaries (a closed interval on both endpoints):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[ 1 .. 10 ]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following literal expression defines an interval between 1 hour and 12 hours, including the lower boundary (a closed interval), but excluding the upper boundary (an open interval):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[ duration("PT1H") .. duration("PT12H") )</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can use ranges in decision tables to test for ranges of values, or use ranges in simple literal expressions. For example, the following literal expression returns <code>true</code> if the value of a variable <code>x</code> is between <code>0</code> and <code>100</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>x in [ 1 .. 100 ]</pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">Lists</dt>
+<dd>
+<p>FEEL has <code>list</code> literals that you can use to create lists of items. A <code>list</code> in FEEL is represented by a comma-separated list of values enclosed in square brackets. The DMN specification currently does not provide an explicit way of declaring a variable as a <code>list</code>, but Drools extends the DMN built-in types to support variables of lists.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[ 2, 3, 4, 5 ]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>All lists in FEEL contain elements of the same type and are immutable. Elements in a list can be accessed by index, where the first element is <code>1</code>. Negative indexes can access elements starting from the end of the list so that <code>-1</code> is the last element.</p>
+</div>
+<div class="paragraph">
+<p>For example, the following expression returns the second element of a list <code>x</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>x[2]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following expression returns the second-to-last element of a list <code>x</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>x[-2]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Elements in a list can also be counted by the function <code>count</code>, which uses the list of elements as the parameter.</p>
+</div>
+<div class="paragraph">
+<p>For example, the following expression returns <code>4</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>count([ 2, 3, 4, 5 ])</pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ref-dmn-feel-builtin-functions_dmn-models"><a class="anchor" href="#ref-dmn-feel-builtin-functions_dmn-models"></a>Built-in functions in FEEL</h3>
+<div class="paragraph _abstract">
+<p>To promote interoperability with other platforms and systems, Friendly Enough Expression Language (FEEL) includes a library of built-in functions. The built-in FEEL functions are implemented in the Drools Decision Model and Notation (DMN) engine so that you can use the functions in your DMN decision services.</p>
+</div>
+<div class="paragraph">
+<p>For detailed information about FEEL and built-in FEEL functions in DMN, you can reference the <a href="https://kiegroup.github.io/dmn-feel-handbook/#dmn-feel-handbook">Drools DMN engine, DMN FEEL handbook</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="dmn-feel-variable-function-names-ref_dmn-models"><a class="anchor" href="#dmn-feel-variable-function-names-ref_dmn-models"></a>Variable and function names in FEEL</h3>
+<div class="paragraph">
+<p>Unlike many traditional expression languages, Friendly Enough Expression Language (FEEL) supports spaces and a few special characters as part of variable and function names. A FEEL name must start with a <code>letter</code>, <code>?</code>, or <code>_</code> element. The unicode letter characters are also allowed. Variable names cannot start with a language keyword, such as <code>and</code>, <code>true</code>, or <code>every</code>. The remaining characters in a variable name can be any of the starting characters, as well as <code>digits</code>, white spaces, and special characters such as <code>+</code>, <code>-</code>, <code>/</code>, <code>*</code>, <code>'</code>, and <code>.</code>.</p>
+</div>
+<div class="paragraph">
+<p>For example, the following names are all valid FEEL names:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Age</p>
+</li>
+<li>
+<p>Birth Date</p>
+</li>
+<li>
+<p>Flight 234 pre-check procedure</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Several limitations apply to variable and function names in FEEL:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Ambiguity</dt>
+<dd>
+<p>The use of spaces, keywords, and other special characters as part of names can make FEEL ambiguous. The ambiguities are resolved in the context of the expression, matching names from left to right. The parser resolves the variable name as the longest name matched in scope. You can use <code>( )</code> to disambiguate names if necessary.</p>
+</dd>
+<dt class="hdlist1">Spaces in names</dt>
+<dd>
+<p>The DMN specification limits the use of spaces in FEEL names. According to the DMN specification, names can contain multiple spaces but not two consecutive spaces.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>In order to make the language easier to use and avoid common errors due to spaces, Drools removes the limitation on the use of consecutive spaces. Drools supports variable names with any number of consecutive spaces, but normalizes them into a single space. For example, the variable references <code>First Name</code> with one space and <code>First  Name</code> with two spaces are both acceptable in Drools.</p>
+</div>
+<div class="paragraph">
+<p>Drools also normalizes the use of other white spaces, like the non-breakable white space that is common in web pages, tabs, and line breaks. From a Drools FEEL engine perspective, all of these characters are normalized into a single white space before processing.</p>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">The keyword <code>in</code></dt>
+<dd>
+<p>The keyword <code>in</code> is the only keyword in the language that cannot be used as part of a variable name. Although the specifications allow the use of keywords in the middle of variable names, the use of <code>in</code> in variable names conflicts with the grammar definition of <code>for</code>, <code>every</code> and <code>some</code> expression constructs.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="dmn-boxed-expressions-con_dmn-models"><a class="anchor" href="#dmn-boxed-expressions-con_dmn-models"></a>DMN decision logic in boxed expressions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Boxed expressions in DMN are tables that you use to define the underlying logic of decision nodes and business knowledge models in a decision requirements diagram (DRD). Some boxed expressions can contain other boxed expressions, but the top-level boxed expression corresponds to the decision logic of a single DRD artifact. While DRDs represent the flow of a DMN decision model, boxed expressions define the actual decision logic of individual nodes. DRDs and boxed expressions together form a complete and functional DMN decision model.</p>
+</div>
+<div class="paragraph">
+<p>The following are the types of DMN boxed expressions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Decision tables</p>
+</li>
+<li>
+<p>Literal expressions</p>
+</li>
+<li>
+<p>Contexts</p>
+</li>
+<li>
+<p>Relations</p>
+</li>
+<li>
+<p>Functions</p>
+</li>
+<li>
+<p>Invocations</p>
+</li>
+<li>
+<p>Lists</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+KIE DMN Editor does not provide boxed list expressions, but supports a FEEL <code>list</code> data type that you can use in boxed literal expressions. For more information about the <code>list</code> data type and other FEEL data types in Drools, see <a href="#dmn-feel-data-types-ref_dmn-models">Data types in FEEL</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>All Friendly Enough Expression Language (FEEL) expressions that you use in your boxed expressions must conform to the FEEL syntax requirements in the OMG <a href="https://www.omg.org/spec/DMN">Decision Model and Notation specification</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="dmn-decision-tables-con_dmn-models"><a class="anchor" href="#dmn-decision-tables-con_dmn-models"></a>DMN decision tables</h3>
+<div class="paragraph">
+<p>A decision table in DMN is a visual representation of one or more business rules in a tabular format. You use decision tables to define rules for a decision node that applies those rules at a given point in the decision model. Each rule consists of a single row in the table, and includes columns that define the conditions (input) and outcome (output) for that particular row. The definition of each row is precise enough to derive the outcome using the values of the conditions. Input and output values can be FEEL expressions or defined data type values.</p>
+</div>
+<div class="paragraph">
+<p>For example, the following decision table determines credit score ratings based on a defined range of a loan applicant&#8217;s credit score:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-decision-table-example.png" alt="dmn decision table example">
+</div>
+<div class="title">Figure 3. Decision table for credit score rating</div>
+</div>
+<div class="paragraph">
+<p>The following decision table determines the next step in a lending strategy for applicants depending on applicant loan eligibility and the bureau call type:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-decision-table-example2.png" alt="dmn decision table example2">
+</div>
+<div class="title">Figure 4. Decision table for lending strategy</div>
+</div>
+<div class="paragraph">
+<p>The following decision table determines applicant qualification for a loan as the concluding decision node in a loan prequalification decision model:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-decision-table-example3.png" alt="dmn decision table example3">
+</div>
+<div class="title">Figure 5. Decision table for loan prequalification</div>
+</div>
+<div class="paragraph">
+<p>Decision tables are a popular way of modeling rules and decision logic, and are used in many methodologies (such as DMN) and implementation frameworks (such as Drools).</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Drools supports both DMN decision tables and Drools-native decision tables, but they are different types of assets with different syntax requirements and are not interchangeable. For more information about Drools-native decision tables in Drools, see
+<a href="../language-reference/index.html#decision-tables-con_decision-tables" class="xref page">Spreadsheet decision tables</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="dmn-decision-tables-hit-policies-con_dmn-models"><a class="anchor" href="#dmn-decision-tables-hit-policies-con_dmn-models"></a>Hit policies in DMN decision tables</h4>
+<div class="paragraph">
+<p>Hit policies determine how to reach an outcome when multiple rules in a decision table match the provided input values. For example, if one rule in a decision table applies a sales discount to military personnel and another rule applies a discount to students, then when a customer is both a student and in the military, the decision table hit policy must indicate whether to apply one discount or the other (<strong>Unique</strong>, <strong>First</strong>) or both discounts (<strong>Collect Sum</strong>). You specify the single character of the hit policy (<strong>U</strong>, <strong>F</strong>, <strong>C+</strong>) in the upper-left corner of the decision table.</p>
+</div>
+<div class="paragraph">
+<p>The following decision table hit policies are supported in DMN:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Unique (U):</strong> Permits only one rule to match. Any overlap raises an error.</p>
+</li>
+<li>
+<p><strong>Any (A):</strong> Permits multiple rules to match, but they must all have the same output. If multiple matching rules do not have the same output, an error is raised.</p>
+</li>
+<li>
+<p><strong>Priority (P):</strong> Permits multiple rules to match, with different outputs. The output that comes first in the output values list is selected.</p>
+</li>
+<li>
+<p><strong>First (F):</strong> Uses the first match in rule order.</p>
+</li>
+<li>
+<p><strong>Collect (C+, C&gt;, C&lt;, C#):</strong> Aggregates output from multiple rules based on an aggregation function.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Collect ( C ):</strong> Aggregates values in an arbitrary list.</p>
+</li>
+<li>
+<p><strong>Collect Sum (C+):</strong> Outputs the sum of all collected values. Values must be numeric.</p>
+</li>
+<li>
+<p><strong>Collect Min (C&lt;):</strong> Outputs the minimum value among the matches. The resulting values must be comparable, such as numbers, dates, or text (lexicographic order).</p>
+</li>
+<li>
+<p><strong>Collect Max (C&gt;):</strong> Outputs the maximum value among the matches. The resulting values must be comparable, such as numbers, dates or text (lexicographic order).</p>
+</li>
+<li>
+<p><strong>Collect Count (C#):</strong> Outputs the number of matching rules.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="dmn-literal-expressions-con_dmn-models"><a class="anchor" href="#dmn-literal-expressions-con_dmn-models"></a>Boxed literal expressions</h3>
+<div class="paragraph">
+<p>A boxed literal expression in DMN is a literal FEEL expression as text in a table cell, typically with a labeled column and an assigned data type. You use boxed literal expressions to define simple or complex node logic or decision data directly in FEEL for a particular node in a decision. Literal FEEL expressions must conform to FEEL syntax requirements in the OMG <a href="https://www.omg.org/spec/DMN">Decision Model and Notation specification</a>.</p>
+</div>
+<div class="paragraph">
+<p>For example, the following boxed literal expression defines the minimum acceptable PITI calculation (principal, interest, taxes, and insurance) in a lending decision, where <code>acceptable rate</code> is a variable defined in the DMN model:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-literal-expression-example2.png" alt="dmn literal expression example2">
+</div>
+<div class="title">Figure 6. Boxed literal expression for minimum PITI value</div>
+</div>
+<div class="paragraph">
+<p>The following boxed literal expression sorts a list of possible dating candidates (soul mates) in an online dating application based on their score on criteria such as age, location, and interests:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-literal-expression-example3b.png" alt="dmn literal expression example3b">
+</div>
+<div class="title">Figure 7. Boxed literal expression for matching online dating candidates</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="dmn-context-expressions-con_dmn-models"><a class="anchor" href="#dmn-context-expressions-con_dmn-models"></a>Boxed context expressions</h3>
+<div class="paragraph">
+<p>A boxed context expression in DMN is a set of variable names and values with a result value. Each name-value pair is a context entry. You use context expressions to represent data definitions in decision logic and set a value for a desired decision element within the DMN decision model. A value in a boxed context expression can be a data type value or FEEL expression, or can contain a nested sub-expression of any type, such as a decision table, a literal expression, or another context expression.</p>
+</div>
+<div class="paragraph">
+<p>For example, the following boxed context expression defines the factors for sorting delayed passengers in a flight-rebooking decision model, based on defined data types (<code>tPassengerTable</code>, <code>tFlightNumberList</code>):</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-context-expression-example.png" alt="dmn context expression example">
+</div>
+<div class="title">Figure 8. Boxed context expression for flight passenger waiting list</div>
+</div>
+<div class="paragraph">
+<p>The following boxed context expression defines the factors that determine whether a loan applicant can meet minimum mortgage payments based on principal, interest, taxes, and insurance (PITI), represented as a front-end ratio calculation with a sub-context expression:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-context-expression-example2.png" alt="dmn context expression example2">
+</div>
+<div class="title">Figure 9. Boxed context expression for front-end client PITI ratio</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="dmn-relation-expressions-con_dmn-models"><a class="anchor" href="#dmn-relation-expressions-con_dmn-models"></a>Boxed relation expressions</h3>
+<div class="paragraph">
+<p>A boxed relation expression in DMN is a traditional data table with information about given entities, listed as rows. You use boxed relation tables to define decision data for relevant entities in a decision at a particular node. Boxed relation expressions are similar to context expressions in that they set variable names and values, but relation expressions contain no result value and list all variable values based on a single defined variable in each column.</p>
+</div>
+<div class="paragraph">
+<p>For example, the following boxed relation expression provides information about employees in an employee rostering decision:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-relation-expression-example.png" alt="dmn relation expression example">
+</div>
+<div class="title">Figure 10. Boxed relation expression with employee information</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="dmn-function-expressions-con_dmn-models"><a class="anchor" href="#dmn-function-expressions-con_dmn-models"></a>Boxed function expressions</h3>
+<div class="paragraph">
+<p>A boxed function expression in DMN is a parameterized boxed expression containing a literal FEEL expression, a nested context expression of an external JAVA or PMML function, or a nested boxed expression of any type. By default, all business knowledge models are defined as boxed function expressions. You use boxed function expressions to call functions on your decision logic and to define all business knowledge models.</p>
+</div>
+<div class="paragraph">
+<p>For example, the following boxed function expression determines airline flight capacity in a flight-rebooking decision model:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-function-expression-example.png" alt="dmn function expression example">
+</div>
+<div class="title">Figure 11. Boxed function expression for flight capacity</div>
+</div>
+<div class="paragraph">
+<p>The following boxed function expression contains a basic Java function as a context expression for determining absolute value in a decision model calculation:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-function-expression-example2.png" alt="dmn function expression example2">
+</div>
+<div class="title">Figure 12. Boxed function expression for absolute value</div>
+</div>
+<div class="paragraph">
+<p>The following boxed function expression determines a monthly mortgage installment as a business knowledge model in a lending decision, with the function value defined as a nested context expression:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-function-expression-example3.png" alt="dmn function expression example3">
+</div>
+<div class="title">Figure 13. Boxed function expression for installment calculation in business knowledge model</div>
+</div>
+<div class="paragraph">
+<p>The following boxed function expression uses a PMML model included in the DMN file to define the minimum acceptable PITI calculation (principal, interest, taxes, and insurance) in a lending decision:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-function-expression-example5.png" alt="dmn function expression example5">
+</div>
+<div class="title">Figure 14. Boxed function expression with an included PMML model in business knowledge model</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="dmn-invocation-expressions-con_dmn-models"><a class="anchor" href="#dmn-invocation-expressions-con_dmn-models"></a>Boxed invocation expressions</h3>
+<div class="paragraph">
+<p>A boxed invocation expression in DMN is a boxed expression that invokes a business knowledge model. A boxed invocation expression contains the name of the business knowledge model to be invoked and a list of parameter bindings. Each binding is represented by two boxed expressions on a row: The box on the left contains the name of a parameter and the box on the right contains the binding expression whose value is assigned to the parameter to evaluate the invoked business knowledge model. You use boxed invocations to invoke at a particular decision node a business knowledge model defined in the decision model.</p>
+</div>
+<div class="paragraph">
+<p>For example, the following boxed invocation expression invokes a <code>Reassign Next Passenger</code> business knowledge model as the concluding decision node in a flight-rebooking decision model:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-invocation-example.png" alt="dmn invocation example">
+</div>
+<div class="title">Figure 15. Boxed invocation expression to reassign flight passengers</div>
+</div>
+<div class="paragraph">
+<p>The following boxed invocation expression invokes an <code>InstallmentCalculation</code> business knowledge model to calculate a monthly installment amount for a loan before proceeding to affordability decisions:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-invocation-example2.png" alt="dmn invocation example2">
+</div>
+<div class="title">Figure 16. Boxed invocation expression for required monthly installment</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="dmn-list-expressions-con_dmn-models"><a class="anchor" href="#dmn-list-expressions-con_dmn-models"></a>Boxed list expressions</h3>
+<div class="paragraph">
+<p>A boxed list expression in DMN represents a FEEL list of items. You use boxed lists to define lists of relevant items for a particular node in a decision. You can also use literal FEEL expressions for list items in cells to create more complex lists.</p>
+</div>
+<div class="paragraph">
+<p>For example, the following boxed list expression identifies approved credit score agencies in a loan application decision service:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-list-expression-example.png" alt="dmn list expression example">
+</div>
+<div class="title">Figure 17. Boxed list expression for approved credit score agencies</div>
+</div>
+<div class="paragraph">
+<p>The following boxed list expression also identifies approved credit score agencies but uses FEEL logic to define the agency status (Inc., LLC, SA, GA) based on a DMN input node:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-list-expression-example2.png" alt="dmn list expression example2">
+</div>
+<div class="title">Figure 18. Boxed list expression using FEEL logic for approved credit score agency status</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-list-expression-example2a.png" alt="dmn list expression example2a">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="dmn-model-example-ref_dmn-models"><a class="anchor" href="#dmn-model-example-ref_dmn-models"></a>DMN model example</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following is a real-world DMN model example that demonstrates how you can use decision modeling to reach a decision based on input data, circumstances, and company guidelines. In this scenario, a flight from San Diego to New York is canceled, requiring the affected airline to find alternate arrangements for its inconvenienced passengers.</p>
+</div>
+<div class="paragraph">
+<p>First, the airline collects the information necessary to determine how best to get the travelers to their destinations:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Input data</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>List of flights</p>
+</li>
+<li>
+<p>List of passengers</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Decisions</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Prioritize the passengers who will get seats on a new flight</p>
+</li>
+<li>
+<p>Determine which flights those passengers will be offered</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Business knowledge models</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>The company process for determining passenger priority</p>
+</li>
+<li>
+<p>Any flights that have space available</p>
+</li>
+<li>
+<p>Company rules for determining how best to reassign inconvenienced passengers</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The airline then uses the DMN standard to model its decision process in the following decision requirements diagram (DRD) for determining the best rebooking solution:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-passenger-rebooking-drd.png" alt="dmn passenger rebooking drd">
+</div>
+<div class="title">Figure 19. DRD for flight rebooking</div>
+</div>
+<div class="paragraph">
+<p>Similar to flowcharts, DRDs use shapes to represent the different elements in a process. Ovals contain the two necessary input data, rectangles contain the decision points in the model, and rectangles with clipped corners (business knowledge models) contain reusable logic that can be repeatedly invoked.</p>
+</div>
+<div class="paragraph">
+<p>The DRD draws logic for each element from boxed expressions that provide variable definitions using FEEL expressions or data type values.</p>
+</div>
+<div class="paragraph">
+<p>Some boxed expressions are basic, such as the following decision for establishing a prioritized waiting list:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-context-expression-example.png" alt="dmn context expression example">
+</div>
+<div class="title">Figure 20. Boxed context expression example for prioritized wait list</div>
+</div>
+<div class="paragraph">
+<p>Some boxed expressions are more complex with greater detail and calculation, such as the following business knowledge model for reassigning the next delayed passenger:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-reassign-passenger.png" alt="dmn reassign passenger">
+</div>
+<div class="title">Figure 21. Boxed function expression for passenger reassignment</div>
+</div>
+<div class="paragraph">
+<p>The following is the DMN source file for this decision model:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dmn:definitions xmlns="https://www.drools.org/kie-dmn/Flight-rebooking" xmlns:dmn="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:feel="http://www.omg.org/spec/FEEL/20140401" id="_0019_flight_rebooking" name="0019-flight-rebooking" namespace="https://www.drools.org/kie-dmn/Flight-rebooking"&gt;
+  &lt;dmn:itemDefinition id="_tFlight" name="tFlight"&gt;
+    &lt;dmn:itemComponent id="_tFlight_Flight" name="Flight Number"&gt;
+      &lt;dmn:typeRef&gt;feel:string&lt;/dmn:typeRef&gt;
+    &lt;/dmn:itemComponent&gt;
+    &lt;dmn:itemComponent id="_tFlight_From" name="From"&gt;
+      &lt;dmn:typeRef&gt;feel:string&lt;/dmn:typeRef&gt;
+    &lt;/dmn:itemComponent&gt;
+    &lt;dmn:itemComponent id="_tFlight_To" name="To"&gt;
+      &lt;dmn:typeRef&gt;feel:string&lt;/dmn:typeRef&gt;
+    &lt;/dmn:itemComponent&gt;
+    &lt;dmn:itemComponent id="_tFlight_Dep" name="Departure"&gt;
+      &lt;dmn:typeRef&gt;feel:dateTime&lt;/dmn:typeRef&gt;
+    &lt;/dmn:itemComponent&gt;
+    &lt;dmn:itemComponent id="_tFlight_Arr" name="Arrival"&gt;
+      &lt;dmn:typeRef&gt;feel:dateTime&lt;/dmn:typeRef&gt;
+    &lt;/dmn:itemComponent&gt;
+    &lt;dmn:itemComponent id="_tFlight_Capacity" name="Capacity"&gt;
+      &lt;dmn:typeRef&gt;feel:number&lt;/dmn:typeRef&gt;
+    &lt;/dmn:itemComponent&gt;
+    &lt;dmn:itemComponent id="_tFlight_Status" name="Status"&gt;
+      &lt;dmn:typeRef&gt;feel:string&lt;/dmn:typeRef&gt;
+    &lt;/dmn:itemComponent&gt;
+  &lt;/dmn:itemDefinition&gt;
+  &lt;dmn:itemDefinition id="_tFlightTable" isCollection="true" name="tFlightTable"&gt;
+    &lt;dmn:typeRef&gt;tFlight&lt;/dmn:typeRef&gt;
+  &lt;/dmn:itemDefinition&gt;
+  &lt;dmn:itemDefinition id="_tPassenger" name="tPassenger"&gt;
+    &lt;dmn:itemComponent id="_tPassenger_Name" name="Name"&gt;
+      &lt;dmn:typeRef&gt;feel:string&lt;/dmn:typeRef&gt;
+    &lt;/dmn:itemComponent&gt;
+    &lt;dmn:itemComponent id="_tPassenger_Status" name="Status"&gt;
+      &lt;dmn:typeRef&gt;feel:string&lt;/dmn:typeRef&gt;
+    &lt;/dmn:itemComponent&gt;
+    &lt;dmn:itemComponent id="_tPassenger_Miles" name="Miles"&gt;
+      &lt;dmn:typeRef&gt;feel:number&lt;/dmn:typeRef&gt;
+    &lt;/dmn:itemComponent&gt;
+    &lt;dmn:itemComponent id="_tPassenger_Flight" name="Flight Number"&gt;
+      &lt;dmn:typeRef&gt;feel:string&lt;/dmn:typeRef&gt;
+    &lt;/dmn:itemComponent&gt;
+  &lt;/dmn:itemDefinition&gt;
+  &lt;dmn:itemDefinition id="_tPassengerTable" isCollection="true" name="tPassengerTable"&gt;
+    &lt;dmn:typeRef&gt;tPassenger&lt;/dmn:typeRef&gt;
+  &lt;/dmn:itemDefinition&gt;
+  &lt;dmn:itemDefinition id="_tFlightNumberList" isCollection="true" name="tFlightNumberList"&gt;
+    &lt;dmn:typeRef&gt;feel:string&lt;/dmn:typeRef&gt;
+  &lt;/dmn:itemDefinition&gt;
+  &lt;dmn:inputData id="i_Flight_List" name="Flight List"&gt;
+    &lt;dmn:variable name="Flight List" typeRef="tFlightTable"/&gt;
+  &lt;/dmn:inputData&gt;
+  &lt;dmn:inputData id="i_Passenger_List" name="Passenger List"&gt;
+    &lt;dmn:variable name="Passenger List" typeRef="tPassengerTable"/&gt;
+  &lt;/dmn:inputData&gt;
+  &lt;dmn:decision name="Prioritized Waiting List" id="d_PrioritizedWaitingList"&gt;
+    &lt;dmn:variable name="Prioritized Waiting List" typeRef="tPassengerTable"/&gt;
+    &lt;dmn:informationRequirement&gt;
+      &lt;dmn:requiredInput href="#i_Passenger_List"/&gt;
+    &lt;/dmn:informationRequirement&gt;
+    &lt;dmn:informationRequirement&gt;
+      &lt;dmn:requiredInput href="#i_Flight_List"/&gt;
+    &lt;/dmn:informationRequirement&gt;
+    &lt;dmn:knowledgeRequirement&gt;
+      &lt;dmn:requiredKnowledge href="#b_PassengerPriority"/&gt;
+    &lt;/dmn:knowledgeRequirement&gt;
+    &lt;dmn:context&gt;
+      &lt;dmn:contextEntry&gt;
+        &lt;dmn:variable name="Cancelled Flights" typeRef="tFlightNumberList"/&gt;
+        &lt;dmn:literalExpression&gt;
+          &lt;dmn:text&gt;Flight List[ Status = "cancelled" ].Flight Number&lt;/dmn:text&gt;
+        &lt;/dmn:literalExpression&gt;
+      &lt;/dmn:contextEntry&gt;
+      &lt;dmn:contextEntry&gt;
+        &lt;dmn:variable name="Waiting List" typeRef="tPassengerTable"/&gt;
+        &lt;dmn:literalExpression&gt;
+          &lt;dmn:text&gt;Passenger List[ list contains( Cancelled Flights, Flight Number ) ]&lt;/dmn:text&gt;
+        &lt;/dmn:literalExpression&gt;
+      &lt;/dmn:contextEntry&gt;
+      &lt;dmn:contextEntry&gt;
+        &lt;dmn:literalExpression&gt;
+          &lt;dmn:text&gt;sort( Waiting List, passenger priority )&lt;/dmn:text&gt;
+        &lt;/dmn:literalExpression&gt;
+      &lt;/dmn:contextEntry&gt;
+    &lt;/dmn:context&gt;
+  &lt;/dmn:decision&gt;
+  &lt;dmn:decision name="Rebooked Passengers" id="d_RebookedPassengers"&gt;
+    &lt;dmn:variable name="Rebooked Passengers" typeRef="tPassengerTable"/&gt;
+    &lt;dmn:informationRequirement&gt;
+      &lt;dmn:requiredDecision href="#d_PrioritizedWaitingList"/&gt;
+    &lt;/dmn:informationRequirement&gt;
+    &lt;dmn:informationRequirement&gt;
+      &lt;dmn:requiredInput href="#i_Flight_List"/&gt;
+    &lt;/dmn:informationRequirement&gt;
+    &lt;dmn:knowledgeRequirement&gt;
+      &lt;dmn:requiredKnowledge href="#b_ReassignNextPassenger"/&gt;
+    &lt;/dmn:knowledgeRequirement&gt;
+    &lt;dmn:invocation&gt;
+      &lt;dmn:literalExpression&gt;
+        &lt;dmn:text&gt;reassign next passenger&lt;/dmn:text&gt;
+      &lt;/dmn:literalExpression&gt;
+      &lt;dmn:binding&gt;
+        &lt;dmn:parameter name="Waiting List"/&gt;
+        &lt;dmn:literalExpression&gt;
+          &lt;dmn:text&gt;Prioritized Waiting List&lt;/dmn:text&gt;
+        &lt;/dmn:literalExpression&gt;
+      &lt;/dmn:binding&gt;
+      &lt;dmn:binding&gt;
+        &lt;dmn:parameter name="Reassigned Passengers List"/&gt;
+        &lt;dmn:literalExpression&gt;
+          &lt;dmn:text&gt;[]&lt;/dmn:text&gt;
+        &lt;/dmn:literalExpression&gt;
+      &lt;/dmn:binding&gt;
+      &lt;dmn:binding&gt;
+        &lt;dmn:parameter name="Flights"/&gt;
+        &lt;dmn:literalExpression&gt;
+          &lt;dmn:text&gt;Flight List&lt;/dmn:text&gt;
+        &lt;/dmn:literalExpression&gt;
+      &lt;/dmn:binding&gt;
+    &lt;/dmn:invocation&gt;
+  &lt;/dmn:decision&gt;
+  &lt;dmn:businessKnowledgeModel id="b_PassengerPriority" name="passenger priority"&gt;
+    &lt;dmn:encapsulatedLogic&gt;
+      &lt;dmn:formalParameter name="Passenger1" typeRef="tPassenger"/&gt;
+      &lt;dmn:formalParameter name="Passenger2" typeRef="tPassenger"/&gt;
+      &lt;dmn:decisionTable hitPolicy="UNIQUE"&gt;
+        &lt;dmn:input id="b_Passenger_Priority_dt_i_P1_Status" label="Passenger1.Status"&gt;
+          &lt;dmn:inputExpression typeRef="feel:string"&gt;
+            &lt;dmn:text&gt;Passenger1.Status&lt;/dmn:text&gt;
+          &lt;/dmn:inputExpression&gt;
+          &lt;dmn:inputValues&gt;
+            &lt;dmn:text&gt;"gold", "silver", "bronze"&lt;/dmn:text&gt;
+          &lt;/dmn:inputValues&gt;
+        &lt;/dmn:input&gt;
+        &lt;dmn:input id="b_Passenger_Priority_dt_i_P2_Status" label="Passenger2.Status"&gt;
+          &lt;dmn:inputExpression typeRef="feel:string"&gt;
+            &lt;dmn:text&gt;Passenger2.Status&lt;/dmn:text&gt;
+          &lt;/dmn:inputExpression&gt;
+          &lt;dmn:inputValues&gt;
+            &lt;dmn:text&gt;"gold", "silver", "bronze"&lt;/dmn:text&gt;
+          &lt;/dmn:inputValues&gt;
+        &lt;/dmn:input&gt;
+        &lt;dmn:input id="b_Passenger_Priority_dt_i_P1_Miles" label="Passenger1.Miles"&gt;
+          &lt;dmn:inputExpression typeRef="feel:string"&gt;
+            &lt;dmn:text&gt;Passenger1.Miles&lt;/dmn:text&gt;
+          &lt;/dmn:inputExpression&gt;
+        &lt;/dmn:input&gt;
+        &lt;dmn:output id="b_Status_Priority_dt_o" label="Passenger1 has priority"&gt;
+          &lt;dmn:outputValues&gt;
+            &lt;dmn:text&gt;true, false&lt;/dmn:text&gt;
+          &lt;/dmn:outputValues&gt;
+          &lt;dmn:defaultOutputEntry&gt;
+            &lt;dmn:text&gt;false&lt;/dmn:text&gt;
+          &lt;/dmn:defaultOutputEntry&gt;
+        &lt;/dmn:output&gt;
+        &lt;dmn:rule id="b_Passenger_Priority_dt_r1"&gt;
+          &lt;dmn:inputEntry id="b_Passenger_Priority_dt_r1_i1"&gt;
+            &lt;dmn:text&gt;"gold"&lt;/dmn:text&gt;
+          &lt;/dmn:inputEntry&gt;
+          &lt;dmn:inputEntry id="b_Passenger_Priority_dt_r1_i2"&gt;
+            &lt;dmn:text&gt;"gold"&lt;/dmn:text&gt;
+          &lt;/dmn:inputEntry&gt;
+          &lt;dmn:inputEntry id="b_Passenger_Priority_dt_r1_i3"&gt;
+            &lt;dmn:text&gt;&gt;= Passenger2.Miles&lt;/dmn:text&gt;
+          &lt;/dmn:inputEntry&gt;
+          &lt;dmn:outputEntry id="b_Passenger_Priority_dt_r1_o1"&gt;
+            &lt;dmn:text&gt;true&lt;/dmn:text&gt;
+          &lt;/dmn:outputEntry&gt;
+        &lt;/dmn:rule&gt;
+        &lt;dmn:rule id="b_Passenger_Priority_dt_r2"&gt;
+          &lt;dmn:inputEntry id="b_Passenger_Priority_dt_r2_i1"&gt;
+            &lt;dmn:text&gt;"gold"&lt;/dmn:text&gt;
+          &lt;/dmn:inputEntry&gt;
+          &lt;dmn:inputEntry id="b_Passenger_Priority_dt_r2_i2"&gt;
+            &lt;dmn:text&gt;"silver","bronze"&lt;/dmn:text&gt;
+          &lt;/dmn:inputEntry&gt;
+          &lt;dmn:inputEntry id="b_Passenger_Priority_dt_r2_i3"&gt;
+            &lt;dmn:text&gt;-&lt;/dmn:text&gt;
+          &lt;/dmn:inputEntry&gt;
+          &lt;dmn:outputEntry id="b_Passenger_Priority_dt_r2_o1"&gt;
+            &lt;dmn:text&gt;true&lt;/dmn:text&gt;
+          &lt;/dmn:outputEntry&gt;
+        &lt;/dmn:rule&gt;
+        &lt;dmn:rule id="b_Passenger_Priority_dt_r3"&gt;
+          &lt;dmn:inputEntry id="b_Passenger_Priority_dt_r3_i1"&gt;
+            &lt;dmn:text&gt;"silver"&lt;/dmn:text&gt;
+          &lt;/dmn:inputEntry&gt;
+          &lt;dmn:inputEntry id="b_Passenger_Priority_dt_r3_i2"&gt;
+            &lt;dmn:text&gt;"silver"&lt;/dmn:text&gt;
+          &lt;/dmn:inputEntry&gt;
+          &lt;dmn:inputEntry id="b_Passenger_Priority_dt_r3_i3"&gt;
+            &lt;dmn:text&gt;&gt;= Passenger2.Miles&lt;/dmn:text&gt;
+          &lt;/dmn:inputEntry&gt;
+          &lt;dmn:outputEntry id="b_Passenger_Priority_dt_r3_o1"&gt;
+            &lt;dmn:text&gt;true&lt;/dmn:text&gt;
+          &lt;/dmn:outputEntry&gt;
+        &lt;/dmn:rule&gt;
+        &lt;dmn:rule id="b_Passenger_Priority_dt_r4"&gt;
+          &lt;dmn:inputEntry id="b_Passenger_Priority_dt_r4_i1"&gt;
+            &lt;dmn:text&gt;"silver"&lt;/dmn:text&gt;
+          &lt;/dmn:inputEntry&gt;
+          &lt;dmn:inputEntry id="b_Passenger_Priority_dt_r4_i2"&gt;
+            &lt;dmn:text&gt;"bronze"&lt;/dmn:text&gt;
+          &lt;/dmn:inputEntry&gt;
+          &lt;dmn:inputEntry id="b_Passenger_Priority_dt_r4_i3"&gt;
+            &lt;dmn:text&gt;-&lt;/dmn:text&gt;
+          &lt;/dmn:inputEntry&gt;
+          &lt;dmn:outputEntry id="b_Passenger_Priority_dt_r4_o1"&gt;
+            &lt;dmn:text&gt;true&lt;/dmn:text&gt;
+          &lt;/dmn:outputEntry&gt;
+        &lt;/dmn:rule&gt;
+        &lt;dmn:rule id="b_Passenger_Priority_dt_r5"&gt;
+          &lt;dmn:inputEntry id="b_Passenger_Priority_dt_r5_i1"&gt;
+            &lt;dmn:text&gt;"bronze"&lt;/dmn:text&gt;
+          &lt;/dmn:inputEntry&gt;
+          &lt;dmn:inputEntry id="b_Passenger_Priority_dt_r5_i2"&gt;
+            &lt;dmn:text&gt;"bronze"&lt;/dmn:text&gt;
+          &lt;/dmn:inputEntry&gt;
+          &lt;dmn:inputEntry id="b_Passenger_Priority_dt_r5_i3"&gt;
+            &lt;dmn:text&gt;&gt;= Passenger2.Miles&lt;/dmn:text&gt;
+          &lt;/dmn:inputEntry&gt;
+          &lt;dmn:outputEntry id="b_Passenger_Priority_dt_r5_o1"&gt;
+            &lt;dmn:text&gt;true&lt;/dmn:text&gt;
+          &lt;/dmn:outputEntry&gt;
+        &lt;/dmn:rule&gt;
+      &lt;/dmn:decisionTable&gt;
+    &lt;/dmn:encapsulatedLogic&gt;
+    &lt;dmn:variable name="passenger priority" typeRef="feel:boolean"/&gt;
+  &lt;/dmn:businessKnowledgeModel&gt;
+  &lt;dmn:businessKnowledgeModel id="b_ReassignNextPassenger" name="reassign next passenger"&gt;
+    &lt;dmn:encapsulatedLogic&gt;
+      &lt;dmn:formalParameter name="Waiting List" typeRef="tPassengerTable"/&gt;
+      &lt;dmn:formalParameter name="Reassigned Passengers List" typeRef="tPassengerTable"/&gt;
+      &lt;dmn:formalParameter name="Flights" typeRef="tFlightTable"/&gt;
+      &lt;dmn:context&gt;
+        &lt;dmn:contextEntry&gt;
+          &lt;dmn:variable name="Next Passenger" typeRef="tPassenger"/&gt;
+          &lt;dmn:literalExpression&gt;
+            &lt;dmn:text&gt;Waiting List[1]&lt;/dmn:text&gt;
+          &lt;/dmn:literalExpression&gt;
+        &lt;/dmn:contextEntry&gt;
+        &lt;dmn:contextEntry&gt;
+          &lt;dmn:variable name="Original Flight" typeRef="tFlight"/&gt;
+          &lt;dmn:literalExpression&gt;
+            &lt;dmn:text&gt;Flights[ Flight Number = Next Passenger.Flight Number ][1]&lt;/dmn:text&gt;
+          &lt;/dmn:literalExpression&gt;
+        &lt;/dmn:contextEntry&gt;
+        &lt;dmn:contextEntry&gt;
+          &lt;dmn:variable name="Best Alternate Flight" typeRef="tFlight"/&gt;
+          &lt;dmn:literalExpression&gt;
+            &lt;dmn:text&gt;Flights[ From = Original Flight.From and To = Original Flight.To and Departure &gt; Original Flight.Departure and Status = "scheduled" and has capacity( item, Reassigned Passengers List ) ][1]&lt;/dmn:text&gt;
+          &lt;/dmn:literalExpression&gt;
+        &lt;/dmn:contextEntry&gt;
+        &lt;dmn:contextEntry&gt;
+          &lt;dmn:variable name="Reassigned Passenger" typeRef="tPassenger"/&gt;
+          &lt;dmn:context&gt;
+            &lt;dmn:contextEntry&gt;
+              &lt;dmn:variable name="Name" typeRef="feel:string"/&gt;
+              &lt;dmn:literalExpression&gt;
+                &lt;dmn:text&gt;Next Passenger.Name&lt;/dmn:text&gt;
+              &lt;/dmn:literalExpression&gt;
+            &lt;/dmn:contextEntry&gt;
+            &lt;dmn:contextEntry&gt;
+              &lt;dmn:variable name="Status" typeRef="feel:string"/&gt;
+              &lt;dmn:literalExpression&gt;
+                &lt;dmn:text&gt;Next Passenger.Status&lt;/dmn:text&gt;
+              &lt;/dmn:literalExpression&gt;
+            &lt;/dmn:contextEntry&gt;
+            &lt;dmn:contextEntry&gt;
+              &lt;dmn:variable name="Miles" typeRef="feel:number"/&gt;
+              &lt;dmn:literalExpression&gt;
+                &lt;dmn:text&gt;Next Passenger.Miles&lt;/dmn:text&gt;
+              &lt;/dmn:literalExpression&gt;
+            &lt;/dmn:contextEntry&gt;
+            &lt;dmn:contextEntry&gt;
+              &lt;dmn:variable name="Flight Number" typeRef="feel:string"/&gt;
+              &lt;dmn:literalExpression&gt;
+                &lt;dmn:text&gt;Best Alternate Flight.Flight Number&lt;/dmn:text&gt;
+              &lt;/dmn:literalExpression&gt;
+            &lt;/dmn:contextEntry&gt;
+          &lt;/dmn:context&gt;
+        &lt;/dmn:contextEntry&gt;
+        &lt;dmn:contextEntry&gt;
+          &lt;dmn:variable name="Remaining Waiting List" typeRef="tPassengerTable"/&gt;
+          &lt;dmn:literalExpression&gt;
+            &lt;dmn:text&gt;remove( Waiting List, 1 )&lt;/dmn:text&gt;
+          &lt;/dmn:literalExpression&gt;
+        &lt;/dmn:contextEntry&gt;
+        &lt;dmn:contextEntry&gt;
+          &lt;dmn:variable name="Updated Reassigned Passengers List" typeRef="tPassengerTable"/&gt;
+          &lt;dmn:literalExpression&gt;
+            &lt;dmn:text&gt;append( Reassigned Passengers List, Reassigned Passenger )&lt;/dmn:text&gt;
+          &lt;/dmn:literalExpression&gt;
+        &lt;/dmn:contextEntry&gt;
+        &lt;dmn:contextEntry&gt;
+          &lt;dmn:literalExpression&gt;
+            &lt;dmn:text&gt;if count( Remaining Waiting List ) &gt; 0 then reassign next passenger( Remaining Waiting List, Updated Reassigned Passengers List, Flights ) else Updated Reassigned Passengers List&lt;/dmn:text&gt;
+          &lt;/dmn:literalExpression&gt;
+        &lt;/dmn:contextEntry&gt;
+      &lt;/dmn:context&gt;
+    &lt;/dmn:encapsulatedLogic&gt;
+    &lt;dmn:variable name="reassign next passenger" typeRef="tPassengerTable"/&gt;
+    &lt;dmn:knowledgeRequirement&gt;
+      &lt;dmn:requiredKnowledge href="#b_HasCapacity"/&gt;
+    &lt;/dmn:knowledgeRequirement&gt;
+  &lt;/dmn:businessKnowledgeModel&gt;
+  &lt;dmn:businessKnowledgeModel id="b_HasCapacity" name="has capacity"&gt;
+    &lt;dmn:encapsulatedLogic&gt;
+      &lt;dmn:formalParameter name="flight" typeRef="tFlight"/&gt;
+      &lt;dmn:formalParameter name="rebooked list" typeRef="tPassengerTable"/&gt;
+      &lt;dmn:literalExpression&gt;
+        &lt;dmn:text&gt;flight.Capacity &gt; count( rebooked list[ Flight Number = flight.Flight Number ] )&lt;/dmn:text&gt;
+      &lt;/dmn:literalExpression&gt;
+    &lt;/dmn:encapsulatedLogic&gt;
+    &lt;dmn:variable name="has capacity" typeRef="feel:boolean"/&gt;
+  &lt;/dmn:businessKnowledgeModel&gt;
+&lt;/dmn:definitions&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<h1 id="dmn-support-con_dmn-models" class="sect0"><a class="anchor" href="#dmn-support-con_dmn-models"></a>DMN support in Drools</h1>
+<div class="openblock partintro">
+<div class="content">
+<div class="paragraph">
+<p>Drools DMN engine provides runtime support for DMN 1.1, 1.2, 1.3, and 1.4 models at conformance level 3.</p>
+</div>
+<div class="paragraph">
+<p>KIE DMN Editor provides design support for DMN 1.2 models at conformance level 3.</p>
+</div>
+<div class="paragraph">
+<p>You can integrate DMN models with your Drools decision services in several ways:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Design your DMN models using the KIE DMN Editor online.</p>
+</li>
+<li>
+<p>Design your DMN models using the KIE DMN Editor in VSCode.</p>
+</li>
+<li>
+<p>Import DMN files into your project by opening them in KIE DMN Editor. Any DMN 1.1 and 1.3 models (do not contain DMN 1.3 features) that you import or open into KIE DMN Editor and save are converted to DMN 1.2 models.</p>
+</li>
+<li>
+<p>Package DMN files as part of your project knowledge JAR (KJAR) file without KIE DMN Editor.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following table summarizes the design and runtime support for each DMN version in Drools:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 3. DMN support in Drools</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">DMN version</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">DMN engine support</p></th>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">DMN modeler support</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Execution</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Open</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Save</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DMN 1.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✅ yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✅ yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">❌ no</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DMN 1.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✅ yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✅ yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✅ yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DMN 1.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✅ yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✅ yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">❌ no</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DMN 1.4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✅ yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">❌ no</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">❌ no</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>In addition to all DMN conformance level 3 requirements, Drools DMN engine also includes enhancements and fixes to FEEL and DMN model components to optimize the experience of implementing DMN decision services with Drools. From a platform perspective, DMN models are like any other business asset in Drools, such as DRL files or spreadsheet decision tables, that you can include in your Drools project and deploy in order to start your DMN decision services.</p>
+</div>
+<div class="paragraph">
+<p>For more information about including external DMN files with your Drools project packaging and deployment method, see
+the <a href="../KIE/index.html" class="xref page">Build, Deploy, Utilize and Run section</a>.</p>
+</div>
+<div class="paragraph">
+<p>You can design a new DMN decision service using a Kogito microservice as an alternative for the cloud-native capabilities of DMN decision services. You could also migrate your existing DMN service to a Kogito microservice. For more information about Kogito or migrating to Kogito microservices, see the <a href="https://kogito.kie.org/guides/">Kogito website for documentation</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="dmn-feel-enhancements-ref_dmn-models"><a class="anchor" href="#dmn-feel-enhancements-ref_dmn-models"></a>FEEL enhancements in Drools DMN engine</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Drools DMN engine includes the following enhancements and other changes to FEEL in the current DMN implementation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Space Sensitivity</em>: This DMN implementation of the FEEL language is space insensitive. The goal is to avoid non-deterministic behavior based on the context and differences in behavior based on invisible characters, such as white spaces. This means that for this implementation, a variable named <code>first name</code> with one space is exactly the same as <code>first  name</code> with two spaces in it.</p>
+</li>
+<li>
+<p><em>List functions <code>or()</code> and <code>and()</code> </em>: The specification defines two list functions named <code>or()</code> and <code>and()</code>. However,
+according to the FEEL grammar, these are not valid function names, as <code>and</code> and <code>or</code> are reserved keywords.
+ This implementation renames these functions to <code>any()</code> and <code>all()</code> respectively, in anticipation for DMN 1.2.</p>
+</li>
+<li>
+<p><em>Keyword <code>in</code> cannot be used in variable names</em>: The specification defines that any keyword can be reused as part
+of a variable name, but the ambiguities caused with the <code>for &#8230;&#8203; in &#8230;&#8203; return</code> loop prevent the reuse of the <code>in</code>
+keyword. All other keywords are supported as part of variable names.</p>
+</li>
+<li>
+<p><em>Keywords are not supported in attributes of anonymous types</em>: FEEL is not a strongly typed language and the parser must resolve ambiguity in name parts of an attribute of an anonymous type. The parser supports reusable keywords as part of a variable name defined in the scope, but the parser does not support keywords in attributes of an anonymous type. For example, <code>for item in Order.items return Federal Tax for Item( item )</code> is a valid and supported FEEL expression, where a function named <code>Federal Tax for Item(&#8230;&#8203;)</code> can be defined and invoked correctly in the scope. However, the expression <code>for i in [ {x and y : true, n : 1}, {x and y : false, n: 2} ] return i.x and y</code> is not supported because anonymous types are defined in the iteration context of the <code>for</code> expression and the parser cannot resolve the ambiguity.</p>
+</li>
+<li>
+<p><em>Support for date and time literals on ranges</em>: According to the grammar rules #8, #18, #19, #34 and #62, <code>date
+and time</code> literals are supported in ranges (pages 110-111). Chapter 10.3.2.7 on page 114, on the other hand, contradicts
+the grammar and says they are not supported. This implementation chose to follow the grammar and support <code>date and
+time</code> literals on ranges, as well as extend the specification to support any arbitrary expression (see extensions below).</p>
+</li>
+<li>
+<p><em>Invalid time syntax</em>: Chapter 10.3.2.3.4 on page 112 and bullet point about <code>time</code> on page 131 both state that
+the <code>time</code> string lexical representation follows the XML Schema Datatypes specification as well as ISO 8601. According
+to the XML Schema specification (<a href="https://www.w3.org/TR/xmlschema-2/#time" class="bare">https://www.w3.org/TR/xmlschema-2/#time</a>), the lexical representation of a time follows
+the pattern <code>hh:mm:ss.sss</code> without any leading character. The DMN specification uses a leading "T" in several examples,
+that we understand is a typo and not in accordance with the standard.</p>
+</li>
+<li>
+<p><em>Support for scientific and hexadecimal notations</em>: This implementation supports scientific and hexadecimal
+notation for numbers. For example, <code>1.2e5</code> (scientific notation), <code>0xD5</code> (hexadecimal notation).</p>
+</li>
+<li>
+<p><em>Support for expressions as end points in ranges</em>: This implementation supports expressions as endpoints
+for ranges. For example, <code>[date("2016-11-24")..date("2016-11-27")]</code></p>
+</li>
+<li>
+<p><em>Support for additional types</em>: The specification only defines the following as basic types of the language:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>number</p>
+</li>
+<li>
+<p>string</p>
+</li>
+<li>
+<p>boolean</p>
+</li>
+<li>
+<p>days and time duration</p>
+</li>
+<li>
+<p>years and month duration</p>
+</li>
+<li>
+<p>time</p>
+</li>
+<li>
+<p>date and time</p>
+<div class="paragraph">
+<p>For completeness and orthogonality, this implementation also supports the following types:</p>
+</div>
+</li>
+<li>
+<p>context</p>
+</li>
+<li>
+<p>list</p>
+</li>
+<li>
+<p>range</p>
+</li>
+<li>
+<p>function</p>
+</li>
+<li>
+<p>unary test</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><em>Support for unary tests</em>: For completeness and orthogonality, unary tests are supported
+as first class citizens in the language. They are functions with an implicit single
+parameter and can be invoked in the same way as functions. For example,</p>
+<div class="listingblock">
+<div class="title">UnaryTestAsFunction.feel</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">  {
+      is minor : &lt; 18,
+      Bob is minor : is minor( bob.age )
+  }</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p><em>Support for additional built-in functions</em>: The following additional functions are supported:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>now()</code> : Returns the current local date and time.</p>
+</li>
+<li>
+<p><code>today()</code> : Returns the current local date.</p>
+</li>
+<li>
+<p><code>decision table()</code> : Returns a decision table function, although the specification mentions a decision table.
+The function on page 114 is not implementable as defined.</p>
+</li>
+<li>
+<p><code>string( mask, p&#8230;&#8203; )</code> : Returns a string formatted as per the mask. See Java String.format() for
+details on the mask syntax. For example, <code>string( "%4.2f", 7.1298 )</code> returns the string <code>"7.12"</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><em>Support for additional date and time arithmetics</em>: Subtracting two dates returns a day and time duration with the number of days between the two
+dates, ignoring daylight savings. For example,</p>
+<div class="listingblock">
+<div class="title">DateArithmetic.feel</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">date( "2017-05-12" ) - date( "2017-04-25" ) = duration( "P17D" )</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="dmn-model-enhancements-ref_dmn-models"><a class="anchor" href="#dmn-model-enhancements-ref_dmn-models"></a>DMN model enhancements in Drools DMN engine</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Drools DMN engine includes the following enhancements to DMN model support in the current DMN implementation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Support for types with spaces on names</em>: The DMN XML schema defines type refs such as QNames. The QNames do not allow spaces. Therefore, it is not possible to use types like FEEL <code>date and time</code>,   <code>days and time duration</code> or <code>years and months duration</code>. This implementation does parse such typerefs as strings and allows type names with spaces. However, in order to comply with the XML schema, it also adds the following aliases to such types that can be used instead:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>date and time</code> = <code>dateTime</code></p>
+</li>
+<li>
+<p><code>days and time duration</code> = <code>duration</code> or <code>dayTimeDuration</code></p>
+</li>
+<li>
+<p><code>years and months duration</code> = <code>duration</code> or <code>yearMonthDuration</code></p>
+<div class="paragraph">
+<p>Note that, for the "duration" types, the user can simply use <code>duration</code> and the Drools DMN engine will infer the proper duration, either <code>days and time duration</code> or <code>years and months duration</code>.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><em>Lists support heterogeneous element types</em>: Currently this implementation supports lists with heterogeneous element types. This is an experimental extension and does limit the functionality of some functions and filters. This decision will be re-evaluated in the future.</p>
+</li>
+<li>
+<p><em>TypeRef link between Decision Tables and Item Definitions</em>: On decision tables/input clause, if no values list is defined, the Drools DMN engine automatically checks the type reference and applies the allowed values check if it is defined.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="dmn-properties-ref_dmn-models"><a class="anchor" href="#dmn-properties-ref_dmn-models"></a>Configurable DMN properties in Drools DMN engine</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Drools DMN engine provides the following DMN properties that you can configure when you execute your DMN models on your client application.
+You can configure some of these properties using the <code>kmodule.xml</code> file in your Drools project (preferred method also for the previous traditional KIE Server deployment).</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">org.kie.dmn.strictConformance</dt>
+<dd>
+<p>When enabled, this property disables by default any extensions or profiles provided beyond the DMN standard, such as some helper functions or enhanced features of DMN 1.2 backported into DMN 1.1. You can use this property to configure the Drools DMN engine to support only pure DMN features, such as when running the <a href="https://dmn-tck.github.io/tck/">DMN Technology Compatibility Kit</a> (TCK).</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>Default value: <code>false</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">-Dorg.kie.dmn.strictConformance=true</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">org.kie.dmn.runtime.typecheck</dt>
+<dd>
+<p>When enabled, this property enables verification of actual values conforming to their declared types in the DMN model, as input or output of DRD elements. You can use this property to verify whether data supplied to the DMN model or produced by the DMN model is compliant with what is specified in the model.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>Default value: <code>false</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">-Dorg.kie.dmn.runtime.typecheck=true</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">org.kie.dmn.decisionservice.coercesingleton</dt>
+<dd>
+<p>By default, this property makes the result of a decision service defining a single output decision be the single value of the output decision value. When disabled, this property makes the result of a decision service defining a single output decision be a <code>context</code> with the single entry for that decision. You can use this property to adjust your decision service outputs according to your project requirements.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>Default value: <code>true</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">-Dorg.kie.dmn.decisionservice.coercesingleton=false</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">org.kie.dmn.profiles.$PROFILE_NAME</dt>
+<dd>
+<p>When valorized with a Java fully qualified name, this property loads a DMN profile onto the Drools DMN engine at start time. You can use this property to implement a predefined DMN profile with supported features different from or beyond the DMN standard. For example, if you are creating DMN models using the Signavio DMN modeller, use this property to implement features from the Signavio DMN profile into your DMN decision service.</p>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">-Dorg.kie.dmn.profiles.signavio=org.kie.dmn.signavio.KieDMNSignavioProfile</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">org.kie.dmn.runtime.listeners.$LISTENER_NAME</dt>
+<dd>
+<p>When valorized with a Java fully qualified name, this property loads and registers a DMN Runtime Listener onto the Drools DMN engine at start time.
+You can use this property to register a DMN listener in order to be notified of several events during DMN model evaluations.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>To configure this property, modify this property in the <code>kmodule.xml</code> file of your project
+(preferred method also for the previous traditional KIE Server deployment).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;kmodule xmlns="http://www.drools.org/xsd/kmodule"&gt;
+  &lt;configuration&gt;
+    &lt;property key="org.kie.dmn.runtime.listeners.mylistener" value="org.acme.MyDMNListener"/&gt;
+  &lt;/configuration&gt;
+&lt;/kmodule&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alternatively, you can configure this property globally for your Drools environment; modify this property using a command terminal or any other global application configuration mechanism.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">-Dorg.kie.dmn.runtime.listeners.mylistener=org.acme.MyDMNListener</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="dmn-validation-con_dmn-models"><a class="anchor" href="#dmn-validation-con_dmn-models"></a>Configurable DMN validation in Drools</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default, the <code>kie-maven-plugin</code> component in the <code>pom.xml</code> file of your Drools project uses the following <code>&lt;validateDMN&gt;</code> configurations to perform pre-compilation validation of DMN model assets and to perform DMN decision table static analysis:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VALIDATE_SCHEMA</code>: DMN model files are verified against the DMN specification XSD schema to ensure that the files are valid XML and compliant with the specification.</p>
+</li>
+<li>
+<p><code>VALIDATE_MODEL</code>: The pre-compilation analysis is performed for the DMN model to ensure that the basic semantic is aligned with the DMN specification.</p>
+</li>
+<li>
+<p><code>ANALYZE_DECISION_TABLE</code>: DMN decision tables are statically analyzed for gaps or overlaps and to ensure that the semantic of the decision table follows best practices.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can modify the default DMN validation and DMN decision table analysis behavior to perform only a specified validation during the project build, or you can disable this default behavior completely, as shown in the following examples:</p>
+</div>
+<div class="listingblock">
+<div class="title">Default configuration for DMN validation and decision table analysis</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;plugin&gt;
+  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+  &lt;artifactId&gt;kie-maven-plugin&lt;/artifactId&gt;
+  &lt;extensions&gt;true&lt;/extensions&gt;
+  &lt;configuration&gt;
+    &lt;validateDMN&gt;VALIDATE_SCHEMA,VALIDATE_MODEL,ANALYZE_DECISION_TABLE&lt;/validateDMN&gt;
+  &lt;/configuration&gt;
+&lt;/plugin&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Configuration to perform only the DMN decision table static analysis</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;plugin&gt;
+  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+  &lt;artifactId&gt;kie-maven-plugin&lt;/artifactId&gt;
+  &lt;extensions&gt;true&lt;/extensions&gt;
+  &lt;configuration&gt;
+    &lt;validateDMN&gt;ANALYZE_DECISION_TABLE&lt;/validateDMN&gt;
+  &lt;/configuration&gt;
+&lt;/plugin&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Configuration to perform only the XSD schema validation</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;plugin&gt;
+  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+  &lt;artifactId&gt;kie-maven-plugin&lt;/artifactId&gt;
+  &lt;extensions&gt;true&lt;/extensions&gt;
+  &lt;configuration&gt;
+    &lt;validateDMN&gt;VALIDATE_SCHEMA&lt;/validateDMN&gt;
+  &lt;/configuration&gt;
+&lt;/plugin&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Configuration to perform only the DMN model validation</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;plugin&gt;
+  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+  &lt;artifactId&gt;kie-maven-plugin&lt;/artifactId&gt;
+  &lt;extensions&gt;true&lt;/extensions&gt;
+  &lt;configuration&gt;
+    &lt;validateDMN&gt;VALIDATE_MODEL&lt;/validateDMN&gt;
+  &lt;/configuration&gt;
+&lt;/plugin&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Configuration to disable all DMN validation</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;plugin&gt;
+  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+  &lt;artifactId&gt;kie-maven-plugin&lt;/artifactId&gt;
+  &lt;extensions&gt;true&lt;/extensions&gt;
+  &lt;configuration&gt;
+    &lt;validateDMN&gt;disable&lt;/validateDMN&gt;
+  &lt;/configuration&gt;
+&lt;/plugin&gt;</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you enter an unrecognized <code>&lt;validateDMN&gt;</code> configuration flag, all pre-compilation validation is disabled and the Maven plugin emits related log messages.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<h1 id="dmn-model-creating-proc_dmn-models" class="sect0"><a class="anchor" href="#dmn-model-creating-proc_dmn-models"></a>Creating and editing DMN models in KIE DMN Editor</h1>
+<div class="openblock partintro">
+<div class="content">
+<div class="paragraph">
+<p>You can use the KIE DMN Editor to design DMN decision requirements diagrams (DRDs) and define decision logic for a complete and functional DMN decision model. Drools provides design support for DMN 1.2 models at conformance level 3, and includes enhancements and fixes to FEEL and DMN model components to optimize the experience of implementing DMN decision services with Drools. Drools DMN engine also provides runtime support for DMN 1.1, 1.2, 1.3, and 1.4 models at conformance level 3, but any DMN 1.1 and 1.3 models (do not contain DMN 1.3 features) that you import or open into KIE DMN Editor and save are converted to DMN 1.2 models</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Create or import a DMN file in your KIE DMN Editor.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>To create a DMN file, follow the instruction on the KIE DMN Editor online, or create a new <code>.dmn</code> file in VSCode.</p>
+</div>
+<div class="paragraph">
+<p>To import an existing DMN file, follow the instruction on the KIE DMN Editor online, or double click to open a <code>.dmn</code> file in VSCode.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you imported a DMN file that does not contain layout information, the imported decision requirements diagram (DRD) is formatted automatically in the DMN designer. Click <strong>Save</strong> in the DMN designer to save the DRD layout.</p>
+</div>
+<div class="paragraph">
+<p>If an imported DRD is not automatically formatted, you can select the <strong>Perform automatic layout</strong> icon in the upper-right toolbar in the DMN designer to format the DRD.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Begin adding components to your new or imported DMN decision requirements diagram (DRD) by clicking and dragging one of the DMN nodes from the left toolbar:</p>
+<div class="openblock">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-drag-decision-node.png" alt="dmn drag decision node">
+</div>
+<div class="title">Figure 22. Adding DRD components</div>
+</div>
+<div class="paragraph">
+<p>The following DRD components are available:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Decision</strong>: Use this node for a DMN decision, where one or more input elements determine an output based on defined decision logic.</p>
+</li>
+<li>
+<p><strong>Business knowledge model</strong>: Use this node for reusable functions with one or more decision elements. Decisions that have the same logic but depend on different sub-input data or sub-decisions use business knowledge models to determine which procedure to follow.</p>
+</li>
+<li>
+<p><strong>Knowledge source</strong>: Use this node for external authorities, documents, committees, or policies that regulate a decision or business knowledge model. Knowledge sources are references to real-world factors rather than executable business rules.</p>
+</li>
+<li>
+<p><strong>Input data</strong>: Use this node for information used in a decision node or a business knowledge model. Input data usually includes business-level concepts or objects relevant to the business, such as loan applicant data used in a lending strategy.</p>
+</li>
+<li>
+<p><strong>Text annotation</strong>: Use this node for explanatory notes associated with an input data node, decision node, business knowledge model, or knowledge source.</p>
+</li>
+<li>
+<p><strong>Decision service</strong>: Use this node to enclose a set of reusable decisions implemented as a decision service for invocation. A decision service can be used in other DMN models and can be invoked from an external application or a BPMN business process.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>In the DMN designer canvas, double-click the new DRD node to enter an informative node name.</p>
+</li>
+<li>
+<p>If the node is a decision or business knowledge model, select the node to display the node options and click the <strong>Edit</strong> icon to open the DMN boxed expression designer to define the decision logic for the node:</p>
+<div class="openblock">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-decision-edit.png" alt="dmn decision edit">
+</div>
+<div class="title">Figure 23. Opening a new decision node boxed expression</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-bkm-edit.png" alt="dmn bkm edit">
+</div>
+<div class="title">Figure 24. Opening a new business knowledge model boxed expression</div>
+</div>
+<div class="paragraph">
+<p>By default, all business knowledge models are defined as boxed function expressions containing a literal FEEL expression, a nested context expression of an external JAVA or PMML function, or a nested boxed expression of any type.</p>
+</div>
+<div class="paragraph">
+<p>For decision nodes, you click the undefined table to select the type of boxed expression you want to use, such as a boxed literal expression, boxed context expression, decision table, or other DMN boxed expression.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-decision-boxed-expression-options.png" alt="dmn decision boxed expression options">
+</div>
+<div class="title">Figure 25. Selecting the logic type for a decision node</div>
+</div>
+<div class="paragraph">
+<p>For business knowledge models, you click the top-left function cell to select the function type, or right-click the function value cell, select <strong>Clear</strong>, and select a boxed expression of another type.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-bkm-define.png" alt="dmn bkm define">
+</div>
+<div class="title">Figure 26. Selecting the function or other logic type for a business knowledge model</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>In the selected boxed expression designer for either a decision node (any expression type) or business knowledge model (function expression), click the applicable table cells to define the table name, variable data types, variable names and values, function parameters and bindings, or FEEL expressions to include in the decision logic.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>You can right-click cells for additional actions where applicable, such as inserting or removing table rows and columns or clearing table contents.</p>
+</div>
+<div class="paragraph">
+<p>The following is an example decision table for a decision node that determines credit score ratings based on a defined range of a loan applicant&#8217;s credit score:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-decision-table-example1a.png" alt="dmn decision table example1a">
+</div>
+<div class="title">Figure 27. Decision node decision table for credit score rating</div>
+</div>
+<div class="paragraph">
+<p>The following is an example boxed function expression for a business knowledge model that calculates mortgage payments based on principal, interest, taxes, and insurance (PITI) as a literal expression:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-function-expression-example4.png" alt="dmn function expression example4">
+</div>
+<div class="title">Figure 28. Business knowledge model function for PITI calculation</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>After you define the decision logic for the selected node, click <strong>Back to "&lt;MODEL_NAME&gt;"</strong> to return to the DRD view.</p>
+</li>
+<li>
+<p>For the selected DRD node, use the available connection options to create and connect to the next node in the DRD, or click and drag a new node onto the DRD canvas from the left toolbar.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>The node type determines which connection options are supported. For example, an <strong>Input data</strong> node can connect to a decision node, knowledge source, or text annotation using the applicable connection type, whereas a <strong>Knowledge source</strong> node can connect to any DRD element. A <strong>Decision</strong> node can connect only to another decision or a text annotation.</p>
+</div>
+<div class="paragraph">
+<p>The following connection types are available, depending on the node type:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Information requirement</strong>: Use this connection from an input data node or decision node to another decision node that requires the information.</p>
+</li>
+<li>
+<p><strong>Knowledge requirement</strong>: Use this connection from a business knowledge model to a decision node or to another business knowledge model that invokes the decision logic.</p>
+</li>
+<li>
+<p><strong>Authority requirement</strong>: Use this connection from an input data node or a decision node to a dependent knowledge source or from a knowledge source to a decision node, business knowledge model, or another knowledge source.</p>
+</li>
+<li>
+<p><strong>Association</strong>: Use this connection from an input data node, decision node, business knowledge model, or knowledge source to a text annotation.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-input-connection-example.png" alt="dmn input connection example">
+</div>
+<div class="title">Figure 29. Connecting credit score input to the credit score rating decision</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-input-connection-example2.png" alt="dmn input connection example2">
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Continue adding and defining the remaining DRD components of your decision model. Periodically click <strong>Save</strong> in the DMN designer to save your work.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As you periodically save a DRD, the DMN designer performs a static validation of the DMN model and might produce error messages until the model is defined completely. After you finish defining the DMN model completely, if any errors remain, troubleshoot the specified problems accordingly.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>After you add and define all components of the DRD, click <strong>Save</strong> to save and validate the completed DRD.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>To adjust the DRD layout, you can select the <strong>Perform automatic layout</strong> icon in the upper-right toolbar of the DMN designer.</p>
+</div>
+<div class="paragraph">
+<p>The following is an example DRD for a loan prequalification decision model:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-example-drd.png" alt="dmn example drd">
+</div>
+<div class="title">Figure 30. Completed DRD for loan prequalification</div>
+</div>
+<div class="paragraph">
+<p>The following is an example DRD for a phone call handling decision model using a reusable decision service:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-example-drd3.png" alt="dmn example drd3" width="90%">
+</div>
+<div class="title">Figure 31. Completed DRD for phone call handling with a decision service</div>
+</div>
+<div class="paragraph">
+<p>In a DMN decision service node, the decision nodes in the bottom segment incorporate input data from outside of the decision service to arrive at a final decision in the top segment of the decision service node. The resulting top-level decisions from the decision service are then implemented in any subsequent decisions or business knowledge requirements of the DMN model. You can reuse DMN decision services in other DMN models to apply the same decision logic with different input data and different outgoing connections.</p>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="dmn-logic-defining-proc_dmn-models"><a class="anchor" href="#dmn-logic-defining-proc_dmn-models"></a>Defining DMN decision logic in boxed expressions in KIE DMN Editor</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Boxed expressions in DMN are tables that you use to define the underlying logic of decision nodes and business knowledge models in a decision requirements diagram (DRD). Some boxed expressions can contain other boxed expressions, but the top-level boxed expression corresponds to the decision logic of a single DRD artifact. While DRDs represent the flow of a DMN decision model, boxed expressions define the actual decision logic of individual nodes. DRDs and boxed expressions together form a complete and functional DMN decision model.</p>
+</div>
+<div class="paragraph">
+<p>You can use the KIE DMN Editor to define decision logic for your DRD components using built-in boxed expressions.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>A DMN file is created or imported in KIE DMN Editor.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>In the DMN designer canvas, select a decision node or business knowledge model node that you want to define and click the <strong>Edit</strong> icon to open the DMN boxed expression designer:</p>
+<div class="openblock">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-decision-edit.png" alt="dmn decision edit">
+</div>
+<div class="title">Figure 32. Opening a new decision node boxed expression</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-bkm-edit.png" alt="dmn bkm edit">
+</div>
+<div class="title">Figure 33. Opening a new business knowledge model boxed expression</div>
+</div>
+<div class="paragraph">
+<p>By default, all business knowledge models are defined as boxed function expressions containing a literal FEEL expression, a nested context expression of an external JAVA or PMML function, or a nested boxed expression of any type.</p>
+</div>
+<div class="paragraph">
+<p>For decision nodes, you click the undefined table to select the type of boxed expression you want to use, such as a boxed literal expression, boxed context expression, decision table, or other DMN boxed expression.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-decision-boxed-expression-options.png" alt="dmn decision boxed expression options">
+</div>
+<div class="title">Figure 34. Selecting the logic type for a decision node</div>
+</div>
+<div class="paragraph">
+<p>For business knowledge model nodes, you click the top-left function cell to select the function type, or right-click the function value cell, select <strong>Clear</strong>, and select a boxed expression of another type.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-bkm-define.png" alt="dmn bkm define">
+</div>
+<div class="title">Figure 35. Selecting the function or other logic type for a business knowledge model</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>For this example, use a decision node and select <strong>Decision Table</strong> as the boxed expression type.</p>
+<div class="paragraph">
+<p>A decision table in DMN is a visual representation of one or more rules in a tabular format. Each rule consists of a single row in the table, and includes columns that define the conditions (input) and outcome (output) for that particular row.</p>
+</div>
+</li>
+<li>
+<p>Click the input column header to define the name and data type for the input condition. For example, name the input column <strong>Credit Score.FICO</strong> with a <code>number</code> data type. This column specifies numeric credit score values or ranges of loan applicants.</p>
+</li>
+<li>
+<p>Click the output column header to define the name and data type for the output values. For example, name the output column <strong>Credit Score Rating</strong> and next to the <strong>Data Type</strong> option, click <strong>Manage</strong> to go to the <strong>Data Types</strong> page where you can create a custom data type with score ratings as constraints.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-manage-data-types.png" alt="dmn manage data types">
+</div>
+<div class="title">Figure 36. Managing data types for a column header value</div>
+</div>
+</li>
+<li>
+<p>On the <strong>Data Types</strong> page, click <strong>New Data Type</strong> to add a new data type or click <strong>Import Data Object</strong> to import an existing data object from your project that you want to use as a DMN data type.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>If you import a data object from your project as a DMN data type and then that object is updated, you must re-import the data object as a DMN data type to apply the changes in your DMN model.</p>
+</div>
+<div class="paragraph">
+<p>For this example, click <strong>New Data Type</strong> and create a <strong>Credit_Score_Rating</strong> data type as a <code>string</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-custom-data-type-add.png" alt="dmn custom data type add">
+</div>
+<div class="title">Figure 37. Adding a new data type</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Click <strong>Add Constraints</strong>, select <strong>Enumeration</strong> from the drop-down options, and add the following constraints:</p>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>"Excellent"</code></p>
+</li>
+<li>
+<p><code>"Good"</code></p>
+</li>
+<li>
+<p><code>"Fair"</code></p>
+</li>
+<li>
+<p><code>"Poor"</code></p>
+</li>
+<li>
+<p><code>"Bad"</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-custom-data-type-constraints.png" alt="dmn custom data type constraints">
+</div>
+<div class="title">Figure 38. Adding constraints to the new data type</div>
+</div>
+<div class="paragraph">
+<p>To change the order of data type constraints, you can click the left end of the constraint row and drag the row as needed:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-custom-data-type-constraints-drag.png" alt="dmn custom data type constraints drag">
+</div>
+<div class="title">Figure 39. Dragging constraints to change constraint order</div>
+</div>
+<div class="paragraph">
+<p>For information about constraint types and syntax requirements for the specified data type, see the <a href="https://www.omg.org/spec/DMN">Decision Model and Notation specification</a>.</p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Click <strong>OK</strong> to save the constraints and click the check mark to the right of the data type to save the data type.</p>
+</li>
+<li>
+<p>Return to the <strong>Credit Score Rating</strong> decision table, click the <strong>Credit Score Rating</strong> column header, and set the data type to this new custom data type.</p>
+</li>
+<li>
+<p>Use the <strong>Credit Score.FICO</strong> input column to define credit score values or ranges of values, and use the <strong>Credit Score Rating</strong> column to specify one of the corresponding ratings you defined in the <strong>Credit_Score_Rating</strong> data type.</p>
+<div class="paragraph">
+<p>Right-click any value cell to insert or delete rows (rules) or columns (clauses).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-decision-table-example1a.png" alt="dmn decision table example1a">
+</div>
+<div class="title">Figure 40. Decision node decision table for credit score rating</div>
+</div>
+</li>
+<li>
+<p>After you define all rules, click the top-left corner of the decision table to define the rule <strong>Hit Policy</strong> and <strong>Builtin Aggregator</strong> (for <strong>COLLECT</strong> hit policy only).</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>The hit policy determines how to reach an outcome when multiple rules in a decision table match the provided input values. The built-in aggregator determines how to aggregate rule values when you use the <strong>COLLECT</strong> hit policy.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-hit-policies.png" alt="dmn hit policies">
+</div>
+<div class="title">Figure 41. Defining the decision table hit policy</div>
+</div>
+<div class="paragraph">
+<p>The following example is a more complex decision table that determines applicant qualification for a loan as the concluding decision node in the same loan prequalification decision model:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-decision-table-example3.png" alt="dmn decision table example3">
+</div>
+<div class="title">Figure 42. Decision table for loan prequalification</div>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>For boxed expression types other than decision tables, you follow these guidelines similarly to navigate the boxed expression tables and define variables and parameters for decision logic, but according to the requirements of the boxed expression type. Some boxed expressions, such as boxed literal expressions, can be single-column tables, while other boxed expressions, such as function, context, and invocation expressions, can be multi-column tables with nested boxed expressions of other types.</p>
+</div>
+<div class="paragraph">
+<p>For example, the following boxed context expression defines the parameters that determine whether a loan applicant can meet minimum mortgage payments based on principal, interest, taxes, and insurance (PITI), represented as a front-end ratio calculation with a sub-context expression:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-context-expression-example2.png" alt="dmn context expression example2">
+</div>
+<div class="title">Figure 43. Boxed context expression for front-end client PITI ratio</div>
+</div>
+<div class="paragraph">
+<p>The following boxed function expression determines a monthly mortgage installment as a business knowledge model in a lending decision, with the function value defined as a nested context expression:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-function-expression-example3.png" alt="dmn function expression example3">
+</div>
+<div class="title">Figure 44. Boxed function expression for installment calculation in business knowledge model</div>
+</div>
+<div class="paragraph">
+<p>For more information and examples of each boxed expression type, see <a href="#dmn-boxed-expressions-con_dmn-models">DMN decision logic in boxed expressions</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="dmn-data-types-defining-proc_dmn-models"><a class="anchor" href="#dmn-data-types-defining-proc_dmn-models"></a>Creating custom data types for DMN boxed expressions in KIE DMN Editor</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In DMN boxed expressions in KIE DMN Editor, data types determine the structure of the data that you use within an associated table, column, or field in the boxed expression. You can use default DMN data types (such as String, Number, Boolean) or you can create custom data types to specify additional fields and constraints that you want to implement for the boxed expression values.</p>
+</div>
+<div class="paragraph">
+<p>Custom data types that you create for a boxed expression can be simple or structured:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Simple</strong> data types have only a name and a type assignment. Example: <code>Age (number)</code>.</p>
+</li>
+<li>
+<p><strong>Structured</strong> data types contain multiple fields associated with a parent data type. Example: A single type <code>Person</code> containing the fields <code>Name (string)</code>, <code>Age (number)</code>, <code>Email (string)</code>.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>A DMN file is created or imported in KIE DMN Editor.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>In the DMN designer canvas, select a decision node or business knowledge model for which you want to define the data types and click the <strong>Edit</strong> icon to open the DMN boxed expression designer.</p>
+</li>
+<li>
+<p>If the boxed expression is for a decision node that is not yet defined, click the undefined table to select the type of boxed expression you want to use, such as a boxed literal expression, boxed context expression, decision table, or other DMN boxed expression.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-decision-boxed-expression-options.png" alt="dmn decision boxed expression options">
+</div>
+<div class="title">Figure 45. Selecting the logic type for a decision node</div>
+</div>
+</li>
+<li>
+<p>Click the cell for the table header, column header, or parameter field (depending on the boxed expression type) for which you want to define the data type and click <strong>Manage</strong> to go to the <strong>Data Types</strong> page where you can create a custom data type.</p>
+<div class="openblock">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-manage-data-types.png" alt="dmn manage data types">
+</div>
+<div class="title">Figure 46. Managing data types for a column header value</div>
+</div>
+<div class="paragraph">
+<p>You can also set and manage custom data types for a specified decision node or business knowledge model node by selecting the <strong>Properties</strong> icon in the upper-right corner of the DMN designer:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-manage-data-types1a.png" alt="dmn manage data types1a">
+</div>
+<div class="title">Figure 47. Managing data types in decision requirements diagram (DRD) properties</div>
+</div>
+<div class="paragraph">
+<p>The data type that you define for a specified cell in a boxed expression determines the structure of the data that you use within that associated table, column, or field in the boxed expression.</p>
+</div>
+<div class="paragraph">
+<p>In this example, an output column <strong>Credit Score Rating</strong> for a DMN decision table defines a set of custom credit score ratings based on an applicant&#8217;s credit score.</p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>On the <strong>Data Types</strong> page, click <strong>New Data Type</strong> to add a new data type or click <strong>Import Data Object</strong> to import an existing data object from your project that you want to use as a DMN data type.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>If you import a data object from your project as a DMN data type and then that object is updated, you must re-import the data object as a DMN data type to apply the changes in your DMN model.</p>
+</div>
+<div class="paragraph">
+<p>For this example, click <strong>New Data Type</strong> and create a <strong>Credit_Score_Rating</strong> data type as a <code>string</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-custom-data-type-add.png" alt="dmn custom data type add">
+</div>
+<div class="title">Figure 48. Adding a new data type</div>
+</div>
+<div class="paragraph">
+<p>If the data type requires a list of items, enable the <strong>List</strong> setting.</p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Click <strong>Add Constraints</strong>, select <strong>Enumeration</strong> from the drop-down options, and add the following constraints:</p>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>"Excellent"</code></p>
+</li>
+<li>
+<p><code>"Good"</code></p>
+</li>
+<li>
+<p><code>"Fair"</code></p>
+</li>
+<li>
+<p><code>"Poor"</code></p>
+</li>
+<li>
+<p><code>"Bad"</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-custom-data-type-constraints.png" alt="dmn custom data type constraints">
+</div>
+<div class="title">Figure 49. Adding constraints to the new data type</div>
+</div>
+<div class="paragraph">
+<p>To change the order of data type constraints, you can click the left end of the constraint row and drag the row as needed:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-custom-data-type-constraints-drag.png" alt="dmn custom data type constraints drag">
+</div>
+<div class="title">Figure 50. Dragging constraints to change constraint order</div>
+</div>
+<div class="paragraph">
+<p>For information about constraint types and syntax requirements for the specified data type, see the <a href="https://www.omg.org/spec/DMN">Decision Model and Notation specification</a>.</p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Click <strong>OK</strong> to save the constraints and click the check mark to the right of the data type to save the data type.</p>
+</li>
+<li>
+<p>Return to the <strong>Credit Score Rating</strong> decision table, click the <strong>Credit Score Rating</strong> column header, set the data type to this new custom data type, and define the rule values for that column with the rating constraints that you specified.</p>
+<div class="openblock">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-decision-table-example1a.png" alt="dmn decision table example1a">
+</div>
+<div class="title">Figure 51. Decision table for credit score rating</div>
+</div>
+<div class="paragraph">
+<p>In the DMN decision model for this scenario, the <strong>Credit Score Rating</strong> decision flows into the following <strong>Loan Prequalification</strong> decision that also requires custom data types:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-manage-data-types-blank.png" alt="dmn manage data types blank">
+</div>
+<div class="title">Figure 52. Decision table for loan prequalification</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Continuing with this example, return to the <strong>Data Types</strong> window, click <strong>New Data Type</strong>, and create a <strong>Loan_Qualification</strong> data type as a <code>Structure</code> with no constraints.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>When you save the new structured data type, the first sub-field appears so that you can begin defining nested data fields in this parent data type. You can use these sub-fields in association with the parent structured data type in boxed expressions, such as nested column headers in decision tables or nested table parameters in context or function expressions.</p>
+</div>
+<div class="paragraph">
+<p>For additional sub-fields, select the addition icon next to the <strong>Loan_Qualification</strong> data type:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-manage-data-types-structured.png" alt="dmn manage data types structured">
+</div>
+<div class="title">Figure 53. Adding a new structured data type with nested fields</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>For this example, under the structured <strong>Loan_Qualification</strong> data type, add a <strong>Qualification</strong> field with <code>"Qualified"</code> and <code>"Not Qualified"</code> enumeration constraints, and a <strong>Reason</strong> field with no constraints. Add also a simple <strong>Back_End_Ratio</strong> and a <strong>Front_End_Ratio</strong> data type, both with <code>"Sufficient"</code> and <code>"Insufficient"</code> enumeration constraints.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>Click the check mark to the right of each data type that you create to save your changes.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-manage-data-types-structured2.png" alt="dmn manage data types structured2">
+</div>
+<div class="title">Figure 54. Adding nested data types with constraints</div>
+</div>
+<div class="paragraph">
+<p>To change the order or nesting of data types, you can click the left end of the data type row and drag the row as needed:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-manage-data-types-structured2-drag.png" alt="dmn manage data types structured2 drag">
+</div>
+<div class="title">Figure 55. Dragging data types to change data type order or nesting</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Return to the decision table and, for each column, click the column header cell, set the data type to the new corresponding custom data type, and define the rule values as needed for the column with the constraints that you specified, if applicable.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-decision-table-example3.png" alt="dmn decision table example3">
+</div>
+<div class="title">Figure 56. Decision table for loan prequalification</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>For boxed expression types other than decision tables, you follow these guidelines similarly to navigate the boxed expression tables and define custom data types as needed.</p>
+</div>
+<div class="paragraph">
+<p>For example, the following boxed function expression uses custom <code>tCandidate</code> and <code>tProfile</code> structured data types to associate data for online dating compatibility:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-manage-data-types-structured3.png" alt="dmn manage data types structured3">
+</div>
+<div class="title">Figure 57. Boxed function expression for online dating compatibility</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-manage-data-types-structured3a.png" alt="dmn manage data types structured3a">
+</div>
+<div class="title">Figure 58. Custom data type definitions for online dating compatibility</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-manage-data-types-structured3b.png" alt="dmn manage data types structured3b">
+</div>
+<div class="title">Figure 59. Parameter definitions with custom data types for online dating compatibility</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="dmn-included-models-con_dmn-models"><a class="anchor" href="#dmn-included-models-con_dmn-models"></a>Included models in DMN files in KIE DMN Editor</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the KIE DMN Editor, you can use the <strong>Included Models</strong> tab to include other DMN models and Predictive Model Markup Language (PMML) models from your project in a specified DMN file. When you include a DMN model within another DMN file, you can use all of the nodes and logic from both models in the same decision requirements diagram (DRD). When you include a PMML model within a DMN file, you can invoke that PMML model as a boxed function expression for a DMN decision node or business knowledge model node.</p>
+</div>
+<div class="paragraph">
+<p>You cannot include DMN or PMML models from other projects in KIE DMN Editor.</p>
+</div>
+<div class="sect2">
+<h3 id="dmn-included-models-dmn-proc_dmn-models"><a class="anchor" href="#dmn-included-models-dmn-proc_dmn-models"></a>Including other DMN models within a DMN file in KIE DMN Editor</h3>
+<div class="paragraph">
+<p>In KIE DMN Editor, you can include other DMN models from your project in a specified DMN file. When you include a DMN model within another DMN file, you can use all of the nodes and logic from both models in the same decision requirements diagram (DRD), but you cannot edit the nodes from the included model. To edit nodes from included models, you must update the source file for the included model directly. If you update the source file for an included DMN model, open the DMN file where the DMN model is included (or close an re-open) to verify the changes.</p>
+</div>
+<div class="paragraph">
+<p>You cannot include DMN models from other projects in KIE DMN Editor.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>The DMN models are created or imported (as <code>.dmn</code> files) in the same project in KIE DMN Editor as the DMN file in which you want to include the models.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>In the KIE DMN Editor, click the <strong>Included Models</strong> tab.</p>
+</li>
+<li>
+<p>Click <strong>Include Model</strong>, select a DMN model from your project in the <strong>Models</strong> list, enter a unique name for the included model, and click <strong>Include</strong>:</p>
+<div class="openblock">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-include-model.png" alt="dmn include model">
+</div>
+<div class="title">Figure 60. Including a DMN model</div>
+</div>
+<div class="paragraph">
+<p>The DMN model is added to this DMN file, and all DRD nodes from the included model are listed under <strong>Decision Components</strong> in the <strong>Decision Navigator</strong> view:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-include-model-list.png" alt="dmn include model list">
+</div>
+<div class="title">Figure 61. DMN file with decision components from the included DMN model</div>
+</div>
+<div class="paragraph">
+<p>All data types from the included model are also listed in read-only mode in the <strong>Data Types</strong> tab for the DMN file:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-include-model-data-types.png" alt="dmn include model data types">
+</div>
+<div class="title">Figure 62. DMN file with data types from the included DMN model</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>In the <strong>Model</strong> tab of the DMN designer, click and drag the included DRD components onto the canvas to begin implementing them in your DRD:</p>
+<div class="openblock">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-include-model-drd.png" alt="dmn include model drd">
+</div>
+<div class="title">Figure 63. Adding DRD components from the included DMN model</div>
+</div>
+<div class="paragraph">
+<p>To edit DRD nodes or data types from included models, you must update the source file for the included model directly. If you update the source file for an included DMN model, open the DMN file where the DMN model is included (or close an re-open) to verify the changes.</p>
+</div>
+<div class="paragraph">
+<p>To edit the included model name or to remove the included model from the DMN file, use the <strong>Included Models</strong> tab in the DMN designer.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+When you remove an included model, any nodes from that included model that are currently used in the DRD are also removed.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="dmn-included-models-pmml-proc_dmn-models"><a class="anchor" href="#dmn-included-models-pmml-proc_dmn-models"></a>Including PMML models within a DMN file in KIE DMN Editor</h3>
+<div class="paragraph">
+<p>In KIE DMN Editor, you can include Predictive Model Markup Language (PMML) models from your project in a specified DMN file. When you include a PMML model within a DMN file, you can invoke that PMML model as a boxed function expression for a DMN decision node or business knowledge model node. If you update the source file for an included PMML model, you must remove and re-include the PMML model in the DMN file to apply the source changes.</p>
+</div>
+<div class="paragraph">
+<p>You cannot include PMML models from other projects in KIE DMN Editor.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>The PMML models are imported (as <code>.pmml</code> files) in the same project in KIE DMN Editor as the DMN file in which you want to include the models.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>In your DMN project, add the following dependencies to the project <code>pom.xml</code> file to enable PMML evaluation:</p>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;!-- Required for the PMML compiler --&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.drools&lt;/groupId&gt;
+  &lt;artifactId&gt;kie-pmml-trusty&lt;/artifactId&gt;
+  &lt;version&gt;${drools.version}&lt;/version&gt;
+  &lt;scope&gt;provided&lt;/scope&gt;
+&lt;/dependency&gt;
+
+&lt;!-- Alternative dependencies for JPMML Evaluator, override `kie-pmml-trusty` dependency --&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+  &lt;artifactId&gt;kie-dmn-jpmml&lt;/artifactId&gt;
+  &lt;version&gt;${drools.version}&lt;/version&gt;
+  &lt;scope&gt;provided&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.jpmml&lt;/groupId&gt;
+  &lt;artifactId&gt;pmml-evaluator&lt;/artifactId&gt;
+  &lt;version&gt;1.5.1&lt;/version&gt;
+  &lt;scope&gt;provided&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.jpmml&lt;/groupId&gt;
+  &lt;artifactId&gt;pmml-evaluator-extension&lt;/artifactId&gt;
+  &lt;version&gt;1.5.1&lt;/version&gt;
+  &lt;scope&gt;provided&lt;/scope&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you want to use the full PMML specification implementation with the Java Evaluator API for PMML (JPMML), use the alternative set of JPMML dependencies in your DMN project. If the JPMML dependencies and the standard <code>kie-pmml-trusty</code> dependency are both present, the <code>kie-pmml-trusty</code> dependency is disabled. For information about JPMML licensing terms, see <a href="https://openscoring.io/">Openscoring.io</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The legacy <code>kie-pmml</code> dependency is deprecated with Drools 7.48.0 and was be replaced by <code>kie-pmml-trusty</code> dependency in the following Drools release.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Instead of specifying a Drools <code>&lt;version&gt;</code> for individual dependencies, consider adding the Drools bill of materials (BOM) dependency to <code>dependencyManagement</code> section of your project <code>pom.xml</code> file. When you add the BOM files, the correct versions of transitive dependencies from the provided Maven repositories are included in the project.</p>
+</div>
+<div class="paragraph">
+<p>Example BOM dependency:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+  &lt;artifactId&gt;kie-dmn-bom&lt;/artifactId&gt;
+  &lt;version&gt;${drools.version}&lt;/version&gt;
+  &lt;scope&gt;import&lt;/scope&gt;
+  &lt;type&gt;pom&lt;/type&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>If you added the JPMML dependencies in your DMN project to use the JPMML Evaluator, download the following JAR files and add them to the classpath (in traditional KIE Server deployment these were needed in the <code>~/kie-server.war/WEB-INF/lib</code> and <code>~/business-central.war/WEB-INF/lib</code> directories of the distribution):</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://mvnrepository.com/artifact/org.kie/kie-dmn-jpmml/10.1.0">KIE JPMML Integration 10.1.0</a> JAR file from the online Maven repository</p>
+</li>
+<li>
+<p><a href="https://mvnrepository.com/artifact/org.jpmml/pmml-evaluator/1.5.1">JPMML Evaluator 1.5.1</a> JAR file from the online Maven repository</p>
+</li>
+<li>
+<p><a href="https://mvnrepository.com/artifact/org.jpmml/pmml-evaluator-extension/1.5.1">JPMML Evaluator Extensions 1.5.1</a> JAR file from the online Maven repository</p>
+</li>
+</ul>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>These artifacts are required to enable JPMML evaluation.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+We provide these additional plug-in modules to support the integration with the Java Evaluator API for PMML (JPMML) for PMML execution in Drools. However, we <strong>do not</strong> support the JPMML libraries directly. If <strong>you</strong> include JPMML libraries in your Drools distribution, see the <a href="https://openscoring.io/">Openscoring.io</a> licensing terms for JPMML.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>In the KIE DMN Editor, click the <strong>Included Models</strong> tab.</p>
+</li>
+<li>
+<p>Click <strong>Include Model</strong>, select a PMML model from your project in the <strong>Models</strong> list, enter a unique name for the included model, and click <strong>Include</strong>:</p>
+<div class="openblock">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-include-model-pmml.png" alt="dmn include model pmml">
+</div>
+<div class="title">Figure 64. Including a PMML model</div>
+</div>
+<div class="paragraph">
+<p>The PMML model is added to this DMN file:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-include-model-list-pmml.png" alt="dmn include model list pmml">
+</div>
+<div class="title">Figure 65. DMN file with included PMML model</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>In the <strong>Model</strong> tab of the DMN designer, select or create the decision node or business knowledge model node in which you want to invoke the PMML model and click the <strong>Edit</strong> icon to open the DMN boxed expression designer:</p>
+<div class="openblock">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-decision-edit.png" alt="dmn decision edit">
+</div>
+<div class="title">Figure 66. Opening a new decision node boxed expression</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-bkm-edit.png" alt="dmn bkm edit">
+</div>
+<div class="title">Figure 67. Opening a new business knowledge model boxed expression</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Set the expression type to <strong>Function</strong> (default for business knowledge model nodes), click the top-left function cell, and select <strong>PMML</strong>.</p>
+</li>
+<li>
+<p>In the <strong>document</strong> and <strong>model</strong> rows in the table, double-click the undefined cells to specify the included PMML document and the relevant PMML model within that document:</p>
+<div class="openblock">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-include-model-expression-pmml.png" alt="dmn include model expression pmml">
+</div>
+<div class="title">Figure 68. Adding a PMML model in a DMN business knowledge model</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-function-expression-example5.png" alt="dmn function expression example5">
+</div>
+<div class="title">Figure 69. Example PMML definition in a DMN business knowledge model</div>
+</div>
+<div class="paragraph">
+<p>If you update the source file for an included PMML model, you must remove and re-include the PMML model in the DMN file to apply the source changes.</p>
+</div>
+<div class="paragraph">
+<p>To edit the included model name or to remove the included model from the DMN file, use the <strong>Included Models</strong> tab in the DMN designer.</p>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="dmn-model-creating-multiples-proc_dmn-models"><a class="anchor" href="#dmn-model-creating-multiples-proc_dmn-models"></a>Creating DMN models with multiple diagrams in KIE DMN Editor</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For complex DMN models, you can use the DMN designer in KIE DMN Editor to design multiple DMN decision requirements diagrams (DRDs) that represent parts of the overall decision requirements graph (DRG) for the DMN decision model. In simple cases, you can use a single DRD to represent all of the overall DRG for the decision model, but in complex cases, a single DRD can become large and difficult to follow. Therefore, to better organize DMN decision models with many decision requirements, you can divide the model into smaller nested DRDs that constitute the larger central DRD representation of the overall DRG.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You understand how to design DRDs in KIE DMN Editor. For information about creating DRDs, see <a href="#dmn-model-creating-proc_dmn-models">Creating and editing DMN models in KIE DMN Editor</a>.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>In KIE DMN Editor, navigate to your DMN project and create or import a DMN file in the project.</p>
+</li>
+<li>
+<p>Open the new or imported DMN file to view the DRD in the DMN designer, and begin designing or modifying the DRD using the DMN nodes in the left toolbar.</p>
+</li>
+<li>
+<p>For any DMN nodes that you want to define in a separate nested DRD, select the node, click the <strong>DRD Actions</strong> icon, and select from the available options.</p>
+<div class="openblock">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-drd-actions.png" alt="dmn drd actions">
+</div>
+<div class="title">Figure 70. DRD actions icon for subdividing a DRD</div>
+</div>
+<div class="paragraph">
+<p>The following options are available:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Create</strong>: Use this option to create a nested DRD where you can separately define the DMN components and diagram for the selected node.</p>
+</li>
+<li>
+<p><strong>Add to</strong>: If you already created a nested DRD, use this option to add the selected node to an existing DRD.</p>
+</li>
+<li>
+<p><strong>Remove</strong>: If the node that you selected is already within a nested DRD, use this option to remove the node from that nested DRD.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>After you create a nested DRD within your DMN decision model, the new DRD opens in a separate DRD canvas and the available DRD and components are listed in the <strong>Decision Navigator</strong> left menu. You can use the <strong>Decision Navigator</strong> menu to rename or remove a nested DRD.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-drd-actions-rename.png" alt="dmn drd actions rename">
+</div>
+<div class="title">Figure 71. Rename new nested DRD in the Decision Navigator menu</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>In the separate canvas for the new nested DRD, design the flow and logic for all required components in this portion of the DMN model, as usual.</p>
+</li>
+<li>
+<p>Continue adding and defining any other nested DRDs for your decision model and save the completed DMN file.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>For example, the following DRD for a loan prequalification decision model contains all DMN components for the model without any nested DRDs. This example relies on the single DRD for all components and logic, resulting in a large and complex diagram.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-example-drd.png" alt="dmn example drd">
+</div>
+<div class="title">Figure 72. Single DRD for loan prequalification</div>
+</div>
+<div class="paragraph">
+<p>Alternatively, by following the steps in this procedure, you can divide this example DRD into multiple nested DRDs to better organize the decision requirements, as shown in the following example:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-drd-multiple.png" alt="dmn drd multiple">
+</div>
+<div class="title">Figure 73. Multiple nested DRDs for loan prequalification</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-drd-multiple-front-end.png" alt="dmn drd multiple front end">
+</div>
+<div class="title">Figure 74. Overview of front end ratio DRD</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-drd-multiple-front-end-details.png" alt="dmn drd multiple front end details">
+</div>
+<div class="title">Figure 75. DRD for front end ratio</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-drd-multiple-credit-score.png" alt="dmn drd multiple credit score">
+</div>
+<div class="title">Figure 76. Overview of credit score rating DRD</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-drd-multiple-credit-score-details.png" alt="dmn drd multiple credit score details">
+</div>
+<div class="title">Figure 77. DRD for credit score rating</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-drd-multiple-back-end.png" alt="dmn drd multiple back end">
+</div>
+<div class="title">Figure 78. Overview of back end ratio DRD</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-drd-multiple-back-end-details.png" alt="dmn drd multiple back end details">
+</div>
+<div class="title">Figure 79. DRD for back end ratio</div>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="dmn-documentation-con_dmn-models"><a class="anchor" href="#dmn-documentation-con_dmn-models"></a>DMN model documentation in KIE DMN Editor</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the KIE DMN Editor, you can use the <strong>Documentation</strong> tab to generate a report of your DMN model that you can print or download as an HTML file for offline use. The DMN model report contains all decision requirements diagrams (DRDs), data types, and boxed expressions in your DMN model. You can use this report to share your DMN model details or as part of your internal reporting workflow.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-documentation.png" alt="dmn documentation">
+</div>
+<div class="title">Figure 80. Example DMN model report</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="dmn-designer-nav-ref_dmn-models"><a class="anchor" href="#dmn-designer-nav-ref_dmn-models"></a>DMN designer navigation and properties in KIE DMN Editor</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The DMN designer in KIE DMN Editor provides the following additional features to help you navigate through the components and properties of decision requirements diagrams (DRDs).</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">DMN file and diagram views</dt>
+<dd>
+<p>In the upper-left corner of the DMN designer, select the <strong>Project Explorer</strong> view to navigate between all DMN and other files or select the <strong>Decision Navigator</strong> view to navigate between the decision components, graphs, and boxed expressions of a selected DRD:</p>
+<div class="openblock">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-designer-project-view.png" alt="dmn designer project view">
+</div>
+<div class="title">Figure 81. Project Explorer view</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-designer-nav-view.png" alt="dmn designer nav view">
+</div>
+<div class="title">Figure 82. Decision Navigator view</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-designer-nav-view2.png" alt="dmn designer nav view2">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The DRD components from any DMN models included in the DMN file (in the <strong>Included Models</strong> tab) are also listed in the <strong>Decision Components</strong> panel for the DMN file.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In the upper-right corner of the DMN designer, select the <strong>Explore diagram</strong> icon to view an elevated preview of the selected DRD and to navigate between the nodes of the selected DRD:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-designer-preview.png" alt="dmn designer preview">
+</div>
+<div class="title">Figure 83. Explore diagram view</div>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">DRD properties and design</dt>
+<dd>
+<p>In the upper-right corner of the DMN designer, select the <strong>Properties</strong> icon to modify the identifying information, data types, and appearance of a selected DRD, DRD node, or boxed expression cell:</p>
+<div class="openblock">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-designer-properties.png" alt="dmn designer properties">
+</div>
+<div class="title">Figure 84. DRD node properties</div>
+</div>
+<div class="paragraph">
+<p>To view the properties of the entire DRD, click the DRD canvas background instead of a specific node.</p>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">DRD search</dt>
+<dd>
+<p>In the upper-right corner of the DMN designer, use the search bar to search for text that appears in your DRD. The search feature is especially helpful in complex DRDs with many nodes:</p>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-designer-search.png" alt="dmn designer search">
+</div>
+<div class="title">Figure 85. DRD search</div>
+</div>
+</dd>
+<dt class="hdlist1">DMN decision service details</dt>
+<dd>
+<p>Select a decision service node in the DMN designer to view additional properties, including <strong>Input Data</strong>, <strong>Encapsulated Decisions</strong>, and <strong>Output Decisions</strong> in the <strong>Properties</strong> panel.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/dmn/dmn-decision-service-details.png" alt="dmn decision service details">
+</div>
+<div class="title">Figure 86. Decision Service details</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<h1 id="dmn-execution-con_dmn-models" class="sect0"><a class="anchor" href="#dmn-execution-con_dmn-models"></a>DMN model execution</h1>
+<div class="openblock partintro">
+<div class="content">
+<div class="paragraph">
+<p>You can create or import DMN files in your Drools project using KIE DMN Editor or package the DMN files as part of your project knowledge JAR (KJAR) file without KIE DMN Editor.</p>
+</div>
+<div class="paragraph">
+<p>After you implement your DMN files in your Drools project, you can execute the DMN decision service by instantiating a KIE container that contains it directly as a dependency of the calling application. Other options for creating and deploying DMN knowledge packages are also available, and most are similar for all types of knowledge assets, such as DRL files or process definitions.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively, you could package your DMN files as part of a Kogito cloud-native microservice.</p>
+</div>
+<div class="paragraph">
+<p>For information about including external DMN assets with your project packaging and deployment method, see
+the <a href="../KIE/index.html" class="xref page">Build, Deploy, Utilize and Run section</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="dmn-execution-embedded-proc"><a class="anchor" href="#dmn-execution-embedded-proc"></a>Embedding a DMN call directly in a Java application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A KIE container is local when the knowledge assets are either embedded directly into the calling program or are physically pulled in using Maven dependencies for the KJAR. You typically embed knowledge assets directly into a project if there is a tight relationship between the version of the code and the version of the DMN definition. Any changes to the decision take effect after you have intentionally updated and redeployed the application. A benefit of this approach is that proper operation does not rely on any external dependencies to the run time, which can be a limitation of locked-down environments.</p>
+</div>
+<div class="paragraph">
+<p>Using Maven dependencies enables further flexibility because the specific version of the decision can dynamically change, (for example, by using a <code>kmodule.xml</code> or a system property), and it can be periodically scanned for updates and automatically updated. This introduces an external dependency on the deploy time of the service, but executes the decision locally, reducing reliance on an external service being available during run time.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You have built the DMN project as a KJAR artifact and deployed it to a Maven repository, or you have included your DMN assets as part of your project classpath:</p>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">mvn clean install</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information about project packaging and deployment and executable models, see
+the <a href="../KIE/index.html" class="xref page">Build, Deploy, Utilize and Run section</a>.</p>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>In your client application, add the following dependencies to the relevant classpath of your Java project:</p>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;!-- Required for the DMN runtime API --&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+  &lt;artifactId&gt;kie-dmn-core&lt;/artifactId&gt;
+  &lt;version&gt;${drools.version}&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;!-- Required if not using classpath KIE container --&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+  &lt;artifactId&gt;kie-ci&lt;/artifactId&gt;
+  &lt;version&gt;${drools.version}&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>&lt;version&gt;</code> is the Maven artifact version for Drools currently used in your project (for example, 10.1.0).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Instead of specifying a Drools <code>&lt;version&gt;</code> for individual dependencies, consider adding the Drools bill of materials (BOM) dependency to <code>dependencyManagement</code> section of your project <code>pom.xml</code> file. When you add the BOM files, the correct versions of transitive dependencies from the provided Maven repositories are included in the project.</p>
+</div>
+<div class="paragraph">
+<p>Example BOM dependency:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+  &lt;artifactId&gt;kie-dmn-bom&lt;/artifactId&gt;
+  &lt;version&gt;${drools.version}&lt;/version&gt;
+  &lt;scope&gt;import&lt;/scope&gt;
+  &lt;type&gt;pom&lt;/type&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Create a KIE container from <code>classpath</code> or <code>ReleaseId</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieServices kieServices = KieServices.Factory.get();
+
+ReleaseId releaseId = kieServices.newReleaseId( "org.acme", "my-kjar", "1.0.0" );
+KieContainer kieContainer = kieServices.newKieContainer( releaseId );</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alternative option:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KieServices kieServices = KieServices.Factory.get();
+
+KieContainer kieContainer = kieServices.getKieClasspathContainer();</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Obtain <code>DMNRuntime</code> from the KIE container and a reference to the DMN model to be evaluated, by using the model <code>namespace</code> and <code>modelName</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">DMNRuntime dmnRuntime = KieRuntimeFactory.of(kieContainer.getKieBase()).get(DMNRuntime.class);
+
+String namespace = "http://kie.apache.org/_c7328033-c355-43cd-b616-0aceef80e52a";
+String modelName = "dmn-movieticket-ageclassification";
+
+DMNModel dmnModel = dmnRuntime.getModel(namespace, modelName);</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Execute the decision services for the desired model:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">DMNContext dmnContext = dmnRuntime.newContext();  <i class="conum" data-value="1"></i><b>(1)</b>
+
+for (Integer age : Arrays.asList(1,12,13,64,65,66)) {
+    dmnContext.set("Age", age);  <i class="conum" data-value="2"></i><b>(2)</b>
+    DMNResult dmnResult =
+        dmnRuntime.evaluateAll(dmnModel, dmnContext);  <i class="conum" data-value="3"></i><b>(3)</b>
+
+    for (DMNDecisionResult dr : dmnResult.getDecisionResults()) {  <i class="conum" data-value="4"></i><b>(4)</b>
+        log.info("Age: " + age + ", " +
+                 "Decision: '" + dr.getDecisionName() + "', " +
+                 "Result: " + dr.getResult());
+  }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Instantiate a new DMN Context to be the input for the model evaluation. Note that this example is looping through the Age Classification decision multiple times.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Assign input variables for the input DMN context.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Evaluate all DMN decisions defined in the DMN model.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Each evaluation may result in one or more results, creating the loop.</td>
+</tr>
+</table>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>This example prints the following output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Age 1 Decision 'AgeClassification' : Child
+Age 12 Decision 'AgeClassification' : Child
+Age 13 Decision 'AgeClassification' : Adult
+Age 64 Decision 'AgeClassification' : Adult
+Age 65 Decision 'AgeClassification' : Senior
+Age 66 Decision 'AgeClassification' : Senior</pre>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="dmn-execution-kogito-proc_dmn-models"><a class="anchor" href="#dmn-execution-kogito-proc_dmn-models"></a>Executing a DMN service using Kogito</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Interacting with the REST endpoints of Kogito cloud-native microservice including DMN models provides the most separation between the calling code and the decision logic definition. The calling code is completely free of direct dependencies, and you can implement it in an entirely different development platform such as <code>Node.js</code> or <code>.NET</code>.</p>
+</div>
+<div class="paragraph">
+<p>For a quick getting started guide for Kogito on Quarkus, see the Quarkus guide for <a href="https://quarkus.io/guides/kogito-dmn">using Kogito DMN support to add Decision Automation capabilities to a Quarkus application</a>.</p>
+</div>
+<div class="paragraph">
+<p>For more information about Kogito or migrating to Kogito microservices, see the <a href="https://kogito.kie.org/guides/">Kogito website for documentation</a>.</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<!--Licensed to the Apache Software Foundation (ASF) under one-->
+<!--or more contributor license agreements.  See the NOTICE file-->
+<!--distributed with this work for additional information-->
+<!--regarding copyright ownership.  The ASF licenses this file-->
+<!--to you under the Apache License, Version 2.0 (the-->
+<!--"License"); you may not use this file except in compliance-->
+<!--with the License.  You may obtain a copy of the License at-->
+
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--Unless required by applicable law or agreed to in writing,-->
+<!--software distributed under the License is distributed on an-->
+<!--"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY-->
+<!--KIND, either express or implied.  See the License for the-->
+<!--specific language governing permissions and limitations-->
+<!--under the License.-->
+
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>

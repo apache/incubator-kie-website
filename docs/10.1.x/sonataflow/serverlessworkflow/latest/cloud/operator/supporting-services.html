@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Supporting Services :: SonataFlow Guides</title>
+    <meta name="description" content="Deploy Supporting Services with SonataFlow Operator">
+    <meta name="keywords" content="kogito, sonataflow, workflow, serverless, operator, kubernetes, openshift, containers, data, index, job, service, cluster, wide, scoped, cluster-wide, cluster-scoped">
+    <meta name="generator" content="Antora 3.1.4">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="../../../../_/css/search.css">
+<link rel="stylesheet" href="../../../../_/css/menu.css">
+<link rel="stylesheet" href="../../../../_/css/tabs.css">
+<link rel="stylesheet" href="../../../../_/css/navbar.css">
+<link rel="stylesheet" href="../../../../_/css/custom.css">
+<link rel="stylesheet" href="../../../../_/css/home.css"><script>var uiRootPath = '../../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <div class="navbar-item">
+                <a href="../../../..">
+                    <img src="../../../../_/img/sonata-flow-color-justlogo-circle-white.png" height="50px" alt="SonataFlow logo"/>
+                </a>
+                <a class="navbar-item" href="../../../..">
+                    SonataFlow Guides
+                </a>
+            </div>
+                <div class="navbar-item search hide-for-print">
+                    <div id="search-field" class="field">
+                        <input id="search-input" type="text" placeholder="Search docs">
+                    </div>
+                </div>
+            <button class="navbar-burger" data-target="topbar-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <a class="navbar-item small-item" href="https://github.com/apache"
+                       target="_blank" title="Follow KIE on GitHub">
+                        <div class="github-icon"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="serverlessworkflow" data-version="10.1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">SonataFlow Guides</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../release_notes.html">Release notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Setup</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../getting-started/learning-environment.html">Learning environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../getting-started/preparing-environment.html">Environment setup</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../getting-started/production-environment.html">Production environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Getting Started</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../getting-started/getting-familiar-with-our-tooling.html">Getting familiar with SonataFlow tooling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../getting-started/introduction-sonataflow-development-guide.html">Introduction to SonataFlow development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../getting-started/java-embedded-workflows.html">Workflow embedded execution in Java</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Core Concepts</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/cncf-serverless-workflow-specification-support.html">Serverless Workflow Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/handling-events-on-workflows.html">Events</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/working-with-callbacks.html">Callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/understanding-jq-expressions.html">jq Expressions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/understanding-workflow-error-handling.html">Error handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/configuration-properties.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/defining-an-input-schema-for-workflows.html">Input Schema</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/custom-functions-support.html">Custom Functions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/timeouts-support.html">Timeouts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/working-with-parallelism.html">Parallelism</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Tooling</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tooling/serverless-workflow-editor/swf-editor-overview.html">Editor</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tooling/serverless-workflow-editor/swf-editor-vscode-extension.html">VS Code extension</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tooling/serverless-workflow-editor/swf-editor-chrome-extension.html">Chrome extension for GitHub</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../tooling/serverless-logic-web-tools/serverless-logic-web-tools-overview.html">Serverless Logic Web Tools</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../tooling/serverless-logic-web-tools/serverless-logic-web-tools-github-integration.html">Integration with GitHub</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../tooling/serverless-logic-web-tools/serverless-logic-web-tools-openshift-integration.html">Integration with OpenShift</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../tooling/serverless-logic-web-tools/serverless-logic-web-tools-redhat-application-services-integration.html">Integration with Service Registries</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../tooling/serverless-logic-web-tools/serverless-logic-web-tools-deploy-projects.html">Deployment</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../index.html">Cloud</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../custom-ingress-authz.html">Securing Workflows</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-sonataflow-management-console-on-kubernetes.html">Deploying Management Console on Kubernetes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Operator</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="install-serverless-operator.html">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="global-configuration.html">Admin Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="deployment-profile.html">Deployment Profiles</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="developing-workflows.html">Development Profile</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="building-custom-images.html">Building Custom Dev Images</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="build-and-deploy-workflows.html">Preview Profile</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="gitops-profile.html">GitOps Profile</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="configuring-workflows.html">Workflow Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="config-maven-quarkus.html">Maven and Quarkus Registry</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="referencing-resource-files.html">Referencing Workflow Resources</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="customize-podspec.html">Custom Workflow PodSpec</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="add-custom-ca-to-a-workflow-pod.html">Add Custom CA to Workflow Pod</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="workflow-status-conditions.html">Custom Resource Status</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="supporting-services.html">Deploy Supporting Services</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="service-discovery.html">Service Discovery</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="using-persistence.html">Workflow Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="configuring-workflow-eventing-system.html">Workflow Eventing System</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Monitoring</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="monitoring-workflows.html">Workflow Monitoring</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="sonataflow-metrics.html">Prometheus Metrics for Workflows</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="known-issues.html">Roadmap and Known Issues</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Service Orchestration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../service-orchestration/orchestration-of-openapi-based-services.html">OpenAPI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../service-orchestration/configuring-openapi-services-endpoints.html">Advanced Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../service-orchestration/working-with-openapi-callbacks.html">Callbacks</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../service-orchestration/troubleshooting.html">Troubleshooting</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Event Orchestration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../eventing/orchestration-of-asyncapi-based-services.html">AsyncAPI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../eventing/event-correlation-with-workflows.html">Event Correlation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Security</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Client Authentication</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../security/authention-support-for-openapi-services.html">OpenAPI Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../security/orchestrating-third-party-services-with-oauth2.html">OpenAPI OAuth2</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Executing, Testing and Troubleshooting</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../testing-and-troubleshooting/kn-plugin-workflow-overview.html">KN CLI Workflow plugin</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-overview.html">Developer UI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-workflow-instances-page.html">Workflow Instances</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-workflow-definition-page.html">Workflow Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-monitoring-page.html">Monitoring</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-custom-dashboard-page.html">Dashboards</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persistence/core-concepts.html">Core concepts</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Integrations</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integrations/core-concepts.html">Introduction</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Job Service</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../job-services/core-concepts.html">Core Concepts</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Data Index</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data-index/data-index-core-concepts.html">Core concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data-index/data-index-service.html">Standalone service</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Use Cases</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/index.html">SonataFlow applications development using Quarkus and Java</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Getting started</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/getting-started/create-your-first-workflow-service.html">Creating a Quarkus Workflow service</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/getting-started/create-your-first-workflow-project.html">Creating a Quarkus Workflow project</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/getting-started/build-workflow-image-with-quarkus-cli.html">Building workflow images using Quarkus CLI</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/getting-started/working-with-serverless-workflow-quarkus-examples.html">Working with SonataFlow example applications</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/getting-started/test-serverless-workflow-quarkus-examples.html">Testing images of SonataFlow example applications using Quarkus CLI</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Deployment</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/deployments/deploying-on-minikube.html">Deploying on Minikube</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/deployments/deploying-on-kubernetes.html">Deploying on Kubernetes</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/deployments/deploying-on-openshift.html">Deploying on OpenShift</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/persistence/persistence-core-concepts.html">Core Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/persistence/persistence-with-postgresql.html">Running a Quarkus Workflow Application using PostgreSQL</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/persistence/postgresql-advanced-concepts.html">Postgresql Advanced Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/persistence/postgresql-flyway-migration.html">PostgreSQL Database Migration</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/persistence/integration-tests-with-postgresql.html">SonataFlow integration test using PostgreSQL</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Job Service</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/job-service/quarkus-extensions.html">Job Service Quarkus Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Data Index</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/data-index/data-index-as-quarkus-dev-service.html">Data Index as a Quarkus Development service</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/data-index/data-index-usecase-singleton.html">Deploying Data Index and SonataFlow application on Minikube</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/data-index/data-index-usecase-multi.html">Deploying Data Index and multiple SonataFlow applications on Minikube</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/data-index/data-index-quarkus-extension.html">Data Index Quarkus extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Service Orchestration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/service-orchestration/configuring-openapi-services-endpoints-with-quarkus.html">Configuring the OpenAPI services endpoints in different environments</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/service-orchestration/orchestration-of-grpc-services.html">Orchestrating gRPC based Services</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Service Discovery</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/service-discovery/kubernetes-service-discovery.html">Service Discovery</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Event Orchestration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/event-orchestration/consume-produce-events-with-knative-eventing.html">Consuming and producing events on Knative Eventing in Quarkus</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/event-orchestration/consume-producing-events-with-kafka.html">Consuming and producing events using Apache Kafka in Quarkus</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/event-orchestration/orchestration-based-saga-pattern.html">Saga orchestration example in SonataFlow</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/event-orchestration/newsletter-subscription-example.html">Newsletter subscription example in SonataFlow</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Timeouts</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/timeouts/timeout-showcase-example.html">Timeouts Showcase in SonataFlow</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Callbacks</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/callbacks/callback-state-example.html">Example of SonataFlow application using callback state with Quarkus</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Integrations of external services</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/integrations/camel-routes-integration.html">Integrating with Camel routes</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/integrations/custom-functions-knative.html">Invoking Knative services from SonataFlow</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/integrations/custom-functions-python.html">Invoking Python from SonataFlow</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/integrations/expose-metrics-to-prometheus.html">Exposing Workflow base metrics to Prometheus</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/integrations/serverless-dashboard-with-runtime-data.html">Displaying Workflow Data in Dashboards</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Testing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/testing/basic-integration-tests-with-restassured.html">Testing your Quarkus Workflow Application using REST Assured</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/testing/mocking-http-cloudevents-with-wiremock.html">Mocking HTTP CloudEvents sink using WireMock</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/testing/mocking-openapi-services-with-wiremock.html">Mocking OpenAPI services using WireMock</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">SonataFlow Guides</span>
+    <span class="version">10.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">SonataFlow Guides</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10.1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">SonataFlow Guides</a></li>
+    <li><a href="../index.html">Cloud</a></li>
+    <li>Operator</li>
+    <li><a href="supporting-services.html">Deploy Supporting Services</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/apache/incubator-kie-kogito-docs/edit/10.1.x/serverlessworkflow/modules/ROOT/pages/cloud/operator/supporting-services.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Supporting Services</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This document describes how to configure and deploy the SonataFlow&#8217;s <a href="../../data-index/data-index-core-concepts.html" class="xref page">Data Index</a> and <a href="../../job-services/core-concepts.html" class="xref page">Job Service</a> supporting services, using the SonataFlow Operator.</p>
+</div>
+<div class="paragraph">
+<p>In general, in a regular SonataFlow installation you must deploy both services to ensure a successful execution of your workflows. To get more information about each service please read the respective guides.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>The SonataFlow Operator installed. See <a href="install-serverless-operator.html" class="xref page">Install the SonataFlow Operator</a> guide.</p>
+</li>
+<li>
+<p>A PostgreSQL database service instance. Required if you are planning to use the <a href="#postgresql-persistence-configuration">PostgreSQL persistence configuration</a> for a supporting service.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="supporting-services-workflow-communications"><a class="anchor" href="#supporting-services-workflow-communications"></a>Supporting Services and Workflow communications</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you deploy a supporting service in a given namespace, you can do it by using an <a href="#enabled-deployment-field">enabled or disabled</a> deployment.</p>
+</div>
+<div class="paragraph">
+<p>An enabled deployment, signals the SonataFlow Operator to automatically intercept every workflow deployment with the <code>preview</code> or <code>gitops</code> profile, in this namespace, and automatically configure it to connect with that service.</p>
+</div>
+<div class="paragraph">
+<p>For example, if the Data Index is enabled, a workflow will be automatically configured to send workflow status change events to it.
+And, similar configurations are produced if the Job Service is enabled, to create a Job, every time a workflow requires a timeout.
+Additionally, the operator will configure the Job Service to send events to the Data Index Service, etc.</p>
+</div>
+<div class="paragraph">
+<p>As you can see, the operator can not only deploy a supporting service, but also, manage other configurations to ensure the successful execution of a workflow.</p>
+</div>
+<div class="paragraph">
+<p>Fortunately, all these configurations are managed automatically, and you must only provide the supporting services configuration in the <code>SonataFlowPlatform</code> CR.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Scenarios where you only deploy one of the supporting services, or configure a disabled deployment, are intended for advanced use cases.
+In a regular installation, you must normally configure an enabled deployment of both services to ensure a successful execution of your workflows.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="deploy-supporting-services"><a class="anchor" href="#deploy-supporting-services"></a>Deploying the supporting services using the <code>SonataFlowPlatform</code> CR</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To deploy the supporting services you must use the sub-fields <code>dataIndex</code> and <code>jobService</code> in the <code>SonataFlowPlatform</code> CR <code>spec.services</code>.
+That information signals the SonataFlow Operator to deploy each service when the <code>SonataFlowPlatform</code> CR is deployed.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Each service configuration is considered independently, and you can combine these configurations with any other configuration present in the <code>SonataFlowPlatform</code> CR.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following <code>SonataFlowPlatform</code> CR fragment shows a scaffold configuration that you can use as reference:</p>
+</div>
+<div id="supporting-services-configuration" class="listingblock">
+<div class="title">Supporting services configuration</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yam hljs" data-lang="yam">apiVersion: sonataflow.org/v1alpha08
+kind: SonataFlowPlatform
+metadata:
+  name: sonataflow-platform-example
+  namespace: example-namespace
+spec:
+  services:
+    dataIndex: <i class="conum" data-value="1"></i><b>(1)</b>
+      enabled: true <i class="conum" data-value="2"></i><b>(2)</b>
+      # Specific configurations for the Data Index Service
+      # might be included here
+    jobService: <i class="conum" data-value="3"></i><b>(3)</b>
+      enabled: true <i class="conum" data-value="4"></i><b>(4)</b>
+      # Specific configurations for the Job Service
+      # might be included here</code></pre>
+</div>
+</div>
+<div id="enabled-deployment-field" class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Data Index Service configuration field.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>If true, produces an enabled Data Index Service deployment, <a href="#supporting-services-workflow-communications">see</a>. Other cases produce a disabled deployment. The default is <code>false</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Job Service configuration field.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>If true, produces an enabled Job Service deployment, <a href="#supporting-services-workflow-communications">see</a>. Other cases produce a disabled deployment. The default is <code>false</code>.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The configuration above produces an ephemeral deployment of each service, <a href="#ephemeral-persistence-configuration">see</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_supporting_services_scope"><a class="anchor" href="#_supporting_services_scope"></a>Supporting Services Scope</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>SonataFlowPlatform</code> CR facilitates the deployment of the supporting services with namespace scope.
+It means that, all the automatically configured <a href="#supporting-services-workflow-communications">Supporting Services and Workflow communications</a>, are restricted to the namespace of the given platform.
+This can be useful, in cases where you need separate supporting service instances for a set of workflows.
+For example, a given application can be deployed isolated with its workflows, and the supporting services.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, using the <code>SonataFlowClusterPlatform</code> CR it&#8217;s possible to configure a <a href="#cluster-scoped-deployment">cluster scoped deployment</a> of the supporting services.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuring_the_supporting_services_persistence"><a class="anchor" href="#_configuring_the_supporting_services_persistence"></a>Configuring the Supporting Services Persistence</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="ephemeral-persistence-configuration"><a class="anchor" href="#ephemeral-persistence-configuration"></a>Ephemeral persistence configuration</h3>
+<div class="paragraph">
+<p>The ephemeral persistence of a service is supported by an embedded PostgreSQL database dedicated to it. That database is re-created by the operator on every service restart.
+And thus, it&#8217;s only recommended for development and testing purposes.</p>
+</div>
+<div class="paragraph">
+<p>The ephemeral deployment of a service requires no additional configurations than the shown, <a href="#supporting-services-configuration">here</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="database-migration-configuration"><a class="anchor" href="#database-migration-configuration"></a>Database migration configuration</h3>
+<div class="paragraph">
+<p>The term database migration refers to either initializing a given Data Index or Jobs Service database to the respective schema, or applying data or schema updates as new versions are released.</p>
+</div>
+<div class="paragraph">
+<p>The database migration strategy must be configured individually for each supporting service, by using the optional  <code>dataIndex.persistence.dbMigrationStrategy</code> and <code>jobService.persistence.dbMigrationStrategy</code> fields respectively.</p>
+</div>
+<div class="paragraph">
+<p>You can use any of the following database migration strategies: <code>job</code>, <code>service</code>, and <code>none</code>. When not configured, the default value is <code>service</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Currently, database migration is only supported when using the PostgreSQL persistence configuration.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_job_based_database_migration_strategy"><a class="anchor" href="#_job_based_database_migration_strategy"></a>Job based database migration strategy</h4>
+<div class="paragraph">
+<p>When you configure the <code>job</code> based strategy, the SonataFlow Operator decouples the database migration by using a dedicated Kubernetes Job that manages the entire migration process.</p>
+</div>
+<div class="paragraph">
+<p>That Job executes before the supporting services deployment, and thus, ensures that a given service is started only if the corresponding migration was successful.</p>
+</div>
+<div class="paragraph">
+<p>You would typically use this strategy in production environments.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_service_based_database_migration_strategy"><a class="anchor" href="#_service_based_database_migration_strategy"></a>Service based database migration strategy</h4>
+<div class="paragraph">
+<p>When you configure the <code>service</code> based strategy, the database migration is managed by each supporting service and is executed as part of the service&#8217;s startup sequence.
+In worst-case scenarios, a service could start with failures.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_none_migration_strategy"><a class="anchor" href="#_none_migration_strategy"></a>None migration strategy</h4>
+<div class="paragraph">
+<p>When you configure the <code>none</code> strategy, no Operator nor service migration attempt is executed.</p>
+</div>
+<div class="paragraph">
+<p>You would typically use this strategy in environments where a database administrator executes all the database migrations.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="postgresql-persistence-configuration"><a class="anchor" href="#postgresql-persistence-configuration"></a>PostgreSQL persistence configuration</h3>
+<div class="paragraph">
+<p>The PostgreSQL persistence of a service is supported by a PostgreSQL server instance that you must have previously installed on the cluster.
+The administration of that instance is totally independent of the SonataFlow Operator scope, and to connect a supporting service with it, you must only configure the correct database connection parameters.</p>
+</div>
+<div class="paragraph">
+<p>The following <code>SonataFlowPlatform</code> CR fragment shows the configuration options that you must use:</p>
+</div>
+<div class="listingblock">
+<div class="title">PostgreSQL persistence configuration</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: sonataflow.org/v1alpha08
+kind: SonataFlowPlatform
+metadata:
+  name: sonataflow-platform-example
+  namespace: example-namespace
+spec:
+  services:
+    dataIndex:
+      enabled: true
+      persistence:
+        dbMigrationStrategy: job <i class="conum" data-value="1"></i><b>(1)</b>
+        postgresql:
+          serviceRef:
+            name: postgres-example <i class="conum" data-value="2"></i><b>(2)</b>
+            namespace: postgres-example-namespace <i class="conum" data-value="3"></i><b>(3)</b>
+            databaseName: example-database <i class="conum" data-value="4"></i><b>(4)</b>
+            databaseSchema: data-index-schema <i class="conum" data-value="5"></i><b>(5)</b>
+            port: 1234 <i class="conum" data-value="6"></i><b>(6)</b>
+          secretRef:
+            name: postgres-secrets-example <i class="conum" data-value="7"></i><b>(7)</b>
+            userKey: POSTGRESQL_USER <i class="conum" data-value="8"></i><b>(8)</b>
+            passwordKey: POSTGRESQL_PASSWORD <i class="conum" data-value="9"></i><b>(9)</b>
+    jobService:
+      enabled: true
+      persistence:
+        dbMigrationStrategy: job
+        postgresql:
+        # Specific database configuration for the Job Service
+        # might be included here.</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>(Optional) Database migration strategy to use, <a href="#database-migration-configuration">see</a>. Defaults to <code>service</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Name of the Kubernetes Service to connect with the PostgreSQL database server.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>(Optional) Kubernetes namespace containing the PostgreSQL Service. Defaults to the <code>SonataFlowPlatform&#8217;s</code> local namespace.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Name of the PostgreSQL database to store the supporting service data.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>(Optional) Name of the PostgreSQL database schema to store the supporting service data.
+Defaults to the <code>SonataFlowPlatform&#8217;s</code> <code>name</code>, suffixed with <code>-data-index-service</code> or <code>-jobs-service</code>. For example, <code>sonataflow-platform-example-data-index-service</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>(Optional) Port number to connect with the PostgreSQL Service. Defaults to 5432.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>Name of the <a href="https://kubernetes.io/docs/concepts/configuration/secret">Kubernetes Secret</a> containing the username and password to connect with the database.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="8"></i><b>8</b></td>
+<td>Name of the <a href="https://kubernetes.io/docs/concepts/configuration/secret">Kubernetes Secret</a> <code>key</code> containing the username to connect with the database.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="9"></i><b>9</b></td>
+<td>Name of the <a href="https://kubernetes.io/docs/concepts/configuration/secret">Kubernetes Secret</a> <code>key</code> containing the password to connect with the database.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The persistence of each service can be configured independently by using the respective <code>persistence</code> field.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To create the secrets for the example above you can use a command like this:</p>
+</div>
+<div class="listingblock">
+<div class="title">Create secret example</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl create secret generic postgres-secrets-example  --from-literal=POSTGRESQL_USER=&lt;user&gt; --from-literal=POSTGRESQL_PASSWORD=&lt;password&gt; -n postgres-example-namespace</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="common-persistence-configuration"><a class="anchor" href="#common-persistence-configuration"></a>Platform-scoped PostgreSQL persistence configuration</h3>
+<div class="paragraph">
+<p>To configure a common PostgreSQL service and database for the supporting services, you must use the field <code>spec.persistence.postgresql</code> in the <code>SonataFlowPlatform</code> CR.</p>
+</div>
+<div class="paragraph">
+<p>This information signals the SonataFlow Operator to configure the supporting services to connect to that database.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, workflows deployed in that namespace, with the <code>preview</code> or <code>gitops</code> profile, that don’t provide a custom persistence configuration, will connect to that database too, <a href="using-persistence.html#configuring-persistence-using-the-sonataflowplatform-cr" class="xref page">see</a>.</p>
+</div>
+<div class="paragraph">
+<p>And, similarly to the workflow&#8217;s persistence, the following rules apply:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If a supporting service has a configured persistence, for example, the field <code>services.dataIndex.persistence.postgresql</code> is configured. That configuration will apply.</p>
+</li>
+<li>
+<p>If a supporting service has no configured persistence, for example, if the <code>services.dataIndex.persistence.postgresql</code> field is not set, the persistence configuration will be taken from the current platform.</p>
+</li>
+<li>
+<p>Additionally, if a supporting service requires a particular database migration strategy, you must use the respective <code>dataIndex.persistence.dbMigrationStrategy</code> and <code>jobService.persistence.dbMigrationStrategy</code> fields, <a href="#database-migration-configuration">see</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following <code>SonataFlowPlatform</code> CR fragment shows the configuration options that you must use:</p>
+</div>
+<div class="listingblock">
+<div class="title">SonataFlowPlatform CR persistence configuration example</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: sonataflow.org/v1alpha08
+kind: SonataFlowPlatform
+metadata:
+  name: sonataflow-platform-example
+  namespace: example-namespace
+spec:
+  persistence:
+    postgresql:
+      serviceRef:
+        name: postgres-example <i class="conum" data-value="1"></i><b>(1)</b>
+        namespace: postgres-example-namespace <i class="conum" data-value="2"></i><b>(2)</b>
+        databaseName: example-database <i class="conum" data-value="3"></i><b>(3)</b>
+        port: 1234 <i class="conum" data-value="4"></i><b>(4)</b>
+      secretRef:
+        name: postgres-secrets-example <i class="conum" data-value="5"></i><b>(5)</b>
+        userKey: POSTGRESQL_USER <i class="conum" data-value="6"></i><b>(6)</b>
+        passwordKey: POSTGRESQL_PASSWORD <i class="conum" data-value="7"></i><b>(7)</b>
+    dataIndex:
+      enabled: true
+      persistence:
+        dbMigrationStrategy: job <i class="conum" data-value="8"></i><b>(8)</b>
+    jobService:
+      enabled: true
+      persistence:
+        dbMigrationStrategy: service <i class="conum" data-value="9"></i><b>(9)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Name of the Kubernetes Service to connect with the PostgreSQL database server.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>(Optional) Kubernetes namespace containing the PostgreSQL Service. Defaults to the <code>SonataFlowPlatform&#8217;s</code> local namespace.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Name of the PostgreSQL database to store the supporting services and workflows data.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>(Optional) Port number to connect with the PostgreSQL Service. Defaults to 5432.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Name of the <a href="https://kubernetes.io/docs/concepts/configuration/secret">Kubernetes Secret</a> containing the username and password to connect with the database.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Name of the <a href="https://kubernetes.io/docs/concepts/configuration/secret">Kubernetes Secret</a> <code>key</code> containing the username to connect with the database.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>Name of the <a href="https://kubernetes.io/docs/concepts/configuration/secret">Kubernetes Secret</a> <code>key</code> containing the password to connect with the database.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="8"></i><b>8</b></td>
+<td>(Optional) Database migration strategy to use for the Data Index, <a href="#database-migration-configuration">see</a>. Defaults to <code>service</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="9"></i><b>9</b></td>
+<td>(Optional) Database migration strategy to use for the Job Service Index, <a href="#database-migration-configuration">see</a>. Defaults to <code>service</code>. While no usual, the supporting services could use distinct database migration strategies.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When you use the common PostgreSQL configuration, the database schema for each supporting service is automatically configured as the SonataFlowPlatform’s <code>name</code>, suffixed with <code>-data-index-service</code> or <code>-jobs-service</code> respectively.
+For example, <code>sonataflow-platform-example-data-index-service</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configuring-supporting-services-eventing-system"><a class="anchor" href="#configuring-supporting-services-eventing-system"></a>Configuring the supporting services Eventing system</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In general, the following events are produced in a SonataFlow installation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Workflow outgoing and incoming business events.</p>
+</li>
+<li>
+<p>SonataFlow system events sent from the workflow to the Data Index and Job Service respectively.</p>
+</li>
+<li>
+<p>SonataFlow system events sent from the Jobs Service to the Data Index Service.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The SonataFlow Operator is designed to use the <a href="https://knative.dev/docs/eventing/">Knative Eventing</a> system to resolve all the event communication between these services.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>In a regular SonataFlow installation, the preferred method is to use the <a href="#platform-scoped-eventing-system-configuration">Platform scoped Eventing System Configuration</a>, while the <a href="#service-scoped-eventing-system-configuration">Service scoped Eventing System configuration</a> is reserved only for advanced use cases.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="platform-scoped-eventing-system-configuration"><a class="anchor" href="#platform-scoped-eventing-system-configuration"></a>Platform-scoped Eventing system configuration</h3>
+<div class="paragraph">
+<p>To configure a platform-scoped eventing system, you must use the field <code>spec.eventing.broker.ref</code> in the <code>SonataFlowPlatform</code> CR to refer to a Knative Eventing Broker.</p>
+</div>
+<div class="paragraph">
+<p>This information signals the SonataFlow Operator to automatically link the supporting services to <code>produce</code> and <code>consume</code> the events by using that Broker.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, workflows deployed in that namespace, with the <code>preview</code> or <code>gitops</code> profile, that don&#8217;t provide a custom eventing system configuration, will be linked to that Broker.
+For more information about configuring the workflow eventing system, <a href="configuring-workflow-eventing-system.html" class="xref page">see</a>.</p>
+</div>
+<div class="paragraph">
+<p>The following <code>SonataFlowPlatform</code> CR fragment shows an example of such configuration:</p>
+</div>
+<div class="listingblock">
+<div class="title">Platform scoped eventing system configuration example</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yam hljs" data-lang="yam">apiVersion: sonataflow.org/v1alpha08
+kind: SonataFlowPlatform
+metadata:
+  name: sonataflow-platform-example
+  namespace: example-namespace
+spec:
+  eventing:
+    broker:
+      ref:
+        name: example-broker <i class="conum" data-value="1"></i><b>(1)</b>
+        namespace: example-broker-namespace <i class="conum" data-value="2"></i><b>(2)</b>
+        apiVersion: eventing.knative.dev/v1
+        kind: Broker</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Name of the Knative Eventing Broker.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Optional: Defines the namespace of the Knative Eventing Broker. Defaults to the SonataFlowPlatform namespace. We recommend creating the Knative Eventing Broker in the same namespace as the SonataFlowPlatform.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>In production environments, you must use a production-ready broker, like the <a href="https://knative.dev/docs/eventing/brokers/broker-types/kafka-broker/">Knative Kafka Broker</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="service-scoped-eventing-system-configuration"><a class="anchor" href="#service-scoped-eventing-system-configuration"></a>Service-scoped Eventing system configuration</h3>
+<div class="paragraph">
+<p>A service scoped eventing system configuration provides the ability to do a fine-grained configuration of the Eventing system for the <a href="#data-index-eventing-system-configuration">Data Index</a> or the <a href="#jos-service-eventing-system-configuration">Jobs Service</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>In a regular SonataFlow installation, the preferred method is to use a <a href="#platform-scoped-eventing-system-configuration">Platform-scoped Eventing System Configuration</a>, while the service-scoped configuration is reserved only for advanced use cases.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="data-index-eventing-system-configuration"><a class="anchor" href="#data-index-eventing-system-configuration"></a>Data Index Eventing system configuration</h3>
+<div class="paragraph">
+<p>To configure a service-scoped eventing system for the Data Index, you must use the field <code>spec.services.dataIndex.source.ref</code> in the <code>SonataFlowPlatform</code> CR to refer to a specific Knative Eventing Broker.</p>
+</div>
+<div class="paragraph">
+<p>This information signals the SonataFlow Operator to automatically link the Data Index to <code>consume</code> the SonataFlow system events from that Broker.</p>
+</div>
+<div class="listingblock">
+<div class="title">Data Index service scoped eventing system configuration example</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yam hljs" data-lang="yam">apiVersion: sonataflow.org/v1alpha08
+kind: SonataFlowPlatform
+metadata:
+  name: sonataflow-platform-example
+spec:
+  services:
+    dataIndex:
+      source:
+        ref:
+          name: data-index-source-example-broker <i class="conum" data-value="1"></i><b>(1)</b>
+          namespace: data-index-source-example-broker-namespace <i class="conum" data-value="2"></i><b>(2)</b>
+          apiVersion: eventing.knative.dev/v1
+          kind: Broker</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Name of the Knative Eventing Broker to <code>consume</code> events from.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Optional: Defines the namespace of the Knative Eventing Broker. Defaults to the SonataFlowPlatform namespace. In general, we recommend creating the Knative Eventing Broker in the same namespace as the SonataFlowPlatform.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>In production environments, you must use a production-ready broker, like the <a href="https://knative.dev/docs/eventing/brokers/broker-types/kafka-broker/">Knative Kafka Broker</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="jos-service-eventing-system-configuration"><a class="anchor" href="#jos-service-eventing-system-configuration"></a>Jobs Service Eventing system configuration</h3>
+<div class="paragraph">
+<p>To configure a service-scoped eventing system for the Jobs Service, you must use the fields <code>spec.services.jobService.source.ref</code> and <code>spec.services.jobService.sink.ref</code> in the <code>SonataFlowPlatform</code> CR.</p>
+</div>
+<div class="paragraph">
+<p>This information signals the SonataFlow Operator to automatically link the Jobs Service to <code>consume</code> and <code>produce</code> the SonataFlow system events from that configuration respectively.</p>
+</div>
+<div class="listingblock">
+<div class="title">Jobs Service scoped eventing system configuration example</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yam hljs" data-lang="yam">apiVersion: sonataflow.org/v1alpha08
+kind: SonataFlowPlatform
+metadata:
+  name: sonataflow-platform-example
+spec:
+  services:
+    jobService:
+      source:
+        ref:
+          name: jobs-service-source-example-broker <i class="conum" data-value="1"></i><b>(1)</b>
+          namespace: jobs-service-source-example-broker-namespace <i class="conum" data-value="2"></i><b>(2)</b>
+          apiVersion: eventing.knative.dev/v1
+          kind: Broker
+      sink:
+        ref:
+          name: jobs-service-sink-example-broker <i class="conum" data-value="3"></i><b>(3)</b>
+          namespace: jobs-service-sink-example-broker-namespace <i class="conum" data-value="4"></i><b>(4)</b>
+          apiVersion: eventing.knative.dev/v1
+          kind: Broker</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Name of the Knative Eventing Broker to <code>consume</code> events from.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Optional: Defines the namespace of the Knative Eventing Broker. Defaults to the SonataFlowPlatform namespace. In general, we recommend creating the Knative Eventing Broker in the same namespace as the SonataFlowPlatform.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Name of the Knative Eventing Broker to <code>produce</code> events on.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Optional: Defines the namespace of the Knative Eventing Broker. Defaults to the SonataFlowPlatform namespace. In general, we recommend creating the Knative Eventing Broker in the same namespace as the SonataFlowPlatform.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>In production environments, you must use production-ready brokers, like the <a href="https://knative.dev/docs/eventing/brokers/broker-types/kafka-broker/">Knative Kafka Broker</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cluster-scoped-eventing-system-configuration"><a class="anchor" href="#cluster-scoped-eventing-system-configuration"></a>Cluster-scoped Eventing system configuration</h3>
+<div class="paragraph">
+<p>When you use a <a href="#cluster-scoped-deployment">Cluster Scoped Supporting Services</a> deployment, the supporting services are automatically linked to the <code>Broker</code> configured in the <code>SonataFlowPlatform</code> CR referred to by the <code>SonataFlowClusterPlatform</code> CR.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_eventing_system_configuration_precedence_rules"><a class="anchor" href="#_eventing_system_configuration_precedence_rules"></a>Eventing system configuration precedence rules</h3>
+<div class="paragraph">
+<p>To configure the eventing system for a supporting service, the SonataFlow Operator use the following precedence rules:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If the supporting service has a configured eventing system, by using any of the <a href="#data-index-eventing-system-configuration">Data Index Eventing system configuration</a> or <a href="#jos-service-eventing-system-configuration">Jobs Service Eventing system configuration</a> respectively, that configuration applies.</p>
+</li>
+<li>
+<p>If the <code>SonataFlowPlatform</code> CR enclosing the supporting service, is configured with a <a href="#platform-scoped-eventing-system-configuration">Platform-scoped Eventing system configuration</a>, that configuration applies.</p>
+</li>
+<li>
+<p>If the current cluster, is configured with a <a href="#cluster-scoped-eventing-system-configuration">Cluster-scoped Eventing system configuration</a>, that configuration apply.</p>
+</li>
+<li>
+<p>If none of the previous configurations exists, the supporting service is configured to produce direct HTTP calls to deliver events.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_eventing_system_linking_objects"><a class="anchor" href="#_eventing_system_linking_objects"></a>Eventing System linking objects</h3>
+<div class="paragraph">
+<p>The linking of the supporting services with the Eventing System is produced by using Knative Eventing SinkBindings and Triggers.
+These objects are automatically created by the SonataFlow Operator, and facilitate the events production and consumption from the supporting services.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows the Knative Native eventing objects created for the <code>SonataFlowPlatform</code> CR:</p>
+</div>
+<div class="listingblock">
+<div class="title">SonataFlowPlatform eventing system configuration example</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: sonataflow.org/v1alpha08
+kind: SonataFlowPlatform
+metadata:
+  name: sonataflow-platform-example
+  namespace: example-namespace
+spec:
+  eventing:
+    broker:
+      ref:
+        name: example-broker <i class="conum" data-value="1"></i><b>(1)</b>
+        apiVersion: eventing.knative.dev/v1
+        kind: Broker
+  services:
+    dataIndex: <i class="conum" data-value="2"></i><b>(2)</b>
+      enabled: true
+    jobService: <i class="conum" data-value="3"></i><b>(3)</b>
+      enabled: true</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Platform Broker configuration used by the Data Index, Jobs Service, and the workflows if not overridden.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Data Index ephemeral deployment.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Jobs Service ephemeral deployment.</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Knative Kafka Broker example used by the SonataFlowPlatform</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: eventing.knative.dev/v1
+kind: Broker
+metadata:
+  annotations:
+    eventing.knative.dev/broker.class: Kafka <i class="conum" data-value="1"></i><b>(1)</b>
+  name: example-broker
+  namespace: example-namespace
+spec:
+  config:
+    apiVersion: v1
+    kind: ConfigMap
+    name: kafka-broker-config
+    namespace: knative-eventing</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Use the Kafka class to create a Kafka Knative Broker</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Knative Eventing Triggers created for the Data Index and Jobs Service events consumption</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kn trigger list -n example-namespace
+
+NAME                                                              BROKER           SINK                                                     AGE    CONDITIONS   READY   REASON
+data-index-jobs-fbf285df-c0a4-4545-b77a-c232ec2890e2              example-broker   service:sonataflow-platform-example-data-index-service   106s   7 OK / 7     True
+data-index-process-definition-e48b4e4bf73e22b90ecf7e093ff6b1eaf   example-broker   service:sonataflow-platform-example-data-index-service   106s   7 OK / 7     True
+data-index-process-error-fbf285df-c0a4-4545-b77a-c232ec2890e2     example-broker   service:sonataflow-platform-example-data-index-service   106s   7 OK / 7     True
+data-index-process-instance-mul35f055c67a626f51bb8d2752606a6b54   example-broker   service:sonataflow-platform-example-data-index-service   106s   7 OK / 7     True
+data-index-process-node-fbf285df-c0a4-4545-b77a-c232ec2890e2      example-broker   service:sonataflow-platform-example-data-index-service   106s   7 OK / 7     True
+data-index-process-sla-fbf285df-c0a4-4545-b77a-c232ec2890e2       example-broker   service:sonataflow-platform-example-data-index-service   106s   7 OK / 7     True
+data-index-process-state-fbf285df-c0a4-4545-b77a-c232ec2890e2     example-broker   service:sonataflow-platform-example-data-index-service   106s   7 OK / 7     True
+data-index-process-variable-ac727d6051750888dedb72f697737c0dfbf   example-broker   service:sonataflow-platform-example-data-index-service   106s   7 OK / 7     True
+
+jobs-service-create-job-fbf285df-c0a4-4545-b77a-c232ec2890e2      example-broker   service:sonataflow-platform-example-jobs-service         106s   7 OK / 7     True
+jobs-service-delete-job-fbf285df-c0a4-4545-b77a-c232ec2890e2      example-broker   service:sonataflow-platform-example-jobs-service         106s   7 OK / 7     True</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Knative Eventing SinkBinding created for the Jobs Service events production</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kn source list -n example-namespace
+
+NAME                                          TYPE          RESOURCE                           SINK                    READY
+sonataflow-platform-example-jobs-service-sb   SinkBinding   sinkbindings.sources.knative.dev   broker:example-broker   True</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_advanced_supporting_services_configurations"><a class="anchor" href="#_advanced_supporting_services_configurations"></a>Advanced Supporting Services Configurations</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To configure the advanced options for any of the supporting services you must use the <code>podTemplate</code> field respectively, for example <code>dataIndex.podTemplate</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">Advanced configurations example for the Data Index Service.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: sonataflow.org/v1alpha08
+kind: SonataFlowPlatform
+metadata:
+  name: sonataflow-platform-example
+  namespace: example-namespace
+spec:
+  services:
+    dataIndex:
+      enabled: true
+      podTemplate:
+        replicas: 2 <i class="conum" data-value="1"></i><b>(1)</b>
+        container: <i class="conum" data-value="2"></i><b>(2)</b>
+          env: <i class="conum" data-value="3"></i><b>(3)</b>
+            - name: ANY_ADVANCED_CONFIG_PROPERTY
+              value: any-value
+          image: <i class="conum" data-value="4"></i><b>(4)</b>
+        initContainers: <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Number of replicas. Defaults to 1. In the case of the jobService this value is always overridden to 1 by the operator, since that service is a singleton service.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Holds the particular configurations for the container that will execute the given supporting service.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Standard Kubernetes <code>env</code> configuration. This can be useful in cases where you need to fine tune any of the supporting services properties.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Standard Kubernetes <code>image</code> configuration. This can be useful in cases where you need to use an updated image for any of the supporting services.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Standard Kubernetes <code>initContainers</code> for the Pod that executes the supporting service.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>podTemplate</code> field of any supporting service has the majority of fields defined in the default Kubernetes PodSpec API.
+The same Kubernetes API validation rules apply to these fields.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cluster-scoped-deployment"><a class="anchor" href="#cluster-scoped-deployment"></a>Cluster Scoped Supporting Services</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>SonataFlowClusterPlatform</code> CR is optionally used to specify a cluster-wide set of supporting services for workflow consumption.
+This is done by referencing an existing, namespaced <code>SonataFlowPlatform</code> CR.</p>
+</div>
+<div class="paragraph">
+<p>Following is a basic configuration that allows workflows, deployed in any namespace, to leverage supporting services deployed in the chosen <code>example-namespace</code> namespace.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example of a SonataFlowClusterPlatform CR</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: sonataflow.org/v1alpha08
+kind: SonataFlowClusterPlatform
+metadata:
+  name: cluster-platform
+spec:
+  platformRef:
+    name: sonataflow-platform-example <i class="conum" data-value="1"></i><b>(1)</b>
+    namespace: example-namespace <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Name of the already installed <code>SonatataFlowPlatform</code> CR that configures the supporting services.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Namespace of the already installed <code>SontataFlowPlatform</code> CR that configures the supporting services.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>These cluster-wide services can be overridden in any namespace, by configuring that namespace&#8217;s <code>SonataFlowPlatform.spec.services</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conclusions"><a class="anchor" href="#_conclusions"></a>Conclusions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The SonataFlow Operator extends its scope to manage the lifecycle of the <a href="../../data-index/data-index-core-concepts.html" class="xref page">Data Index</a> and <a href="../../job-services/core-concepts.html" class="xref page">Job Service</a> instances, thus removing the burden on the users and allowing them to focus on the implementation of the workflows.
+It takes care also of managing all the configurations to facilitate communication between the workflows and the supporting services.
+Additionally, it can manage different persistence options for each service, and advanced configurations.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_additional_resources"><a class="anchor" href="#_additional_resources"></a>Additional resources</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../data-index/data-index-core-concepts.html" class="xref page">Data Index Core Concepts</a></p>
+</li>
+<li>
+<p><a href="../../job-services/core-concepts.html" class="xref page">Job Service Core Concepts</a></p>
+</li>
+<li>
+<p><a href="using-persistence.html" class="xref page">Workflow Persistence</a></p>
+</li>
+<li>
+<p><a href="configuring-workflow-eventing-system.html" class="xref page">Workflow Eventing System</a></p>
+</li>
+<li>
+<p><a href="known-issues.html" class="xref page">SonataFlow Operator Known Issues, Limitations and Roadmap</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_found_an_issue"><a class="anchor" href="#_found_an_issue"></a><em><strong>Found an issue?</strong></em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you find an issue or any misleading information, please feel free to report it <a href="https://github.com/apache/incubator-kie-kogito-docs/issues/new">here</a>.
+We really appreciate it!</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../../_/js/site.js"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/tabsBehavior.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="100" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+  </body>
+</html>
