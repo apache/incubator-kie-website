@@ -146,8 +146,8 @@ Unzip `apache-kie-${release_version}-${rc_version}-sources.zip` and check the fo
 - LICENSE and NOTICE files in the root directory are correct.
 - All files have ASF license headers if necessary. Apache Rat helps the verification.
     - In the root directory of the sources package,
-    - Download the jar: `curl -LO https://repo1.maven.org/maven2/org/apache/rat/apache-rat/0.16.1/apache-rat-0.16.1.jar`
-    - Run `java -jar apache-rat-0.16.1.jar -d . -E .rat-excludes-combined > rat-result.txt` (It takes a few minutes. `.rat-excludes-combined` has been introduced since 10.1.0 release candidates)
+    - Download the jar: `curl -LO https://repo1.maven.org/maven2/org/apache/rat/apache-rat/0.17/apache-rat-0.17.jar`
+    - Run `java -jar apache-rat-0.17.jar -E .rat-excludes-combined -- . > rat-result.txt` (It takes a few minutes. `.rat-excludes-combined` has been introduced since 10.1.0 release candidates)
         - NOTE: If `.rat-excludes-combined` doesn't exist under the root directory, do the steps (run apache-rat, review the result) under the subdirectories, which have `.rat-excludes` instead.
     - Review the `rat-result.txt`. `Files with unapproved licenses:` should be one of the followings
         - Listed in `LICENSE`
