@@ -31,6 +31,6 @@ With this release, we hope to return to a predictable release cadence. Our focus
 
 ## Download
 
-Apache KIE (Incubating) 10.0.0 is available now. Visit the [official download page](/docs/start/download_10_0_0) for the artifacts and to explore what's new.
+Apache KIE (Incubating) 10.0.0 is available now. Visit the [official download page](/downloads/download_10_0_0) for the artifacts and to explore what's new.
 
 We welcome your feedback and contributions as we continue to build the future of Apache KIE (Incubating) together. Thank you for being part of this journey!

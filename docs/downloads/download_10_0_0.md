@@ -12,11 +12,11 @@ The online version of KIE Sandbox is always updated to the latest release and is
 
 ## Source
 
-The source is available [here](http://www.apache.org/dyn/closer.lua/incubator/kie/10.0.0/apache-kie-10.0.0-incubating-sources.zip). See instructions at [build from source](https://kie.apache.org/docs/community/build).
+The source is available [here](http://www.apache.org/dyn/closer.lua/incubator/kie/10.0.0/apache-kie-10.0.0-incubating-sources.zip). See instructions at [build from source](/community/build).
 
 Verify this source release using the [signature](https://downloads.apache.org/incubator/kie/10.0.0/apache-kie-10.0.0-incubating-sources.zip.asc), [checksum](https://downloads.apache.org/incubator/kie/10.0.0/apache-kie-10.0.0-incubating-sources.zip.sha512) by following guides below.
 
-You should verify the integrity of downloaded files using their PGP signatures and SHA512 checksums - for this use the following [KEYS](https://downloads.apache.org/incubator/kie/KEYS) file. For each download, we provide a matching `.asc` signature file and a `.sha512` checksum file. See [Verifying Release](https://kie.apache.org/docs/community/verify) for more information.
+You should verify the integrity of downloaded files using their PGP signatures and SHA512 checksums - for this use the following [KEYS](https://downloads.apache.org/incubator/kie/KEYS) file. For each download, we provide a matching `.asc` signature file and a `.sha512` checksum file. See [Verifying Release](/community/verify) for more information.
 
 ## SonataFlow Knative Plugin
 | OS | Download | Signature | Checksum |

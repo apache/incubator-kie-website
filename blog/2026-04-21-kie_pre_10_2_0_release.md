@@ -1,11 +1,9 @@
 ---
 slug: kie_10_1_0_release
-title: Apache KIE (Incubating) 10.1.0 Release Announcement
+title: Apache KIE (Incubating) 10.2.0 Release Announcement
 authors: [porcelli]
 tags: [apache, 10, kie, release]
 ---
-
-# Apache KIE (Incubating) 10.1.0 Release Announcement
 
 We are pleased to announce the release of **Apache KIE (Incubating) 10.1.0**, the first follow-up milestone since the project's rebirth under the Apache Software Foundation. This release reflects the project's continued momentum and commitment to modernization, usability, and stability across the KIE components: Drools, jBPM, OptaPlanner, Kogito, SonataFlow and Tools.
 

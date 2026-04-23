@@ -1,0 +1,37 @@
+
+.components {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.componentSvg {
+  height: 120px;
+  width: 120px;
+  fill: var(--ifm-color-primary);
+  transition: transform 0.2s ease;
+}
+
+.componentLink {
+  display: block;
+  padding: 1rem;
+  border-radius: 8px;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.componentLink:hover {
+  color: inherit;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.componentLink:hover .componentSvg {
+  transform: scale(1.03);
+}
+
+.componentLink:hover h3 {
+  color: var(--ifm-color-primary);
+}

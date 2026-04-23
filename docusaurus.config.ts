@@ -31,6 +31,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
+          routeBasePath: "/",
         },
         blog: {
           blogSidebarCount: "ALL",
@@ -43,7 +44,21 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-  plugins: [require.resolve("docusaurus-lunr-search")],
+  plugins: [
+    require.resolve("docusaurus-lunr-search"),
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        createRedirects(existingPath: string) {
+          // Redirect every old /docs/<x> URL to the new /<x> canonical path.
+          if (!existingPath.startsWith("/docs/")) {
+            return [`/docs${existingPath}`];
+          }
+          return undefined;
+        },
+      },
+    ],
+  ],
   themeConfig: {
     // Replace with your project's social card
     navbar: {
@@ -163,16 +178,16 @@ const config: Config = {
           title: "Learn",
           items: [
             {
-              label: "Download",
-              to: "/docs/start/download",
+              label: "Documentation",
+              to: "/documentation",
             },
             {
-              label: "Download",
-              to: "/docs/start/download",
+              label: "Downloads",
+              to: "/downloads",
             },
             {
               label: "Examples",
-              to: "/docs/examples",
+              to: "/examples",
             }
           ],
         },
