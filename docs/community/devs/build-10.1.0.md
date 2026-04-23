@@ -1,5 +1,5 @@
 ---
-id: build
+id: build_10_1_0
 title: Build from source - 10.1.0
 sidebar_position: 99
 ---
