@@ -20,7 +20,7 @@ jobs:
           ref: ${{ matrix.version }}
           path: sonataflow-docs
 
-      - name: Build Sonataflow documentation
+      - name: Build SonataFlow documentation
         run: |
           cd sonataflow-docs
           npm run install-build
@@ -49,14 +49,14 @@ jobs:
           cd kogito-docs
           mvn -B clean install -Dfull
 
-      - name: Checkout Optaplanner repository
+      - name: Checkout OptaPlanner repository
         uses: actions/checkout@v4
         with:
           repository: apache/incubator-kie-optaplanner
           ref: ${{ matrix.version }}
           path: optaplanner
 
-      - name: Build Optaplanner documentation
+      - name: Build OptaPlanner documentation
         run: |
           cd optaplanner/optaplanner-docs
           mvn -B clean install
@@ -94,7 +94,7 @@ jobs:
           ref: ${{ matrix.version }}
           path: sonataflow-docs
 
-      - name: Build Sonataflow documentation
+      - name: Build SonataFlow documentation
         run: |
           cd sonataflow-docs
           npm run install-build

@@ -1,10 +1,10 @@
 ---
 id: download
-title: 10.1.0
+title: 10.1.0 (latest)
 sidebar_position: 0
 ---
 
-# Downloads
+# Downloads for 10.1.0
 
 Apache KIE (incubating) is released as source code tarball with different binaries for convenience. This page aims to consolidate all the artifacts available.
 
@@ -50,16 +50,16 @@ You should verify the integrity of downloaded files using their PGP signatures a
 
 ### VS Code Extensions
 
-Available on the [KIE Group publisher page](https://marketplace.visualstudio.com/publishers/kie-group):
+Available on the [Apache KIE (incubating) publisher page](https://marketplace.visualstudio.com/publishers/kie-group):
 
-- [Kogito Bundle](https://marketplace.visualstudio.com/items?itemName=kie-group.vscode-extension-kogito-bundle)
-- [DMN Editor](https://marketplace.visualstudio.com/items?itemName=kie-group.dmn-vscode-extension)
-- [BPMN Editor](https://marketplace.visualstudio.com/items?itemName=kie-group.bpmn-vscode-extension)
-- [Serverless Workflow Editor](https://marketplace.visualstudio.com/items?itemName=kie-group.swf-vscode-extension)
-- [KIE Business Automation Bundle](https://marketplace.visualstudio.com/items?itemName=kie-group.vscode-extension-kie-ba-bundle)
-- [PMML Editor](https://marketplace.visualstudio.com/items?itemName=kie-group.pmml-vscode-extension)
-- [Extended Services](https://marketplace.visualstudio.com/items?itemName=kie-group.extended-services-vscode-extension)
-- [YARD Editor](https://marketplace.visualstudio.com/items?itemName=kie-group.yard-vscode-extension)
+- [Apache KIE™ Kogito Bundle](https://marketplace.visualstudio.com/items?itemName=kie-group.vscode-extension-kogito-bundle)
+- [Apache KIE™ DMN Editor](https://marketplace.visualstudio.com/items?itemName=kie-group.dmn-vscode-extension)
+- [Apache KIE™ BPMN Editor](https://marketplace.visualstudio.com/items?itemName=kie-group.bpmn-vscode-extension)
+- [Apache KIE™ Serverless Workflow Editor](https://marketplace.visualstudio.com/items?itemName=kie-group.swf-vscode-extension)
+- [Apache KIE™ Business Automation Bundle](https://marketplace.visualstudio.com/items?itemName=kie-group.vscode-extension-kie-ba-bundle)
+- [Apache KIE™ PMML Editor](https://marketplace.visualstudio.com/items?itemName=kie-group.pmml-vscode-extension)
+- [Apache KIE™ Extended Services](https://marketplace.visualstudio.com/items?itemName=kie-group.extended-services-vscode-extension)
+- [Apache KIE™ YARD Editor](https://marketplace.visualstudio.com/items?itemName=kie-group.yard-vscode-extension)
 
 ### Chrome Extensions
 

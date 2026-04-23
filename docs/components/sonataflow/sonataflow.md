@@ -1,10 +1,10 @@
 ---
 id: sonataflow
-title: Sonataflow
+title: SonataFlow
 sidebar_position: 0
 ---
 
-# Sonataflow
+# SonataFlow
 
 
 SonataFlow is a tool for building cloud-native workflow applications. You can use it to do the services and events orchestration and choreography. Currently, with SonataFlow you can integrate with services and events in your architecture using:

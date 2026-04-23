@@ -1,12 +1,8 @@
 ---
 id: verify
-title: How to verify
+title: How to verify a release candidate
 sidebar_position: 3
 ---
-
-> **Note:** This page is currently being updated for the 10.1.0 release verification procedure.
-
-# Verify the release artifacts
 
 Following is the basic check items for the release artifacts.
 

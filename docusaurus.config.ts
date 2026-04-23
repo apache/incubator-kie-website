@@ -135,15 +135,15 @@ const config: Config = {
       style: "dark",
       links: [
         {
-          title: "Community",
+          title: "Get involved",
           items: [
-            {
-              label: "Dev Mailing list",
-              href: "https://lists.apache.org/list.html?dev@kie.apache.org",
-            },
             {
               label: "Users Mailing list",
               href: "https://lists.apache.org/list.html?users@kie.apache.org",
+            },
+            {
+              label: "Dev Mailing list",
+              href: "https://lists.apache.org/list.html?dev@kie.apache.org",
             },
             {
               label: "Zulip Chat",
@@ -153,11 +153,19 @@ const config: Config = {
               label: "Twitter",
               href: "https://twitter.com/kiecommunity",
             },
+            {
+              label: "YouTube",
+              href: "https://www.youtube.com/@KIE-community-channel",
+            },
           ],
         },
         {
-          title: "Docs",
+          title: "Learn",
           items: [
+            {
+              label: "Download",
+              to: "/docs/start/download",
+            },
             {
               label: "Download",
               to: "/docs/start/download",
@@ -165,11 +173,11 @@ const config: Config = {
             {
               label: "Examples",
               to: "/docs/examples",
-            },
+            }
           ],
         },
         {
-          title: "Repositories",
+          title: "Code",
           items: [
             {
               label: "Drools",
@@ -184,7 +192,7 @@ const config: Config = {
               href: "https://github.com/apache/incubator-kie-kogito-apps",
             },
             {
-              label: "Optaplanner",
+              label: "OptaPlanner",
               href: "https://github.com/apache/incubator-kie-optaplanner",
             },
             {

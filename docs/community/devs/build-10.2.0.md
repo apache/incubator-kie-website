@@ -1,25 +1,21 @@
 ---
-id: build-10.0
-title: Build from Source - 10.0.0
-sidebar_position: 5
+id: build-10.2
+title: Build from source - 10.2.0 RCs
+sidebar_position: 98
 ---
 
 ### Complete Environment requirements:
 
-- Temurin JDK 17.0.11
-- Maven 3.9.6
-- GraalVM for JDK 17
-- Docker 25+
-- Python 3.12.5
-- Make 4.3+
-- Node 20
-- PNPM 9.3.0
-- Go 1.21.9
-- Helm 3.15.2 
-- CEkit 4.11.0 (pip install)
-- Docker Python Bindings 7.0.0 (pip install)
-- Docker Squash Tool 1.2.0 (pip install)
-- Ruamel YAML 0.18.5 (pip install)
+- Temurin JDK 17
+- Maven 3.9.11
+- GraalVM CE 17
+- Docker 26.1.4+
+- Python 3
+- Make
+- Node 24.13.0+
+- PNPM 10.29.2
+- Go 1.24.13
+- Helm 3.15.2
 
 :::note
 
@@ -53,14 +49,14 @@ The first step in building from source is to obtain and extract the source code 
 Use the following pattern to locate and download the source zip:
 
 ```bash
-https://dist.apache.org/repos/dist/dev/incubator/kie/${release_version}-${rc_version}/incubator-kie-${release_version}-${rc_version}-sources.zip
+https://dist.apache.org/repos/dist/dev/incubator/kie/10.2.0-${rc_version}/apache-kie-10.2.0-incubating-sources.zip
 ```
 
-Replace `${release_version}` and `${rc_version}` with the appropriate values. For example:
+Replace `10.2.0` and `${rc_version}` with the appropriate values. For example:
 
 
 ```bash
-https://dist.apache.org/repos/dist/dev/incubator/kie/10.0.0-rc2/incubator-kie-10.0.0-rc2-sources.zip
+https://dist.apache.org/repos/dist/dev/incubator/kie/10.2.0-rc1/apache-kie-10.2.0-incubating-sources.zip
 ```
 
 #### Extract the Source Archive
@@ -68,21 +64,22 @@ https://dist.apache.org/repos/dist/dev/incubator/kie/10.0.0-rc2/incubator-kie-10
 Once downloaded, extract the contents of the zip file:
 
 ```bash
-unzip incubator-kie-${release_version}-${rc_version}-sources.zip
+unzip apache-kie-10.2.0-incubating-sources.zip
 ```
 
 ### 2. Navigate to the Source Directory
 
 ```bash
-cd incubator-kie-${release_version}-${rc_version}
+cd apache-kie-10.2.0-incubating-sources
 ```
-
+- BUILD
+- DISCLAIMER-WIP
+- LICENSE
+- NOTICE
 - incubator-kie-drools
 - incubator-kie-kogito-apps
-- incubator-kie-kogito-images
 - incubator-kie-kogito-runtimes
 - incubator-kie-optaplanner
-- incubator-kie-sandbox-quarkus-accelerator
 - incubator-kie-tools
 
 We'll build each of these components individually.
@@ -96,8 +93,8 @@ It's recommended to clean the local `~/.m2` repository, because its content will
 ### 3.1. Drools
 
 **Environment Requirements:**
-- Temurin JDK 17.0.11
-- Maven 3.9.6
+- Temurin JDK
+- Maven 
 
 **Build Commands:**
 ```bash
@@ -111,8 +108,8 @@ mvn clean install -DskipTests -Dfull -Donly.reproducible=true
 ### 3.2. OptaPlanner
 
 **Environment Requirements:**
-- Temurin JDK 17.0.11
-- Maven 3.9.6
+- Temurin JDK
+- Maven
 
 **Build Commands:**
 ```bash
@@ -125,8 +122,8 @@ mvn clean install -DskipTests -Dfull -Donly.reproducible=true
 ### 3.3. Kogito Runtimes
 
 **Environment Requirements:**
-- Temurin JDK 17.0.11
-- Maven 3.9.6
+- Temurin JDK
+- Maven
 
 **Build Commands:**
 ```bash
@@ -139,10 +136,10 @@ mvn clean install -DskipTests -Dfull -Donly.reproducible=true
 ### 3.4. Kogito Apps
 
 **Environment Requirements:**
-- Temurin JDK 17.0.11
-- Maven 3.9.6
-- GraalVM for JDK 17
-- Docker 25+
+- Temurin JDK
+- Maven
+- GraalVM for JDK
+- Docker
 
 :::note
 If you're using Podman as a docker api, to build Kogito Apps you'll need to pass this variable
@@ -160,46 +157,17 @@ mvn clean install -DskipTests -Dfull -Donly.reproducible=true -Pjitexecutor-nati
 
 **Produced Artifacts:** JARs will be installed to local Maven repository.
 
-### 3.5. Kogito Images
+### 3.5. KIE Tools
 
 **Environment Requirements:**
-- Temurin JDK 17.0.11
-- Maven 3.9.6
-- Python 3.12
-- Docker 25+
-- Make 4.3+
-- CEkit 4.11.0
-- Docker Python Bindings 7.0.0
-
-**Build Commands:**
-```bash
-cd incubator-kie-kogito-images
-cekit --descriptor kogito-base-builder-image.yaml build docker --platform linux/amd64
-make build-image KOGITO_APPS_TARGET_BRANCH=10.0.0-rc2 ignore_test=true image_name=kogito-data-index-ephemeral
-make build-image KOGITO_APPS_TARGET_BRANCH=10.0.0-rc2 ignore_test=true image_name=kogito-data-index-postgresql
-make build-image KOGITO_APPS_TARGET_BRANCH=10.0.0-rc2 ignore_test=true image_name=kogito-jit-runner
-make build-image KOGITO_APPS_TARGET_BRANCH=10.0.0-rc2 ignore_test=true image_name=kogito-jobs-service-allinone
-make build-image KOGITO_APPS_TARGET_BRANCH=10.0.0-rc2 ignore_test=true image_name=kogito-jobs-service-ephemeral
-make build-image KOGITO_APPS_TARGET_BRANCH=10.0.0-rc2 ignore_test=true image_name=kogito-jobs-service-postgresql
-```
-
-**Produced Artifacts:** Images will be pushed to the local Container registry.
-
-### 3.6. KIE Sandbox Quarkus Accelerator
-
-Build is not required. The source itself is the artifact.
-
-### 3.7. KIE Tools
-
-**Environment Requirements:**
-- Temurin JDK 17.0.11
-- Maven 3.9.6
-- Node 20
-- PNPM 9.3.0
-- Go 1.21.9
-- Python 3.12
-- Helm 3.15.2
-- Docker 25+
+- Temurin JDK
+- Maven 
+- Node 
+- PNPM 
+- Go 
+- Python
+- Helm 
+- Docker
 - Make
 
 **Build Commands:**

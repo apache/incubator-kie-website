@@ -1,7 +1,7 @@
 ---
 id: build
-title: Build from Source - 10.1.0
-sidebar_position: 4
+title: Build from source - 10.1.0
+sidebar_position: 99
 ---
 
 ### Complete Environment requirements:

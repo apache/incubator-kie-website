@@ -37,11 +37,11 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'Optaplanner',
+    title: 'OptaPlanner',
     Svg: require('@site/static/img/planner.svg').default,
     description: (
       <>
-        Optaplanner description.
+        OptaPlanner description.
       </>
     ),
   },

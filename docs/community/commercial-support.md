@@ -1,6 +1,6 @@
 ---
 id: commercial-support
-title: Commercial KIE Offerings
+title: Commercial KIE offerings
 sidebar_position: 2
 ---
 
