@@ -49,12 +49,23 @@ const config: Config = {
     [
       "@docusaurus/plugin-client-redirects",
       {
+        // The docs plugin's `routeBasePath` was changed from "/docs" to "/",
+        // moving every docs page from `/docs/<x>` to `/<x>`. This plugin
+        // emits a static HTML redirect at `/docs/<x>` for each existing
+        // route so pre-existing bookmarks and inbound links keep working.
+        //
+        // Static sites under `/docs/10.0.x/**` and `/docs/10.1.x/**`
+        // (copied into `static/docs/` by .github/workflows/deploy.yml) are
+        // plain files, not Docusaurus routes, so no redirect is generated
+        // for them and they continue to be served as-is by GitHub Pages.
         createRedirects(existingPath: string) {
-          // Redirect every old /docs/<x> URL to the new /<x> canonical path.
-          if (!existingPath.startsWith("/docs/")) {
-            return [`/docs${existingPath}`];
+          if (existingPath === "/" || existingPath === "/docs") {
+            return undefined;
           }
-          return undefined;
+          if (existingPath.startsWith("/docs/")) {
+            return undefined;
+          }
+          return [`/docs${existingPath}`];
         },
       },
     ],
