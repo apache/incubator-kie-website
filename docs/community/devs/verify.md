@@ -149,4 +149,4 @@ Unzip `apache-kie-${release_version}-${rc_version}-sources.zip` and check the fo
         - Listed in `LICENSE`
         - Not a source code (e.g. test data, config file)
         - Generated code
-- You are able to [build from source](build).
+- You are able to [build from source](/community/build).
