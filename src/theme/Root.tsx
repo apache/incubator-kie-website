@@ -6,9 +6,13 @@ export default function Root({children}: {children: React.ReactNode}): JSX.Eleme
   const history = useHistory();
 
   useEffect(() => {
-    // @docusaurus/plugin-client-redirects only emits /docs/* → /* redirects at build time;
-    // this handles the same mapping in `docusaurus start` so dev mode matches production.
-    if (location.pathname.startsWith('/docs/') && !location.pathname.startsWith('/docs/10')) {
+    if (location.pathname.startsWith('/docs/10')) {
+      // These are separate static HTML sites copied into /docs/10.x/ at build time.
+      // React Router has no route for them, so force a full page load.
+      window.location.replace(location.pathname + location.search + location.hash);
+    } else if (location.pathname.startsWith('/docs/')) {
+      // @docusaurus/plugin-client-redirects only emits /docs/* → /* redirects at build time;
+      // this handles the same mapping in `docusaurus start` so dev mode matches production.
       history.replace(
         location.pathname.slice('/docs'.length) + location.search + location.hash,
       );

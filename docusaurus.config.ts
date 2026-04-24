@@ -51,7 +51,7 @@ const config: Config = {
       {
         createRedirects(existingPath: string) {
           // Redirect every old /docs/<x> URL to the new /<x> canonical path.
-          if (!existingPath.startsWith("/docs/") && !existingPath.startsWith("/docs/10")) {
+          if (!existingPath.startsWith("/docs/")) {
             return [`/docs${existingPath}`];
           }
           return undefined;
