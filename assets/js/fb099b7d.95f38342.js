@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkie_site=self.webpackChunkkie_site||[]).push([[7762],{6496:(e,s,t)=>{t.r(s),t.d(s,{default:()=>a});var n=t(6347),u=t(4848);function a(){return(0,u.jsx)(n.rd,{to:"/components/sonataflow"})}}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkie_site=self.webpackChunkkie_site||[]).push([[2540],{8126:(e,t,n)=>{n.r(t),n.d(t,{default:()=>u});var s=n(6347),r=n(4848);function u(){return(0,r.jsx)(s.rd,{to:"/components/optaplanner"})}}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkie_site=self.webpackChunkkie_site||[]).push([[8105],{8575:(e,t,i)=>{i.r(t),i.d(t,{default:()=>s});var n=i(6347),u=i(4848);function s(){return(0,u.jsx)(n.rd,{to:"/documentation/archive_documentation"})}}}]);

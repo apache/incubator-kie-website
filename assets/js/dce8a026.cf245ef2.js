@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkie_site=self.webpackChunkkie_site||[]).push([[2340],{9636:(e,s,t)=>{t.r(s),t.d(s,{default:()=>k});var u=t(6347),i=t(4848);function k(){return(0,i.jsx)(u.rd,{to:"/community/devs/build-10.2"})}}}]);

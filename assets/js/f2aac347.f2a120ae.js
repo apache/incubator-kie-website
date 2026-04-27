@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkie_site=self.webpackChunkkie_site||[]).push([[720],{9822:(e,t,s)=>{s.r(t),s.d(t,{default:()=>n});var i=s(6347),k=s(4848);function n(){return(0,k.jsx)(i.rd,{to:"/components/kogito"})}}}]);
