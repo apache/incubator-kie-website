@@ -21,7 +21,7 @@ A KIE Drop is a short, focused, five minute (or less) video used to promote an i
 
 - [KIE Drops playlist](https://www.youtube.com/playlist?list=PLo3ZScdD9hW5agTmsP-_lMz0zzhX_J0KM)
 
-Do you have an idea for a KIE Drop? Get in contact with us.
+Do you have an idea for a KIE Drop? Get in touch with us.
 
 ## Community event: KIE Week 2021
 A series exploring process & business Automation, where we take you on a general technical and cultural journey through approaches to integrating process and business automation rules.
