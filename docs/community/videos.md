@@ -12,7 +12,7 @@ To learn more about the KIE projects and keep up to speed with the latest and gr
 The KIE Community YouTube channel is an open space for all topics related to business automation. You can find a vast set of content about business rules, decisions, processes, resource planning, tooling, engine, trusty AI, and much more. Don't forget to subscribe: you'll be the first to know about the latest and greatest features being created for these projects.
 
 ## KIE Live: a business automation live streaming series
-KIE Live is a series of public live streamings for knowledge sharing about any Business Automation topic: business rules, decisions, processes, resource planning, tooling, engine, trusty AI, etc.
+KIE Live is a series of public live streams for knowledge sharing about any Business Automation topic: business rules, decisions, processes, resource planning, tooling, engine, trusty AI, etc.
 
 - [KIE Live playlist](https://www.youtube.com/playlist?list=PLo3ZScdD9hW4S94iT3ZgOWm8asSHuMDYn)
 
