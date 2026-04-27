@@ -26,8 +26,8 @@ github:
     - kie
   enabled_merge_buttons:
     squash:  true
-    merge:   true
-    rebase:  true
+    merge:   false
+    rebase:  false
   protected_branches:
     main: {}
     deploy: {}
