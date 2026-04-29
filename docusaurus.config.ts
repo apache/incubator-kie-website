@@ -31,6 +31,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
+          routeBasePath: "/",
         },
         blog: {
           blogSidebarCount: "ALL",
@@ -43,7 +44,32 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-  plugins: [require.resolve("docusaurus-lunr-search")],
+  plugins: [
+    require.resolve("docusaurus-lunr-search"),
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        // The docs plugin's `routeBasePath` was changed from "/docs" to "/",
+        // moving every docs page from `/docs/<x>` to `/<x>`. This plugin
+        // emits a static HTML redirect at `/docs/<x>` for each existing
+        // route so pre-existing bookmarks and inbound links keep working.
+        //
+        // Static sites under `/docs/10.0.x/**` and `/docs/10.1.x/**`
+        // (copied into `static/docs/` by .github/workflows/deploy.yml) are
+        // plain files, not Docusaurus routes, so no redirect is generated
+        // for them and they continue to be served as-is by GitHub Pages.
+        createRedirects(existingPath: string) {
+          if (existingPath === "/" || existingPath === "/docs") {
+            return undefined;
+          }
+          if (existingPath.startsWith("/docs/")) {
+            return undefined;
+          }
+          return [`/docs${existingPath}`];
+        },
+      },
+    ],
+  ],
   themeConfig: {
     // Replace with your project's social card
     navbar: {
@@ -135,15 +161,15 @@ const config: Config = {
       style: "dark",
       links: [
         {
-          title: "Community",
+          title: "Get involved",
           items: [
-            {
-              label: "Dev Mailing list",
-              href: "https://lists.apache.org/list.html?dev@kie.apache.org",
-            },
             {
               label: "Users Mailing list",
               href: "https://lists.apache.org/list.html?users@kie.apache.org",
+            },
+            {
+              label: "Dev Mailing list",
+              href: "https://lists.apache.org/list.html?dev@kie.apache.org",
             },
             {
               label: "Zulip Chat",
@@ -153,23 +179,31 @@ const config: Config = {
               label: "Twitter",
               href: "https://twitter.com/kiecommunity",
             },
+            {
+              label: "YouTube",
+              href: "https://www.youtube.com/@KIE-community-channel",
+            },
           ],
         },
         {
-          title: "Docs",
+          title: "Learn",
           items: [
             {
-              label: "Download",
-              to: "/docs/start/download",
+              label: "Documentation",
+              to: "/documentation",
+            },
+            {
+              label: "Downloads",
+              to: "/downloads",
             },
             {
               label: "Examples",
-              to: "/docs/examples",
-            },
+              to: "/examples",
+            }
           ],
         },
         {
-          title: "Repositories",
+          title: "Code",
           items: [
             {
               label: "Drools",
@@ -184,7 +218,7 @@ const config: Config = {
               href: "https://github.com/apache/incubator-kie-kogito-apps",
             },
             {
-              label: "Optaplanner",
+              label: "OptaPlanner",
               href: "https://github.com/apache/incubator-kie-optaplanner",
             },
             {

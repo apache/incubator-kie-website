@@ -1,21 +1,21 @@
 ---
-id: build-10.2
-title: Build from Source - 10.2.0-rc
-sidebar_position: 4
+id: build_10_1_0
+title: Build from source - 10.1.0
+sidebar_position: 99
 ---
 
 ### Complete Environment requirements:
 
-- Temurin JDK 17
-- Maven 3.9.11
-- GraalVM CE 17
-- Docker 26.1.4+
-- Python 3
-- Make
-- Node 24.13.0+
-- PNPM 10.29.2
-- Go 1.24.13
-- Helm 3.15.2
+- Temurin JDK 17.0.12+8.1
+- Maven 3.9.6
+- Oracle GraalVM 17.0.12+8.1
+- Docker 25+
+- Python 3.12.9
+- Make 4.4.1+
+- Node 20.19.0
+- PNPM 9.3.0
+- Go 1.23.6
+- Helm 3.15.2 
 
 :::note
 
@@ -49,14 +49,14 @@ The first step in building from source is to obtain and extract the source code 
 Use the following pattern to locate and download the source zip:
 
 ```bash
-https://dist.apache.org/repos/dist/dev/incubator/kie/10.2.0-${rc_version}/apache-kie-10.2.0-incubating-sources.zip
+https://dist.apache.org/repos/dist/dev/incubator/kie/10.1.0-${rc_version}/apache-kie-10.1.0-incubating-sources.zip
 ```
 
-Replace `10.2.0` and `${rc_version}` with the appropriate values. For example:
+Replace `10.1.0` and `${rc_version}` with the appropriate values. For example:
 
 
 ```bash
-https://dist.apache.org/repos/dist/dev/incubator/kie/10.2.0-rc1/apache-kie-10.2.0-incubating-sources.zip
+https://dist.apache.org/repos/dist/dev/incubator/kie/10.1.0-rc1/apache-kie-10.1.0-incubating-sources.zip
 ```
 
 #### Extract the Source Archive
@@ -64,18 +64,19 @@ https://dist.apache.org/repos/dist/dev/incubator/kie/10.2.0-rc1/apache-kie-10.2.
 Once downloaded, extract the contents of the zip file:
 
 ```bash
-unzip apache-kie-10.2.0-incubating-sources.zip
+unzip apache-kie-10.1.0-incubating-sources.zip
 ```
 
 ### 2. Navigate to the Source Directory
 
 ```bash
-cd apache-kie-10.2.0-incubating-sources
+cd apache-kie-10.1.0-incubating-sources
 ```
 - BUILD
 - DISCLAIMER-WIP
 - LICENSE
 - NOTICE
+- build.sh
 - incubator-kie-drools
 - incubator-kie-kogito-apps
 - incubator-kie-kogito-runtimes

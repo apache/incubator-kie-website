@@ -1,7 +1,7 @@
 ---
 id: commercial-support
-title: Commercial KIE Offerings
-sidebar_position: 2
+title: Commercial KIE offerings
+sidebar_position: 3
 ---
 
 Apache KIE is a widely used technology. As such, companies have built products and services around KIE. This page is dedicated to providing descriptions of those offerings and links to more information. Companies are definitely encouraged to update this page directly or send a mail to the Apache KIE PPMC with a description of your offerings and we can update the page. The products and services listed on this page are provided for information use only to our users. The KIE PPMC does not endorse or recommend any of the products or services on this page. See below for information about what is appropriate to add to the page.
@@ -24,4 +24,4 @@ Red Hat offers a supported build of a subset of Apache KIE technologies as part 
 
 Companies are free to add information about their products and services to this page (please keep entries in alphabetical order). The information must be factual and informational in nature and not be a marketing statement. Statements that promote your products and services over other offerings on the page will not be tolerated and will be removed. Such marketing statements can be added to your own pages on your own site, but not here.
 
-When in doubt, email the KIE dev list (see [mailing list](/docs/community/#mailing-list)) and ask. We'd be happy to help.
+When in doubt, email the KIE dev list (see [mailing list](/community/#mailing-list)) and ask. We'd be happy to help.

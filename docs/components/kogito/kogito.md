@@ -1,7 +1,7 @@
 ---
 id: kogito
 title: Kogito
-sidebar_position: 0
+sidebar_position: 6
 ---
 
 # Kogito
@@ -27,4 +27,4 @@ Kogito offers a powerful developer experience based on battle-tested components.
 Kogito can be used in many ways, so to help you get started, we provide a wide range of examples demonstrating from simple hello world to more advanced use cases using DMN, BPMN, KNative, Serverless Workflow and more. Head to Kogito examples repository in GitHub and start exploring. The team is constantly updating this repository with new and exciting features as they are added to Kogito.
 
 # Documentation
-Please refer to [Documentation](https://kie.apache.org/docs/documentation/) for the latest walk through examples and documentation.
+Please refer to [Documentation](/documentation) for the latest walk through examples and documentation.

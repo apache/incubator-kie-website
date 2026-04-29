@@ -1,10 +1,10 @@
 ---
-id: download
-title: 10.1.0
+id: download_10_1_0
+title: 10.1.0 (latest)
 sidebar_position: 0
 ---
 
-# Downloads
+# Downloads for 10.1.0
 
 Apache KIE (incubating) is released as source code tarball with different binaries for convenience. This page aims to consolidate all the artifacts available.
 
@@ -12,11 +12,11 @@ The online version of KIE Sandbox is always updated to the latest release and is
 
 ## Source
 
-The source is available [here](http://www.apache.org/dyn/closer.lua/incubator/kie/10.1.0/apache-kie-10.1.0-incubating-sources.zip). See instructions at [build from source](https://kie.apache.org/docs/community/build).
+The source is available [here](http://www.apache.org/dyn/closer.lua/incubator/kie/10.1.0/apache-kie-10.1.0-incubating-sources.zip). See instructions at [build from source](/community/build).
 
 Verify this source release using the [signature](https://downloads.apache.org/incubator/kie/10.1.0/apache-kie-10.1.0-incubating-sources.zip.asc), [checksum](https://downloads.apache.org/incubator/kie/10.1.0/apache-kie-10.1.0-incubating-sources.zip.sha512) by following guides below.
 
-You should verify the integrity of downloaded files using their PGP signatures and SHA512 checksums - for this use the following [KEYS](https://downloads.apache.org/incubator/kie/KEYS) file. For each download, we provide a matching `.asc` signature file and a `.sha512` checksum file. See [Verifying Release](https://kie.apache.org/docs/community/verify) for more information.
+You should verify the integrity of downloaded files using their PGP signatures and SHA512 checksums - for this use the following [KEYS](https://downloads.apache.org/incubator/kie/KEYS) file. For each download, we provide a matching `.asc` signature file and a `.sha512` checksum file. See [Verifying Release](/community/verify) for more information.
 
 ## SonataFlow Knative Plugin
 | OS | Download | Signature | Checksum |
@@ -50,16 +50,16 @@ You should verify the integrity of downloaded files using their PGP signatures a
 
 ### VS Code Extensions
 
-Available on the [KIE Group publisher page](https://marketplace.visualstudio.com/publishers/kie-group):
+Available on the [Apache KIE (incubating) publisher page](https://marketplace.visualstudio.com/publishers/kie-group):
 
-- [Kogito Bundle](https://marketplace.visualstudio.com/items?itemName=kie-group.vscode-extension-kogito-bundle)
-- [DMN Editor](https://marketplace.visualstudio.com/items?itemName=kie-group.dmn-vscode-extension)
-- [BPMN Editor](https://marketplace.visualstudio.com/items?itemName=kie-group.bpmn-vscode-extension)
-- [Serverless Workflow Editor](https://marketplace.visualstudio.com/items?itemName=kie-group.swf-vscode-extension)
-- [KIE Business Automation Bundle](https://marketplace.visualstudio.com/items?itemName=kie-group.vscode-extension-kie-ba-bundle)
-- [PMML Editor](https://marketplace.visualstudio.com/items?itemName=kie-group.pmml-vscode-extension)
-- [Extended Services](https://marketplace.visualstudio.com/items?itemName=kie-group.extended-services-vscode-extension)
-- [YARD Editor](https://marketplace.visualstudio.com/items?itemName=kie-group.yard-vscode-extension)
+- [Apache KIE™ Kogito Bundle](https://marketplace.visualstudio.com/items?itemName=kie-group.vscode-extension-kogito-bundle)
+- [Apache KIE™ DMN Editor](https://marketplace.visualstudio.com/items?itemName=kie-group.dmn-vscode-extension)
+- [Apache KIE™ BPMN Editor](https://marketplace.visualstudio.com/items?itemName=kie-group.bpmn-vscode-extension)
+- [Apache KIE™ Serverless Workflow Editor](https://marketplace.visualstudio.com/items?itemName=kie-group.swf-vscode-extension)
+- [Apache KIE™ Business Automation Bundle](https://marketplace.visualstudio.com/items?itemName=kie-group.vscode-extension-kie-ba-bundle)
+- [Apache KIE™ PMML Editor](https://marketplace.visualstudio.com/items?itemName=kie-group.pmml-vscode-extension)
+- [Apache KIE™ Extended Services](https://marketplace.visualstudio.com/items?itemName=kie-group.extended-services-vscode-extension)
+- [Apache KIE™ YARD Editor](https://marketplace.visualstudio.com/items?itemName=kie-group.yard-vscode-extension)
 
 ### Chrome Extensions
 

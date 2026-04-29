@@ -1,10 +1,10 @@
 ---
 id: optaplanner
-title: Optaplanner
+title: OptaPlanner
 sidebar_position: 0
 ---
 
-# Solve planning and scheduling problems with OptaPlanner
+# OptaPlanner
 
 A fast, easy-to-use, open source AI constraint solver for software developers
 

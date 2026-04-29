@@ -32,7 +32,7 @@ jBPM is open source software, released under the Apache License 2.0. It is writt
 
 ## Cloud-native?
 
-Looking for a pure cloud-native process automation solution, specifically targeted towards creating intelligent business applications in the cloud? Take a look at [Kogito](/docs/components/kogito), based on jBPM.
+Looking for a pure cloud-native process automation solution, specifically targeted towards creating intelligent business applications in the cloud? Take a look at [Kogito](/components/kogito), based on jBPM.
 
 
 ## What does jBPM do?
@@ -58,7 +58,7 @@ jBPM supports adaptive and dynamic processes that require flexibility to model c
 jBPM is also not just an isolated process engine. Complex business logic can be modeled as a combination of business processes with business rules and complex event processing. jBPM can be combined with the Drools project to support one unified environment that integrates these paradigms where you model your business logic as a combination of processes, rules and events.
 
 ## Documentation
-Please refer to [Documentation](https://kie.apache.org/docs/documentation/) for the latest features.
+Please refer to [Documentation](/documentation) for the latest features.
 
 ## Slides
 These slides are viewable in your browser:

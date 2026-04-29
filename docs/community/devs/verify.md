@@ -1,12 +1,8 @@
 ---
 id: verify
-title: How to verify
+title: How to verify a release candidate
 sidebar_position: 3
 ---
-
-> **Note:** This page is currently being updated for the 10.1.0 release verification procedure.
-
-# Verify the release artifacts
 
 Following is the basic check items for the release artifacts.
 
@@ -153,4 +149,4 @@ Unzip `apache-kie-${release_version}-${rc_version}-sources.zip` and check the fo
         - Listed in `LICENSE`
         - Not a source code (e.g. test data, config file)
         - Generated code
-- You are able to [build from source](build).
+- You are able to [build from source](/community/build).

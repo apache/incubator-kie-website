@@ -13,7 +13,7 @@ then document the problem in our [Issue Tracker](https://github.com/apache/incub
 Please refrain
 from immediately opening a ticket in the issue tracker unless you are certain it's a problem in the KIE software.
 
-If you are in doubt, we appreciate asking the [mailing list](/docs/community/#mailing-list) or [Zulip](https://kie.zulipchat.com) chat first.
+If you are in doubt, we appreciate asking the [mailing list](/community/#mailing-list) or [Zulip](https://kie.zulipchat.com) chat first.
 
 Please read the section below (How to get help), and follow the bullets advised there first:
 
@@ -72,4 +72,4 @@ We can help you much quicker if you try the following
 ## Commercial Support
 
 This is an open source project, so the amount of time we have available to help resolve your issue is often limited as all help is provided on a volunteer basis.
-If you want to get priority help, need to get up to speed quickly, require some training or mentoring, or need full 24 x 7 production support, you could contact one of the following companies with [Commercial KIE Offerings](/docs/community/commercial-support).
+If you want to get priority help, need to get up to speed quickly, require some training or mentoring, or need full 24 x 7 production support, you could contact one of the following companies with [Commercial KIE offerings](/community/commercial-support).
