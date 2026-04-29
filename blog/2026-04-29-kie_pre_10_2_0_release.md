@@ -101,6 +101,6 @@ This is the best place to ask for help, share feedback, or discuss how you are u
 
 ## Download
 
-Apache KIE (Incubating) 10.2.0 is available now. Visit the [official download page](/downloads/download_10_2_0) for the artifacts and to explore what's new.
+Apache KIE (Incubating) 10.2.0 is available now. Visit the [official download page](/start/download) for the artifacts and to explore what's new.
 
 We welcome your feedback and contributions. Thank you for being part of this growing community and supporting our journey toward a more modern, Apache-compliant future.
