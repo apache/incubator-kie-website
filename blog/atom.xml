@@ -2,11 +2,110 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://kie.apache.org/blog</id>
     <title>Apache KIE (incubating) Blog</title>
-    <updated>2025-07-10T00:00:00.000Z</updated>
+    <updated>2026-04-29T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://kie.apache.org/blog"/>
     <subtitle>Apache KIE (incubating) Blog</subtitle>
     <icon>https://kie.apache.org/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Apache KIE (Incubating) 10.2.0 Release Announcement]]></title>
+        <id>https://kie.apache.org/blog/kie_10_2_0_release</id>
+        <link href="https://kie.apache.org/blog/kie_10_2_0_release"/>
+        <updated>2026-04-29T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[We are excited to announce the release of Apache KIE (Incubating) 10.2.0, marking another significant milestone in the project's evolution under the Apache Software Foundation. This release represents a major step forward in modernization and Apache compliance, with substantial improvements to tooling and platform dependencies.]]></summary>
+        <content type="html"><![CDATA[<p>We are excited to announce the release of <strong>Apache KIE (Incubating) 10.2.0</strong>, marking another significant milestone in the project's evolution under the Apache Software Foundation. This release represents a major step forward in modernization and Apache compliance, with substantial improvements to tooling and platform dependencies.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="a-major-leap-in-modernization">A Major Leap in Modernization<a href="https://kie.apache.org/blog/kie_10_2_0_release#a-major-leap-in-modernization" class="hash-link" aria-label="Direct link to A Major Leap in Modernization" title="Direct link to A Major Leap in Modernization">​</a></h2>
+<p>The 10.2.0 release focuses on critical infrastructure improvements and a transformative update to our editing capabilities. This release removes legacy dependencies and introduces modern tooling that aligns with Apache guidelines and contemporary development practices.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="important-tooling-changes">Important Tooling Changes<a href="https://kie.apache.org/blog/kie_10_2_0_release#important-tooling-changes" class="hash-link" aria-label="Direct link to Important Tooling Changes" title="Direct link to Important Tooling Changes">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new-bpmn-editor">New BPMN Editor<a href="https://kie.apache.org/blog/kie_10_2_0_release#new-bpmn-editor" class="hash-link" aria-label="Direct link to New BPMN Editor" title="Direct link to New BPMN Editor">​</a></h4>
+<p>The most significant change in this release is the introduction of the <strong>new BPMN Editor</strong>. This modern editor replaces the legacy GWT-based tooling and represents a fundamental shift in our approach to process modeling.</p>
+<p>Key benefits of the new BPMN Editor:</p>
+<ul>
+<li>Modern, responsive user interface</li>
+<li>Improved performance and user experience</li>
+<li>Better integration with contemporary web technologies</li>
+<li>Enhanced maintainability and extensibility</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="removal-of-classic-editors">Removal of Classic Editors<a href="https://kie.apache.org/blog/kie_10_2_0_release#removal-of-classic-editors" class="hash-link" aria-label="Direct link to Removal of Classic Editors" title="Direct link to Removal of Classic Editors">​</a></h4>
+<p>As part of our commitment to modernization and Apache compliance, we have <strong>removed the classic BPMN and DMN editors</strong>. These GWT-based editors have been deprecated in previous releases, and their removal in 10.2.0 brings us one step closer to graduating.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="platform-upgrades">Platform Upgrades<a href="https://kie.apache.org/blog/kie_10_2_0_release#platform-upgrades" class="hash-link" aria-label="Direct link to Platform Upgrades" title="Direct link to Platform Upgrades">​</a></h3>
+<ul>
+<li>Quarkus upgraded to version <code>3.27.2</code> (from 3.15.3.1)</li>
+<li>Spring Boot upgraded to version <code>3.5.10</code> (from 3.4.3)</li>
+<li>Java 21 support</li>
+</ul>
+<p>These updates ensure KIE technologies remain current with the latest Java ecosystem advancements, providing improved performance, security, and feature sets.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="drools">Drools<a href="https://kie.apache.org/blog/kie_10_2_0_release#drools" class="hash-link" aria-label="Direct link to Drools" title="Direct link to Drools">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="rule-engine-enhancements">Rule Engine Enhancements<a href="https://kie.apache.org/blog/kie_10_2_0_release#rule-engine-enhancements" class="hash-link" aria-label="Direct link to Rule Engine Enhancements" title="Direct link to Rule Engine Enhancements">​</a></h4>
+<ul>
+<li>Fixed critical issues with activation groups and agenda groups</li>
+<li>Improved executable model generation with deterministic argument ordering</li>
+<li>Enhanced memory management to prevent leaks in dormant matches</li>
+<li>Better handling of custom operators in executable model</li>
+<li>Resolved issues with rule firing after session restoration</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="build-and-tooling">Build and Tooling<a href="https://kie.apache.org/blog/kie_10_2_0_release#build-and-tooling" class="hash-link" aria-label="Direct link to Build and Tooling" title="Direct link to Build and Tooling">​</a></h4>
+<ul>
+<li>Improved Maven and Gradle build discovery</li>
+<li>Enhanced kJar code generation with better error reporting</li>
+<li>Support for Java versions 19+ in DRL compilation</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="dmn-16-support">DMN 1.6 Support<a href="https://kie.apache.org/blog/kie_10_2_0_release#dmn-16-support" class="hash-link" aria-label="Direct link to DMN 1.6 Support" title="Direct link to DMN 1.6 Support">​</a></h4>
+<p>Both the editor and engine now support the latest <strong>DMN 1.6</strong> specification.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="jbpm-and-kogito">jBPM and Kogito<a href="https://kie.apache.org/blog/kie_10_2_0_release#jbpm-and-kogito" class="hash-link" aria-label="Direct link to jBPM and Kogito" title="Direct link to jBPM and Kogito">​</a></h3>
+<ul>
+<li>Test Scenario engine modernized to use JUnit 5</li>
+<li>Gradle 9.2 support for Kogito projects</li>
+<li>Process Instance Migration (PIM) externalized to independent addon with improved functionality</li>
+<li>User Tasks major performance improvements with reduced database queries, new indexes, and WS-Human Task Lifecycle support</li>
+<li>Data Index new Spring Boot persistence addons (JPA and common), improved GraphQL queries, and custom UI support</li>
+<li>Job Service enhanced reliability with better error handling, configurable retry scheduling, and custom collocated service support</li>
+<li>Security improvements including OAuth2 token exchange, JWT token parsing, and secured task management API</li>
+<li>OpenTelemetry support for process instance aware logging and distributed tracing</li>
+<li>Cloud Events improved event handling with proper headers propagation and Knative eventing support</li>
+<li>Spring Boot enhanced compatibility with new addons and improved transaction handling</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="sonataflow-operator-enhancements">SonataFlow Operator Enhancements<a href="https://kie.apache.org/blog/kie_10_2_0_release#sonataflow-operator-enhancements" class="hash-link" aria-label="Direct link to SonataFlow Operator Enhancements" title="Direct link to SonataFlow Operator Enhancements">​</a></h3>
+<ul>
+<li>Incorporates native Horizontal Pod Autoscaler (HPA) support for SonataFlow workflows and Data Index service deployments</li>
+<li>Incorporates native Pod Disruption Budget (PDB) support for SonataFlow workflows and Data Index service deployments</li>
+<li>Incorporates the ability to configure leader lease parameters for improved operator reliability</li>
+<li>Enhanced database configuration options for Data Index and Job Service PostgreSQL deployments</li>
+<li>Improved catalog image management and platform configuration for air-gapped installations</li>
+<li>Support for configurable Quarkus registry and offline dependency caching</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="tooling-updates">Tooling Updates<a href="https://kie.apache.org/blog/kie_10_2_0_release#tooling-updates" class="hash-link" aria-label="Direct link to Tooling Updates" title="Direct link to Tooling Updates">​</a></h3>
+<ul>
+<li>PatternFly v5 major UI framework upgrade across all editors and consoles</li>
+<li>KIE Sandbox GitLab support, improved authentication, and enhanced DMN Runner with lenient/strict mode selection</li>
+<li>Management Console read-only mode support, improved OpenTelemetry integration, and enhanced user experience</li>
+<li>Build Tools Gradle plugin improvements, enhanced Maven plugin, and better build discovery</li>
+<li>Various bug fixes and UX improvements across all tooling components</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="optaplanner">OptaPlanner<a href="https://kie.apache.org/blog/kie_10_2_0_release#optaplanner" class="hash-link" aria-label="Direct link to OptaPlanner" title="Direct link to OptaPlanner">​</a></h3>
+<ul>
+<li>Removed experimental optaplanner-operator to streamline the codebase</li>
+<li>Documentation migrated to unified kie-docs repository</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="acknowledgments">Acknowledgments<a href="https://kie.apache.org/blog/kie_10_2_0_release#acknowledgments" class="hash-link" aria-label="Direct link to Acknowledgments" title="Direct link to Acknowledgments">​</a></h2>
+<p>We would like to extend a special thank you to <strong>Alex Procelli</strong> for his exceptional work in helping to deliver this release. His dedication and effort were instrumental in bringing 10.2.0 to completion in an accelerated timeframe.</p>
+<p>We also want to recognize <strong>Tiago Bento</strong> for his contribution of the new and improved BPMN Editor. This work represents a major advancement in our tooling capabilities and will benefit the entire Apache KIE community for years to come.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="join-the-conversation">Join the Conversation<a href="https://kie.apache.org/blog/kie_10_2_0_release#join-the-conversation" class="hash-link" aria-label="Direct link to Join the Conversation" title="Direct link to Join the Conversation">​</a></h2>
+<p>Have questions or want to connect with the community? We encourage all users to join the official user mailing list:</p>
+<p><strong><a href="https://lists.apache.org/list.html?users@kie.apache.org" target="_blank" rel="noopener noreferrer">users@kie.apache.org</a></strong><br>
+<!-- -->This is the best place to ask for help, share feedback, or discuss how you are using Apache KIE in your projects.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="download">Download<a href="https://kie.apache.org/blog/kie_10_2_0_release#download" class="hash-link" aria-label="Direct link to Download" title="Direct link to Download">​</a></h2>
+<p>Apache KIE (Incubating) 10.2.0 is available now. Visit the <a href="https://kie.apache.org/start/download">official download page</a> for the artifacts and to explore what's new.</p>
+<p>We welcome your feedback and contributions. Thank you for being part of this growing community and supporting our journey toward a more modern, Apache-compliant future.</p>]]></content>
+        <author>
+            <name>Kennedy Bowers</name>
+            <uri>https://github.com/kbowers-ibm</uri>
+        </author>
+        <category label="apache" term="apache"/>
+        <category label="10" term="10"/>
+        <category label="kie" term="kie"/>
+        <category label="release" term="release"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Apache KIE (Incubating) 10.1.0 Release Announcement]]></title>
         <id>https://kie.apache.org/blog/kie_10_1_0_release</id>
