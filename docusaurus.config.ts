@@ -17,6 +17,16 @@ const config: Config = {
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
 
+  headTags: [
+    {
+      tagName: 'meta',
+      attributes: {
+        'http-equiv': 'Content-Security-Policy',
+        content: "default-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://gravatar.com https://*.gravatar.com",
+      },
+    },
+  ],
+
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
@@ -264,3 +274,4 @@ const config: Config = {
 };
 
 export default config;
+

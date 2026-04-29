@@ -1,10 +1,8 @@
 porcelli:
   name: Alex Porcelli
   url: https://github.com/porcelli
-  image_url: https://porcelli.me/images/minibio.jpg
+  image_url: https://gravatar.com/avatar/5977ff855ac2885f4849f6f0bc5b1c50c75f549aed7ff5974fb910086880d024?v=1777462343000&size=256&d=initials
 bowers:
   name: Kennedy Bowers
   url: https://github.com/kbowers-ibm
   image_url: https://gravatar.com/avatar/7a41bbf53cce5c57e8b9da7c01ebfadf7b3fc1a4b6b93c7382e9d01b7bb14308?v=1777462343000&size=256&d=initials
-  
-
