@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Workflow Scaling and Disruption Protection :: SonataFlow Guides</title>
+    <meta name="generator" content="Antora 3.1.4">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="../../../../_/css/search.css">
+<link rel="stylesheet" href="../../../../_/css/menu.css">
+<link rel="stylesheet" href="../../../../_/css/tabs.css">
+<link rel="stylesheet" href="../../../../_/css/navbar.css">
+<link rel="stylesheet" href="../../../../_/css/custom.css">
+<link rel="stylesheet" href="../../../../_/css/home.css"><script>var uiRootPath = '../../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <div class="navbar-item">
+                <a href="../../../..">
+                    <img src="../../../../_/img/sonata-flow-color-justlogo-circle-white.png" height="50px" alt="SonataFlow logo"/>
+                </a>
+                <a class="navbar-item" href="../../../..">
+                    SonataFlow Guides
+                </a>
+            </div>
+                <div class="navbar-item search hide-for-print">
+                    <div id="search-field" class="field">
+                        <input id="search-input" type="text" placeholder="Search docs">
+                    </div>
+                </div>
+            <button class="navbar-burger" data-target="topbar-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <a class="navbar-item small-item" href="https://github.com/apache"
+                       target="_blank" title="Follow KIE on GitHub">
+                        <div class="github-icon"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="serverlessworkflow" data-version="main">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">SonataFlow Guides</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../release_notes.html">Release notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Setup</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../getting-started/learning-environment.html">Learning environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../getting-started/preparing-environment.html">Environment setup</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../getting-started/production-environment.html">Production environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Getting Started</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../getting-started/getting-familiar-with-our-tooling.html">Getting familiar with SonataFlow tooling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../getting-started/workflow-identifier-and-version.html">Workflow identifiers and versioning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../getting-started/introduction-sonataflow-development-guide.html">Introduction to SonataFlow development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../getting-started/java-embedded-workflows.html">Workflow embedded execution in Java</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Core Concepts</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/cncf-serverless-workflow-specification-support.html">Serverless Workflow Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/handling-events-on-workflows.html">Events</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/working-with-callbacks.html">Callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/understanding-jq-expressions.html">jq Expressions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/understanding-workflow-error-handling.html">Error handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/configuration-properties.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/defining-an-input-schema-for-workflows.html">Input Schema</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/custom-functions-support.html">Custom Functions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/timeouts-support.html">Timeouts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../core/working-with-parallelism.html">Parallelism</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Tooling</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tooling/serverless-workflow-editor/swf-editor-overview.html">Editor</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tooling/serverless-workflow-editor/swf-editor-vscode-extension.html">VS Code extension</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tooling/serverless-workflow-editor/swf-editor-chrome-extension.html">Chrome extension for GitHub</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../tooling/serverless-logic-web-tools/serverless-logic-web-tools-overview.html">Serverless Logic Web Tools</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../tooling/serverless-logic-web-tools/serverless-logic-web-tools-github-integration.html">Integration with GitHub</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../tooling/serverless-logic-web-tools/serverless-logic-web-tools-openshift-integration.html">Integration with OpenShift</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../tooling/serverless-logic-web-tools/serverless-logic-web-tools-redhat-application-services-integration.html">Integration with Service Registries</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../tooling/serverless-logic-web-tools/serverless-logic-web-tools-deploy-projects.html">Deployment</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../index.html">Cloud</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../custom-ingress-authz.html">Securing Workflows</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-sonataflow-management-console-on-kubernetes.html">Deploying Management Console on Kubernetes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Operator</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="install-serverless-operator.html">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="global-configuration.html">Admin Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="deployment-profile.html">Deployment Profiles</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="workflow-identifier-and-version.html">Workflow identifiers and versioning</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="developing-workflows.html">Development Profile</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="building-custom-images.html">Building Custom Dev Images</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="build-and-deploy-workflows.html">Preview Profile</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="gitops-profile.html">GitOps Profile</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="configuring-workflows.html">Workflow Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="config-maven-quarkus.html">Maven and Quarkus Registry</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="referencing-resource-files.html">Referencing Workflow Resources</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="customize-podspec.html">Custom Workflow PodSpec</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="add-custom-ca-to-a-workflow-pod.html">Add Custom CA to Workflow Pod</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="workflow-status-conditions.html">Custom Resource Status</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="supporting-services.html">Supporting Services Deployment</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="service-discovery.html">Service Discovery</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="using-persistence.html">Workflow Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="configuring-workflow-eventing-system.html">Workflow Eventing System</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="configuring-workflow-scaling-and-disruption.html">Workflow Scaling and Disruption Protection</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Monitoring</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="monitoring-workflows.html">Workflow Monitoring</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="sonataflow-metrics.html">Prometheus Metrics for Workflows</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="known-issues.html">Roadmap and Known Issues</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Service Orchestration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../service-orchestration/orchestration-of-openapi-based-services.html">OpenAPI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../service-orchestration/configuring-openapi-services-endpoints.html">Advanced Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../service-orchestration/working-with-openapi-callbacks.html">Callbacks</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../service-orchestration/troubleshooting.html">Troubleshooting</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Event Orchestration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../eventing/orchestration-of-asyncapi-based-services.html">AsyncAPI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../eventing/event-correlation-with-workflows.html">Event Correlation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Security</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Client Authentication</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../security/authention-support-for-openapi-services.html">OpenAPI Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../security/orchestrating-third-party-services-with-oauth2.html">OpenAPI OAuth2</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../security/token-exchange-for-openapi-services.html">Token Exchange</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Executing, Testing and Troubleshooting</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../testing-and-troubleshooting/kn-plugin-workflow-overview.html">KN CLI Workflow plugin</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-overview.html">Developer UI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-workflow-instances-page.html">Workflow Instances</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-workflow-definition-page.html">Workflow Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-monitoring-page.html">Monitoring</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-custom-dashboard-page.html">Dashboards</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persistence/core-concepts.html">Core concepts</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Integrations</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integrations/core-concepts.html">Introduction</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Job Service</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../job-services/core-concepts.html">Core Concepts</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Data Index</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data-index/data-index-core-concepts.html">Core concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data-index/data-index-service.html">Standalone service</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Use Cases</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/index.html">SonataFlow applications development using Quarkus and Java</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Getting started</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/getting-started/create-your-first-workflow-service.html">Creating a Quarkus Workflow service</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/getting-started/create-your-first-workflow-project.html">Creating a Quarkus Workflow project</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/getting-started/build-workflow-image-with-quarkus-cli.html">Building workflow images using Quarkus CLI</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/getting-started/working-with-serverless-workflow-quarkus-examples.html">Working with SonataFlow example applications</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/getting-started/test-serverless-workflow-quarkus-examples.html">Testing images of SonataFlow example applications using Quarkus CLI</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Deployment</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/deployments/deploying-on-minikube.html">Deploying on Minikube</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/deployments/deploying-on-kubernetes.html">Deploying on Kubernetes</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/deployments/deploying-on-openshift.html">Deploying on OpenShift</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/persistence/persistence-core-concepts.html">Core Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/persistence/persistence-with-postgresql.html">Running a Quarkus Workflow Application using PostgreSQL</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/persistence/postgresql-advanced-concepts.html">Postgresql Advanced Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/persistence/postgresql-flyway-migration.html">PostgreSQL Database Migration</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/persistence/integration-tests-with-postgresql.html">SonataFlow integration test using PostgreSQL</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Job Service</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/job-service/quarkus-extensions.html">Job Service Quarkus Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Data Index</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/data-index/data-index-as-quarkus-dev-service.html">Data Index as a Quarkus Development service</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/data-index/data-index-usecase-singleton.html">Deploying Data Index and SonataFlow application on Minikube</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/data-index/data-index-usecase-multi.html">Deploying Data Index and multiple SonataFlow applications on Minikube</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/data-index/data-index-quarkus-extension.html">Data Index Quarkus extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Service Orchestration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/service-orchestration/configuring-openapi-services-endpoints-with-quarkus.html">Configuring the OpenAPI services endpoints in different environments</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/service-orchestration/orchestration-of-grpc-services.html">Orchestrating gRPC based Services</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Service Discovery</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/service-discovery/kubernetes-service-discovery.html">Service Discovery</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Event Orchestration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/event-orchestration/consume-produce-events-with-knative-eventing.html">Consuming and producing events on Knative Eventing in Quarkus</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/event-orchestration/consume-producing-events-with-kafka.html">Consuming and producing events using Apache Kafka in Quarkus</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/event-orchestration/orchestration-based-saga-pattern.html">Saga orchestration example in SonataFlow</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/event-orchestration/newsletter-subscription-example.html">Newsletter subscription example in SonataFlow</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Timeouts</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/timeouts/timeout-showcase-example.html">Timeouts Showcase in SonataFlow</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Callbacks</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/callbacks/callback-state-example.html">Example of SonataFlow application using callback state with Quarkus</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Integrations of external services</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/integrations/camel-routes-integration.html">Integrating with Camel routes</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/integrations/custom-functions-knative.html">Invoking Knative services from SonataFlow</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/integrations/custom-functions-python.html">Invoking Python from SonataFlow</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/integrations/expose-metrics-to-prometheus.html">Exposing Workflow base metrics to Prometheus</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/integrations/serverless-dashboard-with-runtime-data.html">Displaying Workflow Data in Dashboards</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Testing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/testing/basic-integration-tests-with-restassured.html">Testing your Quarkus Workflow Application using REST Assured</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/testing/mocking-http-cloudevents-with-wiremock.html">Mocking HTTP CloudEvents sink using WireMock</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../use-cases/advanced-developer-use-cases/testing/mocking-openapi-services-with-wiremock.html">Mocking OpenAPI services using WireMock</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">SonataFlow Guides</span>
+    <span class="version">snapshot</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../../latest/index.html">SonataFlow Guides</a>
+      <ul class="versions">
+        <li class="version is-current">
+          <a href="../../index.html">snapshot</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../../../latest/index.html">10.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../1.45.0-SNAPSHOT/index.html">1.45-RC</a>
+        </li>
+        <li class="version">
+          <a href="../../../1.44.0-SNAPSHOT/index.html">1.44-RC</a>
+        </li>
+        <li class="version">
+          <a href="../../../1.43.0.Final/index.html">1.43</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../latest/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">SonataFlow Guides</a></li>
+    <li><a href="../index.html">Cloud</a></li>
+    <li>Operator</li>
+    <li><a href="configuring-workflow-scaling-and-disruption.html">Workflow Scaling and Disruption Protection</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">snapshot</button>
+  <div class="version-menu">
+    <a class="version is-current" href="configuring-workflow-scaling-and-disruption.html">snapshot</a>
+    <a class="version is-missing" href="../../../latest/index.html">10.0.0</a>
+    <a class="version is-missing" href="../../../1.45.0-SNAPSHOT/index.html">1.45-RC</a>
+    <a class="version is-missing" href="../../../1.44.0-SNAPSHOT/index.html">1.44-RC</a>
+    <a class="version is-missing" href="../../../1.43.0.Final/index.html">1.43</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/apache/incubator-kie-kogito-docs/edit/main/serverlessworkflow/modules/ROOT/pages/cloud/operator/configuring-workflow-scaling-and-disruption.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Workflow Scaling and Disruption Protection</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This document describes the different alternatives for scaling a workflow and how to configure horizontal pod autoscaling and pod disruption budgets.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="workflow-scaling"><a class="anchor" href="#workflow-scaling"></a>Scaling a Workflow</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>SonataFlow</code> CRD exposes the Kubernetes <code>scale</code> subresource, which enables users and controllers (such as Horizontal Pod Autoscalers) to scale workflows using the standard Kubernetes API.</p>
+</div>
+<div class="paragraph">
+<p>Below you can see different options for scaling an <code>example-workflow</code> workflow:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example workflow</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: sonataflow.org/v1alpha08
+kind: SonataFlow
+metadata:
+  name: example-workflow
+  namespace: example-workflow-namespace
+  annotations:
+    sonataflow.org/description: Example Workflow
+    sonataflow.org/version: 0.0.1
+    sonataflow.org/profile: preview
+spec:
+  flow:
+    # Only a fragment of the workflow is shown for simplicity
+    start: ExampleStartState</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Workflows deployed with the <code>dev</code> profile are intended for development purposes and are not designed to be scaled.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_querying_the_workflow_scale_subresource"><a class="anchor" href="#_querying_the_workflow_scale_subresource"></a>Querying the workflow scale subresource</h3>
+<div class="paragraph">
+<p>To query the workflow <code>scale</code> subresource you can use the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">kubectl get --subresource=scale example-workflow -n example-workflow-namespace -o yaml</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You must get an output similar to the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-terminal hljs" data-lang="terminal">apiVersion: autoscaling/v1
+kind: Scale
+metadata:
+  creationTimestamp: "2026-02-12T12:48:46Z"
+  name: example-workflow
+  namespace: example-workflow-namespace
+  resourceVersion: "38397"
+  uid: de53b549-dcb5-4b46-bb4e-9a576341e099
+spec:
+  replicas: 1 <i class="conum" data-value="1"></i><b>(1)</b>
+status:
+  replicas: 1 <i class="conum" data-value="2"></i><b>(2)</b>
+  selector: app=example-workflow,app.kubernetes.io/component=serverless-workflow,app.kubernetes.io/instance=example-workflow,app.kubernetes.io/managed-by=sonataflow-operator,app.kubernetes.io/name=example-workflow,app.kubernetes.io/version=main,sonataflow.org/workflow-app=example-workflow,sonataflow.org/workflow-namespace=example-workflow-namespace <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Number of configured replicas.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Number of currently available replicas.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Selector to query the observed Pods.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_scaling_the_workflow"><a class="anchor" href="#_scaling_the_workflow"></a>Scaling the workflow</h3>
+<div class="paragraph">
+<p>To scale the workflow you can use any of the following alternatives:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example of workflow scaling using the kubectl scale command</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl scale workflow example-workflow -n example-workflow-namespace --replicas=3</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You must get an output similar to the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-terminal hljs" data-lang="terminal">sonataflow.sonataflow.org/example-workflow scaled</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Example of workflow scaling by configuring the <code>SonataFlow</code> CR</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: sonataflow.org/v1alpha08
+kind: SonataFlow
+metadata:
+  name: example-workflow
+  namespace: example-workflow-namespace
+  annotations:
+    sonataflow.org/description: Example Workflow
+    sonataflow.org/version: 0.0.1
+    sonataflow.org/profile: preview
+spec:
+  podTemplate:
+    replicas: 3 <i class="conum" data-value="1"></i><b>(1)</b>
+  flow:
+    # Only a fragment of the workflow is shown for simplicity
+    start: ExampleStartState</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Use the field <code>spec.podTemplate.replicas</code> to configure the number of replicas.</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -f example-workflow.yaml -n example-workflow-namespace</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You must get an output similar to the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-terminal hljs" data-lang="terminal">sonataflow.sonataflow.org/example-workflow configured</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Example of workflow scaling by patching the field <code>spec.podTemplate.replicas</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl patch workflow example-workflow -n example-workflow-namespace \
+  --type merge \
+  -p '{
+    "spec": {
+      "podTemplate": {
+        "replicas": 3
+      }
+    }
+  }'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You must get an output similar to the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-terminal hljs" data-lang="terminal">sonataflow.sonataflow.org/example-workflow patched</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="workflow-horizontal-pod-autoscaling"><a class="anchor" href="#workflow-horizontal-pod-autoscaling"></a>Horizontal Pod Autoscaling configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By using a <code>HorizontalPodAutoscaler</code> (HPA), you can configure how a Kubernetes workload resource scales based on a set of metrics (for example, CPU or memory usage).</p>
+</div>
+<div class="paragraph">
+<p>Workload resources that support autoscaling expose the <code>scale</code> subresource, which allows Kubernetes to adjust the number of replicas dynamically.</p>
+</div>
+<div class="paragraph">
+<p>When you configure a HPA for a workflow, the SonataFlow Operator automatically manages the coordination between the workflow <code>scale</code> subresource and the associated Kubernetes <code>Deployment</code>. Making the workflow pods scaling accordingly.</p>
+</div>
+<div class="paragraph">
+<p>Before configuring a HPA for a workflow, ensure that the resources to be used as scaling metrics are properly defined in the <code>SonataFlow</code> CR.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows how to configure such resources:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example of resources configuration in the <code>SonataFlow</code> CR</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: sonataflow.org/v1alpha08
+kind: SonataFlow
+metadata:
+  name: example-workflow
+  namespace: example-workflow-namespace
+  annotations:
+    sonataflow.org/description: Example Workflow
+    sonataflow.org/version: 0.0.1
+    sonataflow.org/profile: preview
+spec:
+  podTemplate:
+    container: <i class="conum" data-value="1"></i><b>(1)</b>
+      resources:
+        requests:
+          cpu: 100m <i class="conum" data-value="2"></i><b>(2)</b>
+          memory: 256Mi <i class="conum" data-value="3"></i><b>(3)</b>
+        limits:
+          cpu: 500m
+          memory: 512Mi
+
+  flow:
+    # Only a fragment of the workflow is shown for simplicity
+    start: ExampleStartState</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The field <code>spec.podTemplate.container</code> supports most of the standard <code>PodSpec</code> configurations. For more information <a href="customize-podspec.html" class="xref page">see</a>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Example of <code>cpu</code> request resource configuration.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Example of <code>memory</code> request resource configuration.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>HorizontalPodAutoscalers</code> use the requests resources for the metrics calculations. The resource limits in the example are only illustrative and are not used for scaling.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following example shows how to configure a <code>HorizontalPodAutoscaler</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example of <code>HorizontalPodAutoscaler</code> configuration</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: example-autoscaler
+spec:
+  scaleTargetRef: <i class="conum" data-value="1"></i><b>(1)</b>
+    apiVersion: sonataflow.org/v1alpha08
+    kind: SonataFlow
+    name: example-workflow
+  minReplicas: 2
+  maxReplicas: 5
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu <i class="conum" data-value="2"></i><b>(2)</b>
+        target:
+          type: Utilization
+          averageUtilization: 70</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Refer the target workflow by configuring the <code>apiVersion</code>, <code>kind</code> and <code>name</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Example of a metric based on the cpu resource utilization.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Workflows deployed with <code>spec.podTemplate.deploymentModel: knative</code> cannot be scaled using a HorizontalPodAutoscaler, because Knative Serving automatically manages the number of replicas.
+Additionally, workflows deployed using the <code>dev</code> profile are not designed to scale.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>For more information on configuring <code>HorizonalPodAutoscalers</code> you can refer to the Kubernetes documentation</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="workflow-pod-disruption-budget-configuration"><a class="anchor" href="#workflow-pod-disruption-budget-configuration"></a>Pod Disruption Budget configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By using a <code>PodDisruptionBudget</code> (PDB), you can configure the required availability of a workflow during a voluntary disruption, such as a node drain, in the cluster.</p>
+</div>
+<div class="paragraph">
+<p>A PDB limits the number of pods that can be unavailable simultaneously during such disruptions, ensuring that the workflow maintains the desired level of availability.</p>
+</div>
+<div class="paragraph">
+<p>In general, any tool that needs to guarantee availability should respect the PDB by using the Kubernetes Eviction API instead of directly deleting pods or deployments. The Eviction API ensures that disruption constraints defined by the PDB are honored.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see the Kubernetes documentation on PodDisruptionBudgets.</p>
+</div>
+<div class="paragraph">
+<p>The SonataFlow Operator can automatically generate a <code>PodDisruptionBudget</code> for a workflow based on the <code>SonataFlow</code> CR configuration.</p>
+</div>
+<div class="paragraph">
+<p>To configure a PDB for a workflow, you must use the field <code>spec.podTemplate.podDisruptionBudget</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">Available fields for the PDB configuration for a workflow</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">spec:
+  podTemplate:
+    podDisruptionBudget:
+      minAvailable: <i class="conum" data-value="1"></i><b>(1)</b>
+      maxUnavailable: <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Configures the number of pods that must still be available after the eviction. This value can be either an absolute number or a percentage, for example <code>2</code> or <code>50%</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Configures the number of pods that can be unavailable after the eviction. This value can be either an absolute number or a percentage, for example <code>1</code> or <code>50%</code>.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>minAvailable</code> and <code>maxUnavailable</code> fields are mutually exclusive. You must configure only one of these fields.
+If both fields are specified, the <code>minAvailable</code> value takes precedence.</p>
+</div>
+<div class="paragraph">
+<p>The semantics of these fields are aligned with the corresponding fields in the Kubernetes PodDisruptionBudget. For more information you can refer to the Kubernetes documentation.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>PodDisruptionBudget generation rules</strong></p>
+</div>
+<div class="paragraph">
+<p>To generate the PDB, the SonataFlow Operator applies the following rules in order:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The PDB is generated only if the workflow has the field <code>spec.podTemplate.podDisruptionBudget</code> properly configured.</p>
+</li>
+<li>
+<p>The PDB is generated only if the workflow has <code>spec.podTemplate.replicas</code> configured with a value greater than 1.</p>
+</li>
+<li>
+<p>If the workflow has a configured HorizontalPodAutoscaler (HPA), the HPA <code>spec.minReplicas</code> value takes precedence over the <code>workflow spec.podTemplate.replicas</code>.</p>
+</li>
+<li>
+<p>When an HPA is configured, the PDB is generated only if the HPA <code>spec.minReplicas</code> value is greater than 1.</p>
+</li>
+<li>
+<p>If the workflow is scaled to zero (that is, <code>spec.podTemplate.replicas = 0</code>), no PDB is generated.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If any of the above conditions change after a PDB has been generated, for example, if the workflow is rescaled to 1, the previously generated PDB is automatically deleted.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Workflows deployed with <code>spec.podTemplate.deploymentModel: knative</code> cannot be scaled using a HorizontalPodAutoscaler, because Knative Serving automatically manages the number of replicas. And thus, a PDB cannot reliably enforce minimum availability.
+Additionally, workflows deployed using the <code>dev</code> profile are not designed to scale.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following example shows how to configure a <code>PodDisruptionBudget</code> for a workflow:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example of PDB configuration for a workflow</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: sonataflow.org/v1alpha08
+kind: SonataFlow
+metadata:
+  name: example-workflow
+  namespace: example-workflow-namespace
+  annotations:
+    sonataflow.org/description: Example Workflow
+    sonataflow.org/version: 0.0.1
+    sonataflow.org/profile: preview
+spec:
+  podTemplate:
+    replicas: 2 <i class="conum" data-value="1"></i><b>(1)</b>
+    podDisruptionBudget:
+      minAvailable: 1 <i class="conum" data-value="2"></i><b>(2)</b>
+  flow:
+    # Only a fragment of the workflow is shown for simplicity
+    start: ExampleStartState</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The workflow runs with <code>2</code> replicas.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The generated PDB ensures that <code>1</code> pod must remain available during a disruption.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Given this configuration, the SonataFlow Operator generates the following PDB for the workflow (some fields are omitted for simplicity):</p>
+</div>
+<div class="listingblock">
+<div class="title">Example of the generated PDB for a workflow</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">kind: PodDisruptionBudget
+apiVersion: policy/v1
+metadata:
+  name: example-workflow <i class="conum" data-value="1"></i><b>(1)</b>
+  namespace: example-workflow-namespace <i class="conum" data-value="2"></i><b>(2)</b>
+  ownerReferences: <i class="conum" data-value="3"></i><b>(3)</b>
+    - apiVersion: sonataflow.org/v1alpha08
+      kind: SonataFlow
+      name: example-workflow
+      uid: 5b7f96d4-1ddf-45f7-af38-555d93339cca
+      controller: true
+      blockOwnerDeletion: true
+spec:
+  minAvailable: 1 <i class="conum" data-value="4"></i><b>(4)</b>
+  selector: <i class="conum" data-value="5"></i><b>(5)</b>
+    matchLabels:
+      app: example-workflow
+      app.kubernetes.io/component: serverless-workflow
+      app.kubernetes.io/instance: example-workflow
+      app.kubernetes.io/managed-by: sonataflow-operator
+      app.kubernetes.io/name: example-workflow
+      sonataflow.org/workflow-app: example-workflow
+      sonataflow.org/workflow-namespace: example-workflow-namespace</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The generated PDB has the same name as the workflow.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The generated PDB is created in the same namespace as the workflow.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>The <code>example-workflow</code> is configured as PDB&#8217;s owner.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>The PDB <code>minAvailable</code> available replicas are configured with the value of the field <code>spec.podTemplate.podDisruptionBudget.minAvailable</code> in the <code>example-workflow</code> CR.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>The PDB selector is configured to target the <code>example-workflow</code> Pods.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_additional_resources"><a class="anchor" href="#_additional_resources"></a>Additional resources</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="using-persistence.html" class="xref page">Workflow Persistence</a></p>
+</li>
+<li>
+<p><a href="supporting-services.html" class="xref page">Deploying Supporting Services</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_found_an_issue"><a class="anchor" href="#_found_an_issue"></a><em><strong>Found an issue?</strong></em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you find an issue or any misleading information, please feel free to report it <a href="https://github.com/apache/incubator-kie-kogito-docs/issues/new">here</a>.
+We really appreciate it!</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../../_/js/site.js"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/tabsBehavior.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="100" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+  </body>
+</html>

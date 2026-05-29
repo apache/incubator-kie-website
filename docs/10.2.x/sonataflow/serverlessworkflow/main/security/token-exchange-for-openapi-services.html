@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Token Exchange for OpenAPI services in SonataFlow :: SonataFlow Guides</title>
+    <meta name="description" content="OAuth 2.0 Token Exchange for OpenAPI service invocations">
+    <meta name="keywords" content="kogito, workflow, serverless, OAuth2, OIDC, token exchange">
+    <meta name="generator" content="Antora 3.1.4">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="icon" href="../../../_/img/favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="../../../_/css/search.css">
+<link rel="stylesheet" href="../../../_/css/menu.css">
+<link rel="stylesheet" href="../../../_/css/tabs.css">
+<link rel="stylesheet" href="../../../_/css/navbar.css">
+<link rel="stylesheet" href="../../../_/css/custom.css">
+<link rel="stylesheet" href="../../../_/css/home.css"><script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <div class="navbar-item">
+                <a href="../../..">
+                    <img src="../../../_/img/sonata-flow-color-justlogo-circle-white.png" height="50px" alt="SonataFlow logo"/>
+                </a>
+                <a class="navbar-item" href="../../..">
+                    SonataFlow Guides
+                </a>
+            </div>
+                <div class="navbar-item search hide-for-print">
+                    <div id="search-field" class="field">
+                        <input id="search-input" type="text" placeholder="Search docs">
+                    </div>
+                </div>
+            <button class="navbar-burger" data-target="topbar-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <a class="navbar-item small-item" href="https://github.com/apache"
+                       target="_blank" title="Follow KIE on GitHub">
+                        <div class="github-icon"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="serverlessworkflow" data-version="main">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">SonataFlow Guides</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release_notes.html">Release notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Setup</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/learning-environment.html">Learning environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/preparing-environment.html">Environment setup</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/production-environment.html">Production environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Getting Started</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/getting-familiar-with-our-tooling.html">Getting familiar with SonataFlow tooling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/workflow-identifier-and-version.html">Workflow identifiers and versioning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/introduction-sonataflow-development-guide.html">Introduction to SonataFlow development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/java-embedded-workflows.html">Workflow embedded execution in Java</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Core Concepts</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/cncf-serverless-workflow-specification-support.html">Serverless Workflow Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/handling-events-on-workflows.html">Events</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/working-with-callbacks.html">Callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/understanding-jq-expressions.html">jq Expressions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/understanding-workflow-error-handling.html">Error handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/configuration-properties.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/defining-an-input-schema-for-workflows.html">Input Schema</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/custom-functions-support.html">Custom Functions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/timeouts-support.html">Timeouts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/working-with-parallelism.html">Parallelism</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Tooling</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../tooling/serverless-workflow-editor/swf-editor-overview.html">Editor</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../tooling/serverless-workflow-editor/swf-editor-vscode-extension.html">VS Code extension</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../tooling/serverless-workflow-editor/swf-editor-chrome-extension.html">Chrome extension for GitHub</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../tooling/serverless-logic-web-tools/serverless-logic-web-tools-overview.html">Serverless Logic Web Tools</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tooling/serverless-logic-web-tools/serverless-logic-web-tools-github-integration.html">Integration with GitHub</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tooling/serverless-logic-web-tools/serverless-logic-web-tools-openshift-integration.html">Integration with OpenShift</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tooling/serverless-logic-web-tools/serverless-logic-web-tools-redhat-application-services-integration.html">Integration with Service Registries</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tooling/serverless-logic-web-tools/serverless-logic-web-tools-deploy-projects.html">Deployment</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../cloud/index.html">Cloud</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cloud/custom-ingress-authz.html">Securing Workflows</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cloud/deploying-sonataflow-management-console-on-kubernetes.html">Deploying Management Console on Kubernetes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Operator</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../cloud/operator/install-serverless-operator.html">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../cloud/operator/global-configuration.html">Admin Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../cloud/operator/deployment-profile.html">Deployment Profiles</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../cloud/operator/workflow-identifier-and-version.html">Workflow identifiers and versioning</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../cloud/operator/developing-workflows.html">Development Profile</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="../cloud/operator/building-custom-images.html">Building Custom Dev Images</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../cloud/operator/build-and-deploy-workflows.html">Preview Profile</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../cloud/operator/gitops-profile.html">GitOps Profile</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../cloud/operator/configuring-workflows.html">Workflow Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../cloud/operator/config-maven-quarkus.html">Maven and Quarkus Registry</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../cloud/operator/referencing-resource-files.html">Referencing Workflow Resources</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../cloud/operator/customize-podspec.html">Custom Workflow PodSpec</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../cloud/operator/add-custom-ca-to-a-workflow-pod.html">Add Custom CA to Workflow Pod</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../cloud/operator/workflow-status-conditions.html">Custom Resource Status</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../cloud/operator/supporting-services.html">Supporting Services Deployment</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../cloud/operator/service-discovery.html">Service Discovery</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../cloud/operator/using-persistence.html">Workflow Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../cloud/operator/configuring-workflow-eventing-system.html">Workflow Eventing System</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../cloud/operator/configuring-workflow-scaling-and-disruption.html">Workflow Scaling and Disruption Protection</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Monitoring</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../cloud/operator/monitoring-workflows.html">Workflow Monitoring</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../cloud/operator/sonataflow-metrics.html">Prometheus Metrics for Workflows</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../cloud/operator/known-issues.html">Roadmap and Known Issues</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Service Orchestration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../service-orchestration/orchestration-of-openapi-based-services.html">OpenAPI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../service-orchestration/configuring-openapi-services-endpoints.html">Advanced Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../service-orchestration/working-with-openapi-callbacks.html">Callbacks</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../service-orchestration/troubleshooting.html">Troubleshooting</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Event Orchestration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../eventing/orchestration-of-asyncapi-based-services.html">AsyncAPI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../eventing/event-correlation-with-workflows.html">Event Correlation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Security</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Client Authentication</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="authention-support-for-openapi-services.html">OpenAPI Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="orchestrating-third-party-services-with-oauth2.html">OpenAPI OAuth2</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="token-exchange-for-openapi-services.html">Token Exchange</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Executing, Testing and Troubleshooting</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing-and-troubleshooting/kn-plugin-workflow-overview.html">KN CLI Workflow plugin</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-overview.html">Developer UI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-workflow-instances-page.html">Workflow Instances</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-workflow-definition-page.html">Workflow Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-monitoring-page.html">Monitoring</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../testing-and-troubleshooting/quarkus-dev-ui-extension/quarkus-dev-ui-custom-dashboard-page.html">Dashboards</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence/core-concepts.html">Core concepts</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Integrations</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../integrations/core-concepts.html">Introduction</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Job Service</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../job-services/core-concepts.html">Core Concepts</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Data Index</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../data-index/data-index-core-concepts.html">Core concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../data-index/data-index-service.html">Standalone service</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Use Cases</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/index.html">SonataFlow applications development using Quarkus and Java</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Getting started</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/getting-started/create-your-first-workflow-service.html">Creating a Quarkus Workflow service</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/getting-started/create-your-first-workflow-project.html">Creating a Quarkus Workflow project</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/getting-started/build-workflow-image-with-quarkus-cli.html">Building workflow images using Quarkus CLI</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/getting-started/working-with-serverless-workflow-quarkus-examples.html">Working with SonataFlow example applications</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/getting-started/test-serverless-workflow-quarkus-examples.html">Testing images of SonataFlow example applications using Quarkus CLI</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Deployment</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/deployments/deploying-on-minikube.html">Deploying on Minikube</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/deployments/deploying-on-kubernetes.html">Deploying on Kubernetes</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/deployments/deploying-on-openshift.html">Deploying on OpenShift</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/persistence/persistence-core-concepts.html">Core Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/persistence/persistence-with-postgresql.html">Running a Quarkus Workflow Application using PostgreSQL</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/persistence/postgresql-advanced-concepts.html">Postgresql Advanced Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/persistence/postgresql-flyway-migration.html">PostgreSQL Database Migration</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/persistence/integration-tests-with-postgresql.html">SonataFlow integration test using PostgreSQL</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Job Service</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/job-service/quarkus-extensions.html">Job Service Quarkus Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Data Index</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/data-index/data-index-as-quarkus-dev-service.html">Data Index as a Quarkus Development service</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/data-index/data-index-usecase-singleton.html">Deploying Data Index and SonataFlow application on Minikube</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/data-index/data-index-usecase-multi.html">Deploying Data Index and multiple SonataFlow applications on Minikube</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/data-index/data-index-quarkus-extension.html">Data Index Quarkus extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Service Orchestration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/service-orchestration/configuring-openapi-services-endpoints-with-quarkus.html">Configuring the OpenAPI services endpoints in different environments</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/service-orchestration/orchestration-of-grpc-services.html">Orchestrating gRPC based Services</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Service Discovery</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/service-discovery/kubernetes-service-discovery.html">Service Discovery</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Event Orchestration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/event-orchestration/consume-produce-events-with-knative-eventing.html">Consuming and producing events on Knative Eventing in Quarkus</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/event-orchestration/consume-producing-events-with-kafka.html">Consuming and producing events using Apache Kafka in Quarkus</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/event-orchestration/orchestration-based-saga-pattern.html">Saga orchestration example in SonataFlow</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/event-orchestration/newsletter-subscription-example.html">Newsletter subscription example in SonataFlow</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Timeouts</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/timeouts/timeout-showcase-example.html">Timeouts Showcase in SonataFlow</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Callbacks</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/callbacks/callback-state-example.html">Example of SonataFlow application using callback state with Quarkus</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Integrations of external services</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/integrations/camel-routes-integration.html">Integrating with Camel routes</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/integrations/custom-functions-knative.html">Invoking Knative services from SonataFlow</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/integrations/custom-functions-python.html">Invoking Python from SonataFlow</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/integrations/expose-metrics-to-prometheus.html">Exposing Workflow base metrics to Prometheus</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/integrations/serverless-dashboard-with-runtime-data.html">Displaying Workflow Data in Dashboards</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Testing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/testing/basic-integration-tests-with-restassured.html">Testing your Quarkus Workflow Application using REST Assured</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/testing/mocking-http-cloudevents-with-wiremock.html">Mocking HTTP CloudEvents sink using WireMock</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../use-cases/advanced-developer-use-cases/testing/mocking-openapi-services-with-wiremock.html">Mocking OpenAPI services using WireMock</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">SonataFlow Guides</span>
+    <span class="version">snapshot</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../latest/index.html">SonataFlow Guides</a>
+      <ul class="versions">
+        <li class="version is-current">
+          <a href="../index.html">snapshot</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../../latest/index.html">10.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../1.45.0-SNAPSHOT/index.html">1.45-RC</a>
+        </li>
+        <li class="version">
+          <a href="../../1.44.0-SNAPSHOT/index.html">1.44-RC</a>
+        </li>
+        <li class="version">
+          <a href="../../1.43.0.Final/index.html">1.43</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../latest/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">SonataFlow Guides</a></li>
+    <li>Security</li>
+    <li>Client Authentication</li>
+    <li><a href="token-exchange-for-openapi-services.html">Token Exchange</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">snapshot</button>
+  <div class="version-menu">
+    <a class="version is-current" href="token-exchange-for-openapi-services.html">snapshot</a>
+    <a class="version is-missing" href="../../latest/index.html">10.0.0</a>
+    <a class="version is-missing" href="../../1.45.0-SNAPSHOT/index.html">1.45-RC</a>
+    <a class="version is-missing" href="../../1.44.0-SNAPSHOT/index.html">1.44-RC</a>
+    <a class="version is-missing" href="../../1.43.0.Final/index.html">1.43</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/apache/incubator-kie-kogito-docs/edit/main/serverlessworkflow/modules/ROOT/pages/security/token-exchange-for-openapi-services.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Token Exchange for OpenAPI services in SonataFlow</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This guide shows how to configure OAuth 2.0 Token Exchange when invoking OpenAPI-secured services from workflows.</p>
+</div>
+<div class="paragraph">
+<p>For general OpenAPI orchestration and authentication, see:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../service-orchestration/orchestration-of-openapi-based-services.html" class="xref page">Orchestrating the OpenAPI services</a></p>
+</li>
+<li>
+<p><a href="../service-orchestration/configuring-openapi-services-endpoints.html" class="xref page">Configuring the OpenAPI services endpoints</a></p>
+</li>
+<li>
+<p><a href="authention-support-for-openapi-services.html" class="xref page">Authentication for OpenAPI services</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_when_to_use_token_exchange"><a class="anchor" href="#_when_to_use_token_exchange"></a>When to use Token Exchange</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Use Token Exchange if:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You must avoid forwarding the original end-user token to third-party services.</p>
+</li>
+<li>
+<p>You have long running workflow which may cause token invalidity (expiration).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If you only need to forward the original token, see token propagation in <a href="authention-support-for-openapi-services.html#ref-authorization-token-propagation" class="xref page">Authorization token propagation</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_token_exchange_works"><a class="anchor" href="#_how_token_exchange_works"></a>How Token Exchange works</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>At a high level, Token Exchange lets the workflow swap the incoming bearer token for a new token tailored to the downstream service.
+The Quarkus OIDC Client Filter performs the exchange transparently before the OpenAPI client call. See <a href="https://quarkus.io/guides/security-openid-connect-client">Quarkus OIDC Client Filter</a> for more details.</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<caption class="title">Table 1. Flow overview</caption>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Step</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Client calls the workflow REST endpoint and sends <code>Authorization: Bearer &lt;user-access-token&gt;</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The OpenAPI client (generated for a secured operation) is invoked by the workflow.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The credential provider checks the cache for a valid exchanged token for this process instance and auth name; if found and not near expiry, it is reused.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If no valid token is found, the OIDC Client Filter detects the <code>oauth2</code> security scheme and requests a Token Exchange at the IdP, using the incoming token as the subject token and the configured audience.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Identity Provider returns the exchanged access token (for example, audience <code>downstream-api</code>), which is cached with its expiry.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The OpenAPI client calls the downstream service with <code>Authorization: Bearer &lt;exchanged-token&gt;</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Downstream service responds; workflow proceeds and returns the result to the client.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Proactive refresh: a background monitor refreshes cached tokens nearing expiration based on <code>sonataflow.security.auth.&lt;auth_name&gt;.token-exchange.proactive-refresh-seconds</code> and <code>sonataflow.security.auth.token-exchange.monitor-rate-seconds</code>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<div class="title">Sequence diagram</div>
+<p><a href="images/security/token-exchange-sequence.svg" class="diagram"><span class="image"><img src="../_images/security/token-exchange-sequence.svg" alt="token exchange sequence" width="100%"></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_requirements"><a class="anchor" href="#_requirements"></a>Requirements</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Quarkus OIDC Client Filter extension in the workflow service:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+  &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+  &lt;artifactId&gt;quarkus-oidc-client-filter&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The OpenAPI operation is secured with an <code>oauth2</code> security scheme (the OIDC client name is derived from the scheme name).</p>
+</li>
+<li>
+<p>Quarkus add-on to enable token exchange and caching in your runtime:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+  &lt;artifactId&gt;kie-addons-quarkus-token-exchange&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Those extensions should be passed to the internal builder when building the workflow image, see <a href="../cloud/operator/build-and-deploy-workflows.html#passing-build-arguments-to-internal-workflow-builder" class="xref page">Passing arguments to the internal builder</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_example_openapi_security"><a class="anchor" href="#_example_openapi_security"></a>Example OpenAPI security</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">openapi: 3.0.3
+paths:
+  /secured:
+    get:
+      operationId: callService
+      responses:
+        "200":
+          description: OK
+      security:
+        - service-oauth: [ ]
+components:
+  securitySchemes:
+    service-oauth:
+      type: oauth2
+      flows:
+        clientCredentials:
+          authorizationUrl: https://idp.example.com/realms/acme/protocol/openid-connect/auth
+          tokenUrl: https://idp.example.com/realms/acme/protocol/openid-connect/token
+          scopes: {}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The security scheme name <code>service-oauth</code> determines the OIDC client name (sanitized to <code>service_oauth</code>) used by the client filter.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_caching_and_persistence_of_exchanged_tokens"><a class="anchor" href="#_caching_and_persistence_of_exchanged_tokens"></a>Caching and persistence of exchanged tokens</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Token Exchange feature introduces a caching mechanism with proactive refresh and optional database persistence.</p>
+</div>
+<div class="sect2">
+<h3 id="_what_is_loaded_by_default"><a class="anchor" href="#_what_is_loaded_by_default"></a>What is loaded by default</h3>
+<div class="paragraph">
+<p>Without extra configuration, the add-on provides:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In-memory cache using Caffeine with per-token expiration.</p>
+</li>
+<li>
+<p>Proactive refresh handled by a background monitor.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Enable the feature per auth scheme name and optionally tune refresh/monitor:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties"># Enable Token Exchange for a specific auth name (matches the OpenAPI oauth2 scheme name after sanitization)
+sonataflow.security.auth.service_oauth.token-exchange.enabled=true
+
+# Seconds before token expiration to proactively refresh the cached token (default ~300)
+sonataflow.security.auth.service_oauth.token-exchange.proactive-refresh-seconds=300
+
+# Global monitor rate (seconds) for the cache refresh/cleanup
+sonataflow.security.auth.token-exchange.monitor-rate-seconds=60
+
+# To ensure the incoming `Authorization` header is available when a workflow waits and later resumes (or after service restarts), enable header persistence:
+kogito.persistence.headers.enabled=true</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_persist_exchanged_tokens_override_default"><a class="anchor" href="#_persist_exchanged_tokens_override_default"></a>Persist exchanged tokens (override default)</h3>
+<div class="paragraph">
+<p>By default, the cache metadata is kept in-memory. To persist exchanged tokens, include the JDBC token persistence extension which provides a CDI <code>TokenCacheRepository</code> backed by a JDBC <code>DataSource</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+  &lt;artifactId&gt;kogito-quarkus-serverless-workflow-jdbc-token-persistence&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The extension should be passed to the internal builder when building the workflow image, see <a href="../cloud/operator/build-and-deploy-workflows.html#passing-build-arguments-to-internal-workflow-builder" class="xref page">Passing arguments to the internal builder</a></p>
+</div>
+<div class="paragraph">
+<p>You can also provide your own implementation by producing a CDI bean of type <code>org.kie.kogito.addons.quarkus.token.exchange.persistence.TokenCacheRepository</code>. When present, it overrides the default in-memory repository.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_caching_works"><a class="anchor" href="#_how_caching_works"></a>How caching works</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The OpenAPI credential provider computes a cache key per request (process instance, auth name, subject token, audience) and checks the cache.</p>
+</li>
+<li>
+<p>On miss, it exchanges the token via the configured OIDC client and stores the result alongside expiration/refresh metadata.</p>
+</li>
+<li>
+<p>An expiry policy evicts tokens at their individual expiration time; an eviction handler coordinates proactive refresh.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration"><a class="anchor" href="#_configuration"></a>Configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Configure the OIDC client and enable Token Exchange per OpenAPI security scheme. The client filter will obtain the incoming bearer token and exchange it for a new token before invoking the OpenAPI client generated for the secured operation.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties"># 1) Generated client package and base URL (example)
+#    Replace 'service_api_yaml' with your OpenAPI file id (sanitized filename)
+quarkus.rest-client.service_api_yaml.url=http://localhost:8480
+
+# 2) Enable Token Exchange for the OpenAPI oauth2 scheme defined as 'service-oauth'
+#    (sanitized auth name is 'service_oauth')
+# see Configuration reference for more possible properties
+sonataflow.security.auth.service_oauth.token-exchange.enabled=true
+
+# 3) OIDC client for the service-oauth scheme (normalized to service_oauth)
+# Should be updated with your own values
+quarkus.oidc-client.service_oauth.discovery-enabled=false
+quarkus.oidc-client.service_oauth.auth-server-url=https://idp.example.com/realms/acme/protocol/openid-connect/auth
+quarkus.oidc-client.service_oauth.token-path=https://idp.example.com/realms/acme/protocol/openid-connect/token
+quarkus.oidc-client.service_oauth.client-id=kogito-app
+quarkus.oidc-client.service_oauth.grant.type=exchange
+quarkus.oidc-client.service_oauth.credentials.client-secret.method=basic
+quarkus.oidc-client.service_oauth.credentials.client-secret.value=secret</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The incoming request to the workflow must include <code>Authorization: Bearer &lt;user-access-token&gt;</code> so the client filter can perform the exchange.</p>
+</li>
+<li>
+<p>If you also need token propagation (forward the incoming token), configure it per service and auth name. For the example above:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>quarkus.openapi-generator.service_api_yaml.auth.service_oauth.token-propagation=true</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>If both exchange and propagation are enables for the same scheme, token propagation takes precedence a no exchange will be performed.
+This behaviour is brought by the openapi-generator library with custom <code>CredentialsProvider</code> implementations.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_configuration_reference"><a class="anchor" href="#_configuration_reference"></a>Configuration reference</h3>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. Summary of configurable properties</caption>
+<colgroup>
+<col style="width: 35%;">
+<col style="width: 45%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property key</th>
+<th class="tableblock halign-left valign-top">Usage</th>
+<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sonataflow.security.auth.&lt;auth_name&gt;.token-exchange.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable OAuth2 token exchange for the oauth2 security scheme <code>&lt;auth_name&gt;</code> (sanitized from OpenAPI scheme name, for example <code>service_oauth</code>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sonataflow.security.auth.&lt;auth_name&gt;.token-exchange.proactive-refresh-seconds</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Seconds before token expiration to proactively refresh the cached exchanged token.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>300</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sonataflow.security.auth.token-exchange.monitor-rate-seconds</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Global schedule period (seconds) for cache refresh/cleanup across all auth names.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>60</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quarkus.oidc-client.&lt;auth_name&gt;.auth-server-url</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OIDC authorization server URL for the token endpoint (from your IdP).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">n/a</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Conditional</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quarkus.oidc-client.&lt;auth_name&gt;.token-path</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Token endpoint path or full URL.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">n/a</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Conditional</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quarkus.oidc-client.&lt;auth_name&gt;.discovery-enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use OIDC discovery. Set to <code>false</code> when configuring URLs explicitly.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quarkus.oidc-client.&lt;auth_name&gt;.client-id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OIDC client identifier used for exchange.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">n/a</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quarkus.oidc-client.&lt;auth_name&gt;.grant.type</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Must be set to <code>exchange</code> to enable OAuth2 Token Exchange.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">n/a</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quarkus.oidc-client.&lt;auth_name&gt;.credentials.client-secret.method</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Client secret authentication method used by the OIDC client.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>basic</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quarkus.oidc-client.&lt;auth_name&gt;.credentials.client-secret.value</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Client secret value used by the OIDC client.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">n/a</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Conditional</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quarkus.openapi-generator.&lt;service_id&gt;.auth.&lt;auth_name&gt;.token-propagation</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Propagate the incoming token to downstream calls for service <code>&lt;service_id&gt;</code> and auth <code>&lt;auth_name&gt;</code> (optional, separate from exchange).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quarkus.openapi-generator.&lt;service_id&gt;.auth.&lt;auth_name&gt;.header-name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Header to read the incoming token from when propagating.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Authorization</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kogito.persistence.headers.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Persist inbound HTTP headers with the workflow instance so the <code>Authorization</code> header is available across wait/resume and restarts (recommended when using token exchange/propagation).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quarkus.rest-client.&lt;service_id&gt;.url</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Base URL for generated REST client calls.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">n/a</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>"Conditional" means the property is required only in certain setups:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For <code>quarkus.oidc-client.&lt;auth_name&gt;.auth-server-url</code> and <code>quarkus.oidc-client.&lt;auth_name&gt;.token-path</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If <code>discovery-enabled=true</code>, the client discovers endpoints from the issuer, so <code>token-path</code> is not required.</p>
+</li>
+<li>
+<p>If <code>discovery-enabled=false</code>, you must provide <code>token-path</code> and an authorization server URL. Some environments allow <code>token-path</code> as an absolute URL, otherwise set both.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>For <code>quarkus.oidc-client.&lt;auth_name&gt;.credentials.client-secret.value</code>: required only when the client uses a secret-based authentication method (for example, <code>client-secret-basic</code> or <code>client-secret-post</code>). Not required for public clients or when using non-secret methods such as mTLS or <code>private_key_jwt</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>References:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Quarkus OIDC Client: <a href="https://quarkus.io/guides/security-openid-connect-client" class="bare">https://quarkus.io/guides/security-openid-connect-client</a></p>
+</li>
+<li>
+<p>OIDC Client Filter (REST Client): <a href="https://quarkus.io/guides/security-openid-connect-client#rest-client-oidc-client-filter" class="bare">https://quarkus.io/guides/security-openid-connect-client#rest-client-oidc-client-filter</a></p>
+</li>
+<li>
+<p>Quarkus OpenAPI Generator: <a href="https://docs.quarkiverse.io/quarkus-openapi-generator/dev/client.html" class="bare">https://docs.quarkiverse.io/quarkus-openapi-generator/dev/client.html</a></p>
+</li>
+<li>
+<p>Quarkus OIDC Client Filter: <a href="https://quarkus.io/guides/security-openid-connect-client" class="bare">https://quarkus.io/guides/security-openid-connect-client</a></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_workflow_invocation_example"><a class="anchor" href="#_workflow_invocation_example"></a>Workflow invocation example</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Send the user’s token to the workflow; the OpenAPI call secured by <code>service-oauth</code> will use the exchanged token automatically:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X POST \
+  http://localhost:8080/my_workflow \
+  -H "Authorization: Bearer $USER_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"input":"value"}'</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_interaction_with_openapi_configuration"><a class="anchor" href="#_interaction_with_openapi_configuration"></a>Interaction with OpenAPI configuration</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Security scheme names in the OpenAPI file are global. All operations secured by <code>service-oauth</code> will use the same OIDC client and Token Exchange configuration.</p>
+</li>
+<li>
+<p>You can still use the standard OpenAPI Generator properties for codegen and base URLs as usual.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_additional_resources"><a class="anchor" href="#_additional_resources"></a>Additional resources</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="authention-support-for-openapi-services.html" class="xref page">Authentication for OpenAPI services</a></p>
+</li>
+<li>
+<p><a href="../service-orchestration/orchestration-of-openapi-based-services.html" class="xref page">Orchestrating the OpenAPI services</a></p>
+</li>
+<li>
+<p><a href="https://www.keycloak.org/securing-apps/token-exchange">Keycloak Token Exchange</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/tabsBehavior.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>
