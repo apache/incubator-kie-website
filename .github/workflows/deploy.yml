@@ -131,9 +131,59 @@ jobs:
           name: ${{ matrix.version }}
           path: docs/${{ matrix.version }}
 
+  build-docs-10-2-x:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [10.2.x]
+    steps:
+      - name: Checkout SonataFlow repository
+        uses: actions/checkout@v4
+        with:
+          repository: apache/incubator-kie-kogito-docs
+          ref: ${{ matrix.version }}
+          path: sonataflow-docs
+
+      - name: Build SonataFlow documentation
+        run: |
+          cd sonataflow-docs
+          npm run install-build
+
+      - name: Checkout kie-docs repository for Drools, Kogito, and OptaPlanner
+        uses: actions/checkout@v4
+        with:
+          repository: apache/incubator-kie-docs
+          ref: ${{ matrix.version }}
+          path: kie-docs
+
+      - name: Build Drools, Kogito, and OptaPlanner documentation
+        run: |
+          cd kie-docs
+          mvn -B clean install -Dfull
+
+      - name: Collect built docs
+        run: |
+          mkdir -p docs/${{ matrix.version }}/sonataflow
+          cp -r sonataflow-docs/build/site/* docs/${{ matrix.version }}/sonataflow
+
+          mkdir -p docs/${{ matrix.version }}/drools
+          cp -r kie-docs/drools-docs/target/website/docs/* docs/${{ matrix.version }}/drools
+
+          mkdir -p docs/${{ matrix.version }}/kogito
+          cp -r kie-docs/kogito-docs/doc-content/apache-kie-kogito/target/generated-docs/html_single/* docs/${{ matrix.version }}/kogito
+
+          mkdir -p docs/${{ matrix.version }}/optaplanner
+          cp -r kie-docs/optaplanner-docs/target/generated-docs/html_single/* docs/${{ matrix.version }}/optaplanner
+
+      - name: Upload built docs artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.version }}
+          path: docs/${{ matrix.version }}
+
   deploy-website:
     runs-on: ubuntu-latest
-    needs: [build-docs-10-0-x, build-docs-10-1-x]
+    needs: [build-docs-10-0-x, build-docs-10-1-x, build-docs-10-2-x]
     steps:
       - name: Checkout Apache KIE Website repository
         uses: actions/checkout@v4
