@@ -83,9 +83,9 @@ While we're talking about modernization, it's worth highlighting that both the n
 
 Change is never easy, especially when it involves tools that teams have relied on for years. The deprecation of the classic editors didn't happen overnight; it was a carefully planned transition:
 
-- **10.0.0 (December 2024)**: Classic editors marked as deprecated, warnings added
-- **10.1.0 (July 2025)**: New Test Scenario Editor introduced
-- **10.2.0 (April 2026)**: Classic editors removed, new BPMN Editor becomes the standard
+- **10.0.0 (December 2024)**: New DMN Editor released. Classic editors marked as deprecated with warnings added
+- **10.1.0 (July 2025)**: New Test Scenario Editor released
+- **10.2.0 (April 2026)**: New BPMN Editor released. Classic editors removed
 
 This phased approach gave the community time to:
 - Test the new editors in non-production environments
@@ -96,7 +96,7 @@ This phased approach gave the community time to:
 
 I know what you're thinking: "This sounds great, but what about my existing models?" Good news - the migration path is straightforward:
 
-1. **File Format Compatibility**: The new editor reads your existing BPMN and DMN files without modification, if you encounter any problems please raise a bug at (https://github.com/apache/incubator-kie-issues/issues).
+1. **File Format Compatibility**: The new editors read your existing BPMN, DMN and SCESIM files without modification. if you encounter any problems please raise a bug at (https://github.com/apache/incubator-kie-issues/issues).
 2. **Comprehensive Documentation**: Step-by-step guides for common scenarios https://github.com/apache/incubator-kie-tools/blob/main/packages/bpmn-editor/docs/MIGRATION_GUIDE.md
 3. **Community Support**: Active mailing lists and forums for questions
 
