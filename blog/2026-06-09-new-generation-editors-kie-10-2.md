@@ -32,7 +32,7 @@ As we committed to Apache KIE's graduation from incubation, it became clear: we 
 
 ## The New Generation: Built for the Modern Web
 
-The new BPMN Editor in Apache KIE 10.2.0 isn't just a facelift; it's a complete reimagining of what a process modeling tool should be in 2026. Built from the ground up using modern web technologies, this editor represents the culmination of extensive research, community feedback, and engineering excellence.
+The new BPMN Editor in Apache KIE 10.2.0 is a complete rewrite built from the ground up using modern web technologies. This editor incorporates extensive research, community feedback, and lessons learned from years of development.
 
 ![New BPMN Editor](/img/blogs/new-bpmn-canvas.png)
 *The new BPMN Editor - showcasing the modern, clean interface with improved UX*
@@ -47,7 +47,7 @@ The new editors leverage contemporary web technologies that ensure longevity and
 - **PatternFly v5** for consistent, accessible UI components
 - **Modern build tooling** for faster development cycles
 
-This isn't just about using trendy frameworks - it's about building on stable, well-supported technologies with thriving ecosystems and long-term viability.
+These technologies were chosen for their stability, strong community support, and long-term viability.
 
 #### 2. **Performance That Scales**
 
@@ -96,19 +96,25 @@ This phased approach gave the community time to:
 
 I know what you're thinking: "This sounds great, but what about my existing models?" Good news - the migration path is straightforward:
 
-1. **File Format Compatibility**: The new editors read your existing BPMN, DMN and SCESIM files without modification. if you encounter any problems please raise a bug at (https://github.com/apache/incubator-kie-issues/issues).
+1. **File Format Compatibility**: The new editors read your existing BPMN, DMN and SCESIM files without modification. If you encounter any problems please raise a bug at https://github.com/apache/incubator-kie-issues/issues.
 2. **Comprehensive Documentation**: Step-by-step guides for common scenarios https://github.com/apache/incubator-kie-tools/blob/main/packages/bpmn-editor/docs/MIGRATION_GUIDE.md
 3. **Community Support**: Active mailing lists and forums for questions
 
-## Technical Deep Dive: For the Curious
+**Important**: Once you migrate to the new editors, we recommend committing to them fully. Switching back and forth between classic and new editors can lead to inconsistencies and unexpected behavior. Plan your migration carefully and make the transition in one go.
 
-For those who want to understand the technical details:
+## Technology Stack
 
-### Architecture Highlights
+The new editors are built with modern, well-supported technologies:
 
-- **Component-based design** using React functional components and hooks
-- **State management** with Zustand and Immer for predictable state updates
-- **Canvas rendering** using SVG for crisp visuals at any zoom level
+- **React** with TypeScript for component-based architecture
+- **Zustand** and **Immer** for state management
+- **PatternFly v5** for accessible UI components
+- **SVG rendering** for crisp visuals at any zoom level
+
+For developers interested in embedding these editors in their own applications, standalone packages are available on NPM:
+- [@kie-tools/bpmn-editor-standalone](https://www.npmjs.com/package/@kie-tools/bpmn-editor-standalone)
+- [@kie-tools/dmn-editor-standalone](https://www.npmjs.com/package/@kie-tools/dmn-editor-standalone)
+- [@kie-tools/scesim-editor-standalone](https://www.npmjs.com/package/@kie-tools/scesim-editor-standalone)
 
 ## Getting Started Today
 
@@ -116,20 +122,23 @@ Ready to experience the new generation of editors? Here's how to get started:
 
 1. **Download Apache KIE 10.2.0** from the [official download page](/start/download)
 2. **Review the migration guide** in the documentation
-3. **Try the KIE Sandbox** for a quick online demo
+3. **Try the [KIE Sandbox](https://sandbox.kie.org)** for a quick online demo
 4. **Join the community** on the [users mailing list](https://lists.apache.org/list.html?users@kie.apache.org)
 
-## A Personal Note
+## What's Next?
 
-As someone who's been in the business process management and decision automation technology space for over a decade, I can confidently say this is one of the most significant improvements I've seen in the space. The new editors don't just match the old functionality; they exceed it in every meaningful way while setting the foundation for many innovations to come.
+While the new editors represent a major step forward, we're continuing to improve and expand their capabilities. Here are some areas we're actively working on:
 
-The removal of the classic editors might feel like the end of an era, but it's really the beginning of something much better. We're not just keeping up with modern web development - we're leading the way in what enterprise modeling tools should be.
+### Known Issues and Ongoing Work
+- **Code Sharing**: We're working to consolidate common code between the DMN and BPMN editors to improve maintainability and consistency. This includes refactoring the DMN Editor to use `@kie-tools/xyflow-react-kie-diagram`.
+- **DRL Support**: Adding support for DRL-based SceSim files in the new SceSim Editor.
+- **Documentation**: Publishing BPMN, DMN, and SceSim Editor Storybooks on public GitHub pages for better developer documentation.
+
+We welcome your feedback and bug reports at https://github.com/apache/incubator-kie-issues/issues to help us prioritize and improve these editors.
 
 ## Conclusion
 
-The new generation of editors in Apache KIE 10.2.0 represents more than just a technology upgrade; it's a commitment to the future. A future where our tools are as modern and capable as the solutions we build with them. A future where performance, accessibility, and user experience aren't afterthoughts but core principles.
-
-Welcome to the new era of Apache KIE. The future of business process management and decision automation has never looked brighter.
+The new generation of editors in Apache KIE 10.2.0 represents a significant modernization of our tooling. By moving to contemporary web technologies, we've improved performance, accessibility, and maintainability while maintaining compatibility with existing models. This foundation enables us to continue evolving and improving the editing experience for years to come.
 
 ## Join the Conversation
 
