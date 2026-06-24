@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkie_site=self.webpackChunkkie_site||[]).push([[2770],{3581:s=>{s.exports=JSON.parse('{"label":"scesim","permalink":"/blog/tags/scesim","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

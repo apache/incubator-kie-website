@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkie_site=self.webpackChunkkie_site||[]).push([[137],{2804:e=>{e.exports=JSON.parse('{"permalink":"/blog/tags/tooling","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

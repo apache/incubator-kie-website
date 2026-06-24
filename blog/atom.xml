@@ -2,11 +2,147 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://kie.apache.org/blog</id>
     <title>Apache KIE (incubating) Blog</title>
-    <updated>2026-04-29T00:00:00.000Z</updated>
+    <updated>2026-06-09T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://kie.apache.org/blog"/>
     <subtitle>Apache KIE (incubating) Blog</subtitle>
     <icon>https://kie.apache.org/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[The Dawn of a New Era: Next-Generation Editors in Apache KIE 10.2]]></title>
+        <id>https://kie.apache.org/blog/new-generation-editors-kie-10-2</id>
+        <link href="https://kie.apache.org/blog/new-generation-editors-kie-10-2"/>
+        <updated>2026-06-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Apache KIE has been undergoing a significant transformation with the introduction of next-generation editors for BPMN, DMN, and Test Scenario (SceSim) modeling. Built from the ground up with modern web technologies, these new editors deliver substantial improvements in performance, user experience, and long-term maintainability. With the latest release, the new BPMN Editor completes this modernization journey, setting the foundation for future innovations across the entire tooling ecosystem.]]></summary>
+        <content type="html"><![CDATA[<p>Apache KIE has been undergoing a significant transformation with the introduction of next-generation editors for BPMN, DMN, and Test Scenario (SceSim) modeling. Built from the ground up with modern web technologies, these new editors deliver substantial improvements in performance, user experience, and long-term maintainability. With the latest release, the new BPMN Editor completes this modernization journey, setting the foundation for future innovations across the entire tooling ecosystem.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-end-of-an-era-saying-goodbye-to-gwt">The End of an Era: Saying Goodbye to GWT<a href="https://kie.apache.org/blog/new-generation-editors-kie-10-2#the-end-of-an-era-saying-goodbye-to-gwt" class="hash-link" aria-label="Direct link to The End of an Era: Saying Goodbye to GWT" title="Direct link to The End of an Era: Saying Goodbye to GWT">​</a></h2>
+<p>Let's be honest: the classic BPMN and DMN editors served us well for many years. Built on Google Web Toolkit (GWT), they were powerful tools that enabled thousands of developers and business analysts to model complex processes and decisions. But technology moves forward, and what was cutting-edge a decade ago can become a maintenance burden today.</p>
+<p><img loading="lazy" alt="Classic GWT-based BPMN Editor" src="https://kie.apache.org/assets/images/old-bpmn-canvas-6496f5d45307f720a4fc6e12c4a65bc3.png" width="1290" height="936" class="img_ev3q">
+<em>The classic GWT-based BPMN Editor - showing the old interface with its characteristic styling and layout</em></p>
+<p>The GWT-based editors had their strengths:</p>
+<ul>
+<li>Robust functionality that powered enterprise applications</li>
+<li>Familiar interface for long-time users</li>
+<li>Comprehensive feature sets built over years of development</li>
+</ul>
+<p>However, they also came with significant challenges:</p>
+<ul>
+<li><strong>Performance bottlenecks</strong> with large, complex models</li>
+<li><strong>Limited responsiveness</strong> on modern devices and screen sizes</li>
+<li><strong>Maintenance complexity</strong> as GWT itself moved toward end-of-life</li>
+<li><strong>Integration friction</strong> with contemporary web technologies and frameworks</li>
+<li><strong>Accessibility concerns</strong> that didn't meet modern standards</li>
+</ul>
+<p>As we committed to Apache KIE's graduation from incubation, it became clear: we needed to modernize our tooling to align with Apache guidelines and contemporary development practices.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-new-generation-built-for-the-modern-web">The New Generation: Built for the Modern Web<a href="https://kie.apache.org/blog/new-generation-editors-kie-10-2#the-new-generation-built-for-the-modern-web" class="hash-link" aria-label="Direct link to The New Generation: Built for the Modern Web" title="Direct link to The New Generation: Built for the Modern Web">​</a></h2>
+<p>The new BPMN Editor in Apache KIE 10.2.0 is a complete rewrite built from the ground up using modern web technologies. This editor incorporates extensive research, community feedback, and lessons learned from years of development.</p>
+<p><img loading="lazy" alt="New BPMN Editor" src="https://kie.apache.org/assets/images/new-bpmn-canvas-bb9c37598008140fe3354efe927b75fe.png" width="1290" height="936" class="img_ev3q">
+<em>The new BPMN Editor - showcasing the modern, clean interface with improved UX</em></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="what-makes-the-new-editors-stand-out">What Makes the New Editors Stand Out?<a href="https://kie.apache.org/blog/new-generation-editors-kie-10-2#what-makes-the-new-editors-stand-out" class="hash-link" aria-label="Direct link to What Makes the New Editors Stand Out?" title="Direct link to What Makes the New Editors Stand Out?">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="1-modern-technology-stack">1. <strong>Modern Technology Stack</strong><a href="https://kie.apache.org/blog/new-generation-editors-kie-10-2#1-modern-technology-stack" class="hash-link" aria-label="Direct link to 1-modern-technology-stack" title="Direct link to 1-modern-technology-stack">​</a></h4>
+<p>The new editors leverage contemporary web technologies that ensure longevity and maintainability:</p>
+<ul>
+<li><strong>React-based architecture</strong> for component reusability and performance</li>
+<li><strong>TypeScript</strong> for type safety and better developer experience</li>
+<li><strong>PatternFly v5</strong> for consistent, accessible UI components</li>
+<li><strong>Modern build tooling</strong> for faster development cycles</li>
+</ul>
+<p>These technologies were chosen for their stability, strong community support, and long-term viability.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="2-performance-that-scales">2. <strong>Performance That Scales</strong><a href="https://kie.apache.org/blog/new-generation-editors-kie-10-2#2-performance-that-scales" class="hash-link" aria-label="Direct link to 2-performance-that-scales" title="Direct link to 2-performance-that-scales">​</a></h4>
+<p>One of the most dramatic improvements is performance. The new editor handles large, complex process models with ease:</p>
+<ul>
+<li><strong>Instant loading</strong> even for models with hundreds of nodes</li>
+<li><strong>Smooth panning and zooming</strong> without lag or stuttering</li>
+<li><strong>Real-time validation</strong> that doesn't slow down your workflow</li>
+<li><strong>Optimized rendering</strong> that uses modern browser capabilities</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="3-enhanced-user-experience">3. <strong>Enhanced User Experience</strong><a href="https://kie.apache.org/blog/new-generation-editors-kie-10-2#3-enhanced-user-experience" class="hash-link" aria-label="Direct link to 3-enhanced-user-experience" title="Direct link to 3-enhanced-user-experience">​</a></h4>
+<p>Every interaction has been thoughtfully designed:</p>
+<ul>
+<li><strong>Intuitive drag-and-drop</strong> with smart snapping and alignment</li>
+<li><strong>Context-aware property panels</strong> that show exactly what you need</li>
+<li><strong>Visual feedback</strong> that guides you through complex operations</li>
+</ul>
+<div style="display:flex;gap:20px;align-items:flex-start"><div style="flex:1"><img src="https://kie.apache.org/img/blogs/old-bpmn-properties.png" alt="Old BPMN Properties Panel"><p style="text-align:center;font-style:italic">Classic properties panel</p></div><div style="flex:1"><img src="https://kie.apache.org/img/blogs/new-bpmn-properties.png" alt="New BPMN Properties Panel"><p style="text-align:center;font-style:italic">New properties panel with improved organization</p></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="dmn-16-support-staying-current-with-standards">DMN 1.6 Support: Staying Current with Standards<a href="https://kie.apache.org/blog/new-generation-editors-kie-10-2#dmn-16-support-staying-current-with-standards" class="hash-link" aria-label="Direct link to DMN 1.6 Support: Staying Current with Standards" title="Direct link to DMN 1.6 Support: Staying Current with Standards">​</a></h3>
+<p>While we're talking about modernization, it's worth highlighting that both the new editor and the Drools engine now support <strong>DMN 1.6</strong>, the latest specification from the Object Management Group (OMG). This ensures you're working with current standards and can leverage the newest decision modeling capabilities.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-deprecation-journey-a-necessary-step-forward">The Deprecation Journey: A Necessary Step Forward<a href="https://kie.apache.org/blog/new-generation-editors-kie-10-2#the-deprecation-journey-a-necessary-step-forward" class="hash-link" aria-label="Direct link to The Deprecation Journey: A Necessary Step Forward" title="Direct link to The Deprecation Journey: A Necessary Step Forward">​</a></h2>
+<p>Change is never easy, especially when it involves tools that teams have relied on for years. The deprecation of the classic editors didn't happen overnight; it was a carefully planned transition:</p>
+<ul>
+<li><strong>10.0.0 (December 2024)</strong>: New DMN Editor released. Classic editors marked as deprecated with warnings added</li>
+<li><strong>10.1.0 (July 2025)</strong>: New Test Scenario Editor released</li>
+<li><strong>10.2.0 (April 2026)</strong>: New BPMN Editor released. Classic editors removed</li>
+</ul>
+<p>This phased approach gave the community time to:</p>
+<ul>
+<li>Test the new editors in non-production environments</li>
+<li>Provide feedback that shaped the final implementation</li>
+<li>Plan migration strategies for existing projects</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="migration-easier-than-you-think">Migration: Easier Than You Think<a href="https://kie.apache.org/blog/new-generation-editors-kie-10-2#migration-easier-than-you-think" class="hash-link" aria-label="Direct link to Migration: Easier Than You Think" title="Direct link to Migration: Easier Than You Think">​</a></h2>
+<p>I know what you're thinking: "This sounds great, but what about my existing models?" Good news - the migration path is straightforward:</p>
+<ol>
+<li><strong>File Format Compatibility</strong>: The new editors read your existing BPMN, DMN and SCESIM files without modification. If you encounter any problems please raise a bug at <a href="https://github.com/apache/incubator-kie-issues/issues" target="_blank" rel="noopener noreferrer">https://github.com/apache/incubator-kie-issues/issues</a>.</li>
+<li><strong>Comprehensive Documentation</strong>: Step-by-step guides for common scenarios <a href="https://github.com/apache/incubator-kie-tools/blob/main/packages/bpmn-editor/docs/MIGRATION_GUIDE.md" target="_blank" rel="noopener noreferrer">https://github.com/apache/incubator-kie-tools/blob/main/packages/bpmn-editor/docs/MIGRATION_GUIDE.md</a></li>
+<li><strong>Community Support</strong>: Active mailing lists and forums for questions</li>
+</ol>
+<p><strong>Important</strong>: Once you migrate to the new editors, we recommend committing to them fully. Switching back and forth between classic and new editors can lead to inconsistencies and unexpected behavior. Plan your migration carefully and make the transition in one go.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="technology-stack">Technology Stack<a href="https://kie.apache.org/blog/new-generation-editors-kie-10-2#technology-stack" class="hash-link" aria-label="Direct link to Technology Stack" title="Direct link to Technology Stack">​</a></h2>
+<p>The new editors are built with modern, well-supported technologies:</p>
+<ul>
+<li><strong>React</strong> with TypeScript for component-based architecture</li>
+<li><strong>Zustand</strong> and <strong>Immer</strong> for state management</li>
+<li><strong>PatternFly v5</strong> for accessible UI components</li>
+<li><strong>SVG rendering</strong> for crisp visuals at any zoom level</li>
+</ul>
+<p>For developers interested in embedding these editors in their own applications, standalone packages are available on NPM:</p>
+<ul>
+<li><a href="https://www.npmjs.com/package/@kie-tools/bpmn-editor-standalone" target="_blank" rel="noopener noreferrer">@kie-tools/bpmn-editor-standalone</a></li>
+<li><a href="https://www.npmjs.com/package/@kie-tools/dmn-editor-standalone" target="_blank" rel="noopener noreferrer">@kie-tools/dmn-editor-standalone</a></li>
+<li><a href="https://www.npmjs.com/package/@kie-tools/scesim-editor-standalone" target="_blank" rel="noopener noreferrer">@kie-tools/scesim-editor-standalone</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="getting-started-today">Getting Started Today<a href="https://kie.apache.org/blog/new-generation-editors-kie-10-2#getting-started-today" class="hash-link" aria-label="Direct link to Getting Started Today" title="Direct link to Getting Started Today">​</a></h2>
+<p>Ready to experience the new generation of editors? Here's how to get started:</p>
+<ol>
+<li><strong>Download Apache KIE 10.2.0</strong> from the <a href="https://kie.apache.org/start/download">official download page</a></li>
+<li><strong>Review the migration guide</strong> in the documentation</li>
+<li><strong>Try the <a href="https://sandbox.kie.org/" target="_blank" rel="noopener noreferrer">KIE Sandbox</a></strong> for a quick online demo</li>
+<li><strong>Join the community</strong> on the <a href="https://lists.apache.org/list.html?users@kie.apache.org" target="_blank" rel="noopener noreferrer">users mailing list</a></li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="whats-next">What's Next?<a href="https://kie.apache.org/blog/new-generation-editors-kie-10-2#whats-next" class="hash-link" aria-label="Direct link to What's Next?" title="Direct link to What's Next?">​</a></h2>
+<p>While the new editors represent a major step forward, we're continuing to improve and expand their capabilities. Here are some areas we're actively working on:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="known-issues-and-ongoing-work">Known Issues and Ongoing Work<a href="https://kie.apache.org/blog/new-generation-editors-kie-10-2#known-issues-and-ongoing-work" class="hash-link" aria-label="Direct link to Known Issues and Ongoing Work" title="Direct link to Known Issues and Ongoing Work">​</a></h3>
+<ul>
+<li><strong>Code Sharing</strong>: We're working to consolidate common code between the DMN and BPMN editors to improve maintainability and consistency. This includes refactoring the DMN Editor to use <code>@kie-tools/xyflow-react-kie-diagram</code>.</li>
+<li><strong>DRL Support</strong>: Adding support for DRL-based SceSim files in the new SceSim Editor.</li>
+<li><strong>Documentation</strong>: Publishing BPMN, DMN, and SceSim Editor Storybooks on public GitHub pages for better developer documentation.</li>
+</ul>
+<p>We welcome your feedback and bug reports at <a href="https://github.com/apache/incubator-kie-issues/issues" target="_blank" rel="noopener noreferrer">https://github.com/apache/incubator-kie-issues/issues</a> to help us prioritize and improve these editors.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="conclusion">Conclusion<a href="https://kie.apache.org/blog/new-generation-editors-kie-10-2#conclusion" class="hash-link" aria-label="Direct link to Conclusion" title="Direct link to Conclusion">​</a></h2>
+<p>The new generation of editors in Apache KIE 10.2.0 represents a significant modernization of our tooling. By moving to contemporary web technologies, we've improved performance, accessibility, and maintainability while maintaining compatibility with existing models. This foundation enables us to continue evolving and improving the editing experience for years to come.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="join-the-conversation">Join the Conversation<a href="https://kie.apache.org/blog/new-generation-editors-kie-10-2#join-the-conversation" class="hash-link" aria-label="Direct link to Join the Conversation" title="Direct link to Join the Conversation">​</a></h2>
+<p>Have you tried the new editors yet? We'd love to hear your feedback, success stories, or questions:</p>
+<p><strong><a href="https://lists.apache.org/list.html?users@kie.apache.org" target="_blank" rel="noopener noreferrer">users@kie.apache.org</a></strong></p>
+<p>Share your experiences, ask questions, or just connect with other Apache KIE users who are making the transition.</p>
+<hr>
+<p><em>Apache KIE (Incubating) 10.2.0 is available now. Visit the <a href="https://kie.apache.org/start/download">official download page</a> to get started with the new editors today.</em></p>
+<p><strong>Disclaimer</strong>: <em>Apache KIE is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.</em></p>]]></content>
+        <author>
+            <name>Tiago Bento</name>
+            <uri>https://github.com/tiagobento</uri>
+        </author>
+        <author>
+            <name>Kennedy Bowers</name>
+            <uri>https://github.com/kbowers-ibm</uri>
+        </author>
+        <category label="apache" term="apache"/>
+        <category label="kie" term="kie"/>
+        <category label="editors" term="editors"/>
+        <category label="bpmn" term="bpmn"/>
+        <category label="dmn" term="dmn"/>
+        <category label="scesim" term="scesim"/>
+        <category label="modernization" term="modernization"/>
+        <category label="tooling" term="tooling"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Apache KIE (Incubating) 10.2.0 Release Announcement]]></title>
         <id>https://kie.apache.org/blog/kie_10_2_0_release</id>

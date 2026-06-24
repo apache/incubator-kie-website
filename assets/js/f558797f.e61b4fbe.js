@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkie_site=self.webpackChunkkie_site||[]).push([[8420],{7965:e=>{e.exports=JSON.parse('{"label":"bpmn","permalink":"/blog/tags/bpmn","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);
