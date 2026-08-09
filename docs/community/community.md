@@ -41,6 +41,15 @@ When discussing code snippets in emails, ensure:
 * You keep formatting when pasting code in order to keep the code readable.
 * There are enough import statements to avoid ambiguities.
 
+### Google Groups
+
+Two Google Groups predate the Apache mailing lists and are still active. They are
+community forums rather than official Apache channels, so anything that needs a
+decision or a record belongs on the lists above.
+
+* [drools-usage](https://groups.google.com/g/drools-usage) — questions about using Drools
+* [kogito-development](https://groups.google.com/g/kogito-development) — Kogito development discussion
+
 
 ## Support
 
@@ -78,4 +87,4 @@ chance it will be incorporated into future releases.
 
 ## Source code
 
-* KIE [repositories](https://github.com/orgs/apache/repositories?language=&q=incubator-kie-&sort=&type=all)
+* KIE [repositories](https://github.com/orgs/apache/repositories?q=visibility%3Apublic+archived%3Afalse+incubator-kie)
