@@ -96,12 +96,102 @@ html {
   no-repeat;
 }
 
+/* Short pages used to leave a stub of content sitting above a footer that
+   filled the rest of the screen, with the ASF incubator disclaimer on show
+   before the reader had scrolled anything. The content now reaches down to
+   where the footer's site map begins, so the map closes the first screen and
+   the disclaimer starts just below it.
+
+   The height below is the footer above its disclaimer: 3.5rem of top padding,
+   the map's tallest column, and the 3.5rem gap under it. The columns stack
+   below 997px, which makes the block far taller than the viewport, so the
+   rule is confined to the breakpoint where they sit side by side. */
+:root {
+  --kie-footer-map-height: 18rem;
+}
+
+@media screen and (min-width: 997px) {
+  .main-wrapper {
+    min-height: calc(
+      100vh - var(--ifm-navbar-height) - var(--kie-footer-map-height)
+    );
+  }
+}
+
+/* Home is the exception: it is a single screen, with the hero and the cards
+   centred in everything the viewport has below the navbar, and the whole
+   footer — site map included — starting below the fold. */
+.main-wrapper.home-main {
+  min-height: calc(100vh - var(--ifm-navbar-height));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* The footer reads as two sections: the site map on KIE's deep blue, then the
+   ASF incubator disclaimer set apart below a rule and dialled back. */
+.footer--dark {
+  --ifm-footer-background-color: #085870;
+  --ifm-footer-color: rgba(255, 255, 255, 0.85);
+  --ifm-footer-link-color: rgba(255, 255, 255, 0.78);
+  --ifm-footer-title-color: #97d4e8;
+  padding-top: 3.5rem;
+  /* The disclaimer band supplies its own bottom padding. */
+  padding-bottom: 0;
+}
+
+/* 1. Site map */
+.footer__links {
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.footer__title {
+  font-family: 'Quicksand', var(--ifm-font-family-base);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.footer__item {
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
+/* Long entries like "KIE (Drools, jBPM, OptaPlanner, and Kogito)" stay on one
+   line; the column widens to fit rather than wrapping mid-label. */
+@media screen and (min-width: 997px) {
+  .footer__item {
+    white-space: nowrap;
+  }
+}
+
+.footer__link-item:hover {
+  color: #97d4e8;
+  text-decoration: none;
+}
+
+/* 2. Incubator disclaimer */
+/* The disclaimer keeps the original dark footer colour. It sits inside the
+   container, so the box-shadow spread paints it edge to edge and the clip-path
+   stops that spread bleeding above and below the band. */
+.footer__bottom {
+  margin-top: 3.5rem;
+  padding: 2.5rem 0;
+  background-color: #303846;
+  box-shadow: 0 0 0 100vmax #303846;
+  clip-path: inset(0 -100vmax);
+}
+
 .footer__copyright {
   font-size: .7em;
 }
 
-.footer__links {
-  text-align: center;
+@media screen and (max-width: 996px) {
+  .footer__links {
+    text-align: center;
+  }
 }
 
 .navbar__logo {
