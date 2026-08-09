@@ -89,7 +89,12 @@ const config: Config = {
         src: "img/navbar-logo.svg",
       },
       items: [
-        { to: "/about", label: "About", position: "right" },
+        {
+          type: "docSidebar",
+          sidebarId: "aboutSidebar",
+          position: "right",
+          label: "About",
+        },
         {
           type: "docSidebar",
           sidebarId: "componentsSidebar",
