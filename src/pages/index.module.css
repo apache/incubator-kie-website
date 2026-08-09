@@ -1,46 +1,151 @@
 /**
  * CSS files with the .module.css suffix will be treated as CSS modules
  * and scoped locally.
+ *
+ * Hero colors come from the Apache KIE logo:
+ *   deep blue #085870, light blue #97d4e8, orange #f5891f.
  */
 
 .heroBanner {
-  padding: 4rem 0;
-  text-align: center;
   position: relative;
   overflow: hidden;
+  padding: 5rem 0 3.5rem;
+  text-align: center;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eaeff2;
+}
+
+[data-theme='dark'] .heroBanner {
+  background-color: var(--ifm-background-color);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.heroContent {
+  position: relative;
+}
+
+/* The mark sits above the name rather than beside it, so the two read as one
+   centred lockup. It tracks the viewport's width and its height, since the
+   whole hero has to share the first screen with the component cards. */
+.heroLogo {
+  display: block;
+  width: clamp(5rem, min(18vw, 17vh), 13rem);
+  height: auto;
+  margin: 0 auto clamp(1rem, 2.5vh, 2rem);
+}
+
+.heroTitle {
+  margin-bottom: 1.5rem;
+  color: #085870;
+  font-size: clamp(2.5rem, 6.5vw, 3.75rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+}
+
+[data-theme='dark'] .heroTitle {
+  color: #ffffff;
+}
+
+/* The name is the only thing in the centering flow, so "Apache KIE" lands on
+   the page's centre line; the status pill hangs off its right edge instead of
+   pushing it left. */
+.heroTitleName {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* The ASF prescribes the wording of the name, not its typeface, so "Apache"
+   stays on the site font. Only the "KIE" wordmark carries Quicksand — same
+   size, weight and color, so neither half is visually subordinated. */
+.heroTitleApache {
+  font-family: var(--ifm-font-family-base);
+}
+
+.heroTitleKie {
+  font-family: 'Quicksand', var(--ifm-font-family-base);
+  letter-spacing: 0;
+}
+
+/* Trademark symbol: small and quiet, riding the cap height at top-right. */
+.heroTitleTm {
+  display: inline-block;
+  font-family: 'Quicksand', var(--ifm-font-family-base);
+  font-size: 0.32em;
+  font-weight: 700;
+  letter-spacing: 0;
+  vertical-align: top;
+  /* em here is the symbol's own size, so this nudges it down from the line-box
+     top to sit flush with the cap height of "KIE". */
+  transform: translateY(0.45em);
+}
+
+/* Small pill sitting next to the title, so "incubating" reads as a status
+   rather than as part of the name. Taken out of flow so it doesn't count
+   towards the centring of the name. */
+.heroTitleSuffix {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  margin-left: 0.9rem;
+  /* letter-spacing puts a trailing space after the last letter, so the text
+     would sit that much left of centre; the extra left padding cancels it. */
+  padding: 0.3rem 0.75rem 0.3rem calc(0.75rem + 0.1em);
+  border: 1px solid #cfe1e9;
+  border-radius: 999px;
+  color: #085870;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+[data-theme='dark'] .heroTitleSuffix {
+  border-color: rgba(151, 212, 232, 0.35);
+  color: #97d4e8;
+}
+
+.heroSubtitle {
+  margin: 0 auto;
+  color: #5b6b74;
+  font-size: clamp(1rem, 1.7vw, 1.2rem);
+  font-weight: 300;
+  line-height: 1.55;
+}
+
+/* Short accent rule to close the text block. */
+.heroRule {
+  width: 48px;
+  height: 3px;
+  margin: 2.25rem auto 0;
+  border-radius: 2px;
+  background-color: var(--kie-accent);
+}
+
+[data-theme='dark'] .heroSubtitle {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 2rem;
+    padding: 3rem 1.5rem 2.25rem;
   }
 }
 
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Too narrow for the pill to hang beside the name without running off the
+   edge, so it drops back into the flow, under the name. */
+@media screen and (max-width: 600px) {
+  .heroTitleSuffix {
+    position: static;
+    display: block;
+    width: fit-content;
+    transform: none;
+    margin: 0.75rem auto 0;
+  }
 
-  --ifm-button-size-multiplier: 1.6;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-top: 24px;
-}
-
-.buttons a,
-.buttons a:hover {
-  color: black;
-}
-
-.buttons a:last-of-type {
-  margin: 20px 36px;
-}
-
-.buttonsGitHubButtonWrapper {
-  display: flex;
-}
-
-.buttonsGitHubButton {
-  overflow: hidden;
+  .heroTitleName {
+    display: block;
+  }
 }
