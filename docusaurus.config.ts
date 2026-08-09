@@ -89,11 +89,18 @@ const config: Config = {
         src: "img/navbar-logo.svg",
       },
       items: [
+        { to: "/about", label: "About", position: "right" },
+        {
+          type: "docSidebar",
+          sidebarId: "componentsSidebar",
+          position: "right",
+          label: "Components",
+        },
         {
           type: "docSidebar",
           sidebarId: "documentationSidebar",
           position: "right",
-          label: "Documentation",
+          label: "Docs",
         },
         {
           type: "docSidebar",
@@ -103,23 +110,17 @@ const config: Config = {
         },
         {
           type: "docSidebar",
-          sidebarId: "componentsSidebar",
-          position: "right",
-          label: "Components",
-        },
-        {
-          type: "docSidebar",
           sidebarId: "examplesSidebar",
           position: "right",
           label: "Examples",
         },
+        { to: "/blog", label: "Blog", position: "right" },
         {
           type: "docSidebar",
           sidebarId: "communitySidebar",
           position: "right",
           label: "Community",
         },
-        { to: "/blog", label: "Blog", position: "right" },
         {
           type: "dropdown",
           label: "ASF",
@@ -160,7 +161,7 @@ const config: Config = {
           ],
         },
         {
-          href: "https://github.com/orgs/apache/repositories?language=&q=incubator-kie-&sort=&type=all",
+          href: "https://github.com/orgs/apache/repositories?q=visibility%3Apublic+archived%3Afalse+incubator-kie",
           position: "right",
           className: "header-github-link",
           "aria-label": "GitHub repositories",
@@ -199,6 +200,10 @@ const config: Config = {
           title: "Learn",
           items: [
             {
+              label: "About",
+              to: "/about",
+            },
+            {
               label: "Documentation",
               to: "/documentation",
             },
@@ -216,28 +221,24 @@ const config: Config = {
           title: "Code",
           items: [
             {
-              label: "Drools",
-              href: "https://github.com/apache/incubator-kie-drools",
-            },
-            {
-              label: "Kogito Runtimes",
-              href: "https://github.com/apache/incubator-kie-kogito-runtimes",
-            },
-            {
-              label: "Kogito Apps",
-              href: "https://github.com/apache/incubator-kie-kogito-apps",
-            },
-            {
-              label: "OptaPlanner",
-              href: "https://github.com/apache/incubator-kie-optaplanner",
+              label: "KIE (Drools, jBPM, OptaPlanner, and Kogito)",
+              href: "https://github.com/apache/incubator-kie",
             },
             {
               label: "Tools",
               href: "https://github.com/apache/incubator-kie-tools",
             },
             {
+              label: "Examples",
+              href: "https://github.com/apache/incubator-kie-examples",
+            },
+            {
               label: "Website",
               href: "https://github.com/apache/incubator-kie-website",
+            },
+            {
+              label: "Docs",
+              href: "https://github.com/apache/incubator-kie-docs",
             },
           ],
         },
