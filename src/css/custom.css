@@ -4,32 +4,73 @@
  * work well for content-centric websites.
  */
 
+/* Quicksand, self-hosted (SIL Open Font License) so the site makes no
+   third-party font requests at runtime. Used only for the "KIE" wordmark. */
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/quicksand-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/quicksand-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 html {
   scrollbar-gutter: stable;
 }
 
+/* The KIE palette, as used by the logo: deep blue, light blue, orange. */
+:root {
+  --kie-blue-deep: #085870;
+  --kie-blue-light: #97d4e8;
+  --kie-orange: #f5891f;
+  /* The accent. Orange reads well on white but muddies against a dark
+     background, so dark mode accents with the palette's light blue. */
+  --kie-accent: var(--kie-orange);
+}
+
+[data-theme='dark'] {
+  --kie-accent: var(--kie-blue-light);
+}
+
 /* You can override the default Infima variables here. */
 :root {
+  /* The palette's orange (#f5891f), with the usual Infima ramp around it.
+     The -dark shades are what Infima uses for hover and active states. */
   --ifm-color-primary: #f5891f;
-  --ifm-color-primary-dark: #805BDD;
-  --ifm-color-primary-darker: #7E54D9;
-  --ifm-color-primary-darkest: #7740CC;
-  --ifm-color-primary-light: #805bde;
-  --ifm-color-primary-lighter: #8262e3;
-  --ifm-color-primary-lightest: #8976ef;
+  --ifm-color-primary-dark: #f07c0b;
+  --ifm-color-primary-darker: #e6770a;
+  --ifm-color-primary-darkest: #c46509;
+  --ifm-color-primary-light: #f69637;
+  --ifm-color-primary-lighter: #f79b41;
+  --ifm-color-primary-lightest: #f8ad63;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #f5891f;
-  --ifm-color-primary-dark: #805BDD;
-  --ifm-color-primary-darker: #7E54D9;
-  --ifm-color-primary-darkest: #7740CC;
-  --ifm-color-primary-light: #805bde;
-  --ifm-color-primary-lighter: #8262e3;
-  --ifm-color-primary-lightest: #8976ef;
+  /* The palette's light blue (#97d4e8), with the usual Infima ramp around it. */
+  --ifm-color-primary: #97d4e8;
+  --ifm-color-primary-dark: #82cbe3;
+  --ifm-color-primary-darker: #7ac8e2;
+  --ifm-color-primary-darkest: #5dbcdb;
+  --ifm-color-primary-light: #acdded;
+  --ifm-color-primary-lighter: #b4e0ee;
+  --ifm-color-primary-lightest: #d1ecf5;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
