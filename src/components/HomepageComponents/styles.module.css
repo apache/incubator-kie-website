@@ -1,16 +1,55 @@
 
 .components {
+  /* The cards share the first screen with the hero, so the logos give way on
+     short viewports rather than pushing the row past the fold. */
+  --kie-card-logo-size: clamp(64px, 12vh, 120px);
   display: flex;
   align-items: center;
   padding: 2rem 0;
   width: 100%;
 }
 
+/* Sets Tools apart from the runtime projects. */
+.separator {
+  flex: 0 0 auto;
+  display: flex;
+  align-self: flex-start;
+  justify-content: center;
+  padding: 0 0.5rem;
+  /* Card padding (1rem) + half the logo, less half the dot, so it lands on the
+     logos' centre line rather than the centre of the whole card. */
+  margin-top: calc(1rem + var(--kie-card-logo-size) / 2 - 3px);
+}
+
+.separatorDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #000000;
+}
+
+[data-theme='dark'] .separatorDot {
+  background-color: #ffffff;
+}
+
+@media screen and (max-width: 996px) {
+  .separator {
+    flex: 0 0 100%;
+    margin-top: 0;
+    padding: 1rem 0;
+  }
+}
+
 .componentSvg {
-  height: 120px;
-  width: 120px;
+  height: var(--kie-card-logo-size);
+  width: var(--kie-card-logo-size);
   fill: var(--ifm-color-primary);
   transition: transform 0.2s ease;
+}
+
+/* Same wordmark treatment as "KIE" in the hero. */
+.componentTitle {
+  font-family: 'Quicksand', var(--ifm-font-family-base);
 }
 
 .componentLink {

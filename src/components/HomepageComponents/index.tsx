@@ -1,3 +1,4 @@
+import React from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import Heading from '@theme/Heading';
@@ -16,24 +17,24 @@ const ComponentList: ComponentItem[] = [
     to: '/drools',
   },
   {
-    title: 'jBPM',
-    Svg: require('@site/static/img/jbpm.svg').default,
-    to: '/jbpm',
-  },
-  {
-    title: 'SonataFlow',
-    Svg: require('@site/static/img/sonataflow.svg').default,
-    to: '/sonataflow',
-  },
-  {
     title: 'OptaPlanner',
     Svg: require('@site/static/img/planner.svg').default,
     to: '/optaplanner',
   },
   {
+    title: 'jBPM',
+    Svg: require('@site/static/img/jbpm.svg').default,
+    to: '/jbpm',
+  },
+  {
     title: 'Kogito',
     Svg: require('@site/static/img/kogito.svg').default,
     to: '/kogito',
+  },
+  {
+    title: 'SonataFlow',
+    Svg: require('@site/static/img/sonataflow.svg').default,
+    to: '/sonataflow',
   },
   {
     title: 'Tools',
@@ -50,7 +51,9 @@ function ComponentCard({title, Svg, to}: ComponentItem) {
           <Svg className={styles.componentSvg} role="img" />
         </div>
         <div className="text--center padding-horiz--md">
-          <Heading as="h3">{title}</Heading>
+          <Heading as="h3" className={styles.componentTitle}>
+            {title}
+          </Heading>
         </div>
       </Link>
     </div>
@@ -63,7 +66,14 @@ export default function HomepageComponents(): JSX.Element {
       <div className="container">
         <div className="row">
           {ComponentList.map((props, idx) => (
-            <ComponentCard key={idx} {...props} />
+            <React.Fragment key={idx}>
+              {props.title === 'Tools' && (
+                <div className={styles.separator} aria-hidden="true">
+                  <span className={styles.separatorDot} />
+                </div>
+              )}
+              <ComponentCard {...props} />
+            </React.Fragment>
           ))}
         </div>
       </div>
