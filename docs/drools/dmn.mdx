@@ -1,0 +1,83 @@
+---
+id: dmn
+title: DMN
+sidebar_position: 3
+---
+
+The Decision Model and Notation (DMN™) is a Standard by [OMG®](https://www.omg.org/) providing a common and visual notation readily understandable by all users and personas. With DMN, business analysts can define the initial decision requirements and then formalize more detailed decision models; technical developers can automate the decisions in any process with a portable execution semantic, while business stakeholders can manage and monitor those decisions.
+
+The official webpage of the DMN Standard specification is available at [OMG website](https://www.omg.org/dmn).
+Drools DMN engine is an open source Java™ implementation providing full runtime support for DMN models at Conformance level 3, meaning 100% of the features in the Standard.
+
+- [What is DMN? in 100 seconds](https://www.youtube.com/watch?v=rJyYvNk4QZs)
+
+## At a glance
+
+> DMN is trying to do for Business Decision Management what BPMN did for Business Process Management a decade ago: empower the business to take charge of the logic that drives its operations, through a vendor-independent diagramming language. To be effective, that language must be both usable by business analysts and stakeholders in the business and verifiable for completeness and consistency. DMN is both.
+>
+> — Bruce Silver, [What is DMN?](https://methodandstyle.com/what-is-dmn)
+
+![DMN DRG Decision Requirements Graph](/img/drools/dmn/DMNDRG.png)
+
+Manage any decision complexity by decomposing and structuring decision services with Decision Requirement Graph (DRG).
+
+![DMN Decision Table](/img/drools/dmn/DMNDT.png)
+
+Model business logic with DMN Decision Table, an effective instrument understandable by all personas. Drools DMN engine performs static analysis of the DMN Decision Table to detect gaps, overlaps, and ensure the table rules follow industry best practices.
+
+![DMN Boxed Expression](/img/drools/dmn/DMNBoxed.png)
+
+Model more complex business logic with the power of all the FEEL Boxed Expression constructs made available by the DMN Standard specification.
+
+Integrate DMN with [BPMN 2.0](https://www.omg.org/spec/BPMN/2.0/) and [CMMN](https://www.omg.org/spec/CMMN/) to describe an executable and semantically defined business logic to be used in business processes.
+
+![DMN integration with BPMN 2.0](/img/drools/dmn/DMNBPMN.png)
+
+## The DMN TCK
+
+The [DMN Technology Compatibility Kit (DMN TCK)](https://dmn-tck.github.io/tck)
+is a community-led proposal for a verifiable and executable method to
+demonstrate the Conformance level of support provided by a vendor-supplied DMN
+implementation: a shared suite of test cases that any engine can run, with the
+[results published](https://dmn-tck.github.io/tck/) for anyone to compare.
+
+The Drools DMN engine provides full runtime support for DMN models at
+Conformance level 3, meaning 100% of the features in the Standard. That claim
+is measured, not asserted: we contribute to the TCK, and as of Apache KIE
+10.2.0 the engine passes 99.9% of its tests.
+
+![DMN TCK Technology Compatibility Kit](/img/drools/dmn/DMNTCK.png)
+
+## Some historical milestones
+
+Each version of the DMN standard, and the release that first supported it —
+often before OMG formally published the specification. In between, the asides
+mark engine milestones that were not tied to a DMN version.
+
+- **DMN 1.1** — Drools 7.0, May 2017. First-to-market open source project with
+  **full Conformance level 3** support.
+- **DMN 1.2** — Drools 7.11, even before OMG formally published it.
+- **DMN 1.3** — Drools 7.31, even before OMG formally published it.
+
+> _November 2020 — **Kogito 1.0**: DMN support in Kogito, with automatic
+> Swagger/OpenAPI and Native Image compilation._
+>
+> _February 2021 — **JITExecutor**: an interpreted evaluator for DMN in the
+> cloud, enabler for disruptive innovation in KIE Sandbox._
+
+- **DMN 1.4** — Drools 7.65, even before OMG formally published it.
+
+> _October 2022 — **Drools 8** released, including support for DMN._
+
+- **DMN 1.5** — Apache KIE 10.0.0, December 2024. The first release made at
+  Apache.
+- **DMN 1.6** — Apache KIE 10.2.0, April 2026. The latest version of the
+  standard.
+
+## Resources
+
+Looking for a gentle introduction to the DMN standard? We have just the right crash course on DMN, freely available for you at [learn-dmn-in-15-minutes.com](http://learn-dmn-in-15-minutes.com).
+
+Drools DMN engine: the [DMN FEEL handbook](https://kiegroup.github.io/dmn-feel-handbook) is a vademecum for the FEEL expression language from the DMN specification, as also implemented by the Drools DMN open source engine.
+
+Drools documentation: <a href="/docs/10.0.x/drools/drools/DMN/index.html">DMN support in Drools</a>.

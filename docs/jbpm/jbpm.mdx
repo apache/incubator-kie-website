@@ -1,0 +1,44 @@
+---
+id: jbpm
+title: jBPM
+sidebar_label: Overview
+sidebar_position: 0
+hide_title: true
+---
+
+import JbpmLogo from "@site/static/img/jbpm.svg";
+import ComponentBanner, {
+  Feature,
+  FeatureGrid,
+} from "@site/src/components/ComponentBanner";
+
+<ComponentBanner Logo={JbpmLogo} name="jBPM">
+  A workflow engine for building business applications that automate business
+  processes.
+</ComponentBanner>
+
+<FeatureGrid>
+  <Feature title="Business processes" id="business-processes">
+    Model your business goals as
+    [BPMN 2.0](https://www.omg.org/spec/BPMN/2.0/) flow charts, executed by a
+    light-weight, extensible workflow engine written in pure Java.
+  </Feature>
+  <Feature title="Human tasks" id="human-tasks">
+    Bring people into the flow: user tasks with pluggable lifecycles,
+    assignment strategies, notifications and deadlines — and consoles to work
+    on them.
+  </Feature>
+  <Feature
+    title="Rules and decisions orchestration"
+    id="rules-and-decisions-orchestration"
+  >
+    Business rule tasks call out to [DMN](https://www.omg.org/spec/DMN/)
+    decisions and DRL rules in the same service, evaluated by
+    [Drools](/drools/).
+  </Feature>
+  <Feature title="Long-running by design" id="long-running-by-design">
+    Processes that live for days or months: durable state, timers, signals and
+    message correlation, service-level agreements, and migration of running
+    instances onto a new process version.
+  </Feature>
+</FeatureGrid>

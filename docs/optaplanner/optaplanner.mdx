@@ -1,0 +1,37 @@
+---
+id: optaplanner
+title: OptaPlanner
+sidebar_label: Overview
+sidebar_position: 0
+hide_title: true
+---
+
+import PlannerLogo from "@site/static/img/planner.svg";
+import ComponentBanner, {
+  Feature,
+  FeatureGrid,
+} from "@site/src/components/ComponentBanner";
+
+<ComponentBanner Logo={PlannerLogo} name="OptaPlanner">
+  A fast, easy-to-use, open source AI constraint solver for software
+  developers.
+</ComponentBanner>
+
+<FeatureGrid>
+  <Feature title="Continuous planning" id="continuous-planning">
+    Publish the schedule weekly, three weeks before execution, so planning
+    keeps pace with the business rather than happening once.
+  </Feature>
+  <Feature title="Replanning" id="replanning">
+    Handle changes to an already published schedule without turning it upside
+    down, and react to real-time disruptions within milliseconds.
+  </Feature>
+  <Feature title="Overconstrained planning" id="overconstrained-planning">
+    Plan even when there are too few resources to cover all the work, so the
+    solver degrades gracefully instead of failing.
+  </Feature>
+  <Feature title="Pinning" id="pinning">
+    Keep the user in control of the schedule by locking the parts of it that
+    should not move.
+  </Feature>
+</FeatureGrid>

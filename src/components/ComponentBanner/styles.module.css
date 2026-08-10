@@ -1,0 +1,130 @@
+.banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1rem 0.5rem;
+}
+
+/* Hero art behind the banner, bled to the edges of the content column. The
+   pseudo-element (rather than a background on .banner itself) is what lets it
+   bleed past the column's padding; `isolation` keeps the negative z-index
+   inside the banner instead of dropping it behind the page. */
+.logo {
+  /* Same treatment as the homepage cards: the logo is a single shape filled
+     with the theme's primary color. */
+  height: clamp(5.5rem, 12vw, 8rem);
+  width: clamp(5.5rem, 12vw, 8rem);
+  fill: var(--ifm-color-primary);
+  margin-bottom: 1.25rem;
+}
+
+/* Same wordmark treatment as "KIE" in the homepage hero. */
+.name {
+  font-family: "Quicksand", var(--ifm-font-family-base);
+  font-size: 2.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.tagline {
+  max-width: 42rem;
+  font-size: 1.125rem;
+  /* Full strength rather than the muted grey body text: this is the one line
+     that defines the component. Mirrored to white on a dark page, where pure
+     black would be unreadable. */
+  color: #000;
+}
+
+[data-theme="dark"] .tagline {
+  color: #fff;
+}
+
+.tagline p:last-child {
+  margin-bottom: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+  margin: 3rem 0;
+}
+
+.gridStacked {
+  grid-template-columns: 1fr;
+}
+
+/* Exactly four cards read better as a 2×2 than as 3 + 1. */
+@media (min-width: 700px) {
+  .grid:has(> :nth-child(4):last-child),
+  .gridWideLast {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gridWideLast > :last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+.feature {
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  /* Not quite opaque: on a page with hero art behind the cards this lifts the
+     text clear of it while still letting the art register through. */
+  background-color: rgb(255 255 255 / 0.82);
+}
+
+[data-theme="dark"] .feature {
+  background-color: rgb(36 37 38 / 0.82);
+}
+
+/* Illustration beside the text rather than above it. */
+.featureRow {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.featureRowReverse {
+  flex-direction: row-reverse;
+}
+
+/* A list beside an illustration only fills part of the card, leaving it tall
+   with dead space alongside. Two columns spend the width instead. */
+@media (min-width: 700px) {
+  .featureRow ul {
+    columns: 2;
+    column-gap: 2.5rem;
+  }
+
+  .featureRow li {
+    break-inside: avoid;
+  }
+}
+
+/* Too narrow to sit side by side: the illustration goes back above the text,
+   where it needs the gap the flex layout was providing. */
+@media (max-width: 700px) {
+  .featureRow {
+    display: block;
+  }
+
+  .featureRow > :first-child {
+    margin-bottom: 0.75rem;
+  }
+}
+
+.feature p:last-child,
+.feature ul:last-child {
+  margin-bottom: 0;
+}
+
+.feature ul {
+  padding-left: 1.1rem;
+}
+
+.featureTitle {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}

@@ -28,6 +28,31 @@
     U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
+/* Cinzel, self-hosted alongside Quicksand (SIL Open Font License). Used only
+   for the "Kogito ergo ..." headings — its lowercase is small caps, so it is
+   a display face, not a text one. */
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/cinzel-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/cinzel-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 html {
   scrollbar-gutter: stable;
 }
@@ -198,4 +223,46 @@ html {
   flex: 0 0 auto;
   height: 3rem;
   margin-right: 0.5rem;
+}
+
+/* The Kogito hero, carried over from kogito.kie.org so the overview keeps that
+   site's vibe. It hangs off the docs main container rather than the banner
+   itself: the banner is inset by the content column's padding, so the art
+   would end in a hard vertical edge partway across the page. On <main> it
+   spans the full width and its own aspect ratio sets the band's height, so
+   nothing is cropped. Scoped to the Kogito overview by the doc id Docusaurus
+   puts on <html> (the id contains a slash, hence the attribute selector). */
+html[class*="docs-doc-id-kogito/kogito"] main[class*="docMainContainer"] {
+  position: relative;
+  isolation: isolate;
+}
+
+html[class*="docs-doc-id-kogito/kogito"] main[class*="docMainContainer"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* The art is drawn 2619x884 and scaled to 125% of the column so it reads at
+     hero size. Anchored top left, so it grows out to the right and the mascot
+     watermark stays whole. The band's height follows the same scale
+     (884 x 1.25 = 1105) so the bottom of the composition isn't clipped; keep
+     the two in step if the scale changes. A background image can't overflow
+     its box, so the bleed costs no horizontal scroll. */
+  aspect-ratio: 2619 / 1105;
+  z-index: -1;
+  pointer-events: none;
+  background: url("/img/kogito/hero-background.svg") no-repeat top left;
+  background-size: 125% auto;
+  opacity: 0.33;
+}
+
+/* The art is drawn for a light page: the mascot watermark multiplies away on
+   a dark one, leaving only the geometric shapes, which need holding back. */
+[data-theme='dark']
+  html[class*="docs-doc-id-kogito/kogito"]
+  main[class*="docMainContainer"]::before,
+html[class*="docs-doc-id-kogito/kogito"][data-theme='dark']
+  main[class*="docMainContainer"]::before {
+  opacity: 0.16;
 }
