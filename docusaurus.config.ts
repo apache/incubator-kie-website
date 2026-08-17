@@ -45,7 +45,7 @@ const config: Config = {
         },
         blog: {
           blogSidebarCount: "ALL",
-          blogSidebarTitle: "All our posts",
+          blogSidebarTitle: "All posts",
           showReadingTime: true,
           // The taxonomy lives in blog/tags.yml. Fail the build on a tag that
           // isn't declared there, so the tag pages stay a curated set of
