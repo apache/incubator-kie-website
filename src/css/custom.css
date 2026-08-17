@@ -199,3 +199,18 @@ html {
   height: 3rem;
   margin-right: 0.5rem;
 }
+
+/* Author names read as body text, not as links.
+   The blog page already carries a lot of the primary colour - tag chips, "Read
+   more", post titles - and the author byline repeating it, once per author per
+   post, tips the list over. `.avatar__name` is Infima's own class, so this
+   holds without swizzling the Author component. The link is still a link:
+   underline on hover, and the primary colour returns on hover so the
+   affordance isn't lost. */
+.avatar__name a {
+  color: var(--ifm-font-color-base);
+}
+
+.avatar__name a:hover {
+  color: var(--ifm-color-primary);
+}

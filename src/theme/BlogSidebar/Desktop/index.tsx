@@ -41,18 +41,11 @@ function BlogSidebarDesktop({ sidebar }: Props): ReactNode {
           description: "The ARIA label for recent posts in the blog sidebar",
         })}
       >
-        <div className={styles.sidebarItemTitle}>
+        <div className={clsx(styles.sidebarItemTitle, "margin-bottom--md")}>
           <Link to="/blog" className={styles.sidebarTitleLink}>
             {sidebar.title}
           </Link>
         </div>
-        <Link to="/blog/tags" className={styles.sidebarTagsLink}>
-          {translate({
-            id: "theme.blog.sidebar.browseTagsLabel",
-            message: "Browse by tag",
-            description: "The blog sidebar link to the tags index page",
-          })}
-        </Link>
         <BlogSidebarContent
           items={items}
           ListComponent={ListComponent}
