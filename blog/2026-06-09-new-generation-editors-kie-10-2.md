@@ -2,12 +2,12 @@
 slug: new-generation-editors-kie-10-2
 title: "The Dawn of a New Era: Next-Generation Editors in Apache KIE 10.2"
 authors: [bento, bowers]
-tags: [apache, kie, editors, bpmn, dmn, scesim, modernization, tooling]
+tags: [tools, deep-dive]
 ---
 
-# The Dawn of a New Era: Next-Generation Editors in Apache KIE 10.2
-
 Apache KIE has been undergoing a significant transformation with the introduction of next-generation editors for BPMN, DMN, and Test Scenario (SceSim) modeling. Built from the ground up with modern web technologies, these new editors deliver substantial improvements in performance, user experience, and long-term maintainability. With the latest release, the new BPMN Editor completes this modernization journey, setting the foundation for future innovations across the entire tooling ecosystem.
+
+<!-- truncate -->
 
 ## The End of an Era: Saying Goodbye to GWT
 

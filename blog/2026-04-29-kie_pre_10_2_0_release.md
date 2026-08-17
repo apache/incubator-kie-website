@@ -2,12 +2,12 @@
 slug: kie_10_2_0_release
 title: Apache KIE (Incubating) 10.2.0 Release Announcement
 authors: [bowers]
-tags: [apache, 10, kie, release]
+tags: [release, tools]
 ---
 
-# Apache KIE (Incubating) 10.2.0 Release Announcement
-
 We are excited to announce the release of **Apache KIE (Incubating) 10.2.0**, marking another significant milestone in the project's evolution under the Apache Software Foundation. This release represents a major step forward in modernization and Apache compliance, with substantial improvements to tooling and platform dependencies.
+
+<!-- truncate -->
 
 ## A Major Leap in Modernization
 

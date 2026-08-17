@@ -1,0 +1,49 @@
+.yearGroup {
+  margin-bottom: 0.5rem;
+}
+
+/* The stock marker is a fixed triangle; this one rotates with the open state
+   and sits on the same baseline as the year heading. */
+.yearGroupSummary {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  border-radius: var(--ifm-global-radius);
+}
+
+.yearGroupSummary::-webkit-details-marker {
+  display: none;
+}
+
+.yearGroupSummary::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 0.35rem solid var(--ifm-color-emphasis-600);
+  border-top: 0.28rem solid transparent;
+  border-bottom: 0.28rem solid transparent;
+  transition: transform var(--ifm-transition-fast) ease;
+}
+
+.yearGroup[open] > .yearGroupSummary::before {
+  transform: rotate(90deg);
+}
+
+.yearGroupSummary:hover::before {
+  border-left-color: var(--ifm-color-primary);
+}
+
+/* The heading inside the summary carries the theme's year styling, so it must
+   not add its own block margins on top of the flex row. */
+.yearGroupSummary > span {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .yearGroupSummary::before {
+    transition: none;
+  }
+}
