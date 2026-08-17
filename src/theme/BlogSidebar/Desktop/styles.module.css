@@ -59,3 +59,21 @@
   color: var(--ifm-color-primary);
   text-decoration: none;
 }
+
+/* Sits between the title and the year groups: secondary to both, but the only
+   route from /blog to the tag pages, so it must not disappear entirely. */
+.sidebarTagsLink {
+  display: block;
+  margin-bottom: var(--ifm-spacing-vertical);
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.sidebarTagsLink::after {
+  content: " →";
+}
+
+.sidebarTagsLink:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
