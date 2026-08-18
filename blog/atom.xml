@@ -6,7 +6,6 @@
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://kie.apache.org/blog"/>
     <subtitle>Apache KIE (incubating) Blog</subtitle>
-    <icon>https://kie.apache.org/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[The Dawn of a New Era: Next-Generation Editors in Apache KIE 10.2]]></title>
         <id>https://kie.apache.org/blog/new-generation-editors-kie-10-2</id>

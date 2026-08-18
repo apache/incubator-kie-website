@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkkie_site=self.webpackChunkkie_site||[]).push([[8866],{3747:(e,s,t)=>{t.r(s),t.d(s,{default:()=>u});var n=t(6347),r=t(4848);function u(){return(0,r.jsx)(n.rd,{to:"/components/drools"})}}}]);
