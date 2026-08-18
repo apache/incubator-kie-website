@@ -47,8 +47,14 @@ const config: Config = {
         },
         blog: {
           blogSidebarCount: "ALL",
-          blogSidebarTitle: "All our posts",
+          blogSidebarTitle: "All posts",
           showReadingTime: true,
+          // The taxonomy lives in blog/tags.yml. Fail the build on a tag that
+          // isn't declared there, so the tag pages stay a curated set of
+          // sections rather than accumulating one-off keywords.
+          tags: "tags.yml",
+          onInlineTags: "throw",
+          onUntruncatedBlogPosts: "throw",
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -108,6 +114,14 @@ const config: Config = {
     ],
   ],
   themeConfig: {
+    blog: {
+      // Year groups in the sidebar, rendered collapsible by the swizzled
+      // BlogSidebar/Content. The list has to stay navigable once the
+      // historical Drools/jBPM/OptaPlanner archives land in it.
+      sidebar: {
+        groupByYear: true,
+      },
+    },
     // Replace with your project's social card
     navbar: {
       title: "",

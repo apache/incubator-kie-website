@@ -1,0 +1,88 @@
+# Curated blog taxonomy.
+#
+# Tags are sections, not keywords: each one is a landing page a reader can be
+# sent to and subscribe to, so the list is deliberately short and stable. Two
+# families — which component a post is about, and what kind of post it is.
+#
+# Posts may only use tags declared here (see `onInlineTags` in
+# docusaurus.config.ts). Adding a tag means adding it here first, with a
+# description — an undescribed tag page is just a list of links.
+#
+# This taxonomy is sized to absorb the historical Drools, jBPM and OptaPlanner
+# archives, which is why components that predate Apache KIE have entries even
+# where no post carries them yet.
+
+# --- Components -------------------------------------------------------------
+
+drools:
+  label: Drools
+  permalink: /drools
+  description: >-
+    The rules engine at the heart of Apache KIE — DRL, decision tables, DMN
+    decisions, and the rule authoring experience around them.
+
+jbpm:
+  label: jBPM
+  permalink: /jbpm
+  description: >-
+    Business process automation with BPMN — process modeling, execution,
+    human tasks, and case management.
+
+optaplanner:
+  label: OptaPlanner
+  permalink: /optaplanner
+  description: >-
+    Constraint solving and planning optimization — scheduling, routing,
+    assignment, and the solver internals behind them.
+
+kogito:
+  label: Kogito
+  permalink: /kogito
+  description: >-
+    Cloud-native runtimes for rules and processes, built on Quarkus and
+    Spring Boot for containerized and serverless deployments.
+
+sonataflow:
+  label: SonataFlow
+  permalink: /sonataflow
+  description: >-
+    Event-driven and serverless workflow orchestration built on the CNCF
+    Serverless Workflow specification.
+
+tools:
+  label: Tools & Editors
+  permalink: /tools
+  description: >-
+    The authoring experience across Apache KIE — the BPMN, DMN and Test
+    Scenario editors, the VS Code extension, and the developer tooling that
+    surrounds them.
+
+# --- Kinds ------------------------------------------------------------------
+
+release:
+  label: Releases
+  permalink: /release
+  description: >-
+    Release announcements — what shipped in each version, what changed, and
+    what it means for people upgrading.
+
+deep-dive:
+  label: Deep Dives
+  permalink: /deep-dive
+  description: >-
+    Longer technical pieces that take a single topic apart: how something is
+    built, why it was designed that way, and what it means in practice.
+
+community:
+  label: Community
+  permalink: /community
+  description: >-
+    News from the project itself — governance, the Apache incubation journey,
+    events, and how to get involved.
+
+tutorial:
+  label: Tutorials
+  permalink: /tutorial
+  description: >-
+    Step-by-step guides that walk through building something real with Apache
+    KIE, start to finish.

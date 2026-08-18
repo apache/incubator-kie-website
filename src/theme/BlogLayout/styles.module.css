@@ -1,0 +1,30 @@
+/* Matches the blog sidebar and the table of contents, both of which are
+   desktop-only — on narrow screens this column stacks under the posts, where a
+   lone link reads as stray content. */
+.rail {
+  display: none;
+}
+
+@media (min-width: 997px) {
+  .rail {
+    display: block;
+    position: sticky;
+    top: calc(var(--ifm-navbar-height) + 2rem);
+    margin-bottom: 1rem;
+  }
+}
+
+.tagsLink {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.tagsLink::after {
+  content: " →";
+}
+
+.tagsLink:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}

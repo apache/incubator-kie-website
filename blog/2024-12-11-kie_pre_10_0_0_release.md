@@ -2,12 +2,12 @@
 slug: kie_10_0_0_release
 title: Apache KIE (Incubating) 10.0.0 Release Announcement
 authors: [porcelli]
-tags: [apache, 10, kie, release]
+tags: [release, community]
 ---
 
-# Announcing Apache KIE (Incubating) 10.0.0: A Milestone Release
-
 We are thrilled to announce the release of Apache KIE (Incubating) 10.0.0, the first major release of the KIE project under the Apache Software Foundation. This marks a pivotal moment in the evolution of KIE technologies—Drools, jBPM, OptaPlanner, and Kogito—following 15 months of intensive work since the last release on September 5, 2023.
+
+<!-- truncate -->
 
 ## A "Journey of Transformation"
 
