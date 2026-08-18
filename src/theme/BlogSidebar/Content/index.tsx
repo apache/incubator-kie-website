@@ -9,7 +9,7 @@
  * Open by default: the most recent year, plus whichever year contains the post
  * currently being read, so you never land on a page whose own entry is hidden.
  */
-import React, { memo, useState, type ReactNode } from "react";
+import React, { memo, useEffect, useState, type ReactNode } from "react";
 import { useLocation } from "@docusaurus/router";
 import { useThemeConfig } from "@docusaurus/theme-common";
 import { groupBlogSidebarItemsByYear } from "@docusaurus/plugin-content-blog/client";
@@ -21,15 +21,26 @@ import styles from "./styles.module.css";
 function BlogSidebarYearGroup({
   year,
   yearGroupHeadingClassName,
-  defaultOpen,
+  shouldOpen,
   children,
 }: {
   year: string;
   yearGroupHeadingClassName?: string;
-  defaultOpen: boolean;
+  shouldOpen: boolean;
   children: ReactNode;
 }) {
-  const [open, setOpen] = useState(defaultOpen);
+  const [open, setOpen] = useState(shouldOpen);
+
+  // The sidebar survives client-side navigation — these groups are keyed by
+  // year, so they are not remounted — and initial state alone would leave the
+  // active post hidden inside a year the reader had collapsed, or never opened.
+  // This only ever opens: a group the reader collapsed by hand stays collapsed
+  // until the current post actually moves into it.
+  useEffect(() => {
+    if (shouldOpen) {
+      setOpen(true);
+    }
+  }, [shouldOpen]);
   return (
     <details
       className={styles.yearGroup}
@@ -67,7 +78,7 @@ function BlogSidebarContent({
           key={year}
           year={year}
           yearGroupHeadingClassName={yearGroupHeadingClassName}
-          defaultOpen={index === 0 || containsCurrentPost(yearItems)}
+          shouldOpen={index === 0 || containsCurrentPost(yearItems)}
         >
           <ListComponent items={yearItems} />
         </BlogSidebarYearGroup>

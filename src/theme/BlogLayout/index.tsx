@@ -27,12 +27,23 @@ function BlogTagsLink() {
   const tagsPath = useBaseUrl("/blog/tags");
   const { pathname } = useLocation();
 
-  // Don't offer the link on the tag index itself, or on an individual tag
-  // page, where it would just point back at where you already are.
-  if (pathname.replace(/\/$/, "") === tagsPath.replace(/\/$/, "")) {
+  // Don't offer the link on the tag index itself, nor on an individual tag
+  // page below it, where it points back at where you already are. Prefix
+  // match, so /blog/tags and /blog/tags/<tag> are both covered; the trailing
+  // slash is normalised away because `trailingSlash` is a site-level setting
+  // this component shouldn't care about.
+  const normalize = (p: string) => p.replace(/\/$/, "");
+  if (
+    normalize(pathname) === normalize(tagsPath) ||
+    normalize(pathname).startsWith(`${normalize(tagsPath)}/`)
+  ) {
     return null;
   }
 
+  // `to` stays site-relative: @docusaurus/Link applies baseUrl itself (via
+  // withBaseUrl), so passing the already-resolved `tagsPath` here would risk
+  // prefixing it twice. `tagsPath` is only for comparing against `pathname`,
+  // which is baseUrl-inclusive.
   return (
     <Link to="/blog/tags" className={styles.tagsLink}>
       {translate({

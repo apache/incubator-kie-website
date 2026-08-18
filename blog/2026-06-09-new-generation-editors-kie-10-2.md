@@ -1,6 +1,6 @@
 ---
 slug: new-generation-editors-kie-10-2
-title: "The dawn of a new era: Next-generation Editors in Apache KIE 10.2"
+title: "The dawn of a new era: Next-generation editors in Apache KIE 10.2"
 authors: [bento, bowers]
 tags: [tools, deep-dive]
 ---
