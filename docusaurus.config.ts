@@ -6,7 +6,9 @@ const config: Config = {
   title: "Apache KIE (incubating)",
   tagline:
     "The home of the most popular business automation open-source technologies",
-  favicon: "img/favicon.ico",
+  // The favicon is set in src/theme/Root.tsx, not here: pages under a
+  // component hotsite fly that component's logo instead of the site icon, and
+  // with both set two `rel="icon"` links are emitted, the last one winning.
 
   // Set the production url of your site here
   url: "https://kie.apache.org/",
@@ -65,6 +67,31 @@ const config: Config = {
     [
       "@docusaurus/plugin-client-redirects",
       {
+        // Each component used to live under /components/<name> in the docs
+        // tree. They now have their own sections at the site root, so the old
+        // paths are redirected to keep inbound links working.
+        redirects: [
+          { from: "/components/drools", to: "/drools/" },
+          { from: "/components/drools/drools_books", to: "/drools/books" },
+          { from: "/components/drools/drools_dmn", to: "/drools/dmn" },
+          { from: "/components/drools/drools_papers", to: "/drools/papers" },
+          {
+            from: "/components/drools/drools_upgrade_recipe",
+            to: "/drools/upgrade-recipe",
+          },
+          { from: "/components/drools/drools_videos", to: "/drools/videos" },
+          { from: "/components/optaplanner", to: "/optaplanner/" },
+          { from: "/components/jbpm", to: "/jbpm/" },
+          {
+            from: "/components/jbpm/getting_started",
+            to: "/jbpm/get-started",
+          },
+          { from: "/jbpm/getting-started", to: "/jbpm/get-started" },
+          { from: "/components/kogito", to: "/kogito/" },
+          { from: "/components/sonataflow", to: "/sonataflow/" },
+          { from: "/components/tools", to: "/tools/" },
+        ],
+
         // The docs plugin's `routeBasePath` was changed from "/docs" to "/",
         // moving every docs page from `/docs/<x>` to `/<x>`. This plugin
         // emits a static HTML redirect at `/docs/<x>` for each existing
@@ -110,10 +137,19 @@ const config: Config = {
           label: "About",
         },
         {
-          type: "docSidebar",
-          sidebarId: "componentsSidebar",
-          position: "right",
+          type: "dropdown",
           label: "Components",
+          position: "right",
+          // Kept in the same order, and with the same labels, as the cards in
+          // src/components/HomepageComponents.
+          items: [
+            { label: "Drools", to: "/drools/" },
+            { label: "OptaPlanner", to: "/optaplanner/" },
+            { label: "jBPM", to: "/jbpm/" },
+            { label: "Kogito", to: "/kogito/" },
+            { label: "SonataFlow", to: "/sonataflow/" },
+            { label: "Tools", to: "/tools/" },
+          ],
         },
         {
           type: "docSidebar",
@@ -190,6 +226,17 @@ const config: Config = {
     footer: {
       style: "dark",
       links: [
+        {
+          title: "Components",
+          items: [
+            { label: "Drools", to: "/drools" },
+            { label: "OptaPlanner", to: "/optaplanner" },
+            { label: "jBPM", to: "/jbpm" },
+            { label: "Kogito", to: "/kogito" },
+            { label: "SonataFlow", to: "/sonataflow" },
+            { label: "Tools", to: "/tools" },
+          ],
+        },
         {
           title: "Get involved",
           items: [

@@ -1,0 +1,63 @@
+.lockup {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.lockup :global(.navbar__brand) {
+  margin-right: 0;
+}
+
+/* Only the trailing margin is dropped — the mark itself is left at exactly the
+   size it renders everywhere else on the site. */
+.lockup :global(.navbar__logo) {
+  margin-right: 0;
+}
+
+.separator {
+  margin: 0 1rem;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--ifm-color-emphasis-400);
+  user-select: none;
+}
+
+.componentBrand {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  color: var(--ifm-navbar-link-color);
+}
+
+.componentBrand:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.componentLogo {
+  height: 2rem;
+  width: 2rem;
+  margin-right: 0.5rem;
+  flex: 0 0 auto;
+}
+
+/* Quicksand is the wordmark typeface — used for names only, never for
+   surrounding UI text. */
+.componentTitle {
+  font-family: "Quicksand", var(--ifm-font-family-base);
+  font-size: 1.25rem;
+  font-weight: var(--ifm-font-weight-bold);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 996px) {
+  .componentTitle {
+    display: none;
+  }
+
+  .separator {
+    margin: 0 0.75rem;
+  }
+}

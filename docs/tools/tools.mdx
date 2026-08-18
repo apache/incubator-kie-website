@@ -1,0 +1,41 @@
+---
+id: tools
+title: Tools
+sidebar_label: Overview
+sidebar_position: 0
+hide_title: true
+---
+
+import ToolsLogo from "@site/static/img/tools.svg";
+import ComponentBanner, {
+  Feature,
+  FeatureGrid,
+} from "@site/src/components/ComponentBanner";
+
+<ComponentBanner Logo={ToolsLogo} name="Tools">
+  Supporting tooling for authoring and managing the assets that
+  [Drools](/drools), [jBPM](/jbpm) and [Kogito](/kogito) run — editors for
+  processes, decisions, rules and test scenarios, and consoles for the
+  services running them.
+</ComponentBanner>
+
+<FeatureGrid>
+  <Feature title="BPMN Editor" id="bpmn-editor">
+    Model business processes on a canvas, with a context-aware properties
+    panel and validation as you draw. Supports
+    [BPMN 2.0](https://www.omg.org/spec/BPMN/2.0/).
+  </Feature>
+  <Feature title="DMN Editor" id="dmn-editor">
+    Build decision requirements diagrams and author boxed expressions,
+    decision tables and FEEL. Supports
+    [DMN](https://www.omg.org/spec/DMN/) 1.2 through DMN 1.6.
+  </Feature>
+  <Feature title="DRL Editor" id="drl-editor">
+    Edit Drools Rule Language files as text, with syntax highlighting and
+    completion for rules you would rather write by hand than draw.
+  </Feature>
+  <Feature title="Test Scenario Editor" id="test-scenario-editor">
+    Write test scenarios for your decisions and rules in a spreadsheet-like
+    grid, and keep them in version control next to the models they cover.
+  </Feature>
+</FeatureGrid>

@@ -1,0 +1,187 @@
+---
+id: drl
+title: DRL
+sidebar_position: 2
+---
+
+DRL — the Drools Rule Language — is the native language of the Drools rule
+engine. Where DMN gives business analysts a visual, standardized notation, DRL
+gives developers the full expressive power of the engine in plain text files
+that live in your source tree, next to your Java code, under version control.
+
+A rule says *when* something is true, *then* do something. You never call a
+rule; you give the engine facts and it works out which rules match, in what
+order, and re-evaluates as those facts change.
+
+## A first rule
+
+```drl
+package org.acme.orders
+
+import org.acme.orders.Order
+
+rule "Free shipping over 100"
+when
+    $order : Order( total > 100, freeShipping == false )
+then
+    modify( $order ) { setFreeShipping( true ) };
+end
+```
+
+`when` holds the conditions — patterns matched against the facts the engine
+knows about. `Order( total > 100 )` reads as "there is an `Order` whose
+`total` is greater than 100"; `$order` binds the match so the `then` block can
+use it. `modify` changes a fact *and* tells the engine it changed, so any other
+rule that cares about `freeShipping` gets reconsidered. That is the part that
+makes a rule engine different from a pile of `if` statements: rules react to
+each other, and you never wrote the control flow.
+
+## Rule units
+
+A loose bag of rules and a shared session works, but it gets hard to reason
+about at scale. Rule units are the modern way to organize DRL: a unit is a
+typed container that declares the data its rules operate on, so the rules and
+their inputs are one cohesive, injectable thing.
+
+The data holder is a plain Java class:
+
+```java
+public class HelloWorldUnit implements RuleUnitData {
+
+    private final DataStore<String> strings = DataSource.createStore();
+    private final List<String> results = new ArrayList<>();
+
+    public DataStore<String> getStrings() { return strings; }
+    public List<String> getResults() { return results; }
+}
+```
+
+The DRL binds itself to that unit and navigates its data sources with OOPath
+expressions — the `/strings[ ... ]` syntax:
+
+```drl
+package org.acme;
+unit HelloWorldUnit;
+
+rule HelloWorld
+when
+    /strings [ this == "Hello World" ]
+then
+    results.add("it worked!");
+end
+```
+
+And running it is three lines, with no session bootstrapping to speak of:
+
+```java
+HelloWorldUnit unit = new HelloWorldUnit();
+unit.getStrings().add("Hello World");
+
+try (RuleUnitInstance<HelloWorldUnit> instance =
+        RuleUnitProvider.get().createRuleUnitInstance(unit)) {
+    instance.fire();
+}
+```
+
+Rule units are also what [Kogito](/kogito) generates REST endpoints from, so
+the same unit you unit-test locally becomes a decision service without
+rewriting it.
+
+## Beyond simple matching
+
+DRL is a language, not a table format, and the interesting parts show up once
+the conditions stop being row-shaped.
+
+**Absence** is a first-class condition. `not`, `exists` and `forall` let you
+match on facts that *aren't* there — something no lookup table expresses
+naturally:
+
+```drl
+rule "Flag unreviewed high-value orders"
+when
+    $order : Order( total > 10000 )
+    not Review( order == $order )
+then
+    $order.flagForReview();
+end
+```
+
+**Aggregation** over the whole working memory, via `accumulate`:
+
+```drl
+rule "Bulk discount"
+when
+    $customer : Customer()
+    Number( intValue >= 10 ) from accumulate(
+        $o : Order( customer == $customer, status == "OPEN" ),
+        count( $o ) )
+then
+    $customer.applyBulkDiscount();
+end
+```
+
+**Queries** ask the engine questions instead of firing actions, and they can
+recurse — which is how you get backward chaining:
+
+```drl
+query isContainedIn( String x, String y )
+    /locations[thing := x, location := y]
+    or
+    ( /locations[z := thing, location := y] and isContainedIn(x, z;) )
+end
+```
+
+**Truth maintenance**: facts inserted logically are retracted automatically
+when the reason for them stops holding, so you never write the cleanup pass.
+
+**Execution control** when you need it — `salience` to order rules,
+`no-loop` to stop a rule re-triggering itself, `agenda-group` to partition the
+agenda into phases.
+
+## Events and time
+
+Declare a type as an event and the same language becomes a
+[complex event processing](/drools#complex-event-processing-cep-engine)
+engine. Events carry timestamps and durations, they can be reasoned about with
+temporal operators, and they expire on their own:
+
+```drl
+declare TemperatureReading
+    @role( event )
+end
+
+rule "Sustained overheating"
+when
+    $r : TemperatureReading( celsius > 90 ) over window:time( 10s )
+        from entry-point SensorStream
+then
+    alerts.add( new Alert( $r ) );
+end
+```
+
+`over window:time( 10s )` slides a ten-second window over the stream, and
+`from entry-point` keeps that stream partitioned from the rest of working
+memory. Because events expire, long-running streams don't grow the session
+without bound.
+
+## Other ways to write the same rules
+
+DRL text is one surface. The same semantics are reachable through decision
+tables in Excel (`drools-decisiontables`), rule templates, and the executable
+model API for building rules programmatically in Java — all of which compile
+down to the same engine.
+
+Rules also compose with the rest of the platform: a BPMN business rule task in
+[jBPM](/jbpm) calls straight into a DRL rule set, in the same service, with no
+remote hop.
+
+## Resources
+
+Drools documentation: the
+[DRL language reference](pathname:///docs/10.2.x/drools/drools/language-reference/index.html)
+is the complete specification — every keyword, operator and conditional
+element. The
+[rule engine guide](pathname:///docs/10.2.x/drools/drools/rule-engine/index.html)
+covers how matching, the agenda and truth maintenance actually work underneath.
+
+Ready to write some? [Get started](/drools/get-started).

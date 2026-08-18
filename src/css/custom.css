@@ -200,6 +200,48 @@ html {
   margin-right: 0.5rem;
 }
 
+/* The Kogito hero, carried over from kogito.kie.org so the overview keeps that
+   site's vibe. It hangs off the docs main container rather than the banner
+   itself: the banner is inset by the content column's padding, so the art
+   would end in a hard vertical edge partway across the page. On <main> it
+   spans the full width and its own aspect ratio sets the band's height, so
+   nothing is cropped. Scoped to the Kogito overview by the doc id Docusaurus
+   puts on <html> (the id contains a slash, hence the attribute selector). */
+html[class*="docs-doc-id-kogito/kogito"] main[class*="docMainContainer"] {
+  position: relative;
+  isolation: isolate;
+}
+
+html[class*="docs-doc-id-kogito/kogito"] main[class*="docMainContainer"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* The art is drawn 2619x884 and scaled to 125% of the column so it reads at
+     hero size. Anchored top left, so it grows out to the right and the mascot
+     watermark stays whole. The band's height follows the same scale
+     (884 x 1.25 = 1105) so the bottom of the composition isn't clipped; keep
+     the two in step if the scale changes. A background image can't overflow
+     its box, so the bleed costs no horizontal scroll. */
+  aspect-ratio: 2619 / 1105;
+  z-index: -1;
+  pointer-events: none;
+  background: url("/img/kogito/hero-background.svg") no-repeat top left;
+  background-size: 125% auto;
+  opacity: 0.33;
+}
+
+/* The art is drawn for a light page: the mascot watermark multiplies away on
+   a dark one, leaving only the geometric shapes, which need holding back. */
+[data-theme='dark']
+  html[class*="docs-doc-id-kogito/kogito"]
+  main[class*="docMainContainer"]::before,
+html[class*="docs-doc-id-kogito/kogito"][data-theme='dark']
+  main[class*="docMainContainer"]::before {
+  opacity: 0.16;
+}
+
 /* Author names read as body text, not as links.
    The blog page already carries a lot of the primary colour - tag chips, "Read
    more", post titles - and the author byline repeating it, once per author per

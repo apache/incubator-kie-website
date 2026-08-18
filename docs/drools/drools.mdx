@@ -1,0 +1,37 @@
+---
+id: drools
+title: Drools
+sidebar_label: Overview
+sidebar_position: 0
+hide_title: true
+---
+
+import DroolsLogo from "@site/static/img/drools.svg";
+import ComponentBanner, {
+  Feature,
+  FeatureGrid,
+} from "@site/src/components/ComponentBanner";
+
+<ComponentBanner Logo={DroolsLogo} name="Drools">
+  A set of projects for intelligent automation and decision management — a
+  forward-chaining and backward-chaining inference-based rule engine, a DMN
+  decision engine, and more.
+</ComponentBanner>
+
+<FeatureGrid>
+  <Feature title="Rule engine" id="rule-engine">
+    A forward-chaining and backward-chaining inference-based rule engine — the
+    building block of an expert system, a program that emulates the
+    decision-making of a human expert. Write rules in [DRL](/drools/drl).
+  </Feature>
+  <Feature title="DMN engine" id="dmn-engine">
+    Full runtime support for [Decision Model and Notation](/drools/dmn) models
+    at Conformance level 3: every feature in the
+    [OMG](https://www.omg.org/) standard.
+  </Feature>
+  <Feature title="CEP engine" id="complex-event-processing-cep-engine">
+    Complex Event Processing: reason over streams of events in the same
+    engine — temporal operators, sliding time and length windows, and event
+    expiration.
+  </Feature>
+</FeatureGrid>

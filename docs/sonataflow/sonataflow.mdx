@@ -1,0 +1,42 @@
+---
+id: sonataflow
+title: SonataFlow
+sidebar_label: Overview
+sidebar_position: 0
+hide_title: true
+---
+
+import SonataFlowLogo from "@site/static/img/sonataflow.svg";
+import ComponentBanner, {
+  Feature,
+  FeatureGrid,
+} from "@site/src/components/ComponentBanner";
+
+<ComponentBanner Logo={SonataFlowLogo} name="SonataFlow">
+  A platform for building cloud-native workflow applications. Use it for the
+  orchestration and choreography of your services and events.
+</ComponentBanner>
+
+<FeatureGrid>
+  <Feature title="Orchestration" id="orchestration">
+    Coordinate the services in your architecture into end-to-end workflows,
+    with a workflow in control of every call.
+  </Feature>
+  <Feature title="Choreography" id="choreography">
+    Let workflows react to events and publish their own, so services
+    collaborate without a central controller.
+  </Feature>
+  <Feature title="An open standard" id="an-open-standard">
+    Workflows are written against the
+    [CNCF Serverless Workflow](https://serverlessworkflow.io/) specification,
+    a vendor-neutral standard for describing workflows declaratively.
+    SonataFlow worked with
+    [version 0.8](https://github.com/serverlessworkflow/specification/tree/0.8.x)
+    of the specification.
+  </Feature>
+  <Feature title="Integrations" id="integrations">
+    Connect workflows to the services and events already in your
+    architecture — see [Integrations](/sonataflow/integrations) for the full
+    list.
+  </Feature>
+</FeatureGrid>

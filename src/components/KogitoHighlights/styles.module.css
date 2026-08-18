@@ -1,0 +1,9 @@
+/* The cards themselves come from ComponentBanner, shared with the other
+   component overviews. Only Kogito's illustration sizing lives here. */
+
+.image {
+  display: block;
+  flex: 0 0 auto;
+  width: calc(5rem * var(--kie-highlight-image-scale, 1));
+  height: auto;
+}
