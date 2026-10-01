@@ -267,7 +267,7 @@ To keep all release secrets, API keys, tokens, and bot credentials securely pre-
 |------|--------|
 | 1 | **Stream setup** — Run [Automation A](#automation-a--create-new-minor-version-development-stream): create `X.Y.x` stream branch in both repos. |
 | 2 | **RC generation** — Run [Automation D](#automation-d--release-candidate-generation): produce RC artifacts and upload to Apache SVN dev dist. |
-| 3 | **Verification** — Perform sanity checks and build from sources on the staged RC artifacts (see [How to verify a release candidate](/community/verify)). If issues are found, push fixes to the `X.Y.x` branch and cut `X.Y.0-rc2` (repeat Automation D). |
+| 3 | **Verification** — Perform sanity checks and build from sources on the staged RC artifacts (see [How to verify a release candidate](/community/devs/verify)). If issues are found, push fixes to the `X.Y.x` branch and cut `X.Y.0-rc2` (repeat Automation D). |
 | 4 | **Community vote** — Execute [Manual Step E](#manual-step-e--voting-procedure). |
 | 5 | **Tag release** — Execute [Manual Step F](#manual-step-f--tag-official-release): create and push official `X.Y.0` tags. |
 | 6 | **Publishing** — Trigger [Automation G](#automation-g--publish-release-to-public-registries) on Jenkins to publish across Maven Central, npm, VS Code Marketplace, Chrome Web Store, container registries, and SVN release dist. |
