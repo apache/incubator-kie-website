@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkkie_site||=[]).push([[4343],{6110(s,a,d){d.r(a),d.d(a,{default:()=>r});var e=d(612),o=d(4848);function r(){return(0,o.jsx)(e.rd,{to:"/downloads/archive_downloads"})}}}]);

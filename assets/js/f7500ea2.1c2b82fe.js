@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkkie_site||=[]).push([[8105],{8575(t,e,i){i.r(e),i.d(e,{default:()=>a});var n=i(612),u=i(4848);function a(){return(0,u.jsx)(n.rd,{to:"/documentation/archive_documentation"})}}}]);
