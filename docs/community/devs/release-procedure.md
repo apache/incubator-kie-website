@@ -130,7 +130,7 @@ pnpm update-stream-name-to 10.3.0
 ./scripts/release/release-all.sh 10.3.0 --rc
 ```
 
-**Artifacts produced in `release-artifacts/`** — all following the Apache Incubator naming convention `apache-kie-<version>-incubating-<artifact-name>.<ext>`:
+**Artifacts produced in `release-artifacts/`**  — all following the Apache Incubator naming convention `apache-kie-<version>-incubating-<artifact-name>.<ext>`:
 
 **VS Code Extensions (`.vsix`)**
 - `apache-kie-10.3.0-incubating-bpmn-vscode-extension.vsix`
@@ -152,11 +152,11 @@ pnpm update-stream-name-to 10.3.0
 - `apache-kie-10.3.0-incubating-tools-npm-packages.zip`
 - `apache-kie-10.3.0-incubating-business-automation-standalone-editors.zip`
 
-**Helm Charts (`helm-charts/`)**
+**Helm Charts**
 - `apache-kie-10.3.0-incubating-sandbox-helm-chart.tar.gz`
 - `apache-kie-10.3.0-incubating-runtime-tools-console-helm-chart.tar.gz`
 
-**Container Images (`container-images/`)**
+**Container Images**
 - `apache-kie-10.3.0-incubating-cors-proxy-image.tar.gz`
 - `apache-kie-10.3.0-incubating-kogito-management-console-image.tar.gz`
 - `apache-kie-10.3.0-incubating-kogito-base-builder-image.tar.gz`
@@ -186,24 +186,13 @@ pnpm update-stream-name-to 10.3.0
 
 #### Step D.3 — Upload to Apache SVN Dev Distribution
 
-```bash
-# Checkout SVN dev dist
-svn co https://dist.apache.org/repos/dist/dev/incubator/kie/ /tmp/kie-dist-dev
-mkdir -p /tmp/kie-dist-dev/10.3.0-rc1
+**Automated (Jenkins)**: the `Publish to Apache SVN (for voting)` stage of `Jenkinsfile.103xplus.release-candidate` signs every `*.zip`, `*.vsix` and `*.tar.gz` in `release-artifacts/` (`.asc` + `.sha512`) and then calls `releaseUtils.publishArtifacts`, which:
 
-# Sign and checksum all artifacts
-cd incubator-kie-tools/release-artifacts
-for f in $(find . -type f ! -name "*.asc" ! -name "*.sha512"); do
-    gpg --armor --detach-sign "$f"
-    sha512sum "$f" > "${f}.sha512"
-done
+1. Checks whether `https://dist.apache.org/repos/dist/dev/incubator/kie/<RELEASE_CANDIDATE_VERSION>` exists (`svn ls`).
+2. Creates it with `svn mkdir --parents` if it does not exist. Any other `svn ls` failure (network, authentication) fails the job instead of creating anything.
+3. Checks out the directory, copies all files from `release-artifacts/`, runs `svn add` and commits.
 
-# Copy to SVN and commit
-cp -r . /tmp/kie-dist-dev/10.3.0-rc1/
-cd /tmp/kie-dist-dev
-svn add 10.3.0-rc1
-svn commit -m "Apache KIE 10.3.0-rc1 release candidate artifacts"
-```
+No manual preparation of the SVN directory is needed. The job requires the `RELEASE_VERSION` and `RELEASE_CANDIDATE_VERSION` parameters (e.g. `10.3.0` and `10.3.0-rc1`).
 
 ---
 
