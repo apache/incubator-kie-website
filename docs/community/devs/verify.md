@@ -29,13 +29,15 @@ wget -r -np -nd -A "*" -e robots=off https://dist.apache.org/repos/dist/dev/incu
 
 The release candidate artifacts should have a checksum and signature file.
 
-For example, if the release candidate is `10.0.0-rc1`, the checksum and signature file should be:
+For example, if the release candidate is `10.3.0-rc1`, the checksum and signature file should be:
 
 ```
-https://dist.apache.org/repos/dist/dev/incubator/kie/10.0.0-rc1/incubator-kie-10.0.0-rc1-sources.zip.sha512
+https://dist.apache.org/repos/dist/dev/incubator/kie/10.3.0-rc1/apache-kie-10.3.0-incubating-sources.zip.sha512
 
-https://dist.apache.org/repos/dist/dev/incubator/kie/10.0.0-rc1/incubator-kie-10.0.0-rc1-sources.zip.asc
+https://dist.apache.org/repos/dist/dev/incubator/kie/10.3.0-rc1/apache-kie-10.3.0-incubating-sources.zip.asc
 ```
+
+Every file in the folder (source archives, `.vsix` extensions, Chrome extensions, web apps, Helm charts, container images, upload-service binaries) must have its own `.asc` and `.sha512`.
 
 ### Verify checksums and signatures
 
@@ -95,7 +97,7 @@ for i in *.{tar.gz,zip,vsix}; do echo $i; gpg --verify $i.asc $i; done
 
 If something like the following appears, it means the signature is correct:
 ```bash
-incubator-kie-10.0.0-rc1-sources.zip
+apache-kie-10.3.0-incubating-sources.zip
 gpg: Signature made Fri Sep 27 15:53:27 2024 EDT
 gpg:                using RSA key 1384A644F9BFA0F54C84488C3B0DD7480424A676
 gpg: Good signature from "Apache KIE Automated Release Signing <private@kie.apache.org>" [ultimate]
@@ -110,8 +112,8 @@ for i in *.{tar.gz,zip,vsix}; do echo $i; sha512sum --check $i.sha512; done
 
 It should output something like:
 ```bash
-incubator-kie-10.0.0-rc1-sources.zip
-incubator-kie-10.0.0-rc1-sources.zip: OK
+apache-kie-10.3.0-incubating-sources.zip
+apache-kie-10.3.0-incubating-sources.zip: OK
 ```
 
 #### How to verify if the container images are valid
@@ -123,28 +125,42 @@ for i in *image.tar.gz; do echo $i; docker load -q -i $i && echo "OK" || echo "E
 
 It should output something like:
 ```bash
-incubator-kie-10.0.0-rc1-serverless-logic-web-tools-swf-dev-mode-image.tar.gz
-Loaded image: apache/incubator-kie-serverless-logic-web-tools-swf-dev-mode:10.0.0
+apache-kie-10.3.0-incubating-cors-proxy-image.tar.gz
+Loaded image: apache/incubator-kie-cors-proxy:10.3.0
 OK
 ```
 
 Errors would look something like:
 ```bash
-incubator-kie-10.0.0-rc1-sonataflow-devmode-image.tar.gz
+apache-kie-10.3.0-incubating-cors-proxy-image.tar.gz
 open /var/lib/docker/tmp/docker-import-2603585138/repositories: no such file or directory
 Error
 ```
 
-## Check the file content of the source package
+## Verify the DRL VS Code extension (new in 10.3)
 
-Unzip `apache-kie-${release_version}-${rc_version}-sources.zip` and check the follows:
+The `apache-kie-10.3.0-incubating-drl-vscode-extension.vsix` file must be present, signed and checksummed like the other files. Then install it and try it:
 
-- LICENSE and NOTICE files in the root directory are correct.
+```bash
+code --install-extension apache-kie-10.3.0-incubating-drl-vscode-extension.vsix
+```
+
+Open a `.drl` file and check that syntax highlighting and code completion work. Java 17+ and Maven must be installed.
+
+## Check the file content of the source packages
+
+From 10.3.0 there are two source archives. Check **both**:
+
+- `apache-kie-${release_version}-incubating-java-sources.zip` (Java, `incubator-kie`)
+- `apache-kie-${release_version}-incubating-sources.zip` (Tools, `incubator-kie-tools`)
+
+Unzip each of them and check the following:
+
+- `LICENSE`, `NOTICE` and `DISCLAIMER-WIP` files in the root directory are correct.
 - All files have ASF license headers if necessary. Apache Rat helps the verification.
-    - In the root directory of the sources package,
+    - In the root directory of each unzipped package,
     - Download the jar: `curl -LO https://repo1.maven.org/maven2/org/apache/rat/apache-rat/0.17/apache-rat-0.17.jar`
-    - Run `java -jar apache-rat-0.17.jar -E .rat-excludes-combined -- . > rat-result.txt` (It takes a few minutes. `.rat-excludes-combined` has been introduced since 10.1.0 release candidates)
-        - NOTE: If `.rat-excludes-combined` doesn't exist under the root directory, do the steps (run apache-rat, review the result) under the subdirectories, which have `.rat-excludes` instead.
+    - Run `java -jar apache-rat-0.17.jar -E .rat-excludes -- . > rat-result.txt` (It takes a few minutes. Both repositories have a `.rat-excludes` file in the root directory.)
     - Review the `rat-result.txt`. `Files with unapproved licenses:` should be one of the followings
         - Listed in `LICENSE`
         - Not a source code (e.g. test data, config file)
