@@ -184,21 +184,11 @@ Do this once per minor series. Patch releases (`10.3.1`, ...) reuse the same fol
 
 ##### Via Jenkins
 
-In both repositories the branch cut is a **flag on the first RC run** (Step 2), not a separate job and not a separate run. Setting the flag creates `10.3.x` from `main`, sets the development version, pushes the branch, and then continues with the RC on the new branch, all in the same build. So for `10.3.0-rc1` you trigger each job **once**, with the branch-cut flags set. Do not trigger a branch-cut run first and an RC run afterwards: the second run would fail because the branch already exists.
+**There is no separate job to run in this step.** In both repositories the branch cut is done by the **first RC run in Step 2**, by setting extra parameters on it. The job creates `10.3.x` from `main`, sets the development version, pushes the branch, and then builds the RC on it, all in the same build. Do not run a branch-cut build first and an RC build afterwards: the second build would fail because the branch already exists.
 
-**`incubator-kie`:**
-Trigger `Jenkinsfile.103xplus.release` with the Step 2a parameters plus:
-- `CREATE_STREAM_BRANCH`: `true`
-- `STREAM_BASE_BRANCH`: `main`
+For `10.3.0-rc1`, use the "First RC of a new minor" row of the "Parameters by type of run" table in Step 2. For every later run, leave the branch-cut flags `false` and use `BASE_REF=10.3.x`.
 
-**`incubator-kie-tools`:**
-Trigger `Jenkinsfile.103xplus.release-candidate` with the Step 2c parameters (`BASE_REF` is `main` for this one run) plus:
-- `BASE_REF`: `main`
-- `CREATE_STREAM_BRANCH`: `true`
-- `UPDATE_STREAM_VERSION`: `true`
-- `UPDATE_CI_IMAGE_TAG`: `true` only if the `incubator-kie-tools-ci-build:10.3.999` image has already been built and pushed. Leave it `false` otherwise, or the jobs on the new branch cannot start.
-
-After this first run, use `BASE_REF`: `10.3.x` and leave the branch-cut flags `false` for every later run.
+For `incubator-kie-tools` only, `UPDATE_CI_IMAGE_TAG` is an extra option on the branch-cut run. Set it to `true` only if the `incubator-kie-tools-ci-build:10.3.999` image has already been built and pushed; otherwise leave it `false`, or the jobs on the new branch cannot start.
 
 ##### Locally
 
@@ -260,23 +250,14 @@ The same two jobs are used for every RC. Only the parameters differ:
 | **Next RC after a failed vote** (`10.3.0-rc2`) | `TAG_NAME=10.3.0-rc2`, `CREATE_STREAM_BRANCH=false` | `RELEASE_CANDIDATE_VERSION=10.3.0-rc2`, `BASE_REF=10.3.x`, branch-cut flags `false` |
 | **Patch release** (`10.3.1-rc1`) | `RELEASE_VERSION=10.3.1`, `TAG_NAME=10.3.1-rc1`, `CREATE_STREAM_BRANCH=false` | `RELEASE_VERSION=10.3.1`, `RELEASE_CANDIDATE_VERSION=10.3.1-rc1`, `BASE_REF=10.3.x`, branch-cut flags `false` |
 
-The parameters not listed keep their defaults.
+The parameters not listed keep their defaults. The first-RC run and every later run use the **same job**; the branch-cut flags are the only difference (see Step 1b).
+
+If a job fails, do not simply re-run it: the RC tag is pushed before the build, so a plain re-run fails with "tag already exists". See [Troubleshooting](#6-troubleshooting).
 
 #### 2a. Java reactor (`incubator-kie`)
 
 **Via Jenkins:**
-Trigger `Jenkinsfile.103xplus.release` with the parameters from the table above:
-- `RELEASE_VERSION`: `10.3.0`
-- `TAG_NAME`: `10.3.0-rc1`
-- `DEPLOY`: `true`
-- `PUSH_TAG`: `true`
-- `CREATE_STREAM_BRANCH`: `true` for the **first** RC of a new minor only (see Step 1b); `false` for `rc2`, the final release, and patch releases
-
-:::note
-The first-RC run and every later run use the **same job**. The only difference is `CREATE_STREAM_BRANCH`: with `true`, the job first cuts the `10.3.x` branch and then builds the RC on it, in one build. With `false`, the branch already exists and the job only builds the RC.
-:::
-
-If the job fails, do not simply re-run it. The RC tag is pushed early in the job, so a plain re-run fails with "tag already exists". See [Troubleshooting](#6-troubleshooting).
+Trigger `Jenkinsfile.103xplus.release` with the parameters for your run from the table above.
 
 **Locally:**
 ```bash
@@ -314,19 +295,10 @@ If the deploy failed part-way, **Drop** the partial staging repository instead o
 #### 2c. KIE Tools (`incubator-kie-tools`)
 
 **Via Jenkins:**
-Trigger `Jenkinsfile.103xplus.release-candidate` with:
-- `BASE_REF`: `10.3.x`
-- `RELEASE_VERSION`: `10.3.0`
-- `RELEASE_CANDIDATE_VERSION`: `10.3.0-rc1`
+Trigger `Jenkinsfile.103xplus.release-candidate` with the parameters for your run from the table above.
 
 Jenkins builds, signs, and uploads all artifacts to Apache SVN Dev Dist at:
 `https://dist.apache.org/repos/dist/dev/incubator/kie/10.3.0-rc1/`
-
-:::note
-The `CREATE_STREAM_BRANCH` flag works the same as in Step 2a: set it to `true` only for the first RC of a new minor release. Leave it `false` for all subsequent runs.
-:::
-
-If the job fails, do not simply re-run it. The RC tag is pushed before the build starts, so a plain re-run fails with "tag already exists". See [Troubleshooting](#6-troubleshooting).
 
 **Locally:**
 ```bash
@@ -404,8 +376,6 @@ Verification and voting are one continuous activity. The Release Manager (RM) pe
 #### 3a. Verify the RC
 
 The RM verifies the RC artifacts (signatures, checksums, licenses, build from source). See [How to verify a release candidate](/community/devs/verify) for the full checklist. Do not open the vote before this step passes.
-
-Community voters are expected to perform the same verification independently before casting a binding vote.
 
 #### 3b. PPMC Vote
 
@@ -499,7 +469,9 @@ This automatically publishes:
 
 If it fails part-way, **read the [Troubleshooting](#6-troubleshooting) section before re-running**. Some publishers are not idempotent.
 
-#### 5d. Clean up superseded RC from SVN dev
+#### 5d. Clean up superseded RCs from SVN dev
+
+The approved RC was moved in Step 5b. Delete any earlier RC that failed its vote and is still in `dev`, for example when `10.3.0-rc2` was the approved one:
 
 ```bash
 svn delete -m "Remove superseded RC" \
@@ -544,7 +516,7 @@ Apply bug fixes to `10.3.x` in both repos, then follow Steps 2–6 using version
 
 ### Failed Vote (e.g. `10.3.0-rc1` fails)
 
-Apply required fixes to `10.3.x` in both repos, then repeat Steps 2–6 with the next RC tag (`10.3.0-rc2`). Do **not** set `CREATE_STREAM_BRANCH` again.
+Apply required fixes to `10.3.x` in both repos, then repeat Steps 2–3 with the next RC tag (`10.3.0-rc2`) until a vote passes, and continue with Steps 4–6. Do **not** set `CREATE_STREAM_BRANCH` again.
 
 ---
 
