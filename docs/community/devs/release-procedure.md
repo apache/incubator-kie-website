@@ -61,15 +61,12 @@ These are configured in Jenkins, not typed in by the RM. Running locally needs t
 
 | Repository | Jenkinsfile | Purpose |
 |---|---|---|
-| `incubator-kie` | `.ci/jenkins/Jenkinsfile.103xplus.release` | Stream branch cut (optional), RC tag, build, deploy to Nexus staging |
-| `incubator-kie` | `.ci/jenkins/Jenkinsfile.103xplus.promote` | Final tag, GitHub Release, upload of Drools binaries and documentation |
-| `incubator-kie` | `.ci/jenkins/Jenkinsfile.103xplus.deploy` | Stream snapshot version bump and deploy (not part of the release steps below) |
+| `incubator-kie` | `.ci/jenkins/Jenkinsfile.ci-image-build` | Builds and pushes the CI builder Docker image (`apache/incubator-kie-kogito-ci-build:<IMAGE_TAG>`) for the release stream |
+| `incubator-kie` | `.ci/jenkins/Jenkinsfile.103xplus.release-candidate` | Stream branch cut (optional), RC tag, build, deploy to Nexus staging |
+| `incubator-kie` | `.ci/jenkins/Jenkinsfile.103xplus.release-promote` | Tag official release and create GitHub Release for `incubator-kie` |
 | `incubator-kie-tools` | `.ci/jenkins/Jenkinsfile.103xplus.release-candidate` | Stream branch cut (optional), RC tag, build, sign, upload to SVN `dist/dev` |
-| `incubator-kie-tools` | `.ci/jenkins/Jenkinsfile.103xplus.release-publish` | Publish to public registries |
-
-:::note
-The `incubator-kie` `103xplus` Jenkinsfiles are **not** registered in `.ci/jenkins/dsl/jobs.groovy`, so no job is generated for them. Create each one as a "Pipeline script from SCM" job pointing at the Jenkinsfile. The `release` Jenkinsfile needs only its parameters. `promote` and `deploy` still read environment variables that the DSL normally injects (`REPO_NAME`, `GIT_AUTHOR`, `PROPERTIES_FILE_NAME`, `JENKINS_EMAIL_CREDS_ID`, `GIT_AUTHOR_PUSH_CREDS_ID`, ...), so set them on the job.
-:::
+| `incubator-kie-tools` | `.ci/jenkins/Jenkinsfile.103xplus.release-promote` | Tag official release and create GitHub Release for `incubator-kie-tools` |
+| `incubator-kie-tools` | `.ci/jenkins/Jenkinsfile.103xplus.release-publish` | Publish to public registries (npm, VS Code Marketplace, Docker Hub, etc.) |
 
 ---
 
@@ -82,14 +79,12 @@ The `incubator-kie` `103xplus` Jenkinsfiles are **not** registered in `.ci/jenki
 | Stream branch | `10.3.x` |
 | RC tag | `10.3.0-rc1` |
 | Final tag | `10.3.0` |
-| OS | Linux or macOS |
-| JDK | Temurin 17.0.12+ (21 also works) |
-| Maven | 3.9.6+ |
-| Docker | 25+ |
 | Build command | `./script/release/release-all.sh --version 10.3.0 --tag 10.3.0-rc1 --skip-tests` |
 | Deploy command | add `--deploy --push-tag` to the build command |
 | Produced artifacts | JARs, POMs, sources, and Javadocs deployed to Apache Nexus Staging |
 | Update version | `./script/release/01-update-version.sh <version>` *(automated by `release-all.sh`)* |
+
+For the exact toolchain versions required (JDK, Maven, Docker), see the [`README.md`](https://github.com/apache/incubator-kie/blob/main/script/release/README.md) in `script/release/`.
 
 ### `incubator-kie-tools` (Node.js / Go)
 
@@ -98,18 +93,13 @@ The `incubator-kie` `103xplus` Jenkinsfiles are **not** registered in `.ci/jenki
 | Stream branch | `10.3.x` |
 | RC tag | `10.3.0-rc1` |
 | Final tag | `10.3.0` |
-| OS | Linux or macOS |
-| Node.js | 24 or newer (`engines.node` is `>=24`) |
-| pnpm | 10.34.4 (pinned by `packageManager`; enabled through `corepack`) |
-| Go | 1.26 (`go 1.26.0` in the Go modules) |
-| Bash | 4 or newer. `release-all.sh` uses associative arrays; the Bash 3.2 shipped with macOS does not work, install it with `brew install bash` |
-| Helm | 3.x |
-| Docker | 25+, **running**. If Docker is not running, container images are skipped |
-| Build command | `./scripts/release/release-all.sh 10.3.0 --rc` |
+| Build command (RC) | `./scripts/release/release-all.sh 10.3.0 --rc` |
 | Publish command | `./scripts/release/release-all.sh 10.3.0 --publish` |
 | Update own version | `pnpm update-version-to <version>` and `pnpm update-stream-name-to <stream>` |
 | Update Java version | `pnpm update-kogito-version-to --maven <version>` |
 | Produced artifacts | VS Code extensions (`.vsix`), Chrome extensions, web app ZIPs, NPM packages ZIP, Sources ZIP, container image tarballs, Helm chart tarballs, upload-service binaries — all in `release-artifacts/` |
+
+For the exact toolchain versions required (Node.js, pnpm, Go, Bash, Docker), see the [`README.md`](https://github.com/apache/incubator-kie-tools/blob/main/scripts/release/README.md) in `scripts/release/`.
 
 :::warning
 `release-all.sh` does not fail when Docker is not running; it prints a warning and **skips the container images**. Before you sign and upload an RC, check that the container image tarballs are present in `release-artifacts/`.
@@ -167,30 +157,27 @@ The recommended way to run a release is via Jenkins. Each step below describes t
 
 ---
 
-### Step 1 — Create the Stream Branch
+### Step 1 — Prepare for a New Minor Series
 
 > **When:** Once per minor release series, before creating the first RC.
-> **Example:** Creating `10.3.x` before releasing `10.3.0`.
+> **Example:** Preparing for `10.3.0` before any RC exists.
 
-This step creates the `10.3.x` branch in both repositories and sets their versions to the development placeholder (`10.3.999-SNAPSHOT`).
+#### 1a. Duplicate the Jenkins folder from `10.3.x`
 
-#### 1a. Duplicate the `main` Jenkins folder
-
-Before you cut the branch, duplicate the `main` folder in Jenkins as `10.3.x` (copy the folder and its jobs, then point the jobs at the `10.3.x` branch). This lets `main` keep evolving without affecting a release that is in progress on `10.3.x`. Run all Jenkins jobs for this release from the `10.3.x` folder.
+For new release streams, duplicate the `10.3.x` folder (or the previous stream folder) in Jenkins for the new stream series (copy the folder and its jobs, then point the jobs at the stream branch). Run all Jenkins jobs for the release from that stream folder.
 
 Do this once per minor series. Patch releases (`10.3.1`, ...) reuse the same folder.
 
-#### 1b. Cut the branch
+#### 1b. Build the CI Builder Image
 
-##### Via Jenkins
+Before triggering the `incubator-kie` `release-candidate` job, trigger `.ci/jenkins/Jenkinsfile.ci-image-build` to build and publish the CI builder Docker image:
+- `IMAGE_TAG`: set to the release stream (e.g. `10.3.x-latest` or `10.3.x`).
 
-**There is no separate job to run in this step.** In both repositories the branch cut is done by the **first RC run in Step 2**, by setting extra parameters on it. The job creates `10.3.x` from `main`, sets the development version, pushes the branch, and then builds the RC on it, all in the same build. Do not run a branch-cut build first and an RC build afterwards: the second build would fail because the branch already exists.
+Ensure the image tag is built and pushed before starting the release candidate pipeline.
 
-For `10.3.0-rc1`, use the "First RC of a new minor" row of the "Parameters by type of run" table in Step 2. For every later run, leave the branch-cut flags `false` and use `BASE_REF=10.3.x`.
+#### 1c. (Optional) Cut the `10.3.x` branch locally
 
-For `incubator-kie-tools` only, `UPDATE_CI_IMAGE_TAG` is an extra option on the branch-cut run. Set it to `true` only if the `incubator-kie-tools-ci-build:10.3.999` image has already been built and pushed; otherwise leave it `false`, or the jobs on the new branch cannot start.
-
-##### Locally
+With Jenkins, there is no separate branch-cut step: the first RC run in [Step 2](#step-2--build--stage-a-release-candidate) creates `10.3.x` from `main` (`CREATE_STREAM_BRANCH=true`). Use the commands below only if you are not using Jenkins.
 
 **`incubator-kie`:**
 ```bash
@@ -225,39 +212,26 @@ git push origin 10.3.x
 
 This step builds all artifacts, signs them, and uploads them to staging for community verification.
 
-#### Parameter checklist (read before triggering any job)
+#### Job Parameters
 
-Most failed releases come from a wrong parameter, and several parameters have no validation in the Jenkinsfile. Check these before you click **Build**:
+Trigger the `release-candidate` Jenkins job for both repositories. Set only the parameters below; all other parameters keep their default values (the branch is always `main`, then `10.3.x`):
 
-| # | Check | Why |
+| Run | `incubator-kie` | `incubator-kie-tools` |
 |---|---|---|
-| 1 | The version fields are filled in and consistent: `TAG_NAME` / `RELEASE_CANDIDATE_VERSION` is `<RELEASE_VERSION>-rcN` | The Java job validates this; the Tools RC job does **not**. Its defaults are `0.0.0` / `0.0.0-rc1`, so an untouched run pushes a `0.0.0-rc1` tag. |
-| 2 | The RC number is new: `git ls-remote --tags origin '<tag>'` returns nothing in **both** repositories | A tag that already exists makes the job fail (see [Troubleshooting](#6-troubleshooting)). |
-| 3 | Java job: its SCM branch is `10.3.x` (except for the branch-cut run) | The Java job has no branch parameter. It builds whatever branch the job is configured for and only prints a warning when that is not the stream branch. |
-| 4 | Tools job: `BASE_REF` is `10.3.x` (and `main` only for the branch-cut run) | `BASE_REF` defaults to `main`. Forgetting to change it for `rc2` tags `main` content as `10.3.0-rc2`. |
-| 5 | Branch-cut flags (`CREATE_STREAM_BRANCH`, `UPDATE_STREAM_VERSION`) are `true` **only** for the first RC of a new minor | They fail when `10.3.x` already exists. |
-| 6 | Java job: `DEPLOY=true`, `PUSH_TAG=true`, `DRY_RUN=false` for the real run | With `DEPLOY=false` nothing reaches Nexus; with `PUSH_TAG=false` the tag stays on the agent and is lost when the workspace is wiped; with `DRY_RUN=true` nothing remote happens. |
-| 7 | Credential ID parameters keep their defaults unless your Jenkins uses other IDs | A wrong ID fails the job when it first needs the credential. |
-| 8 | For the very first run of a release, do a Java run with `DRY_RUN=true` first | It checks the parameters and the build without touching remote state. |
+| **First RC of a new minor** (`10.3.0-rc1`) | `RELEASE_VERSION=10.3.0`<br/>`TAG_NAME=10.3.0-rc1`<br/>`CREATE_STREAM_BRANCH=true` | `RELEASE_VERSION=10.3.0`<br/>`TAG_NAME=10.3.0-rc1`<br/>`CREATE_STREAM_BRANCH=true`<br/>`UPDATE_STREAM_VERSION=true` |
+| **Later RC** (`10.3.0-rc2`) | `RELEASE_VERSION=10.3.0`<br/>`TAG_NAME=10.3.0-rc2` | `RELEASE_VERSION=10.3.0`<br/>`TAG_NAME=10.3.0-rc2` |
+| **Patch** (`10.3.1-rc1`) | `RELEASE_VERSION=10.3.1`<br/>`TAG_NAME=10.3.1-rc1` | `RELEASE_VERSION=10.3.1`<br/>`TAG_NAME=10.3.1-rc1` |
 
-#### Parameters by type of run
+:::warning
+Set `CREATE_STREAM_BRANCH=true` (and `UPDATE_STREAM_VERSION=true` for `incubator-kie-tools`) **only** for the very first RC of a new minor (`10.3.0-rc1`). The job fails if `10.3.x` already exists. For `rc2`, patch releases, and all later runs, leave them `false`.
+:::
 
-The same two jobs are used for every RC. Only the parameters differ:
+On the first RC run, the job creates `10.3.x` from `main`, sets the development version (`10.3.999`; `10.3.999-SNAPSHOT` for `incubator-kie`), pushes the branch, and builds the RC on it, all in the same build. Later runs build from `10.3.x`, which the job derives from `RELEASE_VERSION`.
 
-| Run | Java `Jenkinsfile.103xplus.release` | Tools `Jenkinsfile.103xplus.release-candidate` |
-|---|---|---|
-| **First RC of a new minor** (`10.3.0-rc1`) | `RELEASE_VERSION=10.3.0`, `TAG_NAME=10.3.0-rc1`, `CREATE_STREAM_BRANCH=true`, `STREAM_BASE_BRANCH=main`, `DEPLOY=true`, `PUSH_TAG=true` | `RELEASE_VERSION=10.3.0`, `RELEASE_CANDIDATE_VERSION=10.3.0-rc1`, `BASE_REF=main`, `CREATE_STREAM_BRANCH=true`, `UPDATE_STREAM_VERSION=true` |
-| **Next RC after a failed vote** (`10.3.0-rc2`) | `TAG_NAME=10.3.0-rc2`, `CREATE_STREAM_BRANCH=false` | `RELEASE_CANDIDATE_VERSION=10.3.0-rc2`, `BASE_REF=10.3.x`, branch-cut flags `false` |
-| **Patch release** (`10.3.1-rc1`) | `RELEASE_VERSION=10.3.1`, `TAG_NAME=10.3.1-rc1`, `CREATE_STREAM_BRANCH=false` | `RELEASE_VERSION=10.3.1`, `RELEASE_CANDIDATE_VERSION=10.3.1-rc1`, `BASE_REF=10.3.x`, branch-cut flags `false` |
-
-The parameters not listed keep their defaults. The first-RC run and every later run use the **same job**; the branch-cut flags are the only difference (see Step 1b).
-
-If a job fails, do not simply re-run it: the RC tag is pushed before the build, so a plain re-run fails with "tag already exists". See [Troubleshooting](#6-troubleshooting).
-
-#### 2a. Java reactor (`incubator-kie`)
+#### 2a. `incubator-kie` (Java reactor)
 
 **Via Jenkins:**
-Trigger `Jenkinsfile.103xplus.release` with the parameters for your run from the table above.
+Trigger `Jenkinsfile.103xplus.release-candidate` with the parameters for your run from the table above.
 
 **Locally:**
 ```bash
@@ -292,7 +266,7 @@ After Step 2a (Java deploy) succeeds:
 
 If the deploy failed part-way, **Drop** the partial staging repository instead of closing it (see [Troubleshooting](#6-troubleshooting)).
 
-#### 2c. KIE Tools (`incubator-kie-tools`)
+#### 2c. `incubator-kie-tools`
 
 **Via Jenkins:**
 Trigger `Jenkinsfile.103xplus.release-candidate` with the parameters for your run from the table above.
@@ -311,7 +285,7 @@ pnpm bootstrap
 # Step 2 — Sign each artifact
 cd release-artifacts
 for f in *; do
-    gpg --armor --output "${f}.asc" --detach-sig "${f}"
+    gpg --no-tty --batch --pinentry-mode loopback --output "${f}.asc" --detach-sig "${f}"
     sha512sum "${f}" > "${f}.sha512"
 done
 
@@ -396,34 +370,57 @@ The RM verifies the RC artifacts (signatures, checksums, licenses, build from so
 
 ---
 
-### Step 4 — Tag the Official Release
+### Step 4 — Tag the Official Release & Create GitHub Releases
 
 > **When:** After the IPMC vote passes.
 
-#### Via Jenkins
+Run the `release-promote` Jenkins job in both repositories to tag the winning RC commit and create the GitHub Release:
 
-**`incubator-kie`:**
-Trigger `Jenkinsfile.103xplus.promote` with:
+#### 4a. `incubator-kie`
+
+**Via Jenkins:** Trigger `Jenkinsfile.103xplus.release-promote` with:
 - `PROJECT_VERSION`: `10.3.0`
-- `GIT_TAG`: the approved RC tag, e.g. `10.3.0-rc1` (the final tag `10.3.0` is derived from it)
+- `GIT_TAG`: the approved RC tag (e.g. `10.3.0-rc1`)
 - `BUILD_BRANCH_NAME`: `10.3.x`
-- `DEPLOY_BUILD_URL`: *(optional)* URL of the deploy job build whose version-bump PR should be merged. Leave empty if there is none.
 
-Besides creating the final tag with `05-tag-release.sh`, this job also creates the GitHub Release for `incubator-kie` and, for the `main` stream, uploads the Drools binaries and documentation.
-
-**`incubator-kie-tools`:**
-There is no job for this step. Create the final Git tag pointing to the winning RC commit and push it:
-
+**Locally** (if not using Jenkins):
 ```bash
-git fetch origin 10.3.0-rc1
-git tag -a 10.3.0 10.3.0-rc1 -m "Release 10.3.0"
-git push origin 10.3.0
+# Fetch the approved RC tag first
+git fetch origin "refs/tags/10.3.0-rc1:refs/tags/10.3.0-rc1"
+
+# Create and push the final release tag (or use the script)
+./script/release/05-tag-release.sh --rc-tag 10.3.0-rc1 --push
+
+# Create the GitHub Release
+gh release create 10.3.0 \
+  --repo apache/incubator-kie \
+  --target 10.3.x \
+  --title "10.3.0" \
+  --generate-notes
 ```
 
-#### Locally (`incubator-kie` only)
+#### 4b. `incubator-kie-tools`
 
+**Via Jenkins:** Trigger `Jenkinsfile.103xplus.release-promote` with:
+- `RELEASE_VERSION`: `10.3.0`
+- `BASE_REF`: the approved RC tag (e.g. `10.3.0-rc1`)
+
+*Note: This creates the official tag `10.3.0` and the GitHub Release, which is required before Step 5c runs.*
+
+**Locally** (if not using Jenkins):
 ```bash
-./script/release/05-tag-release.sh --rc-tag 10.3.0-rc1 --push
+# Fetch the approved RC tag first
+git fetch origin "refs/tags/10.3.0-rc1:refs/tags/10.3.0-rc1"
+
+# Create and push the final release tag
+git tag -a 10.3.0 10.3.0-rc1 -m "Release 10.3.0"
+git push origin 10.3.0
+
+# Create the GitHub Release (required before release-publish)
+gh release create 10.3.0 \
+  --repo apache/incubator-kie-tools \
+  --title "10.3.0" \
+  --generate-notes
 ```
 
 ---
@@ -446,12 +443,7 @@ svn move -m "Release Apache KIE 10.3.0" \
 
 #### 5c. Publish KIE Tools artifacts
 
-**Create the GitHub Release first.** The publish job uploads binary assets to an **existing** GitHub Release and fails at *Validate parameters* otherwise. Nothing in the tools flow creates it for you:
-
-```bash
-gh release create 10.3.0 --repo apache/incubator-kie-tools \
-  --title "Apache KIE Tools 10.3.0" --notes "Apache KIE Tools 10.3.0"
-```
+*(The GitHub Release was already created by the Step 4b `release-promote` job).*
 
 **Via Jenkins:**
 Trigger `Jenkinsfile.103xplus.release-publish` with:
@@ -496,16 +488,16 @@ For the standard email format, refer to previous announcement threads in the [de
 
 | # | Step | Where | Notes |
 |---|---|---|---|
-| 1 | Duplicate the `main` Jenkins folder as `10.3.x` | Jenkins | Once per minor series |
-| 2 | Create stream branch `10.3.x` and build & stage `10.3.0-rc1` | Step 1 + Step 2a/2c | Java: one job does both; Tools: one job does both |
+| 1 | Duplicate Jenkins folder from `10.3.x` & build CI image | Step 1a/1b | Once per minor series; trigger `.ci/jenkins/Jenkinsfile.ci-image-build` with `IMAGE_TAG` matching release stream |
+| 2 | Build & stage `10.3.0-rc1` | Step 2a/2c | Both repos: set only the version and RC tag — the job creates `10.3.x` (it does not exist yet) and builds the RC in one go |
 | 3 | Close the Nexus staging repository | Step 2b | Copy the staging URL for the vote email |
 | 4 | Verify the RC | Step 3a | See [How to verify a release candidate](/community/devs/verify) |
 | 5 | PPMC vote on `dev@kie.apache.org` | Step 3b | 72 h, 3 binding +1 |
 | 6 | IPMC vote on `general@incubator.apache.org` | Step 3c | 72 h, 3 binding +1 |
-| 7 | Tag official release `10.3.0` in both repos | Step 4 | |
-| 8 | Promote Nexus → Maven Central | Step 5a | |
+| 7 | Run `release-promote` job in both repos | Step 4 | Creates the official `10.3.0` Git tag and GitHub Release for `incubator-kie` and `incubator-kie-tools` |
+| 8 | Release Nexus staging → Maven Central | Step 5a | Manual action in Nexus UI |
 | 9 | Move SVN `dev` → `release` | Step 5b | |
-| 10 | Create the GitHub Release and publish KIE Tools | Step 5c | The GitHub Release must exist before the publish job runs |
+| 10 | Run `release-publish` job | Step 5c | GitHub Release was already created in step 7 (Step 4b); pass `GITHUB_RELEASE_TAG=10.3.0` |
 | 11 | Delete superseded RC from SVN dev | Step 5d | |
 | 12 | Send announcement email | Step 6 | |
 
@@ -516,7 +508,7 @@ Apply bug fixes to `10.3.x` in both repos, then follow Steps 2–6 using version
 
 ### Failed Vote (e.g. `10.3.0-rc1` fails)
 
-Apply required fixes to `10.3.x` in both repos, then repeat Steps 2–3 with the next RC tag (`10.3.0-rc2`) until a vote passes, and continue with Steps 4–6. Do **not** set `CREATE_STREAM_BRANCH` again.
+Apply required fixes to `10.3.x` in both repos, then repeat Steps 2–3 with the next RC tag (`10.3.0-rc2`) until a vote passes, and continue with Steps 4–6. The branch already exists, so the jobs do not cut it again.
 
 ---
 
@@ -526,8 +518,8 @@ Apply required fixes to `10.3.x` in both repos, then repeat Steps 2–3 with the
 |---|---|---|
 | **Java repositories** | 4 separate repos (`drools`, `optaplanner`, `kogito-runtimes`, `kogito-apps`) | 1 unified reactor in `incubator-kie` |
 | **Java build** | `mvn clean install` in each repo separately | `./script/release/release-all.sh` covers all Java modules |
-| **Java release** | One Jenkins job per repo | `Jenkinsfile.103xplus.release` (RC), `Jenkinsfile.103xplus.promote` (final) |
-| **KIE Tools release** | Multiple per-component Jenkinsfiles | Single `Jenkinsfile.103xplus.release-candidate` / `release-publish` |
+| **Java release** | One Jenkins job per repo | `Jenkinsfile.103xplus.release-candidate` (RC), `Jenkinsfile.103xplus.release-promote` (tag) |
+| **KIE Tools release** | Multiple per-component Jenkinsfiles | `Jenkinsfile.103xplus.release-candidate` (RC), `Jenkinsfile.103xplus.release-promote` (tag), `Jenkinsfile.103xplus.release-publish` |
 | **Tools source archive** | One combined ZIP | `apache-kie-<version>-incubating-sources.zip`, produced by `scripts/release/create-source-tarball.sh` |
 | **Removed packages** | Included deprecated components | `dashbuilder-*`, `sonataflow-*`, `yard-*`, `serverless-logic-*` are no longer released |
 
@@ -537,39 +529,31 @@ Apply required fixes to `10.3.x` in both repos, then repeat Steps 2–3 with the
 
 When a job fails, open the console log, find the **last stage that started**, and use the table of that job. "State left behind" is what the failed run already changed outside Jenkins; it decides whether a re-run is safe.
 
-Most failures come from wrong parameters or credentials. Before any re-run, check the [parameter checklist](#parameter-checklist-read-before-triggering-any-job) and use the correct values: version, RC tag, `BASE_REF`, and the branch-cut flags.
+Most failures come from wrong parameters or credentials. Before any re-run, check the [job parameters](#job-parameters) and use the correct values: version and RC tag.
 
 **Tag already exists.** Both RC jobs push the RC tag *before* they build, so after any later failure the tag is on `origin` and a re-run with the same tag is rejected. Check it with `git ls-remote --tags origin '10.3.0-rc1*'`. If nothing was staged or announced for that RC, delete it (`git push origin :refs/tags/10.3.0-rc1`) and re-run. Otherwise use the next RC number (`10.3.0-rc2`), unused in **both** repositories. Never delete or move a tag that was voted on or published.
 
-### 6.1 `incubator-kie` — `Jenkinsfile.103xplus.release`
+### 6.1 `incubator-kie` — `Jenkinsfile.103xplus.release-candidate`
 
 | Failing stage | State left behind | Safe to re-run? | What to do |
 |---|---|---|---|
 | Initialize & Validate | None | Yes | Fix the parameter. `TAG_NAME` must start with `RELEASE_VERSION`. |
-| Create Stream Branch | `10.3.x` on `origin`, if the push succeeded | **No**, with `CREATE_STREAM_BRANCH=true` | The branch already exists. Re-run with `CREATE_STREAM_BRANCH=false`. |
-
+| Create Stream Branch | `10.3.x` on `origin`, if the push succeeded | **Yes** | Set `CREATE_STREAM_BRANCH=false`; re-run normally from `10.3.x`. |
+| Execute Release Scripts — before tag push | None | Yes | Set `PUSH_TAG=false` or `DRY_RUN=true`; investigate the failure and re-run with the same tag. |
+| Execute Release Scripts — after tag push | RC tag on `origin` | **No** with the same tag | See *Tag already exists*. Delete the tag if no staging content was uploaded, then re-run. Otherwise use the next RC number. |
+| Execute Release Scripts — after deploy starts | Partial staging repository in Nexus | **No** | **Drop** the partial staging repository in the Nexus UI, then see *Tag already exists*. |
 
 ### 6.2 `incubator-kie-tools` — `Jenkinsfile.103xplus.release-candidate`
 
 | Failing stage | State left behind | Safe to re-run? | What to do |
 |---|---|---|---|
 | Create stream branch | `10.3.x` on `origin`, if the push succeeded | **No**, with `CREATE_STREAM_BRANCH=true` | The branch already exists. Re-run with `CREATE_STREAM_BRANCH=false`, and `UPDATE_STREAM_VERSION=true` only if the version update is not done yet. |
-| Check release version against package.json | None | Yes | `Version mismatch`: fix `BASE_REF` or `RELEASE_VERSION`. |
+| Check release version against package.json | None | Yes | `Version mismatch`: fix `RELEASE_VERSION`, or check that the build ran on the expected branch. |
 | Create and push RC tag | RC tag on `origin` | **No** | See *Tag already exists*. If the parameters were left at the defaults, a `0.0.0-rc1` tag was pushed: delete it and re-run with the correct values. |
 | Publish to Apache SVN | RC tag on `origin`; possibly a partial directory in `dist/dev/incubator/kie/10.3.0-rc1/` | **No**, with the same tag | `401` / `Authorization failed`: the job must use the Jenkins credential `kie-svn-credentials`, which has push access to Apache SVN. Fix the credential, then follow *Tag already exists*. 
 
 
-### 6.3 `incubator-kie` — `Jenkinsfile.103xplus.promote`
-
-| Failing stage | State left behind | Safe to re-run? | What to do |
-|---|---|---|---|
-| Initialization | None | Yes | `GIT_TAG` must be the approved RC tag and `BUILD_BRANCH_NAME` must match the version (`10.3.0` → `10.3.x`). |
-| Merge deploy PR | The PR may be approved or set to auto-merge | Yes | Check the PR on GitHub and merge it by hand if needed. Leave `DEPLOY_BUILD_URL` empty if there is no PR. |
-| Tag final release (`05-tag-release.sh`) | Final tag on `origin`, if the push succeeded | **No**, once the tag exists | Compare `git rev-parse 10.3.0^{commit}` with `git rev-parse 10.3.0-rc1^{commit}`. If equal, skip the stage. If different, **stop and ask the PPMC**. |
-| Create release | GitHub Release | Yes | Re-run. An existing release for the same tag is deleted and re-created. |
-| Upload drools binaries and documentation | Partly uploaded files | Yes | Re-run. Re-uploading overwrites. |
-
-### 6.4 `incubator-kie-tools` — `Jenkinsfile.103xplus.release-publish`
+### 6.3 `incubator-kie-tools` — `Jenkinsfile.103xplus.release-publish`
 
 | Failing stage | State left behind | Safe to re-run? | What to do |
 |---|---|---|---|
