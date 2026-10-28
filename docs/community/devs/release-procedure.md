@@ -72,7 +72,7 @@ These are configured in Jenkins, not typed in by the RM. Running locally needs t
 
 ## 1. Repositories & Requirements
 
-### `incubator-kie` (Java)
+### `incubator-kie` 
 
 | Item | Value |
 |---|---|
@@ -86,8 +86,7 @@ These are configured in Jenkins, not typed in by the RM. Running locally needs t
 
 For the exact toolchain versions required (JDK, Maven, Docker), see the [`README.md`](https://github.com/apache/incubator-kie/blob/main/script/release/README.md) in `script/release/`.
 
-### `incubator-kie-tools` (Node.js / Go)
-
+### `incubator-kie-tools` 
 | Item | Value |
 |---|---|
 | Stream branch | `10.3.x` |
@@ -95,8 +94,6 @@ For the exact toolchain versions required (JDK, Maven, Docker), see the [`README
 | Final tag | `10.3.0` |
 | Build command (RC) | `./scripts/release/release-all.sh 10.3.0 --rc` |
 | Publish command | `./scripts/release/release-all.sh 10.3.0 --publish` |
-| Update own version | `pnpm update-version-to <version>` and `pnpm update-stream-name-to <stream>` |
-| Update Java version | `pnpm update-kogito-version-to --maven <version>` |
 | Produced artifacts | VS Code extensions (`.vsix`), Chrome extensions, web app ZIPs, NPM packages ZIP, Sources ZIP, container image tarballs, Helm chart tarballs, upload-service binaries — all in `release-artifacts/` |
 
 For the exact toolchain versions required (Node.js, pnpm, Go, Bash, Docker), see the [`README.md`](https://github.com/apache/incubator-kie-tools/blob/main/scripts/release/README.md) in `scripts/release/`.
@@ -175,36 +172,6 @@ Before triggering the `incubator-kie` `release-candidate` job, trigger `.ci/jenk
 
 Ensure the image tag is built and pushed before starting the release candidate pipeline.
 
-#### 1c. (Optional) Cut the `10.3.x` branch locally
-
-With Jenkins, there is no separate branch-cut step: the first RC run in [Step 2](#step-2--build--stage-a-release-candidate) creates `10.3.x` from `main` (`CREATE_STREAM_BRANCH=true`). Use the commands below only if you are not using Jenkins.
-
-**`incubator-kie`:**
-```bash
-chmod +x script/release/*.sh
-
-# Dry run first — checks branch status without making changes
-./script/release/00-create-stream-branch.sh 10.3.0 --dry-run
-
-# Create the branch, set version to 10.3.999-SNAPSHOT, and push
-./script/release/00-create-stream-branch.sh 10.3.0 --push
-```
-
-**`incubator-kie-tools`:**
-```bash
-git checkout main && git pull
-git checkout -b 10.3.x
-
-pnpm update-version-to 10.3.999
-pnpm update-stream-name-to 10.3.x
-pnpm update-kogito-version-to --maven 10.3.999-SNAPSHOT
-
-git add -A
-git commit -m "chore: update version to 10.3.999"
-git push origin 10.3.x
-```
-
----
 
 ### Step 2 — Build & Stage a Release Candidate
 
@@ -228,7 +195,7 @@ Set `CREATE_STREAM_BRANCH=true` (and `UPDATE_STREAM_VERSION=true` for `incubator
 
 On the first RC run, the job creates `10.3.x` from `main`, sets the development version (`10.3.999`; `10.3.999-SNAPSHOT` for `incubator-kie`), pushes the branch, and builds the RC on it, all in the same build. Later runs build from `10.3.x`, which the job derives from `RELEASE_VERSION`.
 
-#### 2a. `incubator-kie` (Java reactor)
+#### 2a. `incubator-kie` 
 
 **Via Jenkins:**
 Trigger `Jenkinsfile.103xplus.release-candidate` with the parameters for your run from the table above.
