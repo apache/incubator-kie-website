@@ -85,6 +85,10 @@ To report a new vulnerability you have discovered please follow the [ASF vulnera
 Enhancements or new feature proposals are also welcome. The more concrete and rationale the proposal is, the greater the
 chance it will be incorporated into future releases.
 
+## Release Procedure
+
+The full release process — repository matrix, branching strategy, RC generation, SVN staging, voting, and publication — is documented in the [Release Procedure](/community/devs/release-procedure) page.
+
 ## Source code
 
 * KIE [repositories](https://github.com/orgs/apache/repositories?q=visibility%3Apublic+archived%3Afalse+incubator-kie)
