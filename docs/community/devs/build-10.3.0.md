@@ -54,22 +54,19 @@ Release candidates are published in the Apache dev SVN, one folder per RC:
 https://dist.apache.org/repos/dist/dev/incubator/kie/10.3.0-${rc_version}/
 ```
 
-Download these two source archives (replace `rc1` with the RC you want to build):
+Download the source archives (replace `rc1` with the RC you want to build):
 
 ```bash
 BASE=https://dist.apache.org/repos/dist/dev/incubator/kie/10.3.0-rc1
-curl -O $BASE/apache-kie-10.3.0-incubating-java-sources.zip   # Java (incubator-kie)
 curl -O $BASE/apache-kie-10.3.0-incubating-sources.zip        # Tools (incubator-kie-tools)
 ```
 
-Extract them:
+Extract :
 
 ```bash
-unzip apache-kie-10.3.0-incubating-java-sources.zip
 unzip apache-kie-10.3.0-incubating-sources.zip
 ```
 
-You now have two directories: `drools-parent-10.3.0` (Java; the folder name comes from the Maven source-release assembly) and `apache-kie-10.3.0-incubating` (Tools). Each one contains `LICENSE` and `NOTICE`.
 
 :::tip
 Before building, verify signatures and checksums as described in [How to verify a release candidate](/community/devs/verify).
@@ -87,8 +84,6 @@ It's recommended to clean the local `~/.m2` repository first, because its conten
 
 **Build commands:**
 ```bash
-cd drools-parent-10.3.0
-git init . && git add . && git commit -m "."   # some plugins expect a git repository
 mvn clean install -DskipTests -Dfull
 ```
 
