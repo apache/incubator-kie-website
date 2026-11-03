@@ -14,7 +14,7 @@ The source repository of static website for Apache KIE (incubating).
 $ yarn
 ```
 
-### Local Development
+### Local Development test
 
 ```
 $ yarn start
