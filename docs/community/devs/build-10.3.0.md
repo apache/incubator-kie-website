@@ -54,17 +54,18 @@ Release candidates are published in the Apache dev SVN, one folder per RC:
 https://dist.apache.org/repos/dist/dev/incubator/kie/10.3.0-${rc_version}/
 ```
 
-Download the source archives (replace `rc1` with the RC you want to build):
+The SVN folder contains only the Tools source archive (`incubator-kie-tools`). Download it (replace `rc1` with the RC you want to build):
 
 ```bash
 BASE=https://dist.apache.org/repos/dist/dev/incubator/kie/10.3.0-rc1
 curl -O $BASE/apache-kie-10.3.0-incubating-sources.zip        # Tools (incubator-kie-tools)
+unzip apache-kie-10.3.0-incubating-sources.zip
 ```
 
-Extract :
+The Java code (`incubator-kie`) is not published as a source archive. Check out the RC tag instead:
 
 ```bash
-unzip apache-kie-10.3.0-incubating-sources.zip
+git clone --branch 10.3.0-rc1 --depth 1 https://github.com/apache/incubator-kie.git
 ```
 
 
@@ -84,6 +85,7 @@ It's recommended to clean the local `~/.m2` repository first, because its conten
 
 **Build commands:**
 ```bash
+cd incubator-kie
 mvn clean install -DskipTests -Dfull
 ```
 
@@ -104,9 +106,10 @@ If you're using Podman as the Docker API, also pass:
 **Build commands:**
 ```bash
 cd apache-kie-10.3.0-incubating
+git init .
 git config user.name "Your Name"
 git config user.email "your-email@company.com"
-git init . && git add . && git commit -m "."
+git add . && git commit -m "."
 pnpm bootstrap && KIE_TOOLS_BUILD__runTests=false KIE_TOOLS_BUILD__buildExamples=true KIE_TOOLS_BUILD__buildContainerImages=true pnpm -r --workspace-concurrency=1 build:prod && echo 'BUILD SUCCESS! 🎉' || echo 'BUILD FAILURE ❌'
 ```
 

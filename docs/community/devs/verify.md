@@ -147,20 +147,17 @@ code --install-extension apache-kie-10.3.0-incubating-drl-vscode-extension.vsix
 
 Open a `.drl` file and check that syntax highlighting and code completion work. Java 17+ and Maven must be installed.
 
-## Check the file content of the source packages
+## Check the file content of the source package
 
-From 10.3.0 there are two source archives. Check **both**:
+The SVN dev folder contains one source archive, `apache-kie-${release_version}-incubating-sources.zip` (Tools, `incubator-kie-tools`). The Java code (`incubator-kie`) is released through the Nexus staging repository (JARs, POMs, sources and Javadocs), not as a source ZIP in SVN.
 
-- `apache-kie-${release_version}-incubating-java-sources.zip` (Java, `incubator-kie`)
-- `apache-kie-${release_version}-incubating-sources.zip` (Tools, `incubator-kie-tools`)
-
-Unzip each of them and check the following:
+Unzip the archive and check the following:
 
 - `LICENSE`, `NOTICE` and `DISCLAIMER-WIP` files in the root directory are correct.
 - All files have ASF license headers if necessary. Apache Rat helps the verification.
-    - In the root directory of each unzipped package,
+    - In the root directory of the unzipped package,
     - Download the jar: `curl -LO https://repo1.maven.org/maven2/org/apache/rat/apache-rat/0.17/apache-rat-0.17.jar`
-    - Run `java -jar apache-rat-0.17.jar -E .rat-excludes -- . > rat-result.txt` (It takes a few minutes. Both repositories have a `.rat-excludes` file in the root directory.)
+    - Run `java -jar apache-rat-0.17.jar -E .rat-excludes -- . > rat-result.txt` (It takes a few minutes. The repository has a `.rat-excludes` file in the root directory.)
     - Review the `rat-result.txt`. `Files with unapproved licenses:` should be one of the followings
         - Listed in `LICENSE`
         - Not a source code (e.g. test data, config file)

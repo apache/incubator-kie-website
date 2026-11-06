@@ -213,7 +213,7 @@ git checkout 10.3.x && git pull
 
 # Real run — creates the RC commit, pushes the tag, and deploys to Nexus staging
 MAVEN_SETTINGS=/path/to/settings.xml \
-MAVEN_GPG_PASSPHRASE=<your-gpg-passphrase> \
+MAVEN_GPG_PASSPHRASE="<your-gpg-passphrase>" \
 ./script/release/release-all.sh \
   --version 10.3.0 \
   --tag 10.3.0-rc1 \
@@ -252,8 +252,8 @@ pnpm bootstrap
 # Step 2 — Sign each artifact
 cd release-artifacts
 for f in *; do
-    gpg --no-tty --batch --pinentry-mode loopback --output "${f}.asc" --detach-sig "${f}"
-    sha512sum "${f}" > "${f}.sha512"
+    gpg --no-tty --batch --pinentry-mode loopback --output "${f}.asc" --detach-sig "${f}" || exit 1
+    sha512sum "${f}" > "${f}.sha512" || exit 1
 done
 
 # Step 3 — Upload to Apache SVN Dev Dist
@@ -456,7 +456,7 @@ For the standard email format, refer to previous announcement threads in the [de
 | # | Step | Where | Notes |
 |---|---|---|---|
 | 1 | Duplicate Jenkins folder from `10.3.x` & build CI image | Step 1a/1b | Once per minor series; trigger `.ci/jenkins/Jenkinsfile.ci-image-build` with `IMAGE_TAG` matching release stream |
-| 2 | Build & stage `10.3.0-rc1` | Step 2a/2c | Both repos: set only the version and RC tag — the job creates `10.3.x` (it does not exist yet) and builds the RC in one go |
+| 2 | Build & stage `10.3.0-rc1` | Step 2a/2c | Both repos: set `RELEASE_VERSION`, `TAG_NAME` and `CREATE_STREAM_BRANCH=true` (plus `UPDATE_STREAM_VERSION=true` for `incubator-kie-tools`) — the job creates `10.3.x` (it does not exist yet) and builds the RC in one go |
 | 3 | Close the Nexus staging repository | Step 2b | Copy the staging URL for the vote email |
 | 4 | Verify the RC | Step 3a | See [How to verify a release candidate](/community/devs/verify) |
 | 5 | PPMC vote on `dev@kie.apache.org` | Step 3b | 72 h, 3 binding +1 |
