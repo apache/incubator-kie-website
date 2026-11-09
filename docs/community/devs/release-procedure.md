@@ -4,83 +4,85 @@ title: Release Procedure
 sidebar_position: 1
 ---
 
-This document describes how to perform an Apache KIE release. It covers the repositories involved, how branches and tags are named, and every step from creating a release candidate to publishing the final release.
+How to perform an Apache KIE release, from the first release candidate to the final release.
 
 :::note
-Starting with **10.3**, all Java components (Drools, OptaPlanner, Kogito Runtimes, and Kogito Apps) were merged into a single repository called `incubator-kie`. This means the release process is now a **two-repo** workflow (one command or Jenkins job per repository) instead of the multi-repo process used in 10.2.
+Since **10.3**, all Java components (Drools, OptaPlanner, Kogito Runtimes, Kogito Apps) live in one repository, `incubator-kie`. A release now covers **two repos** (one Jenkins job each) instead of the many repos used in 10.2.
 :::
 
 ---
 
 ## Overview
 
-Apache KIE releases are done via Jenkins jobs, by executing scripts hosted in each of the two release repositories — [`apache/incubator-kie`](https://github.com/apache/incubator-kie) and [`apache/incubator-kie-tools`](https://github.com/apache/incubator-kie-tools). The only manual steps are closing and releasing the Nexus staging repository for `incubator-kie`, and the vote itself.
+Releases run as Jenkins jobs in two repositories: [`apache/incubator-kie`](https://github.com/apache/incubator-kie) and [`apache/incubator-kie-tools`](https://github.com/apache/incubator-kie-tools). The only manual steps are the Nexus staging actions for `incubator-kie` and the vote.
 
-This page is the **single source of truth** for the release procedure. The `docs/RELEASING.md` files in both repositories only point here.
+This page is the **single source of truth**. The `docs/RELEASING.md` files in both repositories only link here.
 
-- For the release steps, keep reading.
-- For the checklists of a minor release, a patch release and a failed vote, go to [Quick Reference Checklists](#2-quick-reference-checklists).
-- For what to do when a Jenkins job fails, and whether it is safe to re-run it, go to [Troubleshooting](#3-troubleshooting).
-- For who can run a release, which credentials the jobs use, where the output goes and what staging means, go to [Release Setup](#4-release-setup).
-- For the toolchain versions and the release scripts of each repository, go to [Repositories & Requirements](#5-repositories--requirements).
-- For how branches, tags and versions are named, go to [Branches & Tags](#6-branches--tags).
-- For running the release scripts on your own machine instead of Jenkins, go to [Running the Release Locally](#7-running-the-release-locally).
-- For the differences between the 10.2 and the 10.3+ release process, go to [What Changed from 10.2 to 10.3](#8-what-changed-from-102-to-103).
+- Release steps: keep reading.
+- [Quick Reference Checklists](#2-quick-reference-checklists): minor release, patch release, failed vote.
+- [Troubleshooting](#3-troubleshooting): a job failed, is it safe to re-run?
+- [Release Setup](#4-release-setup): who can release, credentials, where the output goes.
+- [Repositories & Requirements](#5-repositories--requirements): toolchains and scripts.
+- [Branches & Tags](#6-branches--tags): naming and versions.
+- [Running the Release Locally](#7-running-the-release-locally): scripts without Jenkins.
+- [What Changed from 10.2 to 10.3](#8-what-changed-from-102-to-103).
 
 ---
 
 ## 1. Release Steps
 
-Releases are run via Jenkins. Every Jenkins job below lives in the stream folder of its repository — `https://ci-builds.apache.org/job/KIE/job/drools/job/{STREAM_NAME}/` for `incubator-kie` and `https://ci-builds.apache.org/job/KIE/job/kie-tools/job/{STREAM_NAME}/` for `incubator-kie-tools` — where `{STREAM_NAME}` is the release stream (e.g. `10.3.x`). To run the scripts on your own machine instead, see [Running the Release Locally](#7-running-the-release-locally).
+In the links below, `{STREAM_NAME}` is the release stream (e.g. `10.3.x`).
 
 ---
 
 ### Step 1 — Prepare for a New Minor Series
 
-> **When:** Once per minor release series, before creating the first RC.
-> **Example:** Preparing for `10.3.0` before any RC exists.
+> **When:** Once per minor series, before the first RC (e.g. before `10.3.0-rc1`).
 
 #### 1a. Create the Jenkins folder for the new stream
 
-The `10.3.x` stream folder is created from the `main` stream folder. Remember: `main` moves forward, and every release stream derives its Jenkins folder from it. Each repository has its own `main` folder, so do this once per repository:
+Copy each repository's `main` folder as the stream folder (e.g. `10.3.x`), so `main` can keep changing without affecting the release:
 
 | Repository | `main` folder to copy | Copy it as |
 |---|---|---|
 | `apache/incubator-kie` | https://ci-builds.apache.org/job/KIE/job/drools/job/main/ | https://ci-builds.apache.org/job/KIE/job/drools/job/{STREAM_NAME}/ |
 | `apache/incubator-kie-tools` | https://ci-builds.apache.org/job/KIE/job/kie-tools/job/main/ | https://ci-builds.apache.org/job/KIE/job/kie-tools/job/{STREAM_NAME}/ |
 
-1. Open the `main` folder of the repository (links above).
-2. Copy it as `{STREAM_NAME}` (e.g. `10.3.x`).
-3. In the copied folder, point the jobs at the stream branch `{STREAM_NAME}` of the repository.
+Then point the jobs in the copy at the `{STREAM_NAME}` branch. For a new minor series this branch does not exist yet: the first `release-candidate` run in Step 2 creates it from `main` (`CREATE_STREAM_BRANCH=true`). Until then, the only jobs to run are the CI image builds in Step 1b, which do not need the branch. Ignore the older folders (`10.0.x`, `10.1.x`, `10.2.x`, ...).
 
-Ignore the other folders next to `main` (`10.0.x`, `10.1.x`, `10.2.x`, ...). They belong to older, already released streams.
+#### 1b. Build the CI Builder Images
 
-Do this once per minor series. Patch releases (`10.3.1`, ...) reuse the same folder.
+Each repository runs its Jenkins jobs in its own CI builder Docker image. Make sure both images are current before the first RC.
 
-#### 1b. Build the CI Builder Image
+**`apache/incubator-kie`**
 
-Trigger [`apache/incubator-kie :: release-build-kie-kogito-ci`](https://ci-builds.apache.org/job/KIE/job/drools/job/{STREAM_NAME}/job/release-build-kie-kogito-ci/) (`.ci/jenkins/Jenkinsfile.ci-image-build`) to build and publish the CI builder Docker image:
-- `IMAGE_TAG`: set to the release stream (e.g. `10.3.x-latest` or `10.3.x`).
+The jobs in the stream folder run in the image set by the `AGENT_DOCKER_BUILDER_IMAGE` environment variable of the folder, e.g. `docker.io/apache/incubator-kie-kogito-ci-build:10.3.x-latest`. Each stream needs its own tag.
 
-Ensure the image tag is built and pushed before starting the release candidate pipeline by checking that the tag is listed at [hub.docker.com/r/apache/incubator-kie-kogito-ci-build/tags](https://hub.docker.com/r/apache/incubator-kie-kogito-ci-build/tags).
+Trigger [`apache/incubator-kie :: release-build-kie-kogito-ci`](https://ci-builds.apache.org/job/KIE/job/drools/job/{STREAM_NAME}/job/release-build-kie-kogito-ci/) (`.ci/jenkins/Jenkinsfile.ci-image-build`) with:
+- `IMAGE_TAG`: `{STREAM_NAME}-latest` (e.g. `10.3.x-latest`), matching the tag in `AGENT_DOCKER_BUILDER_IMAGE`.
 
+Check that the tag appears on [Docker Hub](https://hub.docker.com/r/apache/incubator-kie-kogito-ci-build/tags) before running the other jobs in the stream folder.
+
+**`apache/incubator-kie-tools`**
+
+The `release-candidate` and `release-publish` jobs run in `docker.io/apache/incubator-kie-tools-ci-build:main`. This one image is shared by all streams. Rebuild it if `.ci/incubator-kie-tools-ci-build.Dockerfile` changed on `main` since the last build (for example after a Node.js, Go, Maven or JDK upgrade).
+
+Trigger [`apache/incubator-kie-tools :: kie-tools-ci-image-build`](https://ci-builds.apache.org/job/KIE/job/kie-tools/job/main/job/ci/job/kie-tools-ci-image-build/job/main/) (`.ci/jenkins/ci-jobs/Jenkinsfile.ci-image-build`) on the `main` branch with:
+- `IMAGE_TAG`: `main`.
+
+Check the **Last Updated** date of the `main` tag on [Docker Hub](https://hub.docker.com/r/apache/incubator-kie-tools-ci-build/tags) before running the `release-candidate` job.
+
+---
 
 ### Step 2 — Build & Stage a Release Candidate
 
-> **When:** Each time you're willing to create a new Release Candidate (RC) (e.g. `10.3.0-rc1`, `10.3.0-rc2`).
+> **When:** For every Release Candidate (RC), e.g. `10.3.0-rc1`, `10.3.0-rc2`.
 
-This step builds all artifacts, signs them, and uploads them to staging for community verification. See [Where the output goes](#where-the-output-goes) for what staging means.
+Builds and signs all artifacts and uploads them to staging for verification. See [Where the output goes](#where-the-output-goes).
 
 #### Job Parameters
 
-Trigger the `release-candidate` Jenkins job for both repositories. `{STREAM_NAME}` is the name of the stream folder created in Step 1a, e.g. `10.3.x`:
-
-- `apache/incubator-kie :: release-candidate` - https://ci-builds.apache.org/job/KIE/job/drools/job/{STREAM_NAME}/job/release-kie-release-candidate/
-- `apache/incubator-kie-tools :: release-candidate` - https://ci-builds.apache.org/job/KIE/job/kie-tools/job/{STREAM_NAME}/job/kie-tools-release-candidate/
-
-For `10.3.x`, these are https://ci-builds.apache.org/job/KIE/job/drools/job/10.3.x/job/release-kie-release-candidate/ and https://ci-builds.apache.org/job/KIE/job/kie-tools/job/10.3.x/job/kie-tools-release-candidate/.
-
-Set only the parameters below; all other parameters keep their default values:
+Run `release-candidate` in both repositories (links in 2a and 2c). Set only these parameters; leave the rest at their defaults:
 
 | Run | `incubator-kie` | `incubator-kie-tools` |
 |---|---|---|
@@ -89,30 +91,30 @@ Set only the parameters below; all other parameters keep their default values:
 | **Patch** (`10.3.1-rc1`) | `RELEASE_VERSION=10.3.1`<br/>`TAG_NAME=10.3.1-rc1` | `RELEASE_VERSION=10.3.1`<br/>`TAG_NAME=10.3.1-rc1` |
 
 :::warning
-Set `CREATE_STREAM_BRANCH=true` (and `UPDATE_STREAM_VERSION=true` for `incubator-kie-tools`) **only** for the very first RC of a new minor (`10.3.0-rc1`). The job fails if `10.3.x` already exists. For `rc2`, patch releases, and all later runs, leave them `false`.
+Use `CREATE_STREAM_BRANCH=true` (and `UPDATE_STREAM_VERSION=true` for `incubator-kie-tools`) **only** for `10.3.0-rc1`. The job fails if `10.3.x` already exists. For `rc2`, patches and later runs, leave them `false`.
 :::
 
-On the first RC run, the job creates `10.3.x` from `main`, sets the development version (`10.3.999`; `10.3.999-SNAPSHOT` for `incubator-kie`), pushes the branch, and builds the RC on it, all in the same build. Later runs build from `10.3.x`, which the job derives from `RELEASE_VERSION`.
+On the first RC, the job creates `10.3.x` from `main`, sets the development version (`10.3.999`; `10.3.999-SNAPSHOT` for `incubator-kie`), pushes the branch and builds the RC. Later runs build from `10.3.x`, derived from `RELEASE_VERSION`.
 
 #### 2a. `incubator-kie`
 
-Trigger [`apache/incubator-kie :: release-candidate`](https://ci-builds.apache.org/job/KIE/job/drools/job/{STREAM_NAME}/job/release-kie-release-candidate/) (`.ci/jenkins/Jenkinsfile.103xplus.release-candidate`) with the parameters for your run from the table above.
+Trigger [`apache/incubator-kie :: release-candidate`](https://ci-builds.apache.org/job/KIE/job/drools/job/{STREAM_NAME}/job/release-kie-release-candidate/) (`.ci/jenkins/Jenkinsfile.103xplus.release-candidate`) with the parameters from the table above.
 
 #### 2b. Close the Nexus staging repository
 
-After Step 2a (Java deploy) succeeds:
+After Step 2a succeeds:
 1. Go to [repository.apache.org](https://repository.apache.org) → **Staging Repositories**.
 2. Find your `orgapachekie-XXXX` repository.
 3. Click **Close**.
-4. Copy the staging repository URL — you will need it in the voting email.
+4. Copy the staging repository URL for the vote email.
 
-If the deploy failed part-way, **Drop** the partial staging repository instead of closing it (see [Troubleshooting](#3-troubleshooting)).
+If the deploy failed part-way, **Drop** the partial repository instead (see [Troubleshooting](#3-troubleshooting)).
 
 #### 2c. `incubator-kie-tools`
 
-Trigger [`apache/incubator-kie-tools :: release-candidate`](https://ci-builds.apache.org/job/KIE/job/kie-tools/job/{STREAM_NAME}/job/kie-tools-release-candidate/) (`.ci/jenkins/Jenkinsfile.103xplus.release-candidate`) with the parameters for your run from the table above.
+Trigger [`apache/incubator-kie-tools :: release-candidate`](https://ci-builds.apache.org/job/KIE/job/kie-tools/job/{STREAM_NAME}/job/kie-tools-release-candidate/) (`.ci/jenkins/Jenkinsfile.103xplus.release-candidate`) with the parameters from the table above.
 
-Jenkins builds, signs, and uploads all artifacts to Apache SVN Dev Dist at:
+Jenkins builds, signs and uploads all artifacts to Apache SVN Dev Dist at:
 `https://dist.apache.org/repos/dist/dev/incubator/kie/10.3.0-rc1/`
 
 #### Artifacts staged in SVN Dev Dist
@@ -166,28 +168,23 @@ Each file is accompanied by a `.asc` PGP signature and a `.sha512` checksum.
 
 ### Step 3 — Verify and Vote
 
-Verification and voting are one continuous activity. The Release Manager (RM) performs the initial verification, opens the vote, and all other voters independently repeat the same verification before casting their binding vote. Apache KIE uses a two-stage vote: first within the project (PPMC), then with the Apache Incubator (IPMC).
+The Release Manager (RM) verifies the RC and opens the vote. Every voter repeats the verification before voting. There are two stages: PPMC first, then IPMC.
 
 #### 3a. Verify the RC
 
-The RM verifies the RC artifacts (signatures, checksums, licenses, build from source). See [How to verify a release candidate](/community/devs/verify) for the full checklist. Do not open the vote before this step passes.
+Check signatures, checksums, licenses and the build from source. See [How to verify a release candidate](/community/devs/verify). Do not open the vote until this passes.
 
 #### 3b. PPMC Vote
 
-- Send a `[VOTE]` email to `dev@kie.apache.org`.
-- The vote must be open for at least **72 hours**.
-- At least **3 binding +1 votes** from PPMC members are required to pass.
-- For the standard email format (with RC tags, staging links, and KEYS), refer to previous vote threads in the [dev@kie.apache.org archive](https://lists.apache.org/list.html?dev@kie.apache.org).
+Send a `[VOTE]` email to `dev@kie.apache.org`. It must stay open at least **72 hours** and get at least **3 binding +1 votes** from PPMC members.
 
 #### 3c. IPMC Vote
 
-- Once the PPMC vote passes, send a `[RESULT][VOTE]` email to `dev@kie.apache.org`.
-- Then send a `[VOTE]` email to `general@incubator.apache.org`.
-- The vote must be open for at least **72 hours**.
-- At least **3 binding +1 votes** from IPMC members are required to pass.
-- For the standard email format, refer to previous vote threads in the [general@incubator.apache.org archive](https://lists.apache.org/list.html?general@incubator.apache.org).
+After the PPMC vote passes, send a `[RESULT][VOTE]` email to `dev@kie.apache.org`, then a `[VOTE]` email to `general@incubator.apache.org`. Same rules: at least **72 hours** and **3 binding +1 votes** from IPMC members.
 
-**If the vote fails**, apply the required fixes to `10.3.x` in both repositories and go back to Step 2 with the next RC tag (e.g. `10.3.0-rc2`).
+For the email formats, copy previous threads from the [dev@](https://lists.apache.org/list.html?dev@kie.apache.org) and [general@](https://lists.apache.org/list.html?general@incubator.apache.org) archives.
+
+**If the vote fails**, fix `10.3.x` in both repositories and go back to Step 2 with the next RC (e.g. `10.3.0-rc2`).
 
 ---
 
@@ -195,7 +192,7 @@ The RM verifies the RC artifacts (signatures, checksums, licenses, build from so
 
 > **When:** After the IPMC vote passes.
 
-Run the `release-promote` Jenkins job in both repositories to tag the winning RC commit and create the GitHub Release. The `incubator-kie-tools` job also moves the approved RC in Apache SVN from `dev` to `release`:
+Run `release-promote` in both repositories. It tags the approved RC and creates the GitHub Release.
 
 #### 4a. `incubator-kie`
 
@@ -211,11 +208,11 @@ Trigger [`apache/incubator-kie-tools :: release-promote`](https://ci-builds.apac
 - `BASE_REF`: the approved RC tag (e.g. `10.3.0-rc1`)
 
 This job:
-1. Creates the official tag `10.3.0` and the GitHub Release, which is required before Step 5b runs.
-2. Moves `dist/dev/incubator/kie/10.3.0-rc1` to `dist/release/incubator/kie/10.3.0` in Apache SVN. The whole directory moves, meaning every artifact listed in [Artifacts staged in SVN Dev Dist](#artifacts-staged-in-svn-dev-dist) with its `.asc` and `.sha512`. The `incubator-kie` Java artifacts are not in SVN; they are released from Nexus in Step 5a.
-3. Deletes the other `10.3.0-rcN` directories left in `dist/dev` (for example, the RCs that failed their vote).
+1. Creates the official tag `10.3.0` and the GitHub Release (needed before Step 5b).
+2. Moves `dist/dev/incubator/kie/10.3.0-rc1` to `dist/release/incubator/kie/10.3.0` in Apache SVN, with every [staged artifact](#artifacts-staged-in-svn-dev-dist) and its `.asc` and `.sha512`. The `incubator-kie` Java artifacts are not in SVN; they are released from Nexus in Step 5a.
+3. Deletes the other `10.3.0-rcN` directories in `dist/dev` (e.g. failed RCs).
 
-The SVN step fails, without changing anything, if the RC is not in `dev` or if `release/10.3.0` already exists. See [Troubleshooting](#33-incubator-kie-tools--jenkinsfile103xplusrelease-promote).
+The SVN step fails without changing anything if the RC is not in `dev` or `release/10.3.0` already exists. See [Troubleshooting](#33-incubator-kie-tools--jenkinsfile103xplusrelease-promote).
 
 ---
 
@@ -223,15 +220,15 @@ The SVN step fails, without changing anything, if the RC is not in `dev` or if `
 
 #### 5a. Promote Nexus staging to Maven Central
 
-The `incubator-kie` Java artifacts stay in the Nexus staging repository that was **closed** in Step 2b. Only after the vote passes is that same repository **released**. This is a manual step, because the `release-promote` job only tags and does not touch Nexus.
+**Release** the Nexus staging repository you closed in Step 2b. This is manual; `release-promote` does not touch Nexus.
 
 1. Go to [repository.apache.org](https://repository.apache.org) → **Staging Repositories**.
-2. Select the same `orgapachekie-XXXX` repository that was closed in Step 2b and referenced in the vote email.
+2. Select the `orgapachekie-XXXX` repository from Step 2b.
 3. Click **Release**.
 
 #### 5b. Publish KIE Tools artifacts
 
-*(The GitHub Release was already created by the Step 4b `release-promote` job).*
+The GitHub Release already exists from Step 4b.
 
 Trigger [`apache/incubator-kie-tools :: release-publish`](https://ci-builds.apache.org/job/KIE/job/kie-tools/job/{STREAM_NAME}/job/kie-tools-release-publish/) (`.ci/jenkins/Jenkinsfile.103xplus.release-publish`) with:
 - `BASE_REF`: `10.3.0-rc1` (the voted RC tag)
@@ -246,7 +243,7 @@ This automatically publishes:
 - Helm charts → Docker Hub OCI registry
 - GitHub Pages → updated
 
-If it fails part-way, **read the [Troubleshooting](#3-troubleshooting) section before re-running**. Some publishers are not idempotent.
+If it fails part-way, **read [Troubleshooting](#3-troubleshooting) before re-running**. Some publishers cannot be repeated safely.
 
 ---
 
@@ -256,45 +253,38 @@ Send the official release announcement email to:
 - `dev@kie.apache.org`
 - `announce@apache.org`
 
-For the standard email format, refer to previous announcement threads in the [dev@kie.apache.org archive](https://lists.apache.org/list.html?dev@kie.apache.org).
+For the email format, copy a previous announcement from the [dev@kie.apache.org archive](https://lists.apache.org/list.html?dev@kie.apache.org).
 
 ---
 
 ## 2. Quick Reference Checklists
 
-### Minor Release (first release from a new branch, e.g. `10.3.0`)
+### Minor Release (e.g. `10.3.0`)
 
-| # | Step | Where | Notes |
-|---|---|---|---|
-| 1 | Create the `10.3.x` Jenkins folder from `main` & build CI image | Step 1a/1b | Once per minor series; trigger `release-build-kie-kogito-ci` with `IMAGE_TAG` matching release stream |
-| 2 | Build & stage `10.3.0-rc1` | Step 2a/2c | Both repos: set `RELEASE_VERSION`, `TAG_NAME` and `CREATE_STREAM_BRANCH=true` (plus `UPDATE_STREAM_VERSION=true` for `incubator-kie-tools`) — the job creates `10.3.x` (it does not exist yet) and builds the RC in one go |
-| 3 | Close the Nexus staging repository | Step 2b | Copy the staging URL for the vote email |
-| 4 | Verify the RC | Step 3a | See [How to verify a release candidate](/community/devs/verify) |
-| 5 | PPMC vote on `dev@kie.apache.org` | Step 3b | 72 h, 3 binding +1 |
-| 6 | IPMC vote on `general@incubator.apache.org` | Step 3c | 72 h, 3 binding +1 |
-| 7 | Run `release-promote` job in both repos | Step 4 | Creates the official `10.3.0` Git tag and GitHub Release for both repos; the `incubator-kie-tools` job also moves SVN `dev` → `release` and deletes superseded RCs |
-| 8 | Release Nexus staging → Maven Central | Step 5a | Manual action in Nexus UI |
-| 9 | Run `release-publish` job | Step 5b | GitHub Release was already created in step 7 (Step 4b); pass `GITHUB_RELEASE_TAG=10.3.0` |
-| 10 | Send announcement email | Step 6 | |
+1. **Step 1:** Create the `10.3.x` Jenkins folders and build the CI images of both repositories.
+2. **Step 2:** Run `release-candidate` in both repos with `RELEASE_VERSION=10.3.0`, `TAG_NAME=10.3.0-rc1` and `CREATE_STREAM_BRANCH=true` (plus `UPDATE_STREAM_VERSION=true` for `incubator-kie-tools`). Then close the Nexus staging repository.
+3. **Step 3:** Verify the RC, then hold the PPMC and IPMC votes.
+4. **Step 4:** Run `release-promote` in both repos with the approved RC tag.
+5. **Step 5:** Release the Nexus staging repository, then run `release-publish` (`GITHUB_RELEASE_TAG=10.3.0`).
+6. **Step 6:** Send the announcement.
 
 ### Patch Release (e.g. `10.3.1`)
 
-The `10.3.x` branch and its Jenkins folder already exist — skip Step 1.
-Apply bug fixes to `10.3.x` in both repos, then follow Steps 2–6 using version `10.3.1`.
+`10.3.x` and its Jenkins folders already exist, so skip Step 1. Fix `10.3.x` in both repos, then follow Steps 2–6 with version `10.3.1`.
 
 ### Failed Vote (e.g. `10.3.0-rc1` fails)
 
-Apply required fixes to `10.3.x` in both repos, then repeat Steps 2–3 with the next RC tag (`10.3.0-rc2`) until a vote passes, and continue with Steps 4–6. The branch already exists, so the jobs do not cut it again.
+Fix `10.3.x` in both repos, then repeat Steps 2–3 with the next RC tag (`10.3.0-rc2`) until a vote passes. Continue with Steps 4–6.
 
 ---
 
 ## 3. Troubleshooting
 
-When a job fails, open the console log, find the **last stage that started**, and use the table of that job. "State left behind" is what the failed run already changed outside Jenkins; it decides whether a re-run is safe.
+When a job fails, find the **last stage that started** in the console log and use the table for that job. "State left behind" is what the run already changed outside Jenkins; it tells you if a re-run is safe.
 
-Most failures come from wrong parameters or credentials. Before any re-run, check the [job parameters](#job-parameters) and use the correct values: version and RC tag.
+Most failures are wrong parameters or credentials. Check the [job parameters](#job-parameters) before re-running.
 
-**Tag already exists.** Both RC jobs push the RC tag *before* they build, so after any later failure the tag is on `origin` and a re-run with the same tag is rejected. Check it with `git ls-remote --tags origin '10.3.0-rc1*'`. If nothing was staged or announced for that RC, delete it (`git push origin :refs/tags/10.3.0-rc1`) and re-run. Otherwise use the next RC number (`10.3.0-rc2`), unused in **both** repositories. Never delete or move a tag that was voted on or published.
+**Tag already exists.** Both RC jobs push the RC tag *before* building, so after a later failure a re-run with the same tag is rejected. Check with `git ls-remote --tags origin '10.3.0-rc1*'`. If nothing was staged or announced for that RC, delete the tag (`git push origin :refs/tags/10.3.0-rc1`) and re-run. Otherwise use the next RC number (`10.3.0-rc2`), unused in **both** repositories. Never delete or move a tag that was voted on or published.
 
 ### 3.1 `incubator-kie` — `Jenkinsfile.103xplus.release-candidate`
 
@@ -314,7 +304,6 @@ Most failures come from wrong parameters or credentials. Before any re-run, chec
 | Check release version against package.json | None | Yes | `Version mismatch`: fix `RELEASE_VERSION`, or check that the build ran on the expected branch. |
 | Create and push RC tag | RC tag on `origin` | **No** | See *Tag already exists*. If the parameters were left at the defaults, a `0.0.0-rc1` tag was pushed: delete it and re-run with the correct values. |
 | Publish to Apache SVN (for voting) | RC tag on `origin`; possibly a partial directory in `dist/dev/incubator/kie/10.3.0-rc1/` | **No**, with the same tag | `401` / `Authorization failed`: the job must use the Jenkins credential `kie-svn-credentials`, which has push access to Apache SVN. Fix the credential, then follow *Tag already exists*. |
-
 
 ### 3.3 `incubator-kie-tools` — `Jenkinsfile.103xplus.release-promote`
 
@@ -338,16 +327,16 @@ Most failures come from wrong parameters or credentials. Before any re-run, chec
 
 ### Who can run a release
 
-A release is run by an Apache KIE **Release Manager (RM)**, a PPMC member or a committer designated by the PPMC. Running the Jenkins jobs requires:
+A release is run by an Apache KIE **Release Manager (RM)**: a PPMC member, or a committer designated by the PPMC. The RM needs:
 
 - Permission to trigger jobs in the Apache KIE Jenkins instance.
-- Write access to `apache/incubator-kie` and `apache/incubator-kie-tools` (to push stream branches and tags).
-- Your GPG key in the [Apache KIE KEYS file](https://downloads.apache.org/incubator/kie/KEYS) when you sign locally.
-- An ASF account with access to `repository.apache.org` (Nexus) to close and release the staging repository. These are the only manual Nexus steps. The SVN `dev` → `release` move is done by the `release-promote` job with the `kie-svn-credentials` Jenkins credential.
+- Write access to `apache/incubator-kie` and `apache/incubator-kie-tools`.
+- An ASF account with access to [repository.apache.org](https://repository.apache.org) (Nexus), to close and release the staging repository.
+- Their GPG key in the [Apache KIE KEYS file](https://downloads.apache.org/incubator/kie/KEYS), if signing locally.
 
 ### Credentials used by the Jenkins jobs
 
-These are configured in Jenkins, not typed in by the RM. Running locally needs the equivalent values in your environment.
+These are configured in Jenkins; the RM does not type them in. Running locally needs the equivalent values in your environment.
 
 | Credential | Used by | Local equivalent |
 |---|---|---|
@@ -367,64 +356,18 @@ These are configured in Jenkins, not typed in by the RM. Running locally needs t
 | Release tags | `X.Y.Z-rcN` and `X.Y.Z` in each repository |
 | Tools public artifacts | npm, VS Code Marketplace, Chrome Web Store, Docker Hub, GitHub Release |
 
-### Jenkins jobs
-
-| Repository | Jenkinsfile | Purpose |
-|---|---|---|
-| `incubator-kie` | `.ci/jenkins/Jenkinsfile.ci-image-build` | Builds and pushes the CI builder Docker image (`apache/incubator-kie-kogito-ci-build:<IMAGE_TAG>`) for the release stream |
-| `incubator-kie` | `.ci/jenkins/Jenkinsfile.103xplus.release-candidate` | Stream branch cut (optional), RC tag, build, deploy to Nexus staging |
-| `incubator-kie` | `.ci/jenkins/Jenkinsfile.103xplus.release-promote` | Tag official release and create GitHub Release for `incubator-kie` |
-| `incubator-kie-tools` | `.ci/jenkins/Jenkinsfile.103xplus.release-candidate` | Stream branch cut (optional), RC tag, build, sign, upload to SVN `dist/dev` |
-| `incubator-kie-tools` | `.ci/jenkins/Jenkinsfile.103xplus.release-promote` | Tag official release, create GitHub Release for `incubator-kie-tools`, and move the approved RC in Apache SVN from `dist/dev` to `dist/release` |
-| `incubator-kie-tools` | `.ci/jenkins/Jenkinsfile.103xplus.release-publish` | Publish to public registries (npm, VS Code Marketplace, Docker Hub, etc.) |
-
-
 ---
 
 ## 5. Repositories & Requirements
 
-A KIE release involves two repositories:
-
-| Repository | What it contains | Language / tooling |
-|---|---|---|
-| [`incubator-kie`](https://github.com/apache/incubator-kie) | Drools, OptaPlanner, jBPM, Kogito | Java / Maven |
-| [`incubator-kie-tools`](https://github.com/apache/incubator-kie-tools) | VS Code extensions, Chrome extensions, web apps like KIE Sandbox, container images, Helm charts | Node.js / Go / pnpm |
-
-All release scripts live inside each repository:
-- **`incubator-kie`**: [`script/release/`](https://github.com/apache/incubator-kie/tree/main/script/release/) — each script supports `--dry-run`. See the [`README.md`](https://github.com/apache/incubator-kie/blob/main/script/release/README.md) there for the per-script reference.
-- **`incubator-kie-tools`**: [`scripts/release/`](https://github.com/apache/incubator-kie-tools/tree/main/scripts/release/) — see the [`README.md`](https://github.com/apache/incubator-kie-tools/blob/main/scripts/release/README.md) there for details.
-
-
-### `incubator-kie` 
-
-| Item | Value |
-|---|---|
-| Stream branch | `10.3.x` |
-| RC tag | `10.3.0-rc1` |
-| Final tag | `10.3.0` |
-| Build command | `./script/release/release-all.sh --version 10.3.0 --tag 10.3.0-rc1 --skip-tests` |
-| Deploy command | add `--deploy --push-tag` to the build command |
-| Produced artifacts | JARs, POMs, sources, and Javadocs deployed to Apache Nexus Staging |
-| Update version | `./script/release/01-update-version.sh <version>` *(automated by `release-all.sh`)* |
-
-For the exact toolchain versions required (JDK, Maven, Docker), see the [`README.md`](https://github.com/apache/incubator-kie/blob/main/script/release/README.md) in `script/release/`.
-
-### `incubator-kie-tools` 
-| Item | Value |
-|---|---|
-| Stream branch | `10.3.x` |
-| RC tag | `10.3.0-rc1` |
-| Final tag | `10.3.0` |
-| Build command (RC) | `./scripts/release/release-all.sh 10.3.0 --rc` |
-| Publish command | `./scripts/release/release-all.sh 10.3.0 --publish` |
-| Produced artifacts | VS Code extensions (`.vsix`), Chrome extensions, web app ZIPs, NPM packages ZIP, Sources ZIP, container image tarballs, Helm chart tarballs, upload-service binaries — all in `release-artifacts/` |
-
-For the exact toolchain versions required (Node.js, pnpm, Go, Bash, Docker), see the [`README.md`](https://github.com/apache/incubator-kie-tools/blob/main/scripts/release/README.md) in `scripts/release/`.
+| Repository | What it contains | Tooling | Release scripts (and required toolchain) | Output |
+|---|---|---|---|---|
+| [`incubator-kie`](https://github.com/apache/incubator-kie) | Drools, OptaPlanner, jBPM, Kogito | Java / Maven | [`script/release/`](https://github.com/apache/incubator-kie/tree/main/script/release/) ([README](https://github.com/apache/incubator-kie/blob/main/script/release/README.md)) | JARs, POMs, sources and Javadocs in Nexus staging |
+| [`incubator-kie-tools`](https://github.com/apache/incubator-kie-tools) | VS Code and Chrome extensions, web apps like KIE Sandbox, container images, Helm charts | Node.js / Go / pnpm | [`scripts/release/`](https://github.com/apache/incubator-kie-tools/tree/main/scripts/release/) ([README](https://github.com/apache/incubator-kie-tools/blob/main/scripts/release/README.md)) | Files in `release-artifacts/` (see [Step 2c](#artifacts-staged-in-svn-dev-dist)) |
 
 :::warning
-`release-all.sh` does not fail when Docker is not running; it prints a warning and **skips the container images**. Before you sign and upload an RC, check that the container image tarballs are present in `release-artifacts/`.
+If Docker is not running, `incubator-kie-tools` `release-all.sh` only warns and **skips the container images**. Before signing and uploading an RC, check that the image tarballs are in `release-artifacts/`.
 :::
-
 
 ---
 
@@ -441,9 +384,9 @@ For the exact toolchain versions required (Node.js, pnpm, Go, Bash, Docker), see
 
 ### Version numbers on branches
 
-- **`main`** always runs `999-SNAPSHOT` (Java) or `0.0.0` (Tools) — a placeholder version that is never released.
-- **Stream branch (`10.3.x`)** runs `10.3.999-SNAPSHOT` (Java) or `10.3.999` (Tools) — again a placeholder, never released.
-- **RC and final tags** point to a temporary commit where the version is set to the exact release version (e.g. `10.3.0`). That temporary commit is created locally and immediately deleted after tagging — only the tag is pushed.
+- **`main`**: `999-SNAPSHOT` (Java) or `0.0.0` (Tools). A placeholder, never released.
+- **Stream branch (`10.3.x`)**: `10.3.999-SNAPSHOT` (Java) or `10.3.999` (Tools). Also a placeholder.
+- **RC and final tags** point to a temporary commit with the exact release version (e.g. `10.3.0`). The commit is deleted after tagging; only the tag is pushed.
 
 ### Git timeline diagram
 
@@ -475,10 +418,12 @@ main:    ---c-------c---c---c----------------------------------> main
 ## 7. Running the Release Locally
 
 :::note
-This section is for development and exceptional situations only. Release Managers should run the release through the Jenkins jobs described in [Release Steps](#1-release-steps).
+For development and exceptional cases only. Release Managers should use the Jenkins jobs in [Release Steps](#1-release-steps).
 :::
 
-The release scripts can be executed on your own machine. Each script in `incubator-kie` supports `--dry-run`. You need the credentials listed in [Credentials used by the Jenkins jobs](#credentials-used-by-the-jenkins-jobs) available locally.
+You need the [credentials](#credentials-used-by-the-jenkins-jobs) available locally. Each `incubator-kie` script supports `--dry-run`.
+
+The examples assume `10.3.x` already exists. For the first RC of a new minor, let the Jenkins job create it (`CREATE_STREAM_BRANCH=true`).
 
 ### Release candidate — `incubator-kie`
 
