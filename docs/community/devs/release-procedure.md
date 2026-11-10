@@ -46,13 +46,13 @@ The only manual steps are:
 
 - [Jenkins stream folder (`10.3.x+ stream`)](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/)
 - **`incubator-kie`**:
-  - [Release builder image](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/release-build-kie-kogito-ci/)
-  - [Release candidate](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/release-kie-release-candidate/)
-  - [Release promote](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/release-kie-release-promote/)
+  - [CI image build](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/kie-ci-image-build/)
+  - [Release candidate](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/kie-release-candidate/)
+  - [Release promote](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/kie-release-promote/)
 - **`incubator-kie-tools`**:
   - [CI image build](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/kie-tools-ci-image-build/)
   - [Release candidate](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/kie-tools-release-candidate/)
-  - [Release promote](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/release-kie-release-promote/)
+  - [Release promote](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/kie-tools-release-promote/)
   - [Release publish](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/kie-tools-release-publish/)
 
 #### Apache services and registries
@@ -86,7 +86,7 @@ In Jenkins, create the stream folder (e.g. [`10.3.x+ stream`](https://ci-builds.
 
 ### 1.2 Build CI images
 
-- **`incubator-kie`**: Trigger [`release-build-kie-kogito-ci`](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/release-build-kie-kogito-ci/) with `IMAGE_TAG={STREAM_NAME}-latest` (e.g. `10.3.x-latest`). Verify the tag on [Docker Hub](https://hub.docker.com/r/apache/incubator-kie-kogito-ci-build/tags).
+- **`incubator-kie`**: Trigger [`kie-ci-image-build`](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/kie-ci-image-build/) with `IMAGE_TAG={STREAM_NAME}-latest` (e.g. `10.3.x-latest`). Verify the tag on [Docker Hub](https://hub.docker.com/r/apache/incubator-kie-kogito-ci-build/tags).
 - **`incubator-kie-tools`**: If `.ci/incubator-kie-tools-ci-build.Dockerfile` changed on `main`, trigger [`kie-tools-ci-image-build`](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/kie-tools-ci-image-build/) with `IMAGE_TAG=main`.
 
 ---
@@ -115,7 +115,7 @@ CREATE_STREAM_BRANCH=false
 
 ### 2.1 Run `incubator-kie` release candidate
 
-Trigger [`apache/incubator-kie :: release-candidate`](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/release-kie-release-candidate/) with the parameters above.
+Trigger [`apache/incubator-kie :: release-candidate`](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/kie-release-candidate/) with the parameters above.
 
 #### After completion
 
@@ -236,7 +236,7 @@ Run promotion jobs only after the IPMC vote passes.
 
 ### 4.1 Promote `incubator-kie`
 
-Trigger [`apache/incubator-kie :: release-promote`](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/release-kie-release-promote/) with:
+Trigger [`apache/incubator-kie :: release-promote`](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/kie-release-promote/) with:
 
 ```text
 PROJECT_VERSION=10.3.0
@@ -248,7 +248,7 @@ BUILD_BRANCH_NAME=10.3.x
 
 ### 4.2 Promote `incubator-kie-tools`
 
-Trigger [`apache/incubator-kie-tools :: release-promote`](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/release-kie-release-promote/) with:
+Trigger [`apache/incubator-kie-tools :: release-promote`](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/kie-tools-release-promote/) with:
 
 ```text
 RELEASE_VERSION=10.3.0
