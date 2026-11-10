@@ -44,17 +44,16 @@ The only manual steps are:
 
 #### Jenkins
 
+- [Jenkins stream folder (`10.3.x+ stream`)](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/)
 - **`incubator-kie`**:
-  - [Main folder](https://ci-builds.apache.org/job/KIE/job/drools/job/main/)
-  - [Release builder image](https://ci-builds.apache.org/job/KIE/job/drools/job/{STREAM_NAME}/job/release-build-kie-kogito-ci/)
-  - [Release candidate](https://ci-builds.apache.org/job/KIE/job/drools/job/{STREAM_NAME}/job/release-kie-release-candidate/)
-  - [Release promote](https://ci-builds.apache.org/job/KIE/job/drools/job/{STREAM_NAME}/job/release-kie-release-promote/)
+  - [Release builder image](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/release-build-kie-kogito-ci/)
+  - [Release candidate](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/release-kie-release-candidate/)
+  - [Release promote](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/release-kie-release-promote/)
 - **`incubator-kie-tools`**:
-  - [Main folder](https://ci-builds.apache.org/job/KIE/job/kie-tools/job/main/)
-  - [CI image build](https://ci-builds.apache.org/job/KIE/job/kie-tools/job/main/job/ci/job/kie-tools-ci-image-build/job/main/)
-  - [Release candidate](https://ci-builds.apache.org/job/KIE/job/kie-tools/job/{STREAM_NAME}/job/kie-tools-release-candidate/)
-  - [Release promote](https://ci-builds.apache.org/job/KIE/job/kie-tools/job/{STREAM_NAME}/job/release-kie-release-promote/)
-  - [Release publish](https://ci-builds.apache.org/job/KIE/job/kie-tools/job/{STREAM_NAME}/job/kie-tools-release-publish/)
+  - [CI image build](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/kie-tools-ci-image-build/)
+  - [Release candidate](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/kie-tools-release-candidate/)
+  - [Release promote](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/release-kie-release-promote/)
+  - [Release publish](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/kie-tools-release-publish/)
 
 #### Apache services and registries
 
@@ -70,7 +69,7 @@ The only manual steps are:
 
 #### Voting archives
 
-- [`dev@kie.apache.org` archive](https://lists.apache.org/list.html?dev@kie.apache.org) ([Previous KIE vote threads](https://lists.apache.org/list.html?dev@kie.apache.org:lte=1M:%5BVOTE%5D))
+- [`dev@kie.apache.org` archive](https://lists.apache.org/list.html?dev@kie.apache.org) ([Example vote thread](https://lists.apache.org/thread.html/1hy6nb6511lpxp9f3dkcj3gb8rsfbr13))
 - [`general@incubator.apache.org` archive](https://lists.apache.org/list.html?general@incubator.apache.org) ([Previous IPMC vote threads](https://lists.apache.org/list.html?general@incubator.apache.org:lte=1M:%5BVOTE%5D%20Apache%20KIE))
 
 ---
@@ -83,15 +82,12 @@ Skip this step for patch releases (`10.3.1`, `10.3.2`, etc.).
 
 ### 1.1 Create Jenkins folders
 
-Create a stream folder such as `10.3.x` by copying the existing `main` folders:
-
-- **`incubator-kie`**: Copy [`drools/job/main`](https://ci-builds.apache.org/job/KIE/job/drools/job/main/) to `drools/job/{STREAM_NAME}/`
-- **`incubator-kie-tools`**: Copy [`kie-tools/job/main`](https://ci-builds.apache.org/job/KIE/job/kie-tools/job/main/) to `kie-tools/job/{STREAM_NAME}/`
+In Jenkins, create the stream folder (e.g. [`10.3.x+ stream`](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/)) by copying the jobs from `main`.
 
 ### 1.2 Build CI images
 
-- **`incubator-kie`**: Trigger [`release-build-kie-kogito-ci`](https://ci-builds.apache.org/job/KIE/job/drools/job/{STREAM_NAME}/job/release-build-kie-kogito-ci/) with `IMAGE_TAG={STREAM_NAME}-latest` (e.g. `10.3.x-latest`). Verify the tag on [Docker Hub](https://hub.docker.com/r/apache/incubator-kie-kogito-ci-build/tags).
-- **`incubator-kie-tools`**: If `.ci/incubator-kie-tools-ci-build.Dockerfile` changed on `main`, trigger [`kie-tools-ci-image-build`](https://ci-builds.apache.org/job/KIE/job/kie-tools/job/main/job/ci/job/kie-tools-ci-image-build/job/main/) with `IMAGE_TAG=main`.
+- **`incubator-kie`**: Trigger [`release-build-kie-kogito-ci`](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/release-build-kie-kogito-ci/) with `IMAGE_TAG={STREAM_NAME}-latest` (e.g. `10.3.x-latest`). Verify the tag on [Docker Hub](https://hub.docker.com/r/apache/incubator-kie-kogito-ci-build/tags).
+- **`incubator-kie-tools`**: If `.ci/incubator-kie-tools-ci-build.Dockerfile` changed on `main`, trigger [`kie-tools-ci-image-build`](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/kie-tools-ci-image-build/) with `IMAGE_TAG=main`.
 
 ---
 
@@ -119,7 +115,7 @@ CREATE_STREAM_BRANCH=false
 
 ### 2.1 Run `incubator-kie` release candidate
 
-Trigger [`apache/incubator-kie :: release-candidate`](https://ci-builds.apache.org/job/KIE/job/drools/job/{STREAM_NAME}/job/release-kie-release-candidate/) with the parameters above.
+Trigger [`apache/incubator-kie :: release-candidate`](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/release-kie-release-candidate/) with the parameters above.
 
 #### After completion
 
@@ -133,7 +129,7 @@ Trigger [`apache/incubator-kie :: release-candidate`](https://ci-builds.apache.o
 
 ### 2.2 Run `incubator-kie-tools` release candidate
 
-Trigger [`apache/incubator-kie-tools :: release-candidate`](https://ci-builds.apache.org/job/KIE/job/kie-tools/job/{STREAM_NAME}/job/kie-tools-release-candidate/) with the parameters above.
+Trigger [`apache/incubator-kie-tools :: release-candidate`](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/kie-tools-release-candidate/) with the parameters above.
 
 Artifacts and their `.asc` signatures and `.sha512` checksums are uploaded to [Apache SVN Dev Dist](https://dist.apache.org/repos/dist/dev/incubator/kie/):
 
@@ -206,7 +202,7 @@ Requirements:
 
 Archives:
 - [`dev@kie.apache.org` archive](https://lists.apache.org/list.html?dev@kie.apache.org)
-- [Previous KIE vote threads](https://lists.apache.org/list.html?dev@kie.apache.org:lte=1M:%5BVOTE%5D)
+- [Example KIE vote thread](https://lists.apache.org/thread.html/1hy6nb6511lpxp9f3dkcj3gb8rsfbr13)
 
 ---
 
@@ -240,7 +236,7 @@ Run promotion jobs only after the IPMC vote passes.
 
 ### 4.1 Promote `incubator-kie`
 
-Trigger [`apache/incubator-kie :: release-promote`](https://ci-builds.apache.org/job/KIE/job/drools/job/{STREAM_NAME}/job/release-kie-release-promote/) with:
+Trigger [`apache/incubator-kie :: release-promote`](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/release-kie-release-promote/) with:
 
 ```text
 PROJECT_VERSION=10.3.0
@@ -252,7 +248,7 @@ BUILD_BRANCH_NAME=10.3.x
 
 ### 4.2 Promote `incubator-kie-tools`
 
-Trigger [`apache/incubator-kie-tools :: release-promote`](https://ci-builds.apache.org/job/KIE/job/kie-tools/job/{STREAM_NAME}/job/release-kie-release-promote/) with:
+Trigger [`apache/incubator-kie-tools :: release-promote`](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/release-kie-release-promote/) with:
 
 ```text
 RELEASE_VERSION=10.3.0
@@ -286,7 +282,7 @@ Artifacts will sync to [Maven Central](https://central.sonatype.com/search?q=org
 
 ### 5.2 Publish KIE Tools artifacts
 
-Trigger [`apache/incubator-kie-tools :: release-publish`](https://ci-builds.apache.org/job/KIE/job/kie-tools/job/{STREAM_NAME}/job/kie-tools-release-publish/) with:
+Trigger [`apache/incubator-kie-tools :: release-publish`](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/kie-tools-release-publish/) with:
 
 ```text
 BASE_REF=10.3.0-rc1
@@ -314,34 +310,31 @@ Send announcement emails to:
 - `dev@kie.apache.org`
 - `announce@apache.org`
 
+Example announcement thread: [dev@kie.apache.org announcement archive](https://lists.apache.org/thread.html/mz6coxgc5p0hhkotmzjrc7jv1kbvfb5p)
+
 <details>
 <summary><b>Announcement email template (click to expand)</b></summary>
 
 ```text
-Subject: [ANNOUNCE] Apache KIE (incubating) 10.3.0 released
+Subject: [ANNOUNCE] Apache KIE (Incubating) 10.3.0 released
 
-The Apache KIE (incubating) community is pleased to announce the release of Apache KIE 10.3.0.
+We are pleased to announce the release of Apache KIE (Incubating) 10.3.0!
 
-Apache KIE is a unified platform for Business Automation, combining Business Rules (Drools), Decision Management (DMN), Business Processes (jBPM), and Cloud-Native Workflow technologies.
+Apache KIE (Incubating) is a collection of projects including Drools,
+jBPM, OptaPlanner, and Kogito. This release builds on the foundation
+of previous releases and brings several improvements and fixes across the stack.
 
-Download links:
-- Tools and extensions: https://dist.apache.org/repos/dist/release/incubator/kie/10.3.0/
-- Java artifacts: Available on Maven Central under groupId "org.apache.kie"
+Download:
+https://kie.apache.org/docs/start/download
 
-Release notes and source code:
-- https://github.com/apache/incubator-kie/releases/tag/10.3.0
-- https://github.com/apache/incubator-kie-tools/releases/tag/10.3.0
+Announcement and New & Noteworthy:
+https://kie.apache.org/blog/
 
-Public registries:
-- npm: https://www.npmjs.com/search?q=%40kie-tools
-- VS Code Marketplace: https://marketplace.visualstudio.com/publishers/kie-group
-- Docker Hub: https://hub.docker.com/u/apache
+We encourage all users to upgrade to this latest version. Thank you to
+all contributors and community members who made this release possible!
 
-We would like to thank all contributors who made this release possible!
-
-Regards,
-The Apache KIE (incubating) Community
-https://kie.apache.org/
+–
+Apache KIE PPMC
 ```
 
 </details>
