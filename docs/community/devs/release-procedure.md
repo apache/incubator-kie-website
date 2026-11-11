@@ -40,38 +40,6 @@ The only manual steps are:
 5. Publish artifacts
 6. Announce the release
 
-### Useful links
-
-#### Jenkins
-
-- [Jenkins stream folder (`10.3.x+ stream`)](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/)
-- **`incubator-kie`**:
-  - [CI image build](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/kie-ci-image-build/)
-  - [Release candidate](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/kie-release-candidate/)
-  - [Release promote](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/kie-release-promote/)
-- **`incubator-kie-tools`**:
-  - [CI image build](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/kie-tools-ci-image-build/)
-  - [Release candidate](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/kie-tools-release-candidate/)
-  - [Release promote](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/kie-tools-release-promote/)
-  - [Release publish](https://ci-builds.apache.org/job/KIE/job/10.3.x+%20stream/job/10.3.x/job/kie-tools-release-publish/)
-
-#### Apache services and registries
-
-- [Nexus](https://repository.apache.org)
-- [Dev Dist SVN](https://dist.apache.org/repos/dist/dev/incubator/kie/)
-- [Release Dist SVN](https://dist.apache.org/repos/dist/release/incubator/kie/)
-- [Maven Central](https://central.sonatype.com/search?q=org.apache.kie)
-
-#### GitHub releases
-
-- [`apache/incubator-kie` releases](https://github.com/apache/incubator-kie/releases)
-- [`apache/incubator-kie-tools` releases](https://github.com/apache/incubator-kie-tools/releases)
-
-#### Voting archives
-
-- [`dev@kie.apache.org` archive](https://lists.apache.org/list.html?dev@kie.apache.org) ([Example vote thread](https://lists.apache.org/thread.html/1hy6nb6511lpxp9f3dkcj3gb8rsfbr13))
-- [`general@incubator.apache.org` archive](https://lists.apache.org/list.html?general@incubator.apache.org) ([Previous IPMC vote threads](https://lists.apache.org/list.html?general@incubator.apache.org:lte=1M:%5BVOTE%5D%20Apache%20KIE))
-
 ---
 
 ## 1. Prepare a new minor release stream
