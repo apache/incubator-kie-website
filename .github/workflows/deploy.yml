@@ -34,8 +34,8 @@ jobs:
 
       - name: Build Drools documentation
         run: |
-          cd drools/drools-docs
-          mvn -B clean install
+          cd drools
+          mvn -B clean install -pl :drools-bom,drools-docs -am -Dfull -Dquickly
 
       - name: Checkout Kogito documentation repository
         uses: actions/checkout@v4
@@ -58,8 +58,8 @@ jobs:
 
       - name: Build OptaPlanner documentation
         run: |
-          cd optaplanner/optaplanner-docs
-          mvn -B clean install
+          cd optaplanner
+          mvn -B clean install -pl optaplanner-docs -am -Dfull -Dquickly
 
       - name: Collect built docs
         run: |
