@@ -149,7 +149,7 @@ Open a `.drl` file and check that syntax highlighting and code completion work. 
 
 ## Check the file content of the source package
 
-The SVN dev folder contains one source archive, `apache-kie-${release_version}-incubating-sources.zip` (Tools, `incubator-kie-tools`). The Java code (`incubator-kie`) is released through the Nexus staging repository (JARs, POMs, sources and Javadocs), not as a source ZIP in SVN.
+The SVN dev folder contains one source archive, `apache-kie-${release_version}-incubating-sources.zip`, with the source code of both repositories. Its root directory contains `BUILD`, `DISCLAIMER-WIP`, `LICENSE`, `NOTICE`, `incubator-kie` and `incubator-kie-tools`. The Java artifacts (JARs, POMs, sources and Javadocs) are additionally released through the Nexus staging repository.
 
 Unzip the archive and check the following:
 
