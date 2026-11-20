@@ -38,12 +38,10 @@ If using rancher:
  export DOCKER_HOST=unix://$HOME/.rd/docker.sock
  ```
 
-If using podman:
+:::
 
- ```bash
- export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
- ```
-
+:::NOTE
+Podman is not supported for building. Use Docker (or a Docker-API compatible engine such as colima or Rancher Desktop).
 :::
 
 ### 1. Obtain the source code
@@ -109,14 +107,6 @@ cd incubator-kie
 mvn clean install -DskipTests -Dfull
 cd ..
 ```
-
-:::note
-If you're using Podman as the Docker API, also pass:
-
- ```bash
- -Djib.dockerClient.executable=$(which podman)
- ```
-:::
 
 **Produced artifacts:** JARs are installed to the local Maven repository.
 
