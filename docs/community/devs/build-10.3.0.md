@@ -131,4 +131,5 @@ pnpm bootstrap && KIE_TOOLS_BUILD__runTests=false KIE_TOOLS_BUILD__buildExamples
   - `packages/*/dist`
   - `examples/*/dist`
 
+
 New in 10.3: the **DRL VS Code extension** is built from `packages/drl-vscode-extension`. Its `.vsix` ends up in `packages/drl-vscode-extension/dist`.
