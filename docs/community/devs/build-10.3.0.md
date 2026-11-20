@@ -38,48 +38,66 @@ If using rancher:
  export DOCKER_HOST=unix://$HOME/.rd/docker.sock
  ```
 
-If using podman:
+:::
 
- ```bash
- export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
- ```
-
+:::NOTE
+Podman is not supported for building. Use Docker (or a Docker-API compatible engine such as colima or Rancher Desktop).
 :::
 
 ### 1. Obtain the source code
 
-Release candidates are published in the Apache dev SVN, one folder per RC:
+The first step in building from source is to obtain and extract the source code archive. Since 10.3.0 a single archive contains the source code of both repositories (`incubator-kie` and `incubator-kie-tools`).
 
-```
-https://dist.apache.org/repos/dist/dev/incubator/kie/10.3.0-${rc_version}/
-```
+#### Download the source archive
 
-The SVN folder contains only the Tools source archive (`incubator-kie-tools`). Download it (replace `rc1` with the RC you want to build):
+Release candidates are published in the Apache dev SVN, one folder per RC. Use the following pattern to locate and download the source zip:
 
 ```bash
-BASE=https://dist.apache.org/repos/dist/dev/incubator/kie/10.3.0-rc1
-curl -O $BASE/apache-kie-10.3.0-incubating-sources.zip        # Tools (incubator-kie-tools)
-unzip apache-kie-10.3.0-incubating-sources.zip
+https://dist.apache.org/repos/dist/dev/incubator/kie/10.3.0-${rc_version}/apache-kie-10.3.0-incubating-sources.zip
 ```
 
-The Java code (`incubator-kie`) is not published as a source archive. Check out the RC tag instead:
+Replace `${rc_version}` with the appropriate value. For example:
 
 ```bash
-git clone --branch 10.3.0-rc1 --depth 1 https://github.com/apache/incubator-kie.git
+https://dist.apache.org/repos/dist/dev/incubator/kie/10.3.0-rc1/apache-kie-10.3.0-incubating-sources.zip
 ```
-
 
 :::tip
 Before building, verify signatures and checksums as described in [How to verify a release candidate](/community/devs/verify).
 :::
 
-### 2. Build
+#### Extract the source archive
+
+Once downloaded, extract the contents of the zip file:
+
+```bash
+unzip apache-kie-10.3.0-incubating-sources.zip
+```
+
+### 2. Navigate to the source directory
+
+```bash
+cd apache-kie-10.3.0-incubating
+```
+
+The directory contains:
+
+- BUILD
+- DISCLAIMER-WIP
+- LICENSE
+- NOTICE
+- incubator-kie
+- incubator-kie-tools
+
+The `BUILD` file has short build instructions and the tool versions for this release. We'll build the two repositories individually: first `incubator-kie`, then `incubator-kie-tools`, which resolves the Java artifacts from the local Maven repository.
+
+### 3. Building individual components
 
 :::note
 It's recommended to clean the local `~/.m2` repository first, because its content is incorporated in some container images during the build.
 :::
 
-### 2.1. Java (Drools, Kogito, OptaPlanner, apps)
+### 3.1. Java (Drools, Kogito, OptaPlanner, apps) - `incubator-kie`
 
 **Environment requirements:** Temurin JDK, Maven, Docker.
 
@@ -87,25 +105,18 @@ It's recommended to clean the local `~/.m2` repository first, because its conten
 ```bash
 cd incubator-kie
 mvn clean install -DskipTests -Dfull
+cd ..
 ```
-
-:::note
-If you're using Podman as the Docker API, also pass:
-
- ```bash
- -Djib.dockerClient.executable=$(which podman)
- ```
-:::
 
 **Produced artifacts:** JARs are installed to the local Maven repository.
 
-### 2.2. KIE Tools
+### 3.2. KIE Tools - `incubator-kie-tools`
 
 **Environment requirements:** Temurin JDK, Maven, Node, PNPM, Go, Python, Helm, Docker, Make.
 
 **Build commands:**
 ```bash
-cd apache-kie-10.3.0-incubating
+cd incubator-kie-tools
 git init .
 git config user.name "Your Name"
 git config user.email "your-email@company.com"
