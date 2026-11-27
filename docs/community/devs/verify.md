@@ -149,11 +149,11 @@ Open a `.drl` file and check that syntax highlighting and code completion work. 
 
 ## Check the file content of the source package
 
-The SVN dev folder contains one source archive, `apache-kie-${release_version}-incubating-sources.zip`, with the source code of both repositories. Its root directory contains `BUILD`, `DISCLAIMER-WIP`, `LICENSE`, `NOTICE`, `incubator-kie` and `incubator-kie-tools`. The Java artifacts (JARs, POMs, sources and Javadocs) are additionally released through the Nexus staging repository.
+The SVN dev folder contains one source archive, `apache-kie-${release_version}-incubating-sources.zip`, with the source code of both repositories. Its root directory contains `BUILD`, `DISCLAIMER`, `LICENSE`, `NOTICE`, `incubator-kie` and `incubator-kie-tools`. The Java artifacts (JARs, POMs, sources and Javadocs) are additionally released through the Nexus staging repository.
 
 Unzip the archive and check the following:
 
-- `LICENSE`, `NOTICE` and `DISCLAIMER-WIP` files in the root directory are correct.
+- `LICENSE`, `NOTICE` and `DISCLAIMER` files in the root directory are correct.
 - All files have ASF license headers if necessary. Apache Rat helps the verification.
     - In the root directory of the unzipped package,
     - Download the jar: `curl -LO https://repo1.maven.org/maven2/org/apache/rat/apache-rat/0.17/apache-rat-0.17.jar`

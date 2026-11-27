@@ -83,7 +83,7 @@ cd apache-kie-10.3.0-incubating
 The directory contains:
 
 - BUILD
-- DISCLAIMER-WIP
+- DISCLAIMER
 - LICENSE
 - NOTICE
 - incubator-kie
